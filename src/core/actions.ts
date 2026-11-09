@@ -309,9 +309,12 @@ function saveView(draft: Workspace, view: SavedView): Result<Mutation> {
     draft.savedViews.push(next);
     return changed(view.id, `Προβολή «${label}»`, false);
   }
-  if (existing.label === label && stableStringify(existing.query) === stableStringify(next.query)) return fail('no_change', 'Δεν υπάρχει αλλαγή.');
+  const sameMode = (existing.filterMode ?? 'fixed') === (next.filterMode ?? 'fixed');
+  if (existing.label === label && stableStringify(existing.query) === stableStringify(next.query) && sameMode) return fail('no_change', 'Δεν υπάρχει αλλαγή.');
   existing.label = label;
   existing.query = next.query;
+  if (next.filterMode && next.filterMode !== 'fixed') existing.filterMode = next.filterMode;
+  else delete existing.filterMode;
   return changed(view.id, `Ενημέρωση προβολής «${label}»`, false);
 }
 
@@ -332,6 +335,9 @@ function setBinding(draft: Workspace, role: string, definitionId: string): Resul
   if (!kind || !isStableId(definitionId)) return fail('validation', 'Ο ρόλος ή ο ορισμός δεν είναι έγκυρος.');
   if (kind === 'entityType' && !draft.entityTypes.some(item => item.id === definitionId && !item.deprecated)) return fail('validation', 'Ο ρόλος θέλει τύπο οντότητας.');
   if (kind === 'relationshipType' && !draft.relationshipTypes.some(item => item.id === definitionId && !item.deprecated)) return fail('validation', 'Ο ρόλος θέλει τύπο σχέσης.');
+  if (role === 'countryType' && dependentMismatch(draft, ['gdpProperty', 'populationProperty', 'defenseSpendingProperty'], definitionId)) return fail('validation', 'Ο τύπος χώρας δεν ταιριάζει με ήδη συνδεδεμένη ιδιότητα.');
+  if (role === 'regionType' && dependentMismatch(draft, ['regionalGvaProperty'], definitionId)) return fail('validation', 'Ο τύπος περιφέρειας δεν ταιριάζει με ήδη συνδεδεμένη ιδιότητα.');
+  if (role === 'capitalType' && dependentMismatch(draft, ['fdiStockProperty', 'fdiFlowProperty'], definitionId)) return fail('validation', 'Ο τύπος σχέσης δεν ταιριάζει με ήδη συνδεδεμένη ιδιότητα.');
   if (kind === 'entityProperty' || kind === 'relationshipProperty') {
     const property = draft.properties.find(item => item.id === definitionId && !item.deprecated);
     if (!property || property.valueType !== 'number') return fail('validation', 'Ο ρόλος θέλει αριθμητική ιδιότητα.');
@@ -343,6 +349,14 @@ function setBinding(draft: Workspace, role: string, definitionId: string): Resul
   if (draft.bindings[role] === definitionId) return fail('no_change', 'Ο ρόλος δείχνει ήδη αυτόν τον ορισμό.');
   draft.bindings[role] = definitionId;
   return changed(role, `Σύνδεση ρόλου ${role}`, false);
+}
+
+function dependentMismatch(draft: Workspace, roles: string[], typeId: string): boolean {
+  return roles.some(role => {
+    const propertyId = draft.bindings[role];
+    const property = propertyId ? draft.properties.find(item => item.id === propertyId) : undefined;
+    return Boolean(property && property.subjectTypeId !== typeId);
+  });
 }
 
 function clearBinding(draft: Workspace, role: string): Result<Mutation> {

@@ -19,6 +19,11 @@ export function chooseFilters(workspace: Workspace): SharedFilters {
   return { year, basis: 'reported', sourceIds };
 }
 
+export function reconcileYear(year: number, years: number[]): number {
+  if (years.length === 0 || years.includes(year)) return year;
+  return years[0] ?? year;
+}
+
 export function availableYears(workspace: Workspace, filters: SharedFilters): number[] {
   const years = new Set<number>();
   for (const fact of workspace.facts) {

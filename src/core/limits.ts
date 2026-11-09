@@ -16,3 +16,9 @@ export const DEFAULT_PARSE_LIMITS: ParseLimits = {
   maxObjectKeys: 64,
   maxBindings: 200,
 };
+
+/** Action fingerprints serialize the whole action, so a normal import exceeds the workspace string cap. */
+export const ENVELOPE_PARSE_LIMITS: ParseLimits = {
+  ...DEFAULT_PARSE_LIMITS,
+  maxString: 250_000,
+};

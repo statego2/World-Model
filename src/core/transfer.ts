@@ -1,5 +1,6 @@
 import { fail, ok, type Result } from './errors.ts';
 import { isStableId } from './ids.ts';
+import { ENVELOPE_PARSE_LIMITS } from './limits.ts';
 import { checkDocumentLimits, parseWorkspace } from './parse.ts';
 import type { Workspace } from './types.ts';
 
@@ -43,7 +44,7 @@ export interface ExportEnvelope {
 }
 
 export function readTransfer(payload: unknown): Result<{ workspace: Workspace; history: TransferChange[]; actions: TransferAction[]; exportedAt: string | null }> {
-  const limited = checkDocumentLimits(payload);
+  const limited = checkDocumentLimits(payload, ENVELOPE_PARSE_LIMITS);
   if (!limited.ok) return limited;
   if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return fail('malformed', 'Το αρχείο δεν είναι αντικείμενο.');
   const record = payload as Record<string, unknown>;

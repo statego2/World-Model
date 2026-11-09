@@ -2,7 +2,7 @@ import { useState } from 'react';
 import worldGeometry from '../../data/geometries/world-countries.json' with { type: 'json' };
 import regionGeometry from '../../data/geometries/greek-regions.json' with { type: 'json' };
 import regionLinks from '../../data/geometries/region-links.json' with { type: 'json' };
-import { availableYears, chooseFilters } from '../core/coverage.ts';
+import { availableYears, chooseFilters, reconcileYear } from '../core/coverage.ts';
 import { compareEntities, rankEntities, readSubjectMetric, runSavedView, type SharedFilters } from '../core/query.ts';
 import type { Workspace } from '../core/types.ts';
 import { boundsOf, GeoMap, type MapFeature } from './map.tsx';
@@ -23,6 +23,8 @@ export function Modules() {
     setFilters(chooseFilters(workspace));
   }
   const years = availableYears(workspace, filters);
+  const year = reconcileYear(filters.year, years);
+  if (year !== filters.year) setFilters({ ...filters, year });
   return (
     <div className="stack">
       <header className="stage-head">
@@ -31,7 +33,7 @@ export function Modules() {
       </header>
       <form className="panel filter-bar" aria-label="Κοινά φίλτρα">
         <label className="field"><span>Έτος</span>
-          <select value={String(filters.year)} onChange={event => setFilters({ ...filters, year: Number(event.target.value) })}>
+          <select value={String(year)} onChange={event => setFilters({ ...filters, year: Number(event.target.value) })}>
             {(years.length > 0 ? years : [filters.year]).map(year => <option key={year} value={year}>{year}</option>)}
           </select>
         </label>
