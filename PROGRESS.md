@@ -3,6 +3,16 @@
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
 Τρέχον στάδιο: εμπειρία προϊόντος στο `cursor/product-experience-864c`. Η ουρά N0–N7 μένει κλειστή στο `cursor/overnight-depth-864c`. Η υπόθεση Β μένει μερική.
 
+## 2026-11-09 — PX-3 — Γράφημα και διάγραμμα
+
+Agent/session: Cursor Grok 4.7 | Status: done με όρια | Branch: cursor/product-experience-864c
+
+Η γειτονιά είναι κύκλος με ετικέτες έξω από τους κόμβους, δίπλα στον πίνακα. Ο επιλεγμένος κόμβος είναι ο μπρούτζινος. Το διάγραμμα έχει άξονες, έτη, υπόμνημα και γραμμή μόνο ανάμεσα σε διαδοχικά έτη με τιμή. Στο 390 το διάγραμμα έχει ελάχιστο πλάτος 640 και κάνει οριζόντια κύλιση, ώστε οι ετικέτες να μη γίνουν μικροσκοπικές. Το screenshot του τηλεφώνου δείχνει το 2022· το 2023 είναι μία κύλιση δεξιά.
+
+Επαλήθευση: `tsc -p tsconfig.json` pass. `npx playwright test tests/browser/graph.spec.ts` — 1/1. Τα screenshots είναι `docs/evidence/n4-graph-1440.png`, `n4-series-1440.png`, `n4-graph-390.png`.
+
+Επόμενο βήμα, αν σταματήσει η συνεδρία: PX-4. Δες ξανά ontology/entities/transfer στα 1440 και 390. Μην ξαναανοίξεις τα πέντε αεροδρόμια χωρίς παραπομπή και μην αλλάξεις ορατότητα ή κάνεις merge. Το PR είναι το #7, βάση `cursor/overnight-depth-864c`.
+
 ## 2026-11-09 — PX-2 — WDI για τις χώρες του χάρτη
 
 Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/product-experience-864c

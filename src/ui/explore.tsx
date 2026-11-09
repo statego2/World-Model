@@ -178,9 +178,10 @@ function GraphPanel({ workspace, filters }: { workspace: Workspace; filters: Sha
         </label>
       </div>
       {matches.length > 0 ? <ul className="plain-list">{matches.map(match => <li key={match.id}><button type="button" onClick={() => { setStart(match.id); setSelected(match.id); }}>{match.label}</button></li>)}</ul> : null}
-      {result ? <GraphSketch nodes={result.nodes.map(node => node.id)} edges={result.edges} labelOf={(id) => entityLabel(workspace, id)} /> : null}
       {result ? (
-        <div className="table-wrap"><table data-testid="neighborhood-table">
+        <div className="graph-layout">
+          <GraphSketch nodes={result.nodes.map(node => node.id)} edges={result.edges} selectedId={selected} labelOf={(id) => entityLabel(workspace, id)} />
+          <div className="table-wrap"><table data-testid="neighborhood-table">
           <thead><tr><th>Βήμα</th><th>Οντότητα</th><th>Ακμές</th></tr></thead>
           <tbody>
             {result.nodes.map(node => (
@@ -192,6 +193,7 @@ function GraphPanel({ workspace, filters }: { workspace: Workspace; filters: Sha
             ))}
           </tbody>
         </table></div>
+        </div>
       ) : null}
       {result?.truncated ? <p>Η γειτονιά κόπηκε στο δηλωμένο όριο.</p> : null}
       {result ? <p className="muted">{result.note}</p> : null}
@@ -210,25 +212,32 @@ function GraphPanel({ workspace, filters }: { workspace: Workspace; filters: Sha
   );
 }
 
-function GraphSketch({ nodes, edges, labelOf }: { nodes: string[]; edges: { id: string; fromId: string; toId: string }[]; labelOf: (id: string) => string }) {
+function GraphSketch({ nodes, edges, selectedId, labelOf }: { nodes: string[]; edges: { id: string; fromId: string; toId: string }[]; selectedId: string; labelOf: (id: string) => string }) {
   const index = new Map(nodes.map((id, position) => [id, position]));
   const point = (position: number) => {
-    const angle = (Math.PI * 2 * position) / Math.max(nodes.length, 1);
-    return [160 + Math.cos(angle) * 110, 120 + Math.sin(angle) * 80];
+    const turn = nodes.length <= 1 ? -Math.PI / 2 : (Math.PI * 2 * position) / nodes.length - Math.PI / 2;
+    return [360 + Math.cos(turn) * 168, 210 + Math.sin(turn) * 132];
   };
   return (
-    <svg className="map" viewBox="0 0 320 240" role="img" aria-label="Γράφημα γειτονιάς" data-testid="graph-canvas">
+    <svg className="graph-canvas" viewBox="0 0 720 420" role="img" aria-label="Γράφημα γειτονιάς" data-testid="graph-canvas">
       {edges.map(edge => {
         const from = index.get(edge.fromId);
         const to = index.get(edge.toId);
         if (from === undefined || to === undefined) return null;
         const [x1, y1] = point(from);
         const [x2, y2] = point(to);
-        return <line key={edge.id} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#e2b15a" strokeWidth="1.2" />;
+        return <line key={edge.id} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#8a7344" strokeWidth="1.6" />;
       })}
       {nodes.map((id, position) => {
         const [x, y] = point(position);
-        return <g key={id}><circle cx={x} cy={y} r="7" fill="#f4f0e4" /><text x={x + 10} y={y + 4} fill="#f4f0e4" fontSize="10">{labelOf(id).slice(0, 18)}</text></g>;
+        const onLeft = x < 360;
+        const selected = id === selectedId;
+        return (
+          <g key={id}>
+            <circle cx={x} cy={y} r={selected ? 9 : 6} fill={selected ? '#e2b15a' : '#f4f0e4'} />
+            <text x={onLeft ? x - 14 : x + 14} y={y + 4} textAnchor={onLeft ? 'end' : 'start'} fill="#f4f0e4" fontSize="13">{labelOf(id).slice(0, 28)}</text>
+          </g>
+        );
       })}
     </svg>
   );
@@ -266,27 +275,58 @@ function ComparePanel({ workspace, filters }: { workspace: Workspace; filters: S
           </tbody>
         </table></div>
       ) : null}
-      {series ? <SeriesChart series={series} /> : null}
+      {series ? <SeriesChart series={series} labelOf={(id) => entityLabel(workspace, id)} /> : null}
     </section>
   );
 }
 
-function SeriesChart({ series }: { series: ReturnType<typeof timeSeries> }) {
+const SERIES_COLORS = ['#e2b15a', '#8fa888', '#d7c4a3', '#7f93a8', '#c4846c'];
+
+function SeriesChart({ series, labelOf }: { series: ReturnType<typeof timeSeries>; labelOf: (id: string) => string }) {
   const values = series.rows.flatMap(row => row.points.flatMap(point => point.value === null ? [] : [point.value]));
   const min = values.length > 0 ? Math.min(...values) : 0;
   const max = values.length > 0 ? Math.max(...values) : 1;
-  const xOf = (index: number) => 80 + index * (series.years.length > 1 ? 800 / (series.years.length - 1) : 0);
+  const xOf = (index: number) => 120 + index * (series.years.length > 1 ? 760 / (series.years.length - 1) : 0);
+  const yOf = (value: number) => 230 - ((value - min) / (max - min || 1)) * 160;
   return (
-    <svg className="map" viewBox="0 0 1000 260" role="img" aria-label="Σημεία σειράς χωρίς συμπλήρωση κενών">
-      <line x1="70" y1="200" x2="920" y2="200" stroke="#3a4334" />
-      <line x1="70" y1="30" x2="70" y2="200" stroke="#3a4334" />
-      <text x="16" y="28" fill="#c4bba8" fontSize="12">{formatMeasure(max, series.unit)}</text>
-      <text x="16" y="204" fill="#c4bba8" fontSize="12">{formatMeasure(min, series.unit)}</text>
-      {series.years.map((year, index) => <text key={year} x={xOf(index) - 16} y="224" fill="#c4bba8" fontSize="12">{year}</text>)}
-      {series.rows.map((row, rowIndex) => row.points.map((point, index) => point.value === null ? null : (
-        <circle key={`${row.entityId}-${point.year}`} cx={xOf(index)} cy={200 - ((point.value - min) / (max - min || 1)) * 160} r="6" fill={rowIndex === 0 ? '#e2b15a' : '#8fa888'} />
-      )))}
+    <div className="chart-scroll">
+    <svg className="series-chart" viewBox="0 0 1000 320" role="img" aria-label="Σημεία σειράς χωρίς συμπλήρωση κενών" data-testid="series-chart">
+      {[0, 0.5, 1].map(step => {
+        const y = 230 - step * 160;
+        const value = min + (max - min) * step;
+        return <g key={step}><line x1="110" y1={y} x2="900" y2={y} stroke="#3a4334" /><text x="102" y={y + 4} textAnchor="end" fill="#c4bba8" fontSize="13">{formatMeasure(value, series.unit)}</text></g>;
+      })}
+      <line x1="110" y1="40" x2="110" y2="230" stroke="#c4bba8" />
+      <line x1="110" y1="230" x2="900" y2="230" stroke="#c4bba8" />
+      {series.years.map((year, index) => <text key={year} x={xOf(index)} y="254" textAnchor="middle" fill="#f4f0e4" fontSize="14">{year}</text>)}
+      {series.rows.map((row, rowIndex) => {
+        const color = SERIES_COLORS[rowIndex % SERIES_COLORS.length] ?? '#e2b15a';
+        const segments: string[] = [];
+        let current = '';
+        for (const [index, point] of row.points.entries()) {
+          if (point.value === null) {
+            if (current) segments.push(current);
+            current = '';
+            continue;
+          }
+          current += `${current ? ' L' : 'M'}${xOf(index)} ${yOf(point.value)}`;
+        }
+        if (current) segments.push(current);
+        return (
+          <g key={row.entityId}>
+            {segments.map(d => <path key={d} d={d} fill="none" stroke={color} strokeWidth="2" />)}
+            {row.points.map((point, index) => point.value === null ? null : <circle key={`${row.entityId}-${point.year}`} cx={xOf(index)} cy={yOf(point.value)} r="7" fill={color} />)}
+          </g>
+        );
+      })}
+      {series.rows.map((row, rowIndex) => (
+        <g key={row.entityId}>
+          <rect x={120 + rowIndex * 170} y="276" width="14" height="14" fill={SERIES_COLORS[rowIndex % SERIES_COLORS.length]} />
+          <text x={140 + rowIndex * 170} y="288" fill="#f4f0e4" fontSize="14">{labelOf(row.entityId)}</text>
+        </g>
+      ))}
     </svg>
+    </div>
   );
 }
 
