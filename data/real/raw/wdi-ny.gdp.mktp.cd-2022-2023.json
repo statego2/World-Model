@@ -1,0 +1,82 @@
+[
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2023,
+    "value": 35075440602.5202,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2022,
+    "value": 31218047043.8386,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2023,
+    "value": 4562207532490.28,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2022,
+    "value": 4201021706478.62,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2023,
+    "value": 242946187738.269,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2022,
+    "value": 217990189600.69,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2023,
+    "value": 1141242864657.45,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2022,
+    "value": 926097476913.818,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2023,
+    "value": 27811517000000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2022,
+    "value": 26054614000000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  }
+]

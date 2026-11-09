@@ -1,7 +1,30 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: T-M4-01 done στο `cursor/m3-queries-maps-864c`, με ενσωματωμένες τις διορθώσεις import/restore του PR #2. Επόμενο: T-M5-01.
+Τρέχον στάδιο: T-M5-01 και T-M5-02 στο `cursor/m5-real-sources-864c`. Η υπόθεση Β δεν αποδείχθηκε.
+
+## 2026-11-09 — T-M5-01 / T-M5-02 — Πραγματικό απόσπασμα
+
+Agent/session: Cursor Grok 4.7 | Status: done με ρητά κενά | Branch: cursor/m5-real-sources-864c
+
+Φορτώθηκαν, μέσω `previewCsv` και `CommitImport`, μόνο τιμές από αρχεία που κατέβηκαν την ίδια μέρα:
+- World Bank WDI `NY.GDP.MKTP.CD`, 5 χώρες, 2022–2023, current USD. CC BY 4.0 από το summary terms of use του data.worldbank.org.
+- World Bank WDI `SP.POP.TOTL`, ίδιες χώρες και έτη. CC BY 4.0, με αναφορά στον UN World Population Prospects που ονομάζει το metadata.
+- Eurostat `nama_10r_2gdp`, 13 ελληνικές NUTS 2, 2022, million euro.
+- Eurostat `bop_fdi6_geo`, Ελλάδα ως reporting economy, εταίρος Γερμανία, 2022: inward stock και inward flow, million euro, σε ξεχωριστά properties πάνω σε ακμή χώρας–χώρας. Δεν αποδίδονται σε εταιρεία.
+
+Ο χώρος έχει `dataMode: real` και όλες οι πηγές `isDemo: false`. Δεύτερη προεπισκόπηση του ίδιου ΑΕΠ βγαίνει duplicate. Κενό κελί δεν γίνεται 0. Άγνωστο ID μένει unresolved. Πηγή demo απορρίπτεται. Κατάταξη των περιφερειών χρησιμοποιεί μόνο το million euro. Σύγκριση χωρών πάνω στο περιφερειακό property επιστρέφει missing, όχι μηδέν.
+
+Μέτρηση στο `buildRealWorkspace`: elapsedMs 54. Κάλυψη ΑΕΠ 5/5, περιφέρειες 13/13, στρατιωτικά facts 0, εταιρείες 0, υποδομές 0, ακμές προς εταιρεία 0. Inward FDI Γερμανία→Ελλάδα από το αρχείο Eurostat: stock 8094.9 million EUR, flow 948.2 million EUR. Δεν έγινε μελέτη χρηστών. Η αξία που μετρήθηκε είναι ο διαχωρισμός μονάδων και η ορατή απουσία εταιρικής διαδρομής, όχι εξοικονόμηση χρόνου.
+
+Blockers, όχι done:
+- `MS.MIL.XPND.CD` κατέβηκε αλλά η πηγή του metadata είναι SIPRI. Δεν επιβεβαιώθηκε άδεια αναδιανομής. Οι τιμές δεν αποθηκεύτηκαν.
+- Η σελίδα πνευματικών δικαιωμάτων του Eurostat ζήτησε login. Η χρήση στηρίζεται στη νομική ειδοποίηση της Επιτροπής (CC BY 4.0, ανακτήθηκε). 
+- `https://www.olp.gr/en/` δεν έδωσε παραθέσιμο γεγονός παραχώρησης. Υπόθεση Β μη αποδεδειγμένη.
+
+Επαλήθευση: `npm test` — 47/47 pass. `tsc -p tsconfig.json --noEmit` και `tsc -p tsconfig.tests.json --noEmit` pass.
+
+Επόμενο βήμα: μην εφευρεθεί εταιρική διαδρομή. Χρειάζεται χωριστό δημόσιο evidence για εταιρεία, επένδυση, υποδομή και περιφέρεια.
 T-REPO-01: private ορατότητα μένει απόφαση του ιδιοκτήτη.
 
 ## 2026-11-09 — T-M2-01 / T-M2-02 — Διορθώσεις review
