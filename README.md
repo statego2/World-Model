@@ -9,9 +9,10 @@
 αρχικές εφαρμογές. Από το πρώτο PoC ο χρήστης προσθέτει τύπους, οντότητες,
 χαρακτηριστικά, τεκμηριωμένες σχέσεις και μετρήσεις από το browser.
 
-**Η παρούσα παράδοση:** σχέδιο, συμβόλαια, TypeScript types, συνθετικό workspace,
-λειτουργικός validator και δοκιμές. Δεν είναι έτοιμη web εφαρμογή. Ο editor,
-η IndexedDB αποθήκευση, ο importer, οι χάρτες και τα analytics μένουν προς υλοποίηση.
+**Η παρούσα παράδοση:** επεξεργάσιμος browser χώρος. Ο χρήστης ορίζει τύπους,
+οντότητες, σχέσεις, πηγές και γεγονότα, τα ξαναβλέπει μετά από reload, εισάγει
+CSV με προεπισκόπηση και εξάγει/επαναφέρει JSON. Οι χάρτες, τα queries και τα
+τέσσερα modules δεν έχουν υλοποιηθεί.
 
 Για νέο agent: διάβασε [AGENTS.md](AGENTS.md), [PROJECT.md](PROJECT.md),
 [ARCHITECTURE.md](ARCHITECTURE.md), [PROGRESS.md](PROGRESS.md) και [TASKS.md](TASKS.md).
@@ -23,13 +24,18 @@
 κάθε φορά. Πρώτο παραδοτέο: browser editor που αποθηκεύει οντότητες και σχέσεις.
 
 ```sh
-node scripts/validate.mjs
+npm install
+npm run dev
 npm test
+npm run validate
+npm run typecheck
+npm run build
+npm run test:browser
 ```
 
-Οι παραπάνω έλεγχοι χρειάζονται Node 24+ και καμία εγκατάσταση πακέτων. Ελέγχουν
-τη δομή/σημασιολογία του demo workspace, όχι λειτουργίες browser που δεν υπάρχουν.
-Το μελλοντικό frontend θα απαιτήσει εγκατάσταση εξαρτήσεων και lockfile στο M1.
+Χρειάζεται Node 24+ (`.nvmrc`). `npm test` και `npm run validate` ελέγχουν τον
+πυρήνα. `npm run dev` ανοίγει τον χώρο σε `http://127.0.0.1:5173`. Το demo είναι
+συνθετικό και φορτώνει μόνο με ρητό κουμπί.
 
 | Διαδρομή | Περιεχόμενο |
 |---|---|

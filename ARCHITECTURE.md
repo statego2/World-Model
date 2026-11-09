@@ -3,18 +3,25 @@
 ## Υπάρχουσα δομή κώδικα
 
 ```text
-src/core/types.ts                  Portable TypeScript contracts, όχι runtime storage
-src/core/validate.mjs              Καθαρή συνάρτηση validateWorkspace -> error strings[]
-data/fixtures/workspace.demo.json  Synthetic workspace v1, ontologyVersion/revision
-scripts/validate.mjs               JSON read + domain validation + CLI exit code
-tests/domain.test.mjs              20 Node tests του validator
-package.json                      Node >=24, npm test και npm run validate
+src/core/types.ts                  Portable contracts
+src/core/validate.mjs              Semantic validator, χωρίς npm dependency
+src/core/parse.ts                  Strict boundary: unknown fields, depth/size, IDs
+src/core/actions.ts                Actions, revision bump, typed errors
+src/core/import.ts                 CSV preview, exact match, import key
+src/core/transfer.ts               Export envelope and unknown format rejection
+src/core/undo.ts                   Inverse action and dependency guard
+src/storage/                       Repository, memory backend, Dexie adapter
+src/ui/                            Greek shell, generic editors, import/export
+data/fixtures/workspace.demo.json  Synthetic workspace v1
+tests/                             Domain, parser, actions, storage, transfer
+tests/browser/                     Playwright acceptance
 ```
 
-Εκτελέσιμη σημερινή ροή: fixture JSON → validateWorkspace → errors ή CLI success.
-Δεν υπάρχουν εξωτερικές npm εξαρτήσεις, frontend, network calls ή database.
-Τα TypeScript types δεν επιβάλλουν runtime validation και ο validator δεν καλύπτει
-ακόμη κάθε πιθανό malformed input/unknown field. Αυστηρό boundary parsing είναι M1.
+Εκτελέσιμη ροή: φόρμα ή αρχείο → action/preview → strict parse + semantic
+validation → μία IndexedDB transaction με workspace, action id και history.
+Ο domain πυρήνας δεν εισάγει React ή Dexie. Το history και τα idempotency
+records μένουν έξω από το workspace document, ώστε το fixture v1 να παραμένει
+έγκυρο. Το export envelope τα ενώνει.
 
 ## Κοινό domain model
 
