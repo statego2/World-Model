@@ -1,10 +1,23 @@
 {
-  "note": "Explicit entity id to geometry id. Labels are never matched automatically.",
+  "note": "Explicit entity id to geometry id. Labels are never matched. One geometry may list the synthetic demo entity and the real Eurostat entity. The map paints a polygon only when exactly one of those entities is in the open workspace.",
   "links": [
     {
       "entityId": "region:ATT",
       "geometryId": "EL30",
       "note": "The synthetic Attica demo is drawn on the official EL30 boundary. Measurements stay synthetic."
-    }
+    },
+    { "entityId": "region:EL30", "geometryId": "EL30", "note": "Eurostat geo code EL30, Attiki." },
+    { "entityId": "region:EL41", "geometryId": "EL41", "note": "Eurostat geo code EL41, Voreio Aigaio." },
+    { "entityId": "region:EL42", "geometryId": "EL42", "note": "Eurostat geo code EL42, Notio Aigaio." },
+    { "entityId": "region:EL43", "geometryId": "EL43", "note": "Eurostat geo code EL43, Kriti." },
+    { "entityId": "region:EL51", "geometryId": "EL51", "note": "Eurostat geo code EL51, Anatoliki Makedonia, Thraki." },
+    { "entityId": "region:EL52", "geometryId": "EL52", "note": "Eurostat geo code EL52, Kentriki Makedonia." },
+    { "entityId": "region:EL53", "geometryId": "EL53", "note": "Eurostat geo code EL53, Dytiki Makedonia." },
+    { "entityId": "region:EL54", "geometryId": "EL54", "note": "Eurostat geo code EL54, Ipeiros." },
+    { "entityId": "region:EL61", "geometryId": "EL61", "note": "Eurostat geo code EL61, Thessalia." },
+    { "entityId": "region:EL62", "geometryId": "EL62", "note": "Eurostat geo code EL62, Ionia Nisia." },
+    { "entityId": "region:EL63", "geometryId": "EL63", "note": "Eurostat geo code EL63, Dytiki Elláda." },
+    { "entityId": "region:EL64", "geometryId": "EL64", "note": "Eurostat geo code EL64, Sterea Elláda." },
+    { "entityId": "region:EL65", "geometryId": "EL65", "note": "Eurostat geo code EL65, Peloponnisos." }
   ]
 }

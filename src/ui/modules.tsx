@@ -112,11 +112,10 @@ function Capital({ workspace }: { workspace: Workspace }) {
 function Greece({ workspace }: { workspace: Workspace }) {
   const filters = moduleFilters(workspace);
   const features = regionGeometry.features as MapFeature[];
-  const links = new Map(regionLinks.links.map(link => [link.geometryId, link.entityId]));
   const propertyId = workspace.bindings.regionalGvaProperty;
   const values: Record<string, number | 'none'> = {};
   for (const feature of features) {
-    const entityId = links.get(feature.id);
+    const entityId = linkedEntity(workspace, feature.id);
     const reading = entityId && propertyId ? rankEntities(workspace, [entityId], propertyId, filters) : null;
     const row = reading && reading.ok ? reading.rows[0] : undefined;
     values[feature.id] = row?.status === 'value' ? row.values[0]?.value ?? 'none' : 'none';
@@ -156,6 +155,11 @@ function MetricTable({ rows }: { rows: { id: string; label: string; status: stri
       </tbody>
     </table></div>
   );
+}
+
+function linkedEntity(workspace: Workspace, geometryId: string): string | null {
+  const present = regionLinks.links.filter(link => link.geometryId === geometryId && workspace.entities.some(entity => entity.id === link.entityId));
+  return present.length === 1 ? present[0]?.entityId ?? null : null;
 }
 
 function countries(workspace: Workspace) {

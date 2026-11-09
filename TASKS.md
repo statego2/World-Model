@@ -20,7 +20,7 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 | T-M3-01 | Graph/query engine, saved views και shared filters | done | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | Path query, cache, compare/rank, explorer. Browser: νέα εταιρεία μπαίνει στην ίδια προβολή. |
 | T-M4-01 | Τέσσερα modules, world/Greek region maps | done | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | Τέσσερις προβολές, Natural Earth, NUTS. Η region:CENTRAL μένει χωρίς πολύγωνο, ρητά. |
 | T-M5-01 | Επαλήθευση πηγών και μικρά πραγματικά datasets | done | Cursor Grok 4.7 / cursor/m5-real-sources-864c | WDI ΑΕΠ/πληθυσμός και Eurostat περιφέρειες/FDI. Η στρατιωτική σειρά SIPRI μένει blocker. |
-| T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | done | Cursor Grok 4.7 / cursor/m5-real-sources-864c | Εννέα διαδρομές Germany → FRAPORT AG → αεροδρόμιο → NUTS 2. Δεν εξηγούν το FDI. Πέντε αεροδρόμια μένουν blocker. |
+| T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | done | Cursor Grok 4.7 / cursor/m5-real-sources-864c | Εννέα διαδρομές Germany → FRAPORT AG → αεροδρόμιο → NUTS 2. Οι εφαρμογές δείχνουν το ΑΕΠ 2022, το FDI και τις 13 περιφέρειες. Πέντε αεροδρόμια μένουν blocker. |
 
 ## Επόμενη development εργασία
 
