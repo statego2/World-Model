@@ -1,0 +1,29 @@
+{
+  "sourceId": "source:nuts-2024",
+  "label": "Κανονισμός (ΕΕ) 2023/674, NUTS",
+  "locator": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0674",
+  "celex": "32023R0674",
+  "title": "Commission Delegated Regulation (EU) 2023/674 of 26 December 2022",
+  "appliesFrom": "2024-01-01",
+  "retrievedAt": "2026-11-09T00:00:00Z",
+  "sha256": "8e645f2e1c615dd582eecadeddb8499dde326dc79f71731002b6343f31745616",
+  "licenseNote": "Commission Delegated Regulation (EU) 2023/674 of 26 December 2022, EUR-Lex CELEX 32023R0674, HTML ανακτήθηκε 2026-11-09. SHA-256 8e645f2e1c615dd582eecadeddb8499dde326dc79f71731002b6343f31745616. Εφαρμόζεται για διαβίβαση δεδομένων στην Επιτροπή από 1.1.2024. Τα ονόματα είναι από τον πίνακα του παραρτήματος. Αναφορά: European Union, EUR-Lex. Επαναχρησιμοποίηση κατά την απόφαση της Επιτροπής της 12ης Δεκεμβρίου 2011, με αναφορά της πηγής.",
+  "rows": [
+    { "code": "EL41", "level": 2, "name": "Βόρειο Αιγαίο" },
+    { "code": "EL411", "level": 3, "name": "Λέσβος, Λήμνος", "parent": "EL41" },
+    { "code": "EL412", "level": 3, "name": "Ικαρία, Σάμος", "parent": "EL41" },
+    { "code": "EL42", "level": 2, "name": "Νότιο Αιγαίο" },
+    { "code": "EL421", "level": 3, "name": "Κάλυμνος, Κάρπαθος – Ηρωική Νήσος Κάσος, Κως, Ρόδος", "parent": "EL42" },
+    { "code": "EL422", "level": 3, "name": "Άνδρος, Θήρα, Κέα, Μήλος, Μύκονος, Νάξος, Πάρος, Σύρος, Τήνος", "parent": "EL42" },
+    { "code": "EL43", "level": 2, "name": "Κρήτη" },
+    { "code": "EL434", "level": 3, "name": "Χανιά", "parent": "EL43" },
+    { "code": "EL52", "level": 2, "name": "Κεντρική Μακεδονία" },
+    { "code": "EL522", "level": 3, "name": "Θεσσαλονίκη", "parent": "EL52" },
+    { "code": "EL61", "level": 2, "name": "Θεσσαλία" },
+    { "code": "EL613", "level": 3, "name": "Μαγνησία, Σποράδες", "parent": "EL61" },
+    { "code": "EL62", "level": 2, "name": "Ιόνια Νησιά" },
+    { "code": "EL621", "level": 3, "name": "Ζάκυνθος", "parent": "EL62" },
+    { "code": "EL622", "level": 3, "name": "Κέρκυρα", "parent": "EL62" },
+    { "code": "EL623", "level": 3, "name": "Ιθάκη, Κεφαλληνία", "parent": "EL62" }
+  ]
+}

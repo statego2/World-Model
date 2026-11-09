@@ -2,7 +2,7 @@ import { failures, ok, type DomainError, type Result } from './errors.ts';
 import { isStableId } from './ids.ts';
 import { DEFAULT_PARSE_LIMITS, type ParseLimits } from './limits.ts';
 import type {
-  Entity, EntityType, Fact, PropertyDefinition, Relationship, RelationshipType, SavedView, Source, Workspace,
+  Confidence, Entity, EntityType, Fact, PropertyDefinition, Relationship, RelationshipType, SavedView, Source, Workspace,
 } from './types.ts';
 import { validateWorkspace } from './validate.mjs';
 
@@ -296,7 +296,7 @@ function shapeEntity(shape: Shape, value: unknown, path: string): Entity | null 
 function shapeRelationship(shape: Shape, value: unknown, path: string): Relationship | null {
   const row = shape.record(value, path);
   if (!row) return null;
-  shape.unknown(row, ['id', 'typeId', 'fromId', 'toId', 'basis', 'evidenceIds', 'validFrom', 'validTo'], path);
+  shape.unknown(row, ['id', 'typeId', 'fromId', 'toId', 'basis', 'evidenceIds', 'validFrom', 'validTo', 'confidence'], path);
   const id = shape.string(row, 'id', path, 'id');
   const typeId = shape.string(row, 'typeId', path, 'id');
   const fromId = shape.string(row, 'fromId', path, 'id');
@@ -306,14 +306,15 @@ function shapeRelationship(shape: Shape, value: unknown, path: string): Relation
   const evidenceIds = shape.stringList(row.evidenceIds, `${path}.evidenceIds`);
   const validFrom = shape.string(row, 'validFrom', path, 'text');
   if (!('validTo' in row) || !(row.validTo === null || typeof row.validTo === 'string')) shape.fail('malformed', 'Μη έγκυρο validTo.', `${path}.validTo`);
-  if (!id || !typeId || !fromId || !toId || !basis || !evidenceIds || !validFrom) return null;
-  return { id, typeId, fromId, toId, basis, evidenceIds, validFrom, validTo: row.validTo as string | null };
+  const confidence = shapeConfidence(shape, row, path);
+  if (!id || !typeId || !fromId || !toId || !basis || !evidenceIds || !validFrom || confidence === null) return null;
+  return { id, typeId, fromId, toId, basis, evidenceIds, validFrom, validTo: row.validTo as string | null, ...(confidence ? { confidence } : {}) };
 }
 
 function shapeFact(shape: Shape, value: unknown, path: string): Fact | null {
   const row = shape.record(value, path);
   if (!row) return null;
-  shape.unknown(row, ['id', 'subjectKind', 'subjectId', 'propertyId', 'value', 'status', 'basis', 'evidenceIds', 'validFrom', 'validTo', 'createdAt', 'supersedesId'], path);
+  shape.unknown(row, ['id', 'subjectKind', 'subjectId', 'propertyId', 'value', 'status', 'basis', 'evidenceIds', 'validFrom', 'validTo', 'createdAt', 'supersedesId', 'confidence'], path);
   const id = shape.string(row, 'id', path, 'id');
   const subjectKind = row.subjectKind === 'entity' || row.subjectKind === 'relationship' ? row.subjectKind : null;
   if (!subjectKind) shape.fail('malformed', 'Μη έγκυρο subjectKind γεγονότος.', `${path}.subjectKind`);
@@ -333,11 +334,20 @@ function shapeFact(shape: Shape, value: unknown, path: string): Fact | null {
     const next = shape.string(row, 'supersedesId', path, 'id');
     if (next) supersedesId = next;
   }
-  if (!id || !subjectKind || !subjectId || !propertyId || !status || !basis || !evidenceIds || !validFrom || !createdAt || !('value' in row) || !isValue(row.value)) return null;
+  const confidence = shapeConfidence(shape, row, path);
+  if (!id || !subjectKind || !subjectId || !propertyId || !status || !basis || !evidenceIds || !validFrom || !createdAt || confidence === null || !('value' in row) || !isValue(row.value)) return null;
   return {
     id, subjectKind, subjectId, propertyId, value: row.value, status, basis, evidenceIds, validFrom,
     validTo: row.validTo as string | null, createdAt, ...(supersedesId === undefined ? {} : { supersedesId }),
+    ...(confidence ? { confidence } : {}),
   };
+}
+
+function shapeConfidence(shape: Shape, row: Record<string, unknown>, path: string): Confidence | null | undefined {
+  if (!('confidence' in row)) return undefined;
+  if (row.confidence === 'high' || row.confidence === 'medium' || row.confidence === 'low') return row.confidence;
+  shape.fail('malformed', 'Μη έγκυρη εμπιστοσύνη.', `${path}.confidence`);
+  return null;
 }
 
 function shapeSource(shape: Shape, value: unknown, path: string): Source | null {

@@ -8,11 +8,14 @@ src/core/validate.mjs              Semantic validator, χωρίς npm dependency
 src/core/parse.ts                  Strict boundary: unknown fields, depth/size, IDs
 src/core/actions.ts                Actions, revision bump, typed errors
 src/core/import.ts                 CSV preview, exact match, import key
+src/core/query.ts                  Path, compare, rank
 src/core/transfer.ts               Export envelope and unknown format rejection
 src/core/undo.ts                   Inverse action and dependency guard
+src/real/                          Cited real extract, separate from the demo
 src/storage/                       Repository, memory backend, Dexie adapter
 src/ui/                            Greek shell, generic editors, import/export
 data/fixtures/workspace.demo.json  Synthetic workspace v1
+data/real/                         Retrieved public extracts and the real workspace
 tests/                             Domain, parser, actions, storage, transfer
 tests/browser/                     Playwright acceptance
 ```
@@ -27,10 +30,11 @@ records μένουν έξω από το workspace document, ώστε το fixtur
 
 EntityType/RelationshipType/PropertyDefinition είναι δεδομένα. Entity και edge
 έχουν σταθερά IDs. Facts αναφέρονται σε entity ή edge, με typed value, evidence,
-validity, status, basis και createdAt. Μετρήσεις annual στο αρχικό format.
+validity, status, basis και createdAt. Προαιρετικό `confidence` στις ακμές και
+στα facts είναι `high`, `medium` ή `low`. Μετρήσεις annual στο αρχικό format.
 Sources δηλώνουν provenance και demo/real mode. Corrections χρησιμοποιούν
-supersedesId και κρατούν παλιές εκδόσεις. SavedView κρατά παραμετρικό path query,
-αλλά το query engine δεν υπάρχει ακόμη. Bindings συνδέουν semantic roles των modules
+supersedesId και κρατούν παλιές εκδόσεις. SavedView κρατά παραμετρικό path query
+και το `src/core/query.ts` το εκτελεί. Bindings συνδέουν semantic roles των modules
 με IDs definitions. Format version, ontology version και workspace revision διαφέρουν.
 
 ## Προτεινόμενη πλήρης PoC ροή

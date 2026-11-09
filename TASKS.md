@@ -20,13 +20,12 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 | T-M3-01 | Graph/query engine, saved views και shared filters | done | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | Path query, cache, compare/rank, explorer. Browser: νέα εταιρεία μπαίνει στην ίδια προβολή. |
 | T-M4-01 | Τέσσερα modules, world/Greek region maps | done | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | Τέσσερις προβολές, Natural Earth, NUTS. Η region:CENTRAL μένει χωρίς πολύγωνο, ρητά. |
 | T-M5-01 | Επαλήθευση πηγών και μικρά πραγματικά datasets | done | Cursor Grok 4.7 / cursor/m5-real-sources-864c | WDI ΑΕΠ/πληθυσμός και Eurostat περιφέρειες/FDI. Η στρατιωτική σειρά SIPRI μένει blocker. |
-| T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | done | Cursor Grok 4.7 / cursor/m5-real-sources-864c | Η υπόθεση Β μένει μη αποδεδειγμένη: δεν υπάρχει εταιρεία/υποδομή με ξεχωριστό evidence. |
+| T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | done | Cursor Grok 4.7 / cursor/m5-real-sources-864c | Εννέα διαδρομές Germany → FRAPORT AG → αεροδρόμιο → NUTS 2. Δεν εξηγούν το FDI. Πέντε αεροδρόμια μένουν blocker. |
 
 ## Επόμενη development εργασία
 
-T-M5-01 και T-M5-02 έκλεισαν στο `cursor/m5-real-sources-864c` με ρητό όριο:
-η υπόθεση Β δεν αποδείχθηκε. Επόμενο δεν είναι να συμπληρωθεί η διαδρομή με εικασίες.
-Χρειάζεται δημόσιο, παραθέσιμο evidence για εταιρεία, επένδυση, υποδομή και περιφέρεια χωριστά.
+T-M5-02 έκλεισε μερικά στο `cursor/m5-real-sources-864c`.
+Η διαδρομή εταιρείας υπάρχει για εννέα αεροδρόμια. Άκτιο, Καβάλα, Σαντορίνη, Μυτιλήνη και Σκιάθος δεν παίρνουν περιφέρεια χωρίς νέα παραπομπή.
 Η στρατιωτική σειρά περιμένει όρο αναδιανομής της SIPRI.
 
 Ιστορικό acceptance του scaffold:

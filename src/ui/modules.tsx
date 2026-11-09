@@ -10,7 +10,10 @@ import { useModel } from './model.tsx';
 
 type ModuleId = 'world' | 'military' | 'capital' | 'greece';
 
-const filters: SharedFilters = { year: 2023, basis: 'reported', sourceIds: ['source:demo-macro'] };
+function moduleFilters(workspace: Workspace): SharedFilters {
+  if (workspace.dataMode === 'demo') return { year: 2023, basis: 'reported', sourceIds: ['source:demo-macro'] };
+  return { year: 2022, basis: 'reported', sourceIds: workspace.sources.filter(source => !source.isDemo).map(source => source.id) };
+}
 
 export function Modules() {
   const [moduleId, setModuleId] = useState<ModuleId>('world');
@@ -20,7 +23,7 @@ export function Modules() {
     <div className="stack">
       <header className="stage-head">
         <h1>Εφαρμογές</h1>
-        <p>Τέσσερις προβολές του ίδιου μοντέλου. Τα νούμερα του demo είναι συνθετικά.</p>
+        <p>{model.workspace.dataMode === 'real' ? 'Τέσσερις προβολές του ίδιου μοντέλου. Κάθε μέτρηση κρατά τη δική της πηγή και το δικό της έτος.' : 'Τέσσερις προβολές του ίδιου μοντέλου. Τα νούμερα του demo είναι συνθετικά.'}</p>
       </header>
       <div className="module-tabs" role="tablist" aria-label="Εφαρμογές">
         <Tab id="world" current={moduleId} onSelect={setModuleId} label="Παγκόσμιος χάρτης" />
@@ -37,6 +40,7 @@ export function Modules() {
 }
 
 function World({ workspace }: { workspace: Workspace }) {
+  const filters = moduleFilters(workspace);
   const features = worldGeometry.features as MapFeature[];
   const propertyId = workspace.bindings.gdpProperty;
   const ranked = propertyId ? rankEntities(workspace, countries(workspace).map(entity => entity.id), propertyId, filters) : null;
@@ -53,18 +57,19 @@ function World({ workspace }: { workspace: Workspace }) {
     <section className="panel" aria-label="Παγκόσμιος χάρτης">
       <h2>Χώρες και ΑΕΠ</h2>
       <p>Χωρίς δεδομένα δεν σημαίνει μηδέν. Οι υπόλοιπες χώρες μένουν χωρίς μέτρηση.</p>
-      <GeoMap features={features} idAttribute="data-iso" values={valueByIso} bounds={{ minLon: -180, maxLon: 180, minLat: -56, maxLat: 84 }} label="Παγκόσμιος χάρτης συνθετικών μετρήσεων" />
+      <GeoMap features={features} idAttribute="data-iso" values={valueByIso} bounds={{ minLon: -180, maxLon: 180, minLat: -56, maxLat: 84 }} label={workspace.dataMode === 'real' ? 'Παγκόσμιος χάρτης, ΑΕΠ 2022' : 'Παγκόσμιος χάρτης συνθετικών μετρήσεων'} />
       {ranked && ranked.ok ? <MetricTable rows={ranked.rows.map(row => ({ id: row.entityId, label: entityLabel(workspace, row.entityId), status: row.status, value: row.values[0]?.value, unit: row.unit, rank: row.rank }))} /> : null}
     </section>
   );
 }
 
 function Military({ workspace }: { workspace: Workspace }) {
+  const filters = moduleFilters(workspace);
   const propertyId = workspace.bindings.defenseSpendingProperty;
   const compared = propertyId ? compareEntities(workspace, ['country:GRC', 'country:TUR'], propertyId, filters) : null;
   return (
     <section className="panel" aria-label="Ελλάδα–Τουρκία">
-      <h2>Ελλάδα και Τουρκία, 2023</h2>
+      <h2>{propertyId ? `Ελλάδα και Τουρκία, ${filters.year}` : 'Ελλάδα και Τουρκία'}</h2>
       <p>Σύγκριση της ίδιας συνθετικής δαπάνης, του ίδιου έτους και της ίδιας πηγής. Δεν προκύπτει νικητής.</p>
       {compared && compared.ok ? compared.rows.map(row => (
         <p key={row.entityId} data-testid={`milex-${row.entityId}`}>
@@ -76,9 +81,12 @@ function Military({ workspace }: { workspace: Workspace }) {
 }
 
 function Capital({ workspace }: { workspace: Workspace }) {
+  const filters = moduleFilters(workspace);
   const path = runSavedView(workspace, 'view:capital-to-regions');
+  const view = workspace.savedViews.find(item => item.id === 'view:capital-to-regions');
   const edgeType = workspace.bindings.capitalType;
   const edges = workspace.relationships.filter(item => item.typeId === edgeType);
+  const unmapped = workspace.entities.filter(entity => entity.typeId === 'type:infrastructure' && !workspace.relationships.some(edge => edge.typeId === 'reltype:located_in' && edge.fromId === entity.id));
   return (
     <section className="panel" aria-label="Κεφάλαια">
       <h2>Διμερείς ροές</h2>
@@ -86,20 +94,23 @@ function Capital({ workspace }: { workspace: Workspace }) {
       {edges.map(edge => (
         <article key={edge.id}>
           <h3>{entityLabel(workspace, edge.fromId)} → {entityLabel(workspace, edge.toId)}</h3>
-          <p>Απόθεμα: {factText(workspace, edge.id, workspace.bindings.fdiStockProperty)}</p>
-          <p>Ροή: {factText(workspace, edge.id, workspace.bindings.fdiFlowProperty)}</p>
+          <p>Απόθεμα: {factText(workspace, edge.id, workspace.bindings.fdiStockProperty, filters.year)}</p>
+          <p>Ροή: {factText(workspace, edge.id, workspace.bindings.fdiFlowProperty, filters.year)}</p>
         </article>
       ))}
       <h3>Σύνδεση με περιφέρεια</h3>
+      {view ? <p>Έτος διαδρομής: {view.query.year}. Δεν εξηγεί το απόθεμα ή τη ροή άλλης χρονιάς.</p> : null}
       <ul className="plain-list">
-        {path.paths.map(item => <li key={item.entityIds.join('>')}>{item.entityIds.map(id => entityLabel(workspace, id)).join(' → ')}</li>)}
+        {path.paths.map(item => <li key={item.entityIds.join('>')} data-testid="capital-path">{item.entityIds.map(id => entityLabel(workspace, id)).join(' → ')}</li>)}
       </ul>
+      {unmapped.length > 0 ? <p data-testid="unmapped-airports">Χωρίς αντιστοίχιση NUTS 2: {unmapped.map(entity => entity.label).join(', ')}.</p> : null}
       <p>{path.note}</p>
     </section>
   );
 }
 
 function Greece({ workspace }: { workspace: Workspace }) {
+  const filters = moduleFilters(workspace);
   const features = regionGeometry.features as MapFeature[];
   const links = new Map(regionLinks.links.map(link => [link.geometryId, link.entityId]));
   const propertyId = workspace.bindings.regionalGvaProperty;
@@ -156,9 +167,9 @@ function isoOf(workspace: Workspace, entityId: string): string | null {
   return typeof fact?.value === 'string' ? fact.value : null;
 }
 
-function factText(workspace: Workspace, edgeId: string, propertyId: string | undefined): string {
+function factText(workspace: Workspace, edgeId: string, propertyId: string | undefined, year: number): string {
   if (!propertyId) return 'χωρίς binding';
-  const fact = workspace.facts.find(item => item.subjectKind === 'relationship' && item.subjectId === edgeId && item.propertyId === propertyId && item.validFrom === '2023-01-01' && !workspace.facts.some(newer => newer.supersedesId === item.id));
+  const fact = workspace.facts.find(item => item.subjectKind === 'relationship' && item.subjectId === edgeId && item.propertyId === propertyId && item.validFrom === `${year}-01-01` && !workspace.facts.some(newer => newer.supersedesId === item.id));
   if (!fact || fact.value === null) return 'χωρίς δεδομένα';
   const unit = workspace.properties.find(item => item.id === propertyId)?.unit ?? '';
   return `${fact.value} ${unit}`.trim();

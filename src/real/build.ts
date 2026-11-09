@@ -1,8 +1,10 @@
 import { readFileSync } from 'node:fs';
 import type { DomainAction } from '../core/actions.ts';
 import { previewCsv, type ImportMapping } from '../core/import.ts';
+import { runPathQuery } from '../core/query.ts';
 import type { Fact, Workspace } from '../core/types.ts';
 import { createMemoryBackend } from '../storage/memory.ts';
+import { addCitedConcession } from './concession.ts';
 
 const RETRIEVED = '2026-11-09T00:00:00Z';
 const RAW = new URL('../../data/real/raw/', import.meta.url);
@@ -28,7 +30,10 @@ export interface RealAssessment {
   investmentEdgesToCompanies: number;
   deuInwardStockMillionEur: number | null;
   deuInwardFlowMillionEur: number | null;
-  hypothesisB: 'unproven';
+  hypothesisB: 'partial';
+  mappedAirports: number;
+  unmappedAirports: { id: string; label: string; reason: string }[];
+  companyPaths: number;
   unitMixRefused: true;
 }
 
@@ -69,8 +74,8 @@ export async function buildRealWorkspace(): Promise<{ workspace: Workspace; asse
 
   await commit({ type: 'CreateSource', source: { id: 'source:wdi-gdp', label: 'World Bank WDI NY.GDP.MKTP.CD', locator: 'https://api.worldbank.org/v2/country/GRC;TUR;DEU;USA;CYP/indicator/NY.GDP.MKTP.CD?format=json&date=2022:2023', retrievedAt: RETRIEVED, licenseNote: 'CC BY 4.0 per data.worldbank.org summary terms of use, retrieved 2026-11-09. Attribution: World Bank, World Development Indicators.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-gdp');
   await commit({ type: 'CreateSource', source: { id: 'source:wdi-pop', label: 'World Bank WDI SP.POP.TOTL', locator: 'https://api.worldbank.org/v2/country/GRC;TUR;DEU;USA;CYP/indicator/SP.POP.TOTL?format=json&date=2022:2023', retrievedAt: RETRIEVED, licenseNote: 'CC BY 4.0 via World Bank summary terms. Upstream named in the indicator metadata: UN World Population Prospects and national statistics.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-pop');
-  await commit({ type: 'CreateSource', source: { id: 'source:eurostat-gdp', label: 'Eurostat nama_10r_2gdp', locator: 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_2gdp?format=JSON&unit=MIO_EUR&time=2022', retrievedAt: RETRIEVED, licenseNote: 'Eurostat copyright page required login. Commission legal notice retrieved 2026-11-09 states CC BY 4.0 for EU content unless a specific notice says otherwise. Attribution: Source: Eurostat, nama_10r_2gdp.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-regional');
-  await commit({ type: 'CreateSource', source: { id: 'source:eurostat-fdi', label: 'Eurostat bop_fdi6_geo', locator: 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_geo?format=JSON&geo=EL&partner=DE&sinceTimePeriod=2022&untilTimePeriod=2022', retrievedAt: RETRIEVED, licenseNote: 'Same Commission CC BY 4.0 basis as the regional GDP extract. Attribution: Source: Eurostat, bop_fdi6_geo. Aggregate DIRE only.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-fdi');
+  await commit({ type: 'CreateSource', source: { id: 'source:eurostat-gdp', label: 'Eurostat nama_10r_2gdp', locator: 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_2gdp?format=JSON&unit=MIO_EUR&time=2022', retrievedAt: RETRIEVED, licenseNote: 'Eurostat copyright notice https://ec.europa.eu/eurostat/web/main/help/copyright-notice retrieved 2026-11-09: reuse of statistical data is authorised provided the source is acknowledged, under the Commission Decision of 12 December 2011. Attribution: Source: Eurostat, nama_10r_2gdp.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-regional');
+  await commit({ type: 'CreateSource', source: { id: 'source:eurostat-fdi', label: 'Eurostat bop_fdi6_geo', locator: 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_geo?format=JSON&geo=EL&partner=DE&sinceTimePeriod=2022&untilTimePeriod=2022', retrievedAt: RETRIEVED, licenseNote: 'Same Eurostat copyright notice, retrieved 2026-11-09. Attribution: Source: Eurostat, bop_fdi6_geo. Aggregate DIRE only.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-fdi');
 
   const countries = [...new Map(gdp.map(row => [row.iso3, row.name])).entries()];
   for (const [iso3, name] of countries) {
@@ -103,10 +108,23 @@ export async function buildRealWorkspace(): Promise<{ workspace: Workspace; asse
   await commit({ type: 'CreateRelationship', relationship: { id: 'edge:fdi-deu-grc', typeId: 'reltype:direct_investment_in', fromId: 'country:DEU', toId: 'country:GRC', basis: 'reported', evidenceIds: ['source:eurostat-fdi'], validFrom: '2022-01-01', validTo: '2022-12-31' } }, 'act:real-fdi-edge');
   await commit({ type: 'RecordFact', fact: numberFact('fact:fdi-stock-deu-grc-2022', 'edge:fdi-deu-grc', 'property:fdi_stock_eur', stock.value, 'source:eurostat-fdi') }, 'act:real-fdi-stock-fact');
   await commit({ type: 'RecordFact', fact: numberFact('fact:fdi-flow-deu-grc-2022', 'edge:fdi-deu-grc', 'property:fdi_flow_eur', flow.value, 'source:eurostat-fdi') }, 'act:real-fdi-flow-fact');
+  const concession = await addCitedConcession(commit, new Set(regional.flatMap(row => row.geo ? [`region:${row.geo}`] : [])));
 
   const loaded = await repository.load(current.id);
   if (!loaded.ok) throw new Error('real workspace missing');
   const workspace = loaded.value;
+  workspace.bindings = {
+    countryType: 'type:country',
+    regionType: 'type:region',
+    gdpProperty: 'property:gdp_usd',
+    regionalGvaProperty: 'property:regional_gdp_eur',
+    capitalType: 'reltype:direct_investment_in',
+    fdiStockProperty: 'property:fdi_stock_eur',
+    fdiFlowProperty: 'property:fdi_flow_eur',
+  };
+  const companyPath = runPathQuery(workspace, workspace.savedViews.find(view => view.id === 'view:capital-to-regions')?.query ?? {
+    startEntityId: 'country:DEU', steps: [], year: 2024, basis: 'reported', sourceIds: [], limit: 1,
+  });
   const assessment: RealAssessment = {
     elapsedMs: Date.now() - started,
     countriesWithGdp2022: new Set(workspace.facts.filter(fact => fact.propertyId === 'property:gdp_usd' && fact.validFrom === '2022-01-01').map(fact => fact.subjectId)).size,
@@ -119,7 +137,10 @@ export async function buildRealWorkspace(): Promise<{ workspace: Workspace; asse
     investmentEdgesToCompanies: workspace.relationships.filter(edge => edge.toId.startsWith('company:')).length,
     deuInwardStockMillionEur: numberValue(workspace, 'fact:fdi-stock-deu-grc-2022'),
     deuInwardFlowMillionEur: numberValue(workspace, 'fact:fdi-flow-deu-grc-2022'),
-    hypothesisB: 'unproven',
+    hypothesisB: 'partial',
+    mappedAirports: concession.mappedAirportIds.length,
+    unmappedAirports: concession.unmapped,
+    companyPaths: companyPath.paths.length,
     unitMixRefused: true,
   };
   return { workspace, assessment };

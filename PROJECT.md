@@ -1,7 +1,7 @@
 # WORLD MODEL — ταυτότητα και αποφάσεις
 
 Ενημέρωση: 2026-11-09. Project root: ο φάκελος που περιέχει αυτό το αρχείο.
-Τρέχουσα έκδοση πακέτου: 0.3.0. Στάδιο: M4 στο branch `cursor/m3-queries-maps-864c`, πάνω στο M2. Επόμενο: M5. Το main δεν έχει ακόμη το M1.
+Τρέχουσα έκδοση πακέτου: 0.3.0. Στάδιο: M5 στο branch `cursor/m5-real-sources-864c`. Το main δεν έχει ακόμη το M1.
 
 ## Αποστολή
 
@@ -32,15 +32,15 @@ Analysis, Global Capital Flows, Greek Domestic Economy.
 - React/TS/Vite shell στα ελληνικά: γενικές φόρμες οντολογίας, οντοτήτων, σχέσεων,
   γεγονότων και πηγών, inspector, ιστορικό, διόρθωση, αναίρεση, CSV preview και
   JSON export/restore σε νέο χώρο.
-- `data/fixtures/workspace.demo.json`: μόνο συνθετικά δεδομένα — 10 entities,
-  8 relationships, 65 facts. Καμία πραγματική επένδυση ή μέτρηση δεν τεκμηριώνεται.
+- `data/fixtures/workspace.demo.json`: μόνο συνθετικά δεδομένα. Καμία πραγματική επένδυση δεν τεκμηριώνεται εκεί.
+- `data/real/`: απόσπασμα WDI και Eurostat, συν η απόφαση 626/2016 και ο κανονισμός NUTS 2023/674 για μία εταιρική διαδρομή. Πέντε αεροδρόμια μένουν χωρίς περιφέρεια.
 - Tests: 20 domain, επιπλέον parser/action/repository/IndexedDB/import tests, και
   Playwright acceptance με screenshots 390/1440.
 
 ## Τι δεν έχει υλοποιηθεί
 
-Graph/query execution, saved view εκτέλεση, χάρτες και τα τέσσερα modules.
-Δεν υπάρχουν real-data connectors, backend, authentication, AI ή simulator.
+Backend, authentication, AI ή simulator.
+Η στρατιωτική σειρά και πέντε αεροδρόμια της παραχώρησης μένουν χωρίς τεκμήριο.
 Ο starter validator δεν είναι πλήρης security validator· το αυστηρό όριο είναι
 το `parseWorkspace` πριν από commit/import. Browser storage δεν είναι backup.
 
@@ -68,8 +68,8 @@ B. Analytical value: ένα πραγματικό cross-module ερώτημα π�
 C. Extensibility: νέος τύπος/property/relation/dataset λειτουργεί χωρίς αλλαγή κώδικα.
 
 Πρώτη διαδρομή: χώρα επενδυτή → εταιρεία → υποδομή → ελληνική περιφέρεια.
-Η προσθήκη νέας εταιρείας από UI πρέπει να ενημερώνει το ίδιο saved query.
-Real-data proof παραμένει μελλοντική εργασία· το demo ελέγχει τη δομή.
+Στο πραγματικό απόσπασμα η διαδρομή υπάρχει για εννέα αεροδρόμια με δική τους παραπομπή. Δεν εξηγεί το FDI Γερμανίας–Ελλάδας και δεν καλύπτει πέντε αεροδρόμια.
+Η προσθήκη νέας εταιρείας από UI ενημερώνει την αποθηκευμένη προβολή στο demo.
 
 Λεπτομέρειες: `docs/MASTER_PLAN.md`, `docs/DECISIONS.md`, `docs/MILESTONES.md`.
 Τρέχον handoff: `PROGRESS.md`. Επόμενα συγκεκριμένα tasks: `TASKS.md`.

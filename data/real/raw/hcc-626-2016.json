@@ -1,0 +1,267 @@
+{
+  "sourceId": "source:hcc-626-2016",
+  "label": "Επιτροπή Ανταγωνισμού 626/2016",
+  "locator": "https://diavgeia.gov.gr/doc/Ω41ΘΙΜΞ-5ΓΤ",
+  "ada": "Ω41ΘΙΜΞ-5ΓΤ",
+  "decision": "626/2016",
+  "sessionDate": "2016-04-07",
+  "retrievedAt": "2026-11-09T00:00:00Z",
+  "sha256": "029a89abf908cad2522feeaed3bea0ac8576220ac8af17efc14e13feefeee12e",
+  "licenseNote": "Απόφαση 626/2016 της Επιτροπής Ανταγωνισμού, συνεδρίαση 7.4.2016, ΑΔΑ Ω41ΘΙΜΞ-5ΓΤ στη Διαύγεια. Το PDF ανακτήθηκε 2026-11-09. SHA-256 029a89abf908cad2522feeaed3bea0ac8576220ac8af17efc14e13feefeee12e. Δημόσια πράξη. Τα αποσπάσματα είναι σε αυτό το αρχείο. Κενά μέσα σε λέξεις από αλλαγή γραμμής ενώθηκαν. Το 65/35 δεν προεκτείνεται μετά το 2016: η σελίδα μετόχων της Fraport Greece, ανακτημένη την ίδια μέρα, ονομάζει και Copelouzos και Blackstone χωρίς ποσοστά.",
+  "legalName": {
+    "quotation": "FRAPORT AG FRANKFURT AIRPORT SERVICES WORLDWIDE",
+    "value": "FRAPORT AG FRANKFURT AIRPORT SERVICES WORLDWIDE",
+    "confidence": "high"
+  },
+  "seat": {
+    "quotation": "H εταιρία εδρεύει στη διεύθυνση Flughafen, Geb. 178. 60547 Frankfurt am Main, Γερμανία.",
+    "address": "Flughafen, Geb. 178. 60547 Frankfurt am Main, Γερμανία",
+    "countryId": "country:DEU",
+    "validFrom": "2016-01-12",
+    "confidence": "high"
+  },
+  "signedOn": {
+    "quotation": "υπεγράφησαν στις 14.12.2015",
+    "value": "2015-12-14",
+    "validFrom": "2015-12-14",
+    "confidence": "high"
+  },
+  "term": {
+    "quotation": "Η Περίοδος Παραχώρησης, η οποία άρχεται από την Ημερομηνία Έναρξης Παραχώρησης, λήγει σαράντα (40) έτη μετά από αυτήν",
+    "distinction": "Η ημερομηνία υπογραφής ορίζεται και ως Ημερομηνία Έναρξης Ισχύος των συμβάσεων, ημερομηνία που διαφέρει από την Ημερομηνία Έναρξης Παραχώρησης",
+    "value": "40 έτη από την ημερομηνία έναρξης παραχώρησης. Η απόφαση τη διακρίνει από την υπογραφή και δεν δίνει την ημερομηνία έναρξης.",
+    "confidence": "high"
+  },
+  "controlQuotation": "απόκτηση του αποκλειστικού ελέγχου από την ως άνω εταιρία, μέσω Συμβάσεων Παραχώρησης, αφενός των περιφερειακών αεροδρομίων Κρήτης, Ηπειρωτικής Ελλάδας και Ιονίου, και συγκεκριμένα των αεροδρομίων (1) Θεσσαλονίκης, (2) Κέρκυρας, (3) Ζακύνθου, (4) Κεφαλληνίας, (5) Ακτίου, (6) Καβάλας και (7) Χανίων, και αφετέρου των περιφερειακών αεροδρομίων Αιγαίου, και συγκεκριμένα των αεροδρομίων (1) Ρόδου, (2) Κω, (3) Σαντορίνης, (4) Μυκόνου, (5) Μυτιλήνης, (6) Σάμου και (7) Σκιάθου.",
+  "concessionQuotation": "την υπογράφουσα Εταιρία Α ή Εταιρία Β (ανάλογα με το αν επρόκειτο για την Ομάδα Α ή την Ομάδα Β αντίστοιχα)",
+  "companies": [
+    {
+      "id": "company:fraport-ag",
+      "label": "FRAPORT AG",
+      "role": "notifying-company"
+    },
+    {
+      "id": "company:fraport-regional-a",
+      "label": "FRAPORT Περιφερειακά Αεροδρόμια της Ελλάδος Α Α.Ε.",
+      "role": "concessionaire",
+      "group": "A"
+    },
+    {
+      "id": "company:fraport-regional-b",
+      "label": "FRAPORT Περιφερειακά Αεροδρόμια της Ελλάδος Β Α.Ε.",
+      "role": "concessionaire",
+      "group": "B"
+    },
+    {
+      "id": "company:slentel",
+      "label": "SLENTEL LIMITED",
+      "role": "shareholder"
+    }
+  ],
+  "equity": {
+    "validFrom": "2016-02-29",
+    "validTo": "2016-12-31",
+    "confidence": "medium",
+    "agreementQuotation": "FRAPORT και SLENTEL (εφεξής συλλογικά «οι Μέτοχοι») και των Εταιριών Α και Β στις 29.2.2016",
+    "quotation": "οι οποίες όμως έχουν την ίδια μετοχική σύνθεση (65% FRAPORT και 35% SLENTEL)",
+    "holders": [
+      { "fromId": "company:fraport-ag", "percent": 65 },
+      { "fromId": "company:slentel", "percent": 35 }
+    ]
+  },
+  "airports": [
+    {
+      "id": "infra:thessaloniki",
+      "label": "Αεροδρόμιο Θεσσαλονίκης",
+      "group": "A",
+      "listToken": "Θεσσαλονίκης",
+      "location": {
+        "regionId": "region:EL52",
+        "nuts2": "EL52",
+        "nuts2Name": "Κεντρική Μακεδονία",
+        "nuts3": "EL522",
+        "nuts3Name": "Θεσσαλονίκη",
+        "decisionToken": "Θεσσαλονίκης",
+        "nutsToken": "Θεσσαλονίκη",
+        "quotation": "και συγκεκριμένα των αεροδρομίων (1) Θεσσαλονίκης, (2) Κέρκυρας, (3) Ζακύνθου, (4) Κεφαλληνίας, (5) Ακτίου, (6) Καβάλας και (7) Χανίων",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "infra:corfu",
+      "label": "Αεροδρόμιο Κέρκυρας",
+      "group": "A",
+      "listToken": "Κέρκυρας",
+      "location": {
+        "regionId": "region:EL62",
+        "nuts2": "EL62",
+        "nuts2Name": "Ιόνια Νησιά",
+        "nuts3": "EL622",
+        "nuts3Name": "Κέρκυρα",
+        "decisionToken": "Κέρκυρας",
+        "nutsToken": "Κέρκυρα",
+        "quotation": "Αεροδρόμιο Κέρκυρας «Ιωάννης Καποδίστριας»",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "infra:zakynthos",
+      "label": "Αεροδρόμιο Ζακύνθου",
+      "group": "A",
+      "listToken": "Ζακύνθου",
+      "location": {
+        "regionId": "region:EL62",
+        "nuts2": "EL62",
+        "nuts2Name": "Ιόνια Νησιά",
+        "nuts3": "EL621",
+        "nuts3Name": "Ζάκυνθος",
+        "decisionToken": "Ζακύνθου",
+        "nutsToken": "Ζάκυνθος",
+        "quotation": "Αεροδρόμιο Ζακύνθου «Διονύσιος Σολωμός»",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "infra:kefalonia",
+      "label": "Αεροδρόμιο Κεφαλληνίας",
+      "group": "A",
+      "listToken": "Κεφαλληνίας",
+      "location": {
+        "regionId": "region:EL62",
+        "nuts2": "EL62",
+        "nuts2Name": "Ιόνια Νησιά",
+        "nuts3": "EL623",
+        "nuts3Name": "Ιθάκη, Κεφαλληνία",
+        "decisionToken": "Κεφαλληνίας",
+        "nutsToken": "Κεφαλληνία",
+        "quotation": "και συγκεκριμένα των αεροδρομίων (1) Θεσσαλονίκης, (2) Κέρκυρας, (3) Ζακύνθου, (4) Κεφαλληνίας, (5) Ακτίου, (6) Καβάλας και (7) Χανίων",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "infra:chania",
+      "label": "Αεροδρόμιο Χανίων",
+      "group": "A",
+      "listToken": "Χανίων",
+      "location": {
+        "regionId": "region:EL43",
+        "nuts2": "EL43",
+        "nuts2Name": "Κρήτη",
+        "nuts3": "EL434",
+        "nuts3Name": "Χανιά",
+        "decisionToken": "Κρήτη",
+        "nutsToken": "Κρήτη",
+        "quotation": "Τα Χανιά είναι το δεύτερο μεγαλύτερο αεροδρόμιο στην Κρήτη, μετά το αεροδρόμιο του Ηρακλείου.",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "infra:rhodes",
+      "label": "Αεροδρόμιο Ρόδου",
+      "group": "B",
+      "listToken": "Ρόδου",
+      "location": {
+        "regionId": "region:EL42",
+        "nuts2": "EL42",
+        "nuts2Name": "Νότιο Αιγαίο",
+        "nuts3": "EL421",
+        "nuts3Name": "Κάλυμνος, Κάρπαθος – Ηρωική Νήσος Κάσος, Κως, Ρόδος",
+        "decisionToken": "Ρόδου",
+        "nutsToken": "Ρόδος",
+        "quotation": "Αεροδρόμιο Ρόδου «Διαγόρας»",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "infra:kos",
+      "label": "Αεροδρόμιο Κω",
+      "group": "B",
+      "listToken": "Κω",
+      "location": {
+        "regionId": "region:EL42",
+        "nuts2": "EL42",
+        "nuts2Name": "Νότιο Αιγαίο",
+        "nuts3": "EL421",
+        "nuts3Name": "Κάλυμνος, Κάρπαθος – Ηρωική Νήσος Κάσος, Κως, Ρόδος",
+        "decisionToken": "Κως",
+        "nutsToken": "Κως",
+        "quotation": "Η Κως αποτελεί ένα σημαντικό τουριστικό προορισμό του νοτιοανατολικού Αιγαίου. Το αεροδρόμιο του νησιού",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "infra:mykonos",
+      "label": "Αεροδρόμιο Μυκόνου",
+      "group": "B",
+      "listToken": "Μυκόνου",
+      "location": {
+        "regionId": "region:EL42",
+        "nuts2": "EL42",
+        "nuts2Name": "Νότιο Αιγαίο",
+        "nuts3": "EL422",
+        "nuts3Name": "Άνδρος, Θήρα, Κέα, Μήλος, Μύκονος, Νάξος, Πάρος, Σύρος, Τήνος",
+        "decisionToken": "Μυκόνου",
+        "nutsToken": "Μύκονος",
+        "quotation": "και συγκεκριμένα των αεροδρομίων (1) Ρόδου, (2) Κω, (3) Σαντορίνης, (4) Μυκόνου, (5) Μυτιλήνης, (6) Σάμου και (7) Σκιάθου.",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "infra:samos",
+      "label": "Αεροδρόμιο Σάμου",
+      "group": "B",
+      "listToken": "Σάμου",
+      "location": {
+        "regionId": "region:EL41",
+        "nuts2": "EL41",
+        "nuts2Name": "Βόρειο Αιγαίο",
+        "nuts3": "EL412",
+        "nuts3Name": "Ικαρία, Σάμος",
+        "decisionToken": "Σάμου",
+        "nutsToken": "Σάμος",
+        "quotation": "και συγκεκριμένα των αεροδρομίων (1) Ρόδου, (2) Κω, (3) Σαντορίνης, (4) Μυκόνου, (5) Μυτιλήνης, (6) Σάμου και (7) Σκιάθου.",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "infra:aktion",
+      "label": "Αεροδρόμιο Ακτίου",
+      "group": "A",
+      "listToken": "Ακτίου",
+      "unmappedReason": "Η απόφαση λέει ότι το αεροδρόμιο προσφέρει πρόσβαση στη Δυτική Ελλάδα, στην Ήπειρο και στη Λευκάδα. Δεν ορίζει μία περιφέρεια NUTS 2.",
+      "quotation": "Το συγκεκριμένο αεροδρόμιο προσφέρει άμεση πρόσβαση από αέρος στη Δυτική Ελλάδα και την περιφέρεια της Ηπείρου, καθώς και στη Λευκάδα στο Ιόνιο Πέλαγος, από το οποίο απέχει 20 χιλιόμετρα."
+    },
+    {
+      "id": "infra:kavala",
+      "label": "Αεροδρόμιο Καβάλας",
+      "group": "A",
+      "listToken": "Καβάλας",
+      "unmappedReason": "Η απόφαση λέει ότι το αεροδρόμιο προσφέρει πρόσβαση σε δύο περιφέρειες, Κεντρική Μακεδονία και Ανατολική Μακεδονία και Θράκη. Δεν επιλέγεται η μία.",
+      "quotation": "Το αεροδρόμιο της Καβάλας προσφέρει άμεση πρόσβαση από αέρος στις περιφέρειες της Κεντρικής Μακεδονίας και Ανατολικής Μακεδονίας/Θράκης."
+    },
+    {
+      "id": "infra:santorini",
+      "label": "Αεροδρόμιο Σαντορίνης",
+      "group": "B",
+      "listToken": "Σαντορίνης",
+      "unmappedReason": "Η απόφαση ονομάζει Σαντορίνη. Ο κανονισμός NUTS γράφει Θήρα και δεν εξισώνει τα δύο ονόματα.",
+      "quotation": "Σαντορίνης"
+    },
+    {
+      "id": "infra:mytilene",
+      "label": "Αεροδρόμιο Μυτιλήνης",
+      "group": "B",
+      "listToken": "Μυτιλήνης",
+      "unmappedReason": "Η απόφαση ονομάζει Μυτιλήνη. Ο κανονισμός NUTS γράφει Λέσβος, Λήμνος και δεν εξισώνει τα ονόματα.",
+      "quotation": "Μυτιλήνης"
+    },
+    {
+      "id": "infra:skiathos",
+      "label": "Αεροδρόμιο Σκιάθου",
+      "group": "B",
+      "listToken": "Σκιάθου",
+      "unmappedReason": "Η απόφαση ονομάζει Σκιάθο. Ο κανονισμός NUTS γράφει Μαγνησία, Σποράδες και δεν ονομάζει τη Σκιάθο.",
+      "quotation": "Σκιάθου"
+    }
+  ]
+}

@@ -3,8 +3,8 @@
   "id": "workspace:real-2026",
   "label": "Πραγματικό απόσπασμα 2022–2023",
   "dataMode": "real",
-  "ontologyVersion": 12,
-  "revision": 70,
+  "ontologyVersion": 24,
+  "revision": 153,
   "entityTypes": [
     {
       "id": "type:country",
@@ -15,6 +15,16 @@
       "id": "type:region",
       "label": "Περιφέρεια",
       "description": "Eurostat NUTS 2 geo code."
+    },
+    {
+      "id": "type:company",
+      "label": "Εταιρεία",
+      "description": "Επωνυμία όπως την καταγράφει η πηγή."
+    },
+    {
+      "id": "type:infrastructure",
+      "label": "Υποδομή",
+      "description": "Ονοματισμένη υποδομή, εδώ αεροδρόμιο της απόφασης."
     }
   ],
   "relationshipTypes": [
@@ -39,6 +49,66 @@
       ],
       "toTypeIds": [
         "type:country"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:based_in",
+      "label": "Έδρα",
+      "description": "Η πηγή δηλώνει τη διεύθυνση έδρας της εταιρείας στη χώρα. Δεν δηλώνει έλεγχο της χώρας.",
+      "fromTypeIds": [
+        "type:company"
+      ],
+      "toTypeIds": [
+        "type:country"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:exclusive_control",
+      "label": "Αποκλειστικός έλεγχος μέσω παραχώρησης",
+      "description": "Εύρημα της Επιτροπής Ανταγωνισμού: αποκλειστικός έλεγχος μέσω των συμβάσεων παραχώρησης. Δεν είναι ποσοστό μετοχών ούτε ιδιοκτησία του ακινήτου.",
+      "fromTypeIds": [
+        "type:company"
+      ],
+      "toTypeIds": [
+        "type:infrastructure"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:concession_operator",
+      "label": "Υπογράφουσα παραχωρησιούχος",
+      "description": "Η απόφαση ονομάζει την Εταιρία Α υπογράφουσα της Ομάδας Α και την Εταιρία Β της Ομάδας Β. Είναι η σύμβαση διαχείρισης και λειτουργίας, όχι τίτλος κυριότητας.",
+      "fromTypeIds": [
+        "type:company"
+      ],
+      "toTypeIds": [
+        "type:infrastructure"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:equity_share",
+      "label": "Μετοχική σύνθεση",
+      "description": "Ποσοστό που καταγράφει η απόφαση για τις συμβάσεις μετόχων του 2016. Δεν επιβεβαιώνεται για επόμενα έτη.",
+      "fromTypeIds": [
+        "type:company"
+      ],
+      "toTypeIds": [
+        "type:company"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:located_in",
+      "label": "Βρίσκεται στην περιφέρεια",
+      "description": "Το τοπωνύμιο της απόφασης ταυτίζεται με όνομα NUTS του κανονισμού 2023/674. Δεν είναι χωρική μέτρηση σημείου.",
+      "fromTypeIds": [
+        "type:infrastructure"
+      ],
+      "toTypeIds": [
+        "type:region"
       ],
       "directed": true
     }
@@ -110,6 +180,43 @@
       "subjectKind": "entity",
       "subjectTypeId": "type:region",
       "valueType": "string"
+    },
+    {
+      "id": "property:legal_name",
+      "label": "Επωνυμία",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:company",
+      "valueType": "string"
+    },
+    {
+      "id": "property:seat_address",
+      "label": "Διεύθυνση έδρας",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:company",
+      "valueType": "string"
+    },
+    {
+      "id": "property:concession_signed",
+      "label": "Ημερομηνία υπογραφής παραχώρησης",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:company",
+      "valueType": "date"
+    },
+    {
+      "id": "property:concession_term",
+      "label": "Διάρκεια παραχώρησης",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:company",
+      "valueType": "string"
+    },
+    {
+      "id": "property:equity_percent",
+      "label": "Μετοχικό ποσοστό",
+      "subjectKind": "relationship",
+      "subjectTypeId": "reltype:equity_share",
+      "valueType": "number",
+      "unit": "percent",
+      "nonnegative": true
     }
   ],
   "entities": [
@@ -202,6 +309,96 @@
       "id": "region:EL65",
       "typeId": "type:region",
       "label": "Peloponnisos"
+    },
+    {
+      "id": "company:fraport-ag",
+      "typeId": "type:company",
+      "label": "FRAPORT AG"
+    },
+    {
+      "id": "company:fraport-regional-a",
+      "typeId": "type:company",
+      "label": "FRAPORT Περιφερειακά Αεροδρόμια της Ελλάδος Α Α.Ε."
+    },
+    {
+      "id": "company:fraport-regional-b",
+      "typeId": "type:company",
+      "label": "FRAPORT Περιφερειακά Αεροδρόμια της Ελλάδος Β Α.Ε."
+    },
+    {
+      "id": "company:slentel",
+      "typeId": "type:company",
+      "label": "SLENTEL LIMITED"
+    },
+    {
+      "id": "infra:thessaloniki",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Θεσσαλονίκης"
+    },
+    {
+      "id": "infra:corfu",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Κέρκυρας"
+    },
+    {
+      "id": "infra:zakynthos",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Ζακύνθου"
+    },
+    {
+      "id": "infra:kefalonia",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Κεφαλληνίας"
+    },
+    {
+      "id": "infra:chania",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Χανίων"
+    },
+    {
+      "id": "infra:rhodes",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Ρόδου"
+    },
+    {
+      "id": "infra:kos",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Κω"
+    },
+    {
+      "id": "infra:mykonos",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Μυκόνου"
+    },
+    {
+      "id": "infra:samos",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Σάμου"
+    },
+    {
+      "id": "infra:aktion",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Ακτίου"
+    },
+    {
+      "id": "infra:kavala",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Καβάλας"
+    },
+    {
+      "id": "infra:santorini",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Σαντορίνης"
+    },
+    {
+      "id": "infra:mytilene",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Μυτιλήνης"
+    },
+    {
+      "id": "infra:skiathos",
+      "typeId": "type:infrastructure",
+      "label": "Αεροδρόμιο Σκιάθου"
     }
   ],
   "relationships": [
@@ -372,6 +569,561 @@
       ],
       "validFrom": "2022-01-01",
       "validTo": "2022-12-31"
+    },
+    {
+      "id": "edge:seat-fraport-ag",
+      "typeId": "reltype:based_in",
+      "fromId": "company:fraport-ag",
+      "toId": "country:DEU",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-01-12",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:equity-fraport-ag-a",
+      "typeId": "reltype:equity_share",
+      "fromId": "company:fraport-ag",
+      "toId": "company:fraport-regional-a",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-02-29",
+      "validTo": "2016-12-31",
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:equity-fraport-ag-b",
+      "typeId": "reltype:equity_share",
+      "fromId": "company:fraport-ag",
+      "toId": "company:fraport-regional-b",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-02-29",
+      "validTo": "2016-12-31",
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:equity-slentel-a",
+      "typeId": "reltype:equity_share",
+      "fromId": "company:slentel",
+      "toId": "company:fraport-regional-a",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-02-29",
+      "validTo": "2016-12-31",
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:equity-slentel-b",
+      "typeId": "reltype:equity_share",
+      "fromId": "company:slentel",
+      "toId": "company:fraport-regional-b",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-02-29",
+      "validTo": "2016-12-31",
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-thessaloniki",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:thessaloniki",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-a-thessaloniki",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-a",
+      "toId": "infra:thessaloniki",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-thessaloniki",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:thessaloniki",
+      "toId": "region:EL52",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-corfu",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:corfu",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-a-corfu",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-a",
+      "toId": "infra:corfu",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-corfu",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:corfu",
+      "toId": "region:EL62",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-zakynthos",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:zakynthos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-a-zakynthos",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-a",
+      "toId": "infra:zakynthos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-zakynthos",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:zakynthos",
+      "toId": "region:EL62",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-kefalonia",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:kefalonia",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-a-kefalonia",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-a",
+      "toId": "infra:kefalonia",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-kefalonia",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:kefalonia",
+      "toId": "region:EL62",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-chania",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:chania",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-a-chania",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-a",
+      "toId": "infra:chania",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-chania",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:chania",
+      "toId": "region:EL43",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:control-rhodes",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:rhodes",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-b-rhodes",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-b",
+      "toId": "infra:rhodes",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-rhodes",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:rhodes",
+      "toId": "region:EL42",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-kos",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:kos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-b-kos",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-b",
+      "toId": "infra:kos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-kos",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:kos",
+      "toId": "region:EL42",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-mykonos",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:mykonos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-b-mykonos",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-b",
+      "toId": "infra:mykonos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-mykonos",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:mykonos",
+      "toId": "region:EL42",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-samos",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:samos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-b-samos",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-b",
+      "toId": "infra:samos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:located-samos",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:samos",
+      "toId": "region:EL41",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016",
+        "source:nuts-2024"
+      ],
+      "validFrom": "2024-01-01",
+      "validTo": null,
+      "confidence": "medium"
+    },
+    {
+      "id": "edge:control-aktion",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:aktion",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-a-aktion",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-a",
+      "toId": "infra:aktion",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:control-kavala",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:kavala",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-a-kavala",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-a",
+      "toId": "infra:kavala",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:control-santorini",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:santorini",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-b-santorini",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-b",
+      "toId": "infra:santorini",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:control-mytilene",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:mytilene",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-b-mytilene",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-b",
+      "toId": "infra:mytilene",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:control-skiathos",
+      "typeId": "reltype:exclusive_control",
+      "fromId": "company:fraport-ag",
+      "toId": "infra:skiathos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
+    },
+    {
+      "id": "edge:concession-b-skiathos",
+      "typeId": "reltype:concession_operator",
+      "fromId": "company:fraport-regional-b",
+      "toId": "infra:skiathos",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "confidence": "high"
     }
   ],
   "facts": [
@@ -1169,6 +1921,134 @@
       "validFrom": "2022-01-01",
       "validTo": "2022-12-31",
       "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:fraport-legal-name",
+      "subjectKind": "entity",
+      "subjectId": "company:fraport-ag",
+      "propertyId": "property:legal_name",
+      "value": "FRAPORT AG FRANKFURT AIRPORT SERVICES WORLDWIDE",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-01-12",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact:fraport-seat",
+      "subjectKind": "entity",
+      "subjectId": "company:fraport-ag",
+      "propertyId": "property:seat_address",
+      "value": "Flughafen, Geb. 178. 60547 Frankfurt am Main, Γερμανία",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-01-12",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact:concession-signed",
+      "subjectKind": "entity",
+      "subjectId": "company:fraport-ag",
+      "propertyId": "property:concession_signed",
+      "value": "2015-12-14",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact:concession-term",
+      "subjectKind": "entity",
+      "subjectId": "company:fraport-ag",
+      "propertyId": "property:concession_term",
+      "value": "40 έτη από την ημερομηνία έναρξης παραχώρησης. Η απόφαση τη διακρίνει από την υπογραφή και δεν δίνει την ημερομηνία έναρξης.",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2015-12-14",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z",
+      "confidence": "high"
+    },
+    {
+      "id": "fact:edge:equity-fraport-ag-a",
+      "subjectKind": "relationship",
+      "subjectId": "edge:equity-fraport-ag-a",
+      "propertyId": "property:equity_percent",
+      "value": 65,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-02-29",
+      "validTo": "2016-12-31",
+      "createdAt": "2026-11-09T00:00:00Z",
+      "confidence": "medium"
+    },
+    {
+      "id": "fact:edge:equity-fraport-ag-b",
+      "subjectKind": "relationship",
+      "subjectId": "edge:equity-fraport-ag-b",
+      "propertyId": "property:equity_percent",
+      "value": 65,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-02-29",
+      "validTo": "2016-12-31",
+      "createdAt": "2026-11-09T00:00:00Z",
+      "confidence": "medium"
+    },
+    {
+      "id": "fact:edge:equity-slentel-a",
+      "subjectKind": "relationship",
+      "subjectId": "edge:equity-slentel-a",
+      "propertyId": "property:equity_percent",
+      "value": 35,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-02-29",
+      "validTo": "2016-12-31",
+      "createdAt": "2026-11-09T00:00:00Z",
+      "confidence": "medium"
+    },
+    {
+      "id": "fact:edge:equity-slentel-b",
+      "subjectKind": "relationship",
+      "subjectId": "edge:equity-slentel-b",
+      "propertyId": "property:equity_percent",
+      "value": 35,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:hcc-626-2016"
+      ],
+      "validFrom": "2016-02-29",
+      "validTo": "2016-12-31",
+      "createdAt": "2026-11-09T00:00:00Z",
+      "confidence": "medium"
     }
   ],
   "sources": [
@@ -1195,7 +2075,7 @@
       "label": "Eurostat nama_10r_2gdp",
       "locator": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_2gdp?format=JSON&unit=MIO_EUR&time=2022",
       "retrievedAt": "2026-11-09T00:00:00Z",
-      "licenseNote": "Eurostat copyright page required login. Commission legal notice retrieved 2026-11-09 states CC BY 4.0 for EU content unless a specific notice says otherwise. Attribution: Source: Eurostat, nama_10r_2gdp.",
+      "licenseNote": "Eurostat copyright notice https://ec.europa.eu/eurostat/web/main/help/copyright-notice retrieved 2026-11-09: reuse of statistical data is authorised provided the source is acknowledged, under the Commission Decision of 12 December 2011. Attribution: Source: Eurostat, nama_10r_2gdp.",
       "verificationStatus": "verified",
       "isDemo": false
     },
@@ -1204,11 +2084,66 @@
       "label": "Eurostat bop_fdi6_geo",
       "locator": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_geo?format=JSON&geo=EL&partner=DE&sinceTimePeriod=2022&untilTimePeriod=2022",
       "retrievedAt": "2026-11-09T00:00:00Z",
-      "licenseNote": "Same Commission CC BY 4.0 basis as the regional GDP extract. Attribution: Source: Eurostat, bop_fdi6_geo. Aggregate DIRE only.",
+      "licenseNote": "Same Eurostat copyright notice, retrieved 2026-11-09. Attribution: Source: Eurostat, bop_fdi6_geo. Aggregate DIRE only.",
+      "verificationStatus": "verified",
+      "isDemo": false
+    },
+    {
+      "id": "source:hcc-626-2016",
+      "label": "Επιτροπή Ανταγωνισμού 626/2016",
+      "locator": "https://diavgeia.gov.gr/doc/Ω41ΘΙΜΞ-5ΓΤ",
+      "retrievedAt": "2026-11-09T00:00:00Z",
+      "licenseNote": "Απόφαση 626/2016 της Επιτροπής Ανταγωνισμού, συνεδρίαση 7.4.2016, ΑΔΑ Ω41ΘΙΜΞ-5ΓΤ στη Διαύγεια. Το PDF ανακτήθηκε 2026-11-09. SHA-256 029a89abf908cad2522feeaed3bea0ac8576220ac8af17efc14e13feefeee12e. Δημόσια πράξη. Τα αποσπάσματα είναι σε αυτό το αρχείο. Κενά μέσα σε λέξεις από αλλαγή γραμμής ενώθηκαν. Το 65/35 δεν προεκτείνεται μετά το 2016: η σελίδα μετόχων της Fraport Greece, ανακτημένη την ίδια μέρα, ονομάζει και Copelouzos και Blackstone χωρίς ποσοστά.",
+      "verificationStatus": "verified",
+      "isDemo": false
+    },
+    {
+      "id": "source:nuts-2024",
+      "label": "Κανονισμός (ΕΕ) 2023/674, NUTS",
+      "locator": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023R0674",
+      "retrievedAt": "2026-11-09T00:00:00Z",
+      "licenseNote": "Commission Delegated Regulation (EU) 2023/674 of 26 December 2022, EUR-Lex CELEX 32023R0674, HTML ανακτήθηκε 2026-11-09. SHA-256 8e645f2e1c615dd582eecadeddb8499dde326dc79f71731002b6343f31745616. Εφαρμόζεται για διαβίβαση δεδομένων στην Επιτροπή από 1.1.2024. Τα ονόματα είναι από τον πίνακα του παραρτήματος. Αναφορά: European Union, EUR-Lex. Επαναχρησιμοποίηση κατά την απόφαση της Επιτροπής της 12ης Δεκεμβρίου 2011, με αναφορά της πηγής.",
       "verificationStatus": "verified",
       "isDemo": false
     }
   ],
-  "savedViews": [],
-  "bindings": {}
+  "savedViews": [
+    {
+      "id": "view:capital-to-regions",
+      "label": "Χώρα επενδυτή, εταιρεία, αεροδρόμιο, περιφέρεια",
+      "query": {
+        "startEntityId": "country:DEU",
+        "steps": [
+          {
+            "relationshipTypeId": "reltype:based_in",
+            "direction": "in"
+          },
+          {
+            "relationshipTypeId": "reltype:exclusive_control",
+            "direction": "out"
+          },
+          {
+            "relationshipTypeId": "reltype:located_in",
+            "direction": "out"
+          }
+        ],
+        "year": 2024,
+        "basis": "reported",
+        "sourceIds": [
+          "source:hcc-626-2016",
+          "source:nuts-2024"
+        ],
+        "limit": 20
+      }
+    }
+  ],
+  "bindings": {
+    "countryType": "type:country",
+    "regionType": "type:region",
+    "gdpProperty": "property:gdp_usd",
+    "regionalGvaProperty": "property:regional_gdp_eur",
+    "capitalType": "reltype:direct_investment_in",
+    "fdiStockProperty": "property:fdi_stock_eur",
+    "fdiFlowProperty": "property:fdi_flow_eur"
+  }
 }

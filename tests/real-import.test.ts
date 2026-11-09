@@ -3,8 +3,10 @@ import { readFileSync } from 'node:fs';
 import { test } from 'node:test';
 import { applyAction } from '../src/core/actions.ts';
 import { previewCsv } from '../src/core/import.ts';
-import { compareEntities, rankEntities } from '../src/core/query.ts';
+import { parseWorkspace } from '../src/core/parse.ts';
+import { compareEntities, rankEntities, runSavedView } from '../src/core/query.ts';
 import { buildRealWorkspace } from '../src/real/build.ts';
+import { placeNamesMatch } from '../src/real/concession.ts';
 
 test('real imports stay separate from the demo and match the retrieved files', async () => {
   const { workspace, assessment } = await buildRealWorkspace();
@@ -25,11 +27,56 @@ test('real imports stay separate from the demo and match the retrieved files', a
   assert.equal(assessment.countriesWithGdp2022, assessment.countriesRequested);
   assert.equal(assessment.regionsWithGdp2022, assessment.regionsInSource);
   assert.equal(assessment.militaryFacts, 0);
-  assert.equal(assessment.companies, 0);
-  assert.equal(assessment.infrastructures, 0);
-  assert.equal(assessment.investmentEdgesToCompanies, 0);
-  assert.equal(assessment.hypothesisB, 'unproven');
+  assert.equal(assessment.companies, 4);
+  assert.equal(assessment.infrastructures, 14);
+  assert.equal(assessment.investmentEdgesToCompanies, 4);
+  assert.equal(assessment.hypothesisB, 'partial');
+  assert.equal(assessment.mappedAirports, 9);
+  assert.equal(assessment.unmappedAirports.length, 5);
+  assert.equal(assessment.companyPaths, 9);
   assert.equal(assessment.elapsedMs < 5000, true);
+  assert.equal(placeNamesMatch('Σαντορίνης', 'Θήρα'), false);
+  assert.equal(placeNamesMatch('Μυκόνου', 'Μύκονος'), true);
+
+  const hcc = JSON.parse(readFileSync(new URL('../data/real/raw/hcc-626-2016.json', import.meta.url), 'utf8')) as {
+    controlQuotation: string;
+    signedOn: { quotation: string; value: string };
+    airports: { id: string; listToken: string; location?: { quotation: string; decisionToken: string; nutsToken: string; nuts2Name: string; confidence: string }; unmappedReason?: string }[];
+  };
+  const nuts = JSON.parse(readFileSync(new URL('../data/real/raw/nuts-2024-el-excerpt.json', import.meta.url), 'utf8')) as { rows: { code: string; name: string }[] };
+  for (const airport of hcc.airports) {
+    assert.equal(hcc.controlQuotation.includes(airport.listToken), true);
+    const located = workspace.relationships.find(edge => edge.typeId === 'reltype:located_in' && edge.fromId === airport.id);
+    if (airport.location) {
+      assert.equal(airport.location.quotation.includes(airport.location.decisionToken), true);
+      assert.equal(placeNamesMatch(airport.location.decisionToken, airport.location.nutsToken), true);
+      if (airport.location.confidence === 'high') assert.equal(airport.location.quotation.includes(airport.location.nuts2Name), true);
+      assert.ok(located);
+      assert.equal(located?.confidence, airport.location.confidence);
+      assert.deepEqual(located?.evidenceIds, ['source:hcc-626-2016', 'source:nuts-2024']);
+      assert.equal(located?.validFrom, '2024-01-01');
+    } else {
+      assert.equal(located, undefined);
+      assert.equal(Boolean(airport.unmappedReason), true);
+    }
+  }
+  assert.equal(nuts.rows.some(row => row.name.includes('Θήρα')), true);
+  assert.equal(nuts.rows.some(row => row.name.includes('Σαντορίνη')), false);
+  const chania = runSavedView(workspace, 'view:capital-to-regions');
+  assert.equal(chania.paths.some(path => path.entityIds.join('>') === 'country:DEU>company:fraport-ag>infra:chania>region:EL43'), true);
+  assert.equal(chania.paths.some(path => path.entityIds.includes('infra:santorini')), false);
+  const signed = workspace.facts.find(fact => fact.id === 'fact:concession-signed');
+  assert.equal(signed?.value, hcc.signedOn.value);
+  assert.equal(hcc.signedOn.quotation.includes('14.12.2015'), true);
+  const equity = workspace.facts.find(fact => fact.propertyId === 'property:equity_percent' && fact.value === 65);
+  assert.equal(equity?.validTo, '2016-12-31');
+  assert.equal(workspace.relationships.find(edge => edge.id === 'edge:seat-fraport-ag')?.confidence, 'high');
+  const parsed = parseWorkspace(JSON.parse(JSON.stringify(workspace)));
+  assert.equal(parsed.ok, true);
+  const tampered = JSON.parse(JSON.stringify(workspace)) as { relationships: { confidence?: string }[] };
+  const seat = tampered.relationships.find(edge => edge.confidence === 'high');
+  if (seat) seat.confidence = 'sure';
+  assert.equal(parseWorkspace(tampered).ok, false);
 
   const rawFdi = JSON.parse(readFileSync(new URL('../data/real/raw/eurostat-bop_fdi6_geo-el-de-2022.json', import.meta.url), 'utf8')) as { value: Record<string, number> };
   assert.equal(typeof assessment.deuInwardStockMillionEur, 'number');
