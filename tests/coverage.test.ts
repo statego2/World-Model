@@ -15,7 +15,6 @@ test('shared filters follow the data and do not mix a second source', async () =
 
   const empty = chooseFilters(emptyWorkspace({ id: 'workspace:empty', label: 'Κενό', dataMode: 'real' }));
   assert.deepEqual(empty.sourceIds, []);
-  assert.equal(empty.sourceIds.includes('source:demo-macro'), false);
 
   const { workspace } = await buildRealWorkspace();
   const real = chooseFilters(workspace);

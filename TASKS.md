@@ -15,7 +15,7 @@
 | N1-B | Strict export/history/action validation | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κακογραμμένο ιστορικό απορρίπτεται ολόκληρο. |
 | N1-C | Regressions transactions, replay και stale tabs | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Τα υπάρχοντα repository/IndexedDB tests πέρασαν μαζί με τα νέα. |
 | N2 | Γενικά κοινά φίλτρα, metrics και geometry mappings | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κοινό έτος/βάση/πηγές. Δεύτερη πηγή μένει σύγκρουση. Demo 2023, real 2022. |
-| N3 | Query builder και role bindings από UI | todo | — | N2 |
+| N3 | Query builder και role bindings από UI | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κενός χώρος: φόρμα ερωτήματος, reload, δεύτερη διαδρομή. Ασυμβίβαστο binding απορρίπτεται. |
 | N4-A | Generic graph explorer και inspector | todo | — | N3 |
 | N4-B | Διαδραστικοί world/region maps και numeric scale | todo | — | N3 |
 | N4-C | Comparisons, trends και browser acceptance | todo | — | N4-A, N4-B |

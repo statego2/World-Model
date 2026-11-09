@@ -62,12 +62,15 @@ export function runPathQuery(workspace: Workspace, query: PathQuery): PathQueryR
   return remember(workspace, `path:${stableStringify(query)}`, () => computePath(workspace, query));
 }
 
-export function runSavedView(workspace: Workspace, viewId: string): PathQueryResult {
+export function runSavedView(workspace: Workspace, viewId: string, inherited?: SharedFilters): PathQueryResult {
   const view = workspace.savedViews.find(item => item.id === viewId);
   if (!view) {
     return emptyPath(workspace, 0, 0, 0);
   }
-  return runPathQuery(workspace, view.query);
+  const query = view.filterMode === 'inherit' && inherited
+    ? { ...view.query, year: inherited.year, basis: inherited.basis, sourceIds: inherited.sourceIds }
+    : view.query;
+  return runPathQuery(workspace, query);
 }
 
 export function compareEntities(workspace: Workspace, entityIds: string[], propertyId: string, filters: SharedFilters): { ok: true; rows: MetricReading[]; meta: QueryMeta } | { ok: false; message: string } {

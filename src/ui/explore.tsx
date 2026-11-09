@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { chooseFilters } from '../core/coverage.ts';
 import { rankEntities, runSavedView, type PathQueryResult, type SharedFilters } from '../core/query.ts';
 import type { Workspace } from '../core/types.ts';
 import { entityLabel } from './lookup.ts';
@@ -8,7 +9,7 @@ export function Explore() {
   const model = useModel();
   const workspace = model.workspace;
   const [result, setResult] = useState<PathQueryResult | null>(null);
-  const [filters, setFilters] = useState<SharedFilters>({ year: 2023, basis: 'reported', sourceIds: ['source:demo-macro'] });
+  const [filters, setFilters] = useState<SharedFilters>(() => workspace ? chooseFilters(workspace) : { year: 1900, basis: 'reported', sourceIds: [] });
   if (!workspace) return null;
   const countries = workspace.entities.filter(entity => entity.typeId === workspace.bindings.countryType);
   const ranked = countries.length > 0 && workspace.bindings.defenseSpendingProperty
@@ -51,15 +52,86 @@ export function Explore() {
           </table></div>
         ) : null}
       </section>
+      <QueryBuilder workspace={workspace} />
       {workspace.savedViews.map(view => (
         <section className="panel" key={view.id}>
           <h2>{view.label}</h2>
-          <p className="muted">Έτος {view.query.year} · {view.query.basis === 'assumption' ? 'υπόθεση' : 'τεκμηριωμένο'} · {view.query.steps.length} βήματα</p>
-          <button className="primary" type="button" onClick={() => setResult(runSavedView(workspace, view.id))}>Εκτέλεση</button>
+          <p className="muted">{view.filterMode === 'inherit' ? 'Κληρονομεί τα τρέχοντα φίλτρα.' : `Σταθερές παράμετροι: έτος ${view.query.year}.`} {view.query.basis === 'assumption' ? 'Υπόθεση' : 'Τεκμηριωμένο'} · {view.query.steps.length} βήματα</p>
+          <button className="primary" type="button" onClick={() => setResult(runSavedView(workspace, view.id, filters))}>Εκτέλεση</button>
         </section>
       ))}
       {result ? <PathTable workspace={workspace} result={result} /> : null}
     </div>
+  );
+}
+
+function QueryBuilder({ workspace }: { workspace: Workspace }) {
+  const model = useModel();
+  const [id, setId] = useState('view:custom');
+  const [label, setLabel] = useState('Δική μου διαδρομή');
+  const [startEntityId, setStart] = useState('');
+  const [steps, setSteps] = useState([{ relationshipTypeId: '', direction: 'out' as 'out' | 'in' }, { relationshipTypeId: '', direction: 'out' as 'out' | 'in' }, { relationshipTypeId: '', direction: 'out' as 'out' | 'in' }, { relationshipTypeId: '', direction: 'out' as 'out' | 'in' }]);
+  const [year, setYear] = useState(2023);
+  const [basis, setBasis] = useState<'reported' | 'assumption'>('reported');
+  const [sourceIds, setSourceIds] = useState<string[]>([]);
+  const [limit, setLimit] = useState(20);
+  const [filterMode, setFilterMode] = useState<'fixed' | 'inherit'>('fixed');
+  return (
+    <form className="panel" aria-label="Νέο ερώτημα" onSubmit={event => {
+      event.preventDefault();
+      const querySteps = steps.filter(step => step.relationshipTypeId);
+      if (!startEntityId || querySteps.length === 0 || sourceIds.length === 0) return;
+      void model.commit({ type: 'SaveView', view: { id, label, filterMode, query: { startEntityId, steps: querySteps, year, basis, sourceIds, limit } } });
+    }}>
+      <h2>Νέο ερώτημα</h2>
+      <div className="form-grid">
+        <label className="field"><span>ID προβολής</span><input value={id} onChange={event => setId(event.target.value)} /></label>
+        <label className="field"><span>Όνομα</span><input value={label} onChange={event => setLabel(event.target.value)} /></label>
+        <label className="field"><span>Αφετηρία</span>
+          <select value={startEntityId} onChange={event => setStart(event.target.value)}>
+            <option value="">Επίλεξε</option>
+            {workspace.entities.map(entity => <option key={entity.id} value={entity.id}>{entity.label}</option>)}
+          </select>
+        </label>
+        <label className="field"><span>Έτος</span><input type="number" value={year} onChange={event => setYear(Number(event.target.value))} /></label>
+        <label className="field"><span>Βάση ερωτήματος</span>
+          <select value={basis} onChange={event => setBasis(event.target.value as 'reported' | 'assumption')}>
+            <option value="reported">Τεκμηριωμένο</option>
+            <option value="assumption">Υπόθεση</option>
+          </select>
+        </label>
+        <label className="field"><span>Όριο</span><input type="number" min={1} max={1000} value={limit} onChange={event => setLimit(Number(event.target.value))} /></label>
+        <label className="field"><span>Φίλτρα</span>
+          <select value={filterMode} onChange={event => setFilterMode(event.target.value as 'fixed' | 'inherit')}>
+            <option value="fixed">Σταθερές παράμετροι</option>
+            <option value="inherit">Κληρονομεί τα τρέχοντα</option>
+          </select>
+        </label>
+      </div>
+      {steps.map((step, index) => (
+        <div className="form-grid" key={index}>
+          <label className="field"><span>Βήμα {index + 1}</span>
+            <select aria-label={`Τύπος βήματος ${index + 1}`} value={step.relationshipTypeId} onChange={event => setSteps(current => current.map((item, itemIndex) => itemIndex === index ? { ...item, relationshipTypeId: event.target.value } : item))}>
+              <option value="">Κανένα</option>
+              {workspace.relationshipTypes.filter(type => !type.deprecated).map(type => <option key={type.id} value={type.id}>{type.label}</option>)}
+            </select>
+          </label>
+          <label className="field"><span>Κατεύθυνση</span>
+            <select aria-label={`Κατεύθυνση βήματος ${index + 1}`} value={step.direction} onChange={event => setSteps(current => current.map((item, itemIndex) => itemIndex === index ? { ...item, direction: event.target.value as 'out' | 'in' } : item))}>
+              <option value="out">Προς τα έξω</option>
+              <option value="in">Προς τα μέσα</option>
+            </select>
+          </label>
+        </div>
+      ))}
+      <fieldset className="checks">
+        <legend>Πηγές ερωτήματος</legend>
+        {workspace.sources.map(source => (
+          <label key={source.id}><input type="checkbox" checked={sourceIds.includes(source.id)} onChange={event => setSourceIds(current => event.target.checked ? [...current, source.id] : current.filter(id => id !== source.id))} />{source.label}</label>
+        ))}
+      </fieldset>
+      <button className="primary" type="submit">Αποθήκευση προβολής</button>
+    </form>
   );
 }
 

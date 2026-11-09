@@ -54,6 +54,7 @@ export function Modules() {
           ))}
         </fieldset>
       </form>
+      <BindingEditor workspace={workspace} />
       <div className="module-tabs" role="tablist" aria-label="Εφαρμογές">
         <Tab id="world" current={moduleId} onSelect={setModuleId} label="Παγκόσμιος χάρτης" />
         <Tab id="military" current={moduleId} onSelect={setModuleId} label="Ελλάδα–Τουρκία" />
@@ -159,6 +160,57 @@ function Greece({ workspace, filters }: { workspace: Workspace; filters: SharedF
       </ul>
     </section>
   );
+}
+
+const BINDING_LABELS: [string, string][] = [
+  ['countryType', 'Τύπος χώρας'],
+  ['regionType', 'Τύπος περιφέρειας'],
+  ['gdpProperty', 'ΑΕΠ'],
+  ['populationProperty', 'Πληθυσμός'],
+  ['defenseSpendingProperty', 'Αμυντική δαπάνη'],
+  ['regionalGvaProperty', 'Περιφερειακό ΑΕΠ'],
+  ['capitalType', 'Τύπος κεφαλαιακής σχέσης'],
+  ['fdiStockProperty', 'Απόθεμα FDI'],
+  ['fdiFlowProperty', 'Ροή FDI'],
+];
+
+function BindingEditor({ workspace }: { workspace: Workspace }) {
+  const model = useModel();
+  const [role, setRole] = useState('countryType');
+  const [definitionId, setDefinitionId] = useState('');
+  const options = bindingOptions(workspace, role);
+  const missing = BINDING_LABELS.filter(([id]) => !workspace.bindings[id]).map(([, label]) => label);
+  return (
+    <form className="panel" aria-label="Ρόλοι εφαρμογών" onSubmit={event => {
+      event.preventDefault();
+      if (!definitionId) return;
+      void model.commit({ type: 'SetBinding', role, definitionId });
+    }}>
+      <h2>Ρόλοι</h2>
+      {missing.length > 0 ? <p>Λείπουν: {missing.join(', ')}.</p> : <p>Όλοι οι ρόλοι έχουν ορισμό.</p>}
+      <div className="form-grid">
+        <label className="field"><span>Ρόλος</span>
+          <select value={role} onChange={event => { setRole(event.target.value); setDefinitionId(''); }}>
+            {BINDING_LABELS.map(([id, label]) => <option key={id} value={id}>{label}</option>)}
+          </select>
+        </label>
+        <label className="field"><span>Ορισμός</span>
+          <select value={definitionId} onChange={event => setDefinitionId(event.target.value)}>
+            <option value="">Επίλεξε</option>
+            {options.map(option => <option key={option.id} value={option.id}>{option.label}</option>)}
+          </select>
+        </label>
+      </div>
+      <button className="primary" type="submit">Σύνδεση ρόλου</button>
+    </form>
+  );
+}
+
+function bindingOptions(workspace: Workspace, role: string): { id: string; label: string }[] {
+  if (role === 'countryType' || role === 'regionType') return workspace.entityTypes.filter(item => !item.deprecated).map(item => ({ id: item.id, label: item.label }));
+  if (role === 'capitalType') return workspace.relationshipTypes.filter(item => !item.deprecated).map(item => ({ id: item.id, label: item.label }));
+  const kind = role === 'fdiStockProperty' || role === 'fdiFlowProperty' ? 'relationship' : 'entity';
+  return workspace.properties.filter(item => !item.deprecated && item.valueType === 'number' && item.subjectKind === kind).map(item => ({ id: item.id, label: item.label }));
 }
 
 function Tab({ id, current, onSelect, label }: { id: ModuleId; current: ModuleId; onSelect: (id: ModuleId) => void; label: string }) {

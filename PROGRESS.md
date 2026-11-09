@@ -21,7 +21,11 @@ Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-8
 
 Επαλήθευση N2: `node --test tests/coverage.test.ts` — pass. `npx playwright test tests/browser/modules.spec.ts tests/browser/real.spec.ts` — 2/2 pass.
 
-Επόμενο βήμα: N3, query builder και role bindings από το UI.
+Επόμενο βήμα μετά το N2 ήταν το N3. Ολοκληρώθηκε: φόρμα αποθηκευμένου ερωτήματος με 1–4 βήματα, σταθερά ή κληρονομούμενα φίλτρα, και ενέργεια `SetBinding` που απορρίπτει ιδιότητα άλλου τύπου. Browser από κενό χώρο: αποθήκευση, reload, εκτέλεση, δεύτερη εταιρεία στην ίδια προβολή. Screenshot `docs/evidence/n3-query-1440.png`.
+
+Επαλήθευση N3: `node --test tests/bindings.test.ts` — pass. `npx playwright test tests/browser/query-builder.spec.ts tests/browser/explore.spec.ts tests/browser/modules.spec.ts` — 3/3 pass.
+
+Επόμενο βήμα: N4, επιλογή στον χάρτη, αριθμητική κλίμακα και γειτονιά κόμβου.
 T-REPO-01: το public repository είναι επιλογή του ιδιοκτήτη. Δεν αλλάζει η ορατότητα.
 
 ## 2026-11-09 — T-REF-01 — Μελέτη τριών εφαρμογών αναφοράς
