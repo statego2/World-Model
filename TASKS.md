@@ -9,7 +9,7 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 |---|---|---|---|---|
 | T-M0-01 | Σχέδιο, contracts, fixture, validator, tests | done | Codex / χωρίς branch | — |
 | T-MEM-01 | Πέντε αρχεία μνήμης και agent workflow | done | Codex / χωρίς branch | M0 |
-| T-REPO-01 | GitHub repo και αρχικό versioned snapshot | in_progress | Codex / main | Επαλήθευση πλήρους μεταφοράς |
+| T-REPO-01 | GitHub repo και αρχικό versioned snapshot | in_progress | Codex / main | Εκκρεμεί clone και tests σε δεύτερο χώρο |
 | T-M1-01 | React/TS/Vite scaffold και scripts/lockfile | todo | — | M0 |
 | T-M1-02 | Strict parser, actions και repository contract | todo | — | T-M1-01 |
 | T-M1-03 | IndexedDB adapter, transactions, revision conflicts | todo | — | T-M1-02 |
