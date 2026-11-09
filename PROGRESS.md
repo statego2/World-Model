@@ -3,6 +3,23 @@
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
 Τρέχον στάδιο: T-M5-02 στο `cursor/m5-real-sources-864c`. Η υπόθεση Β είναι μερική: εννέα αεροδρόμια έχουν διαδρομή, πέντε μένουν blocker.
 
+
+## 2026-11-09 — N-PLAN — Ανάθεση πολύωρης ανάπτυξης
+
+Agent: Codex. Status: done (planning/handoff only). Ο χρήστης ζήτησε πολύωρη συνέχεια
+σε βάθος. Προστέθηκαν docs/plans/OVERNIGHT_DEVELOPMENT.md, prompts/OVERNIGHT_START.md
+και το ανεξάρτητο review του d3c738c9. Η ουρά TASKS περιέχει N0–N7 με dependencies.
+
+Baseline σχεδιασμού: 18d0ebdcb4fb22522ff48c9e7d78563646874eea. Το bot συνέχισε μετά
+το παλιό review με Fraport evidence και real-data modules. Το N0 θα επανελέγξει τι
+διορθώθηκε· δεν έγινε νέο runtime verification ή αλλαγή application code σε αυτή
+την εργασία. Η προηγούμενη ανεξάρτητη επαλήθευση αφορούσε d3c738c9 (47+6 tests).
+Έλεγχοι παρούσας εργασίας: docs/task references, νέο snapshot και GitHub artifact.
+
+Η δημοσίευση οδηγιών δεν ξεκινά αυτόματα agent. Εκκίνηση με το prompt στο
+prompts/OVERNIGHT_START.md. Επόμενη ενέργεια εκτελεστή: N0, έπειτα N1 και οι
+εξαρτώμενες εργασίες μέχρι το τέλος του διαθέσιμου runtime. Χωρίς αυτόματο merge/deploy.
+
 ## 2026-11-09 — T-M5-02 — Οι πραγματικές μετρήσεις φαίνονται στις εφαρμογές
 
 Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m5-real-sources-864c
@@ -217,3 +234,4 @@ Agent/session: ... | Status: ... | Branch/commit/PR: ...
 Blockers / τι ΔΕΝ ολοκληρώθηκε: ...
 Handoff / ακριβές επόμενο βήμα: ...
 ```
+
