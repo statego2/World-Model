@@ -1,7 +1,7 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: M0 ολοκληρωμένο, M1 δεν έχει αρχίσει. T-REPO-01 σε εξέλιξη: μεταφορά μέσω GitHub app.
+Τρέχον στάδιο: M0 ολοκληρωμένο, M1 δεν έχει αρχίσει. T-REPO-01 σε εξέλιξη: έγινε μεταφορά στο GitHub, εκκρεμεί δοκιμή clone.
 
 ## 2026-11-09 — T-REPO-01 — Προετοιμασία GitHub
 
@@ -9,7 +9,7 @@ Agent: Codex. Status: blocked. Τοπικό Git main και origin https://githu
 
 ## 2026-11-09 — T-REPO-01 — GitHub app
 
-Agent: Codex. Το GitHub app βρήκε το public stratego2/World-Model και δημιούργησε αρχικό README commit. Η πλήρης μεταφορά αρχείων και η τελική επαλήθευση ακολουθούν. Το πρώτο αίτημα μεταφοράς επέστρεψε 404, αλλά με ρητό branch main πέτυχε.
+Agent: Codex. Το GitHub app βρήκε το public stratego2/World-Model και δημιούργησε αρχικό README commit. Το πλήρες starter ανέβηκε στο main με commit 596eb5c5 και ελέγχθηκε η πρόσβαση στα AGENTS.md, TASKS.md, PROGRESS.md, validator και fixture. Εκκρεμεί clone σε δεύτερο χώρο και εκτέλεση tests από εκεί. Το πρώτο αίτημα μεταφοράς επέστρεψε 404, αλλά με ρητό branch main πέτυχε.
 
 ## 2026-11-09 — T-MEM-01 — Persistent project memory
 
