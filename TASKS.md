@@ -16,9 +16,9 @@
 | N1-C | Regressions transactions, replay και stale tabs | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Τα υπάρχοντα repository/IndexedDB tests πέρασαν μαζί με τα νέα. |
 | N2 | Γενικά κοινά φίλτρα, metrics και geometry mappings | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κοινό έτος/βάση/πηγές. Δεύτερη πηγή μένει σύγκρουση. Demo 2023, real 2022. |
 | N3 | Query builder και role bindings από UI | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κενός χώρος: φόρμα ερωτήματος, reload, δεύτερη διαδρομή. Ασυμβίβαστο binding απορρίπτεται. |
-| N4-A | Generic graph explorer και inspector | todo | Cursor Grok 4.7 / cursor/overnight-depth-864c | Υπάρχει γειτονιά ενός βήματος από τον χάρτη. Λείπουν αναζήτηση, δύο βήματα και όριο 200/500. |
+| N4-A | Generic graph explorer και inspector | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Αναζήτηση, 1–2 βήματα, φίλτρο τύπου/κατεύθυνσης, όριο 200/500, πίνακας. |
 | N4-B | Διαδραστικοί world/region maps και numeric scale | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Click, πληκτρολόγιο, κλίμακα, no-data και πηγή στον inspector. |
-| N4-C | Comparisons, trends και browser acceptance | todo | — | N4-A, N4-B |
+| N4-C | Comparisons, trends και browser acceptance | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Σειρά μόνο από υπάρχοντα έτη. Κενό έτος μένει κενό. |
 | N5 | CSV imports entities/edges/relationship facts | todo | — | N4 |
 | N6 | Επαλήθευση πραγματικής διαδρομής και technical case study | todo | — | N0, evidence· ανεξάρτητο από UI |
 | N7 | CI, performance/accessibility, τεκμηρίωση και handoff | todo | — | Σταθερό completed scope |

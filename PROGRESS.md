@@ -1,7 +1,19 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: N4-A στο `cursor/overnight-depth-864c`. N0–N3 και N4-B πέρασαν. Η υπόθεση Β μένει μερική.
+Τρέχον στάδιο: N5 στο `cursor/overnight-depth-864c`. N0–N4 πέρασαν. Η υπόθεση Β μένει μερική.
+
+## 2026-11-09 — N4-A / N4-C — Γειτονιά και σειρά
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-864c
+
+Η αναζήτηση βρίσκει οντότητα από όνομα ή ID. Η γειτονιά πάει ένα ή δύο βήματα, με κατεύθυνση και τύπο ακμής, και κόβεται στα 200 nodes / 500 edges. Ο πίνακας είναι η προσβάσιμη προβολή. Ο inspector δείχνει fact, περίοδο και evidence.
+
+Η σύγκριση δέχεται 2–5 χώρες. Η σειρά περιλαμβάνει μόνο έτη που υπάρχουν σε κάποια επιλεγμένη οντότητα. Όπου λείπει τιμή, το κελί μένει «κενό» και το γράφημα δεν βάζει σημείο.
+
+Επαλήθευση: `node --test tests/neighborhood.test.ts` — 2/2 pass. `npx playwright test tests/browser/graph.spec.ts tests/browser/explore.spec.ts` — 2/2 pass. Screenshots `docs/evidence/n4-graph-1440.png`, `docs/evidence/n4-graph-390.png`.
+
+Επόμενο βήμα: N5, εισαγωγή οντοτήτων και ακμών με ακριβές ID.
 
 ## 2026-11-09 — N4-B — Διαδραστικοί χάρτες
 

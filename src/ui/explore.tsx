@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { chooseFilters } from '../core/coverage.ts';
-import { rankEntities, runSavedView, type PathQueryResult, type SharedFilters } from '../core/query.ts';
+import { neighborhood, NEIGHBORHOOD_EDGE_LIMIT, NEIGHBORHOOD_NODE_LIMIT, searchEntities } from '../core/neighborhood.ts';
+import { rankEntities, readSubjectMetric, runSavedView, type PathQueryResult, type SharedFilters } from '../core/query.ts';
+import { timeSeries } from '../core/series.ts';
 import type { Workspace } from '../core/types.ts';
 import { entityLabel } from './lookup.ts';
 import { useModel } from './model.tsx';
@@ -52,6 +54,8 @@ export function Explore() {
           </table></div>
         ) : null}
       </section>
+      <GraphPanel workspace={workspace} filters={filters} />
+      <ComparePanel workspace={workspace} filters={filters} />
       <QueryBuilder workspace={workspace} />
       {workspace.savedViews.map(view => (
         <section className="panel" key={view.id}>
@@ -132,6 +136,125 @@ function QueryBuilder({ workspace }: { workspace: Workspace }) {
       </fieldset>
       <button className="primary" type="submit">Αποθήκευση προβολής</button>
     </form>
+  );
+}
+
+function GraphPanel({ workspace, filters }: { workspace: Workspace; filters: SharedFilters }) {
+  const [query, setQuery] = useState('');
+  const [start, setStart] = useState('');
+  const [hops, setHops] = useState<1 | 2>(2);
+  const [direction, setDirection] = useState<'out' | 'in' | 'both'>('out');
+  const [typeId, setTypeId] = useState('');
+  const [selected, setSelected] = useState('');
+  const matches = searchEntities(workspace, query);
+  const result = start ? neighborhood(workspace, { startEntityId: start, hops, direction, relationshipTypeIds: typeId ? [typeId] : [], year: filters.year, basis: filters.basis, sourceIds: filters.sourceIds }) : null;
+  const focus = workspace.entities.find(entity => entity.id === selected);
+  const facts = focus ? workspace.facts.filter(fact => fact.subjectKind === 'entity' && fact.subjectId === focus.id && fact.basis === filters.basis) : [];
+  return (
+    <section className="panel" aria-label="Γειτονιά">
+      <h2>Γειτονιά</h2>
+      <p className="muted">Έως δύο βήματα. Όριο {NEIGHBORHOOD_NODE_LIMIT} κόμβοι και {NEIGHBORHOOD_EDGE_LIMIT} ακμές. Ο πίνακας είναι η προσβάσιμη προβολή.</p>
+      <div className="form-grid">
+        <label className="field"><span>Αναζήτηση οντότητας</span><input value={query} onChange={event => setQuery(event.target.value)} /></label>
+        <label className="field"><span>Βήματα</span>
+          <select value={hops} onChange={event => setHops(Number(event.target.value) === 1 ? 1 : 2)}>
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+          </select>
+        </label>
+        <label className="field"><span>Κατεύθυνση γειτονιάς</span>
+          <select value={direction} onChange={event => setDirection(event.target.value as 'out' | 'in' | 'both')}>
+            <option value="out">Προς τα έξω</option>
+            <option value="in">Προς τα μέσα</option>
+            <option value="both">Και οι δύο</option>
+          </select>
+        </label>
+        <label className="field"><span>Τύπος ακμής</span>
+          <select value={typeId} onChange={event => setTypeId(event.target.value)}>
+            <option value="">Όλοι</option>
+            {workspace.relationshipTypes.map(type => <option key={type.id} value={type.id}>{type.label}</option>)}
+          </select>
+        </label>
+      </div>
+      {matches.length > 0 ? <ul className="plain-list">{matches.map(match => <li key={match.id}><button type="button" onClick={() => { setStart(match.id); setSelected(match.id); }}>{match.label}</button></li>)}</ul> : null}
+      {result ? (
+        <div className="table-wrap"><table data-testid="neighborhood-table">
+          <thead><tr><th>Βήμα</th><th>Οντότητα</th><th>Ακμές</th></tr></thead>
+          <tbody>
+            {result.nodes.map(node => (
+              <tr key={node.id}>
+                <td>{node.hop}</td>
+                <td><button type="button" onClick={() => setSelected(node.id)}>{entityLabel(workspace, node.id)}</button></td>
+                <td>{result.edges.filter(edge => edge.fromId === node.id || edge.toId === node.id).length}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table></div>
+      ) : null}
+      {result?.truncated ? <p>Η γειτονιά κόπηκε στο δηλωμένο όριο.</p> : null}
+      {result ? <p className="muted">{result.note}</p> : null}
+      {focus ? (
+        <div data-testid="graph-inspector">
+          <h3>{focus.label}</h3>
+          <p className="mono">{focus.id}</p>
+          {facts.length === 0 ? <p>Χωρίς αριθμητικό fact σε αυτή τη βάση.</p> : facts.filter(fact => typeof fact.value === 'number').slice(0, 6).map(fact => {
+            const reading = readSubjectMetric(workspace, 'entity', focus.id, fact.propertyId, filters);
+            const property = workspace.properties.find(item => item.id === fact.propertyId);
+            return <p key={fact.id}>{property?.label ?? fact.propertyId}: {reading.status === 'missing' ? 'χωρίς δεδομένα' : reading.status === 'conflict' ? 'σύγκρουση' : `${reading.values[0]?.value ?? fact.value} ${property?.unit ?? ''}`} · {fact.validFrom} → {fact.validTo ?? '…'} · {fact.evidenceIds.join(', ')}</p>;
+          })}
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
+function ComparePanel({ workspace, filters }: { workspace: Workspace; filters: SharedFilters }) {
+  const [picked, setPicked] = useState<string[]>([]);
+  const [propertyId, setPropertyId] = useState(workspace.bindings.gdpProperty ?? '');
+  const properties = workspace.properties.filter(property => property.valueType === 'number' && property.subjectKind === 'entity' && !property.deprecated);
+  const series = picked.length >= 2 && propertyId ? timeSeries(workspace, picked, propertyId, { basis: filters.basis, sourceIds: filters.sourceIds }) : null;
+  return (
+    <section className="panel" aria-label="Σύγκριση και σειρά">
+      <h2>Σύγκριση</h2>
+      <p>Δύο έως πέντε οντότητες, ίδια ιδιότητα και πηγές. Ένα κενό έτος μένει κενό.</p>
+      <label className="field"><span>Ιδιότητα σύγκρισης</span>
+        <select value={propertyId} onChange={event => setPropertyId(event.target.value)}>
+          {properties.map(property => <option key={property.id} value={property.id}>{property.label}</option>)}
+        </select>
+      </label>
+      <ul className="plain-list">
+        {workspace.entities.filter(entity => entity.typeId === workspace.bindings.countryType).map(entity => (
+          <li key={entity.id}><label><input type="checkbox" checked={picked.includes(entity.id)} onChange={event => setPicked(current => event.target.checked ? (current.length >= 5 ? current : [...current, entity.id]) : current.filter(id => id !== entity.id))} />{entity.label}</label></li>
+        ))}
+      </ul>
+      {series ? (
+        <div className="table-wrap"><table data-testid="series-table">
+          <thead><tr><th>Οντότητα</th>{series.years.map(year => <th key={year}>{year}</th>)}</tr></thead>
+          <tbody>
+            {series.rows.map(row => (
+              <tr key={row.entityId}>
+                <td>{entityLabel(workspace, row.entityId)}</td>
+                {row.points.map(point => <td key={point.year}>{point.status === 'value' ? `${point.value} ${series.unit ?? ''}` : 'κενό'}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table></div>
+      ) : null}
+      {series ? <SeriesChart series={series} /> : null}
+    </section>
+  );
+}
+
+function SeriesChart({ series }: { series: ReturnType<typeof timeSeries> }) {
+  const values = series.rows.flatMap(row => row.points.flatMap(point => point.value === null ? [] : [point.value]));
+  const min = values.length > 0 ? Math.min(...values) : 0;
+  const max = values.length > 0 ? Math.max(...values) : 1;
+  return (
+    <svg className="map" viewBox="0 0 1000 220" role="img" aria-label="Σημεία σειράς χωρίς συμπλήρωση κενών">
+      {series.rows.map((row, rowIndex) => row.points.map((point, index) => point.value === null ? null : (
+        <circle key={`${row.entityId}-${point.year}`} cx={80 + index * (series.years.length > 1 ? 800 / (series.years.length - 1) : 0)} cy={190 - ((point.value - min) / (max - min || 1)) * 150} r={6 + rowIndex} fill={rowIndex === 0 ? '#e2b15a' : '#8fa888'} />
+      )))}
+    </svg>
   );
 }
 
