@@ -9,7 +9,7 @@
 | PX-1 | Shell χάρτη, format αριθμών, επιθεώρηση, viewport | done | Cursor Grok 4.7 / cursor/product-experience-864c | Header πάνω, checkbox στο label, ελληνικό compact, χάρτης αρχική οθόνη. Ο κόσμος μένει κενός στις χώρες χωρίς fact. |
 | PX-2 | WDI για όλες τις χώρες με γεωμετρία | done | Cursor Grok 4.7 / cursor/product-experience-864c | 164 χώρες με ΑΕΠ 2022. 10 πολύγωνα χωρίς τιμή μένουν κενά. CC BY 4.0. |
 | PX-3 | Graph δίπλα στον πίνακα και διάγραμμα με άξονες που διαβάζονται | done | Cursor Grok 4.7 / cursor/product-experience-864c | Κύκλος δίπλα στον πίνακα. Γραμμή μόνο σε διαδοχικά έτη με τιμή. Στο 390 το 2023 θέλει οριζόντια κύλιση. |
-| PX-4 | Κρίση screenshots 1440/390 και δεύτερο πέρασμα | in_progress | Cursor Grok 4.7 / cursor/product-experience-864c | Ο χάρτης και το graph κρίθηκαν. Μένουν ontology, entities και transfer στα δύο πλάτη. |
+| PX-4 | Κρίση screenshots 1440/390 και δεύτερο πέρασμα | done | Cursor Grok 4.7 / cursor/product-experience-864c | Το id δεν κολλάει πια στο όνομα. Στο τηλέφωνο η επιθεώρηση των φορμών δεν σκεπάζει το πεδίο. Οι φόρμες μένουν σελίδες, όχι συρτάρια. |
 
 ## Προηγούμενη ανάθεση: πολύωρη συνέχεια
 
