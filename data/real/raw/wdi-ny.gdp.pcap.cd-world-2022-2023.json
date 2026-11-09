@@ -1,0 +1,2618 @@
+[
+  {
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "year": 2023,
+    "value": 413.757894705303,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "year": 2022,
+    "value": 357.261152798144,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AGO",
+    "name": "Angola",
+    "year": 2023,
+    "value": 2885.51349130806,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AGO",
+    "name": "Angola",
+    "year": 2022,
+    "value": 3598.53669077341,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ALB",
+    "name": "Albania",
+    "year": 2023,
+    "value": 9740.7023414631,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ALB",
+    "name": "Albania",
+    "year": 2022,
+    "value": 7756.96188744253,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "year": 2023,
+    "value": 49850.6945082084,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "year": 2022,
+    "value": 50759.7590190204,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ARG",
+    "name": "Argentina",
+    "year": 2023,
+    "value": 14261.8465667948,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ARG",
+    "name": "Argentina",
+    "year": 2022,
+    "value": 13962.1894087223,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ARM",
+    "name": "Armenia",
+    "year": 2023,
+    "value": 8159.08720967996,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ARM",
+    "name": "Armenia",
+    "year": 2022,
+    "value": 6571.97445545099,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AUS",
+    "name": "Australia",
+    "year": 2023,
+    "value": 65058.3773146674,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AUS",
+    "name": "Australia",
+    "year": 2022,
+    "value": 65169.5191118657,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AUT",
+    "name": "Austria",
+    "year": 2023,
+    "value": 56579.504175468,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AUT",
+    "name": "Austria",
+    "year": 2022,
+    "value": 52336.7725223758,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "year": 2023,
+    "value": 7133.02838048328,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "year": 2022,
+    "value": 7770.594223351,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BDI",
+    "name": "Burundi",
+    "year": 2023,
+    "value": 249.795164039029,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BDI",
+    "name": "Burundi",
+    "year": 2022,
+    "value": 301.832255755105,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BEL",
+    "name": "Belgium",
+    "year": 2023,
+    "value": 55244.68145811,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BEL",
+    "name": "Belgium",
+    "year": 2022,
+    "value": 50639.0264882739,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BEN",
+    "name": "Benin",
+    "year": 2023,
+    "value": 1394.17784721831,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BEN",
+    "name": "Benin",
+    "year": 2022,
+    "value": 1266.42711031904,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "year": 2023,
+    "value": 873.198061670247,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "year": 2022,
+    "value": 827.330843486661,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "year": 2023,
+    "value": 2551.01773827307,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "year": 2022,
+    "value": 2716.48592780431,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "year": 2023,
+    "value": 15854.0192893772,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "year": 2022,
+    "value": 13999.9113358453,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BHS",
+    "name": "Bahamas, The",
+    "year": 2023,
+    "value": 38231.774484278,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BHS",
+    "name": "Bahamas, The",
+    "year": 2022,
+    "value": 34957.1613279737,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "year": 2023,
+    "value": 8663.02326458629,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "year": 2022,
+    "value": 7655.59421024383,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BLR",
+    "name": "Belarus",
+    "year": 2023,
+    "value": 7896.75388295584,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BLR",
+    "name": "Belarus",
+    "year": 2022,
+    "value": 7994.64806074889,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BLZ",
+    "name": "Belize",
+    "year": 2023,
+    "value": 7424.75821321022,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BLZ",
+    "name": "Belize",
+    "year": 2022,
+    "value": 7068.21728043145,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "year": 2023,
+    "value": 4274.70820547613,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "year": 2022,
+    "value": 4219.46113742445,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BRA",
+    "name": "Brazil",
+    "year": 2023,
+    "value": 10377.5892792557,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BRA",
+    "name": "Brazil",
+    "year": 2022,
+    "value": 9281.33334441234,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BRN",
+    "name": "Brunei Darussalam",
+    "year": 2023,
+    "value": 32890.5491812019,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BRN",
+    "name": "Brunei Darussalam",
+    "year": 2022,
+    "value": 36632.9280952155,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "year": 2023,
+    "value": 3831.32535564326,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "year": 2022,
+    "value": 3711.32767981591,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BWA",
+    "name": "Botswana",
+    "year": 2023,
+    "value": 7827.30027960734,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "BWA",
+    "name": "Botswana",
+    "year": 2022,
+    "value": 8328.7090572666,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "year": 2023,
+    "value": 495.978897288721,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "year": 2022,
+    "value": 467.359825026238,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CAN",
+    "name": "Canada",
+    "year": 2023,
+    "value": 54847.5370112652,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CAN",
+    "name": "Canada",
+    "year": 2022,
+    "value": 56496.9275340663,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "year": 2023,
+    "value": 104449.75451772,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "year": 2022,
+    "value": 97809.095567203,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CHL",
+    "name": "Chile",
+    "year": 2023,
+    "value": 17081.5180740049,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CHL",
+    "name": "Chile",
+    "year": 2022,
+    "value": 15399.1044717559,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CHN",
+    "name": "China",
+    "year": 2023,
+    "value": 12951.1782397043,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CHN",
+    "name": "China",
+    "year": 2022,
+    "value": 12970.6056414327,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CIV",
+    "name": "Cote d'Ivoire",
+    "year": 2023,
+    "value": 2591.9659048119,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CIV",
+    "name": "Cote d'Ivoire",
+    "year": 2022,
+    "value": 2333.37128301259,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "year": 2023,
+    "value": 1720.47510154506,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "year": 2022,
+    "value": 1604.87726954895,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "COD",
+    "name": "Congo, Dem. Rep.",
+    "year": 2023,
+    "value": 660.21205238997,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "COD",
+    "name": "Congo, Dem. Rep.",
+    "year": 2022,
+    "value": 687.738587554685,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "COG",
+    "name": "Congo, Rep.",
+    "year": 2023,
+    "value": 2477.97845544866,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "COG",
+    "name": "Congo, Rep.",
+    "year": 2022,
+    "value": 2620.83804267402,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "COL",
+    "name": "Colombia",
+    "year": 2023,
+    "value": 7012.49169137756,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "COL",
+    "name": "Colombia",
+    "year": 2022,
+    "value": 6680.44506854481,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "year": 2023,
+    "value": 17140.771430122,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "year": 2022,
+    "value": 13971.7649991294,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2023,
+    "value": 36623.70703125,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2022,
+    "value": 33231.05078125,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CZE",
+    "name": "Czechia",
+    "year": 2023,
+    "value": 31761.5944102491,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "CZE",
+    "name": "Czechia",
+    "year": 2022,
+    "value": 28282.2236715857,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2023,
+    "value": 54776.7668235491,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2022,
+    "value": 50506.5179638543,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "year": 2023,
+    "value": 3381.29779710722,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "year": 2022,
+    "value": 3133.25779772463,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DNK",
+    "name": "Denmark",
+    "year": 2023,
+    "value": 68043.5466971243,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DNK",
+    "name": "Denmark",
+    "year": 2022,
+    "value": 67781.0940939514,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "year": 2023,
+    "value": 10630.431743829,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "year": 2022,
+    "value": 10104.2464008585,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DZA",
+    "name": "Algeria",
+    "year": 2023,
+    "value": 5370.477235078,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "DZA",
+    "name": "Algeria",
+    "year": 2022,
+    "value": 4960.30334332888,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "year": 2023,
+    "value": 6718.1447938811,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "year": 2022,
+    "value": 6515.58528418336,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "EGY",
+    "name": "Egypt, Arab Rep.",
+    "year": 2023,
+    "value": 3456.78965212363,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "EGY",
+    "name": "Egypt, Arab Rep.",
+    "year": 2022,
+    "value": 4233.30783744856,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ESP",
+    "name": "Spain",
+    "year": 2023,
+    "value": 33493.2225409111,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ESP",
+    "name": "Spain",
+    "year": 2022,
+    "value": 30319.4987196616,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "EST",
+    "name": "Estonia",
+    "year": 2023,
+    "value": 30264.0064885057,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "EST",
+    "name": "Estonia",
+    "year": 2022,
+    "value": 28340.3826549406,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "year": 2023,
+    "value": 1055.81091593061,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "year": 2022,
+    "value": 982.103161502198,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "FIN",
+    "name": "Finland",
+    "year": 2023,
+    "value": 52864.6931581216,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "FIN",
+    "name": "Finland",
+    "year": 2022,
+    "value": 50440.560224974,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "FJI",
+    "name": "Fiji",
+    "year": 2023,
+    "value": 5926.20586394763,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "FJI",
+    "name": "Fiji",
+    "year": 2022,
+    "value": 5414.12092119088,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "FRA",
+    "name": "France",
+    "year": 2023,
+    "value": 44700.1384177544,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "FRA",
+    "name": "France",
+    "year": 2022,
+    "value": 40988.6396406579,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GAB",
+    "name": "Gabon",
+    "year": 2023,
+    "value": 7802.82433276138,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GAB",
+    "name": "Gabon",
+    "year": 2022,
+    "value": 8409.20741452279,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "year": 2023,
+    "value": 49919.6896621586,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "year": 2022,
+    "value": 47034.7795621476,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GEO",
+    "name": "Georgia",
+    "year": 2023,
+    "value": 8283.66960652261,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GEO",
+    "name": "Georgia",
+    "year": 2022,
+    "value": 6729.84659930283,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GHA",
+    "name": "Ghana",
+    "year": 2023,
+    "value": 2383.90410476221,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GHA",
+    "name": "Ghana",
+    "year": 2022,
+    "value": 2229.89122654479,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GIN",
+    "name": "Guinea",
+    "year": 2023,
+    "value": 1555.49375806861,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GIN",
+    "name": "Guinea",
+    "year": 2022,
+    "value": 1416.59612011764,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GMB",
+    "name": "Gambia, The",
+    "year": 2023,
+    "value": 883.024111978927,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GMB",
+    "name": "Gambia, The",
+    "year": 2022,
+    "value": 836.244875868476,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "year": 2023,
+    "value": 964.431832665395,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "year": 2022,
+    "value": 881.602654162231,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "year": 2023,
+    "value": 6788.35271638376,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "year": 2022,
+    "value": 7589.29964909381,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2023,
+    "value": 23343.7103964562,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2022,
+    "value": 20884.6773436263,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GRL",
+    "name": "Greenland",
+    "year": 2023,
+    "value": 58498.9707973609,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GRL",
+    "name": "Greenland",
+    "year": 2022,
+    "value": 55635.0006491223,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "year": 2023,
+    "value": 5754.42833909847,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "year": 2022,
+    "value": 5356.92435887895,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GUY",
+    "name": "Guyana",
+    "year": 2023,
+    "value": 20473.7002190617,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "GUY",
+    "name": "Guyana",
+    "year": 2022,
+    "value": 17913.4928066879,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "HND",
+    "name": "Honduras",
+    "year": 2023,
+    "value": 3227.45762509776,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "HND",
+    "name": "Honduras",
+    "year": 2022,
+    "value": 3003.28996826399,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "HRV",
+    "name": "Croatia",
+    "year": 2023,
+    "value": 22183.4982258492,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "HRV",
+    "name": "Croatia",
+    "year": 2022,
+    "value": 18465.531473659,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "HTI",
+    "name": "Haiti",
+    "year": 2023,
+    "value": 1681.84407667059,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "HTI",
+    "name": "Haiti",
+    "year": 2022,
+    "value": 1748.40890116803,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "HUN",
+    "name": "Hungary",
+    "year": 2023,
+    "value": 22208.6509820466,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "HUN",
+    "name": "Hungary",
+    "year": 2022,
+    "value": 18428.028825614,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "year": 2023,
+    "value": 4876.2992959843,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "year": 2022,
+    "value": 4730.83484836107,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IND",
+    "name": "India",
+    "year": 2023,
+    "value": 2434.44826340989,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IND",
+    "name": "India",
+    "year": 2022,
+    "value": 2279.98145719369,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IRL",
+    "name": "Ireland",
+    "year": 2023,
+    "value": 106818.917130804,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IRL",
+    "name": "Ireland",
+    "year": 2022,
+    "value": 105190.685952731,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IRN",
+    "name": "Iran, Islamic Rep.",
+    "year": 2023,
+    "value": 5049.29931642754,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IRN",
+    "name": "Iran, Islamic Rep.",
+    "year": 2022,
+    "value": 4721.20437099984,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "year": 2023,
+    "value": 5965.31835077761,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "year": 2022,
+    "value": 6520.73154560584,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ISL",
+    "name": "Iceland",
+    "year": 2023,
+    "value": 82201.2908518078,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ISL",
+    "name": "Iceland",
+    "year": 2022,
+    "value": 76376.9599334915,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ISR",
+    "name": "Israel",
+    "year": 2023,
+    "value": 52126.4489280033,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ISR",
+    "name": "Israel",
+    "year": 2022,
+    "value": 54947.2091250715,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ITA",
+    "name": "Italy",
+    "year": 2023,
+    "value": 39279.699782164,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ITA",
+    "name": "Italy",
+    "year": 2022,
+    "value": 35653.9042103495,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "year": 2023,
+    "value": 7542.39855849054,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "year": 2022,
+    "value": 6626.47502388538,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "JOR",
+    "name": "Jordan",
+    "year": 2023,
+    "value": 4906.23543006639,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "JOR",
+    "name": "Jordan",
+    "year": 2022,
+    "value": 4754.41362207378,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "JPN",
+    "name": "Japan",
+    "year": 2023,
+    "value": 35215.003535366,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "JPN",
+    "name": "Japan",
+    "year": 2022,
+    "value": 35548.2645222433,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "year": 2023,
+    "value": 12879.4275257974,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "year": 2022,
+    "value": 11255.3396437881,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KEN",
+    "name": "Kenya",
+    "year": 2023,
+    "value": 1942.58802756191,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KEN",
+    "name": "Kenya",
+    "year": 2022,
+    "value": 2109.56288513137,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KGZ",
+    "name": "Kyrgyz Republic",
+    "year": 2023,
+    "value": 2138.22210211478,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KGZ",
+    "name": "Kyrgyz Republic",
+    "year": 2022,
+    "value": 1739.72018344174,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "year": 2023,
+    "value": 2429.74853452838,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "year": 2022,
+    "value": 2325.03050040841,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KOR",
+    "name": "Korea, Rep.",
+    "year": 2023,
+    "value": 35674.095995632,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KOR",
+    "name": "Korea, Rep.",
+    "year": 2022,
+    "value": 34822.4048404971,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "year": 2023,
+    "value": 34091.9714813002,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "year": 2022,
+    "value": 39981.7691035833,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LAO",
+    "name": "Lao PDR",
+    "year": 2023,
+    "value": 2066.94979776957,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LAO",
+    "name": "Lao PDR",
+    "year": 2022,
+    "value": 2046.40440255621,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "year": 2023,
+    "value": 3477.72489842684,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "year": 2022,
+    "value": 3654.35845534878,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LBR",
+    "name": "Liberia",
+    "year": 2023,
+    "value": 799.194470229642,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LBR",
+    "name": "Liberia",
+    "year": 2022,
+    "value": 744.617175237387,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LBY",
+    "name": "Libya",
+    "year": 2023,
+    "value": 6026.51518708812,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LBY",
+    "name": "Libya",
+    "year": 2022,
+    "value": 5986.63694851258,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "year": 2023,
+    "value": 3815.41531767474,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "year": 2022,
+    "value": 3342.63650438046,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "year": 2023,
+    "value": 921.435141557056,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "year": 2022,
+    "value": 1030.12582947757,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "year": 2023,
+    "value": 27983.3658256887,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "year": 2022,
+    "value": 24946.5724005188,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "year": 2023,
+    "value": 133230.619178899,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "year": 2022,
+    "value": 123719.658915996,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LVA",
+    "name": "Latvia",
+    "year": 2023,
+    "value": 22710.2637544197,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "LVA",
+    "name": "Latvia",
+    "year": 2022,
+    "value": 20221.103686109,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MAR",
+    "name": "Morocco",
+    "year": 2023,
+    "value": 3813.72607421875,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MAR",
+    "name": "Morocco",
+    "year": 2022,
+    "value": 3463.1376953125,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MDA",
+    "name": "Moldova",
+    "year": 2023,
+    "value": 6799.58594644576,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MDA",
+    "name": "Moldova",
+    "year": 2022,
+    "value": 5744.29618434435,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "year": 2023,
+    "value": 514.064076551927,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "year": 2022,
+    "value": 504.059106969168,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MEX",
+    "name": "Mexico",
+    "year": 2023,
+    "value": 13830.843848864,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MEX",
+    "name": "Mexico",
+    "year": 2022,
+    "value": 11405.7940469896,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "year": 2023,
+    "value": 8674.35846327485,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "year": 2022,
+    "value": 7606.2375253797,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MLI",
+    "name": "Mali",
+    "year": 2023,
+    "value": 1042.44223444837,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MLI",
+    "name": "Mali",
+    "year": 2022,
+    "value": 976.914116406452,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "year": 2023,
+    "value": 1233.19666209269,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "year": 2022,
+    "value": 1158.05005034332,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "year": 2023,
+    "value": 12258.1600477339,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "year": 2022,
+    "value": 10038.1849482517,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "year": 2023,
+    "value": 5838.63108083902,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "year": 2022,
+    "value": 4993.51487463495,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "year": 2023,
+    "value": 622.191133245967,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "year": 2022,
+    "value": 578.273222184503,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "year": 2023,
+    "value": 2127.9576285973,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "year": 2022,
+    "value": 1961.28166648869,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MWI",
+    "name": "Malawi",
+    "year": 2023,
+    "value": 633.214767978695,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MWI",
+    "name": "Malawi",
+    "year": 2022,
+    "value": 604.269740360317,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "year": 2023,
+    "value": 11386.0395636528,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "year": 2022,
+    "value": 11754.5678336248,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NAM",
+    "name": "Namibia",
+    "year": 2023,
+    "value": 4225.99102418102,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NAM",
+    "name": "Namibia",
+    "year": 2022,
+    "value": 4349.79908493314,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NCL",
+    "name": "New Caledonia",
+    "year": 2023,
+    "value": 33701.8923322781,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NCL",
+    "name": "New Caledonia",
+    "year": 2022,
+    "value": 33516.363085906,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NER",
+    "name": "Niger",
+    "year": 2023,
+    "value": 647.930108509567,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NER",
+    "name": "Niger",
+    "year": 2022,
+    "value": 613.614736429298,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "year": 2023,
+    "value": 2138.76383718757,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "year": 2022,
+    "value": 2899.16047469267,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "year": 2023,
+    "value": 2609.44491147975,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "year": 2022,
+    "value": 2322.89069619459,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NLD",
+    "name": "Netherlands",
+    "year": 2023,
+    "value": 63515.6030780019,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NLD",
+    "name": "Netherlands",
+    "year": 2022,
+    "value": 59123.318556487,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NOR",
+    "name": "Norway",
+    "year": 2023,
+    "value": 90984.4087141111,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NOR",
+    "name": "Norway",
+    "year": 2022,
+    "value": 113122.130765691,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NPL",
+    "name": "Nepal",
+    "year": 2023,
+    "value": 1382.38300895424,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NPL",
+    "name": "Nepal",
+    "year": 2022,
+    "value": 1385.91066002922,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "year": 2023,
+    "value": 49302.341876493,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "year": 2022,
+    "value": 49141.6316294227,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "OMN",
+    "name": "Oman",
+    "year": 2023,
+    "value": 21027.7384572657,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "OMN",
+    "name": "Oman",
+    "year": 2022,
+    "value": 23223.5829405935,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "year": 2023,
+    "value": 1360.32417758419,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "year": 2022,
+    "value": 1538.3228133171,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PAN",
+    "name": "Panama",
+    "year": 2023,
+    "value": 18797.1933894611,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PAN",
+    "name": "Panama",
+    "year": 2022,
+    "value": 17378.6070083597,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PER",
+    "name": "Peru",
+    "year": 2023,
+    "value": 7919.04634828547,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PER",
+    "name": "Peru",
+    "year": 2022,
+    "value": 7353.74598721667,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PHL",
+    "name": "Philippines",
+    "year": 2023,
+    "value": 3804.08274131718,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PHL",
+    "name": "Philippines",
+    "year": 2022,
+    "value": 3548.06930572116,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "year": 2023,
+    "value": 2966.06455045333,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "year": 2022,
+    "value": 3102.29409730005,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "POL",
+    "name": "Poland",
+    "year": 2023,
+    "value": 22145.2660647429,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "POL",
+    "name": "Poland",
+    "year": 2022,
+    "value": 18891.2121169279,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PRI",
+    "name": "Puerto Rico (US)",
+    "year": 2023,
+    "value": 36980.7653928068,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PRI",
+    "name": "Puerto Rico (US)",
+    "year": 2022,
+    "value": 35353.5613891039,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PRT",
+    "name": "Portugal",
+    "year": 2023,
+    "value": 27634.6183139773,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PRT",
+    "name": "Portugal",
+    "year": 2022,
+    "value": 24620.5197587181,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "year": 2023,
+    "value": 6303.26495017292,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "year": 2022,
+    "value": 6189.10205375331,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PSE",
+    "name": "West Bank and Gaza",
+    "year": 2023,
+    "value": 3607.41611858821,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "PSE",
+    "name": "West Bank and Gaza",
+    "year": 2022,
+    "value": 3799.95527015163,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "QAT",
+    "name": "Qatar",
+    "year": 2023,
+    "value": 80195.8746508549,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "QAT",
+    "name": "Qatar",
+    "year": 2022,
+    "value": 88701.463352273,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ROU",
+    "name": "Romania",
+    "year": 2023,
+    "value": 18244.4186876321,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ROU",
+    "name": "Romania",
+    "year": 2022,
+    "value": 15503.4691366242,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "RUS",
+    "name": "Russian Federation",
+    "year": 2023,
+    "value": 13986.9951171875,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "RUS",
+    "name": "Russian Federation",
+    "year": 2022,
+    "value": 15625.6328125,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "year": 2023,
+    "value": 1061.05788154076,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "year": 2022,
+    "value": 1007.05989322914,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "year": 2023,
+    "value": 36156.8562500172,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "year": 2022,
+    "value": 38510.2276211037,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SDN",
+    "name": "Sudan",
+    "year": 2023,
+    "value": 797.283447265625,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SDN",
+    "name": "Sudan",
+    "year": 2022,
+    "value": 1046.24084472656,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SEN",
+    "name": "Senegal",
+    "year": 2023,
+    "value": 1698.03387300843,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SEN",
+    "name": "Senegal",
+    "year": 2022,
+    "value": 1574.0281059306,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "year": 2023,
+    "value": 1882.64394148042,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "year": 2022,
+    "value": 1877.78104490956,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "year": 2023,
+    "value": 758.329137301888,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "year": 2022,
+    "value": 860.371067874555,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "year": 2023,
+    "value": 5319.7195268688,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "year": 2022,
+    "value": 5074.60050994225,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SOM",
+    "name": "Somalia, Fed. Rep.",
+    "year": 2023,
+    "value": 596.885985135589,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SOM",
+    "name": "Somalia, Fed. Rep.",
+    "year": 2022,
+    "value": 573.141165798229,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SRB",
+    "name": "Serbia",
+    "year": 2023,
+    "value": 12281.707946167,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SRB",
+    "name": "Serbia",
+    "year": 2022,
+    "value": 10024.8191112596,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SUR",
+    "name": "Suriname",
+    "year": 2023,
+    "value": 5521.97602122638,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SUR",
+    "name": "Suriname",
+    "year": 2022,
+    "value": 6084.43876736445,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SVK",
+    "name": "Slovak Republic",
+    "year": 2023,
+    "value": 24614.8734642794,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SVK",
+    "name": "Slovak Republic",
+    "year": 2022,
+    "value": 21317.7943982363,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "year": 2023,
+    "value": 32660.4753581346,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "year": 2022,
+    "value": 28360.3041467268,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SWE",
+    "name": "Sweden",
+    "year": 2023,
+    "value": 54950.2834725622,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SWE",
+    "name": "Sweden",
+    "year": 2022,
+    "value": 54836.8907235124,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "year": 2023,
+    "value": 3755.52111232464,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "year": 2022,
+    "value": 3894.1620089869,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "SYR",
+    "name": "Syrian Arab Republic",
+    "year": 2022,
+    "value": 1056.78264718197,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TCD",
+    "name": "Chad",
+    "year": 2023,
+    "value": 949.991054236266,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TCD",
+    "name": "Chad",
+    "year": 2022,
+    "value": 966.036468278568,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TGO",
+    "name": "Togo",
+    "year": 2023,
+    "value": 1182.32951436696,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TGO",
+    "name": "Togo",
+    "year": 2022,
+    "value": 1071.61539220759,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "THA",
+    "name": "Thailand",
+    "year": 2023,
+    "value": 7210.54130832685,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "THA",
+    "name": "Thailand",
+    "year": 2022,
+    "value": 6910.00995211206,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "year": 2023,
+    "value": 1178.47990060249,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "year": 2022,
+    "value": 1052.17949484894,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "year": 2023,
+    "value": 5298.46421949276,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "year": 2022,
+    "value": 5198.18947409551,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TLS",
+    "name": "Timor-Leste",
+    "year": 2023,
+    "value": 1502.4114958903,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TLS",
+    "name": "Timor-Leste",
+    "year": 2022,
+    "value": 2343.24955542816,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "year": 2023,
+    "value": 18308.4536298575,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "year": 2022,
+    "value": 20750.5202434652,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "year": 2023,
+    "value": 3951.11683376921,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "year": 2022,
+    "value": 3707.29283414381,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2023,
+    "value": 13375.0947282864,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2022,
+    "value": 10897.8397861365,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "year": 2023,
+    "value": 1224.00219726563,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "year": 2022,
+    "value": 1207.52062988281,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "UGA",
+    "name": "Uganda",
+    "year": 2023,
+    "value": 1002.30913917142,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "UGA",
+    "name": "Uganda",
+    "year": 2022,
+    "value": 963.067314117178,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "year": 2023,
+    "value": 5139.59814453125,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "year": 2022,
+    "value": 4199.6708984375,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "URY",
+    "name": "Uruguay",
+    "year": 2023,
+    "value": 23378.6399733516,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "URY",
+    "name": "Uruguay",
+    "year": 2022,
+    "value": 21009.2883798725,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2023,
+    "value": 82586.7847707894,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2022,
+    "value": 78008.6895811877,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "year": 2023,
+    "value": 3015.97705069457,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "year": 2022,
+    "value": 2698.60262953369,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "VEN",
+    "name": "Venezuela, RB",
+    "year": 2023,
+    "value": 3617.47038396528,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "VEN",
+    "name": "Venezuela, RB",
+    "year": 2022,
+    "value": 3155.04190923584,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "VNM",
+    "name": "Viet Nam",
+    "year": 2023,
+    "value": 4322.82572261566,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "VNM",
+    "name": "Viet Nam",
+    "year": 2022,
+    "value": 4147.69777213621,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "year": 2023,
+    "value": 3708.18942411253,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "year": 2022,
+    "value": 3679.53524327491,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "year": 2023,
+    "value": 6034.27208964673,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "year": 2022,
+    "value": 6534.24867783397,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "year": 2023,
+    "value": 1330.72780576709,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "year": 2022,
+    "value": 1447.12310138035,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "year": 2023,
+    "value": 2195.22502010174,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  },
+  {
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "year": 2022,
+    "value": 2536.40197087505,
+    "indicator": "NY.GDP.PCAP.CD",
+    "indicatorName": "GDP per capita (current US$)"
+  }
+]

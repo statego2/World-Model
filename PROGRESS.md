@@ -3,6 +3,18 @@
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
 Τρέχον στάδιο: εμπειρία προϊόντος στο `cursor/product-experience-864c`. Η ουρά N0–N7 μένει κλειστή στο `cursor/overnight-depth-864c`. Η υπόθεση Β μένει μερική.
 
+## 2026-11-09 — PX-2 — WDI για τις χώρες του χάρτη
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/product-experience-864c
+
+Η λήψη `country/all` για NY.GDP.MKTP.CD, SP.POP.TOTL και NY.GDP.PCAP.CD φιλτράρεται στους 174 κωδικούς ISO_A3_EH. Κενές τιμές και αθροίσματα δεν μπήκαν. Οι πέντε παλιές τιμές ταυτίζονται με τη νέα λήψη. Τα παλιά αρχεία και τα hashes μένουν. Η εισαγωγή κόβεται ανά 200 γραμμές. Το έτος με τα περισσότερα facts μένει το 2022. 164 χώρες έχουν ΑΕΠ 2022. Χωρίς τιμή, άρα κενό και όχι μηδέν: ESH, FLK, ATF, CUB, PRK, TWN, ERI, YEM, ATA, SSD. Η άδεια ξαναδιαβάστηκε την ίδια μέρα: CC BY 4.0, και το metadata των τριών δεικτών δεν ορίζει άλλη. Όχι SIPRI.
+
+Ο χάρτης στο screenshot είναι γεμάτος. Η Γερμανία δείχνει «4,2 τρισ. $», πληθυσμό και κατά κεφαλήν. Το κλικ εστιάζει τη χώρα.
+
+Επαλήθευση: builder elapsedMs 2579, facts 1197, `parseWorkspace` ok, `chooseFilters` έτος 2022. `node --test tests/real-import.test.ts tests/coverage.test.ts` — 2/2. `npx playwright test tests/browser/real.spec.ts tests/browser/modules.spec.ts` — 2/2. Η Γαλλία έχει πλέον τιμή. Η Ταϊβάν μένει `none`.
+
+Επόμενο βήμα: PX-3. Το graph και το διάγραμμα σύγκρισης είναι ακόμη χαμηλά στη σελίδα φορμών και το διάγραμμα κόβεται στο κάδρο. Βάλ’ τα δίπλα στον πίνακα, με άξονες που διαβάζονται, και ξανακρίναρε το screenshot.
+
 ## 2026-11-09 — PX-1 — Χάρτης ως αρχική οθόνη
 
 Agent/session: Cursor Grok 4.7 | Status: done με όρια | Branch: cursor/product-experience-864c

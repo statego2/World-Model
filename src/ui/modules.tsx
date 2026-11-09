@@ -395,6 +395,7 @@ function Selection({ workspace, filters, geometryId, entityId, propertyId, onCle
       <h2>{entityId ? entityLabel(workspace, entityId) : geometryId}</h2>
       <p className="metric">{!entityId ? 'Η γεωμετρία δεν έχει ρητή οντότητα.' : !reading || reading.status === 'missing' ? 'Χωρίς δεδομένα. Δεν σημαίνει μηδέν.' : reading.status === 'conflict' ? 'Σύγκρουση πηγών, χωρίς επιλογή νικητή.' : formatMeasure(reading.values[0]?.value ?? 0, reading.unit)}</p>
       {factId ? <p>Πηγή: {sourceNames(workspace, factId)}</p> : null}
+      {entityId ? <ExtraMetrics workspace={workspace} filters={filters} entityId={entityId} primaryId={property} /> : null}
       {neighbors.length > 0 ? (
         <ul className="plain-list">
           {neighbors.map(edge => {
@@ -409,6 +410,19 @@ function Selection({ workspace, filters, geometryId, entityId, propertyId, onCle
       <button className="quiet" type="button" onClick={onClear}>Καθαρισμός επιλογής</button>
     </section>
   );
+}
+
+function ExtraMetrics({ workspace, filters, entityId, primaryId }: { workspace: Workspace; filters: SharedFilters; entityId: string; primaryId: string | undefined }) {
+  const ids = [workspace.bindings.populationProperty, 'property:gdp_per_capita_usd'].filter((id): id is string => Boolean(id) && id !== primaryId);
+  const lines = ids.flatMap(id => {
+    const defined = workspace.properties.find(item => item.id === id);
+    if (!defined) return [];
+    const reading = readSubjectMetric(workspace, 'entity', entityId, id, filters);
+    if (reading.status !== 'value') return [];
+    return [`${defined.label}: ${formatMeasure(reading.values[0]?.value ?? 0, reading.unit)}`];
+  });
+  if (lines.length === 0) return null;
+  return <>{lines.map(line => <p key={line}>{line}</p>)}</>;
 }
 
 function sourceNames(workspace: Workspace, factId: string): string {

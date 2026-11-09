@@ -1,0 +1,2706 @@
+[
+  {
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "year": 2023,
+    "value": 41454761,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "year": 2022,
+    "value": 40578842,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AGO",
+    "name": "Angola",
+    "year": 2023,
+    "value": 36749906,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AGO",
+    "name": "Angola",
+    "year": 2022,
+    "value": 35635029,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ALB",
+    "name": "Albania",
+    "year": 2023,
+    "value": 2411658,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ALB",
+    "name": "Albania",
+    "year": 2022,
+    "value": 2451636,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "year": 2023,
+    "value": 10483751,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "year": 2022,
+    "value": 10074977,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ARG",
+    "name": "Argentina",
+    "year": 2023,
+    "value": 45538401,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ARG",
+    "name": "Argentina",
+    "year": 2022,
+    "value": 45407904,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ARM",
+    "name": "Armenia",
+    "year": 2023,
+    "value": 2964300,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ARM",
+    "name": "Armenia",
+    "year": 2022,
+    "value": 2969200,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AUS",
+    "name": "Australia",
+    "year": 2023,
+    "value": 26659922,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AUS",
+    "name": "Australia",
+    "year": 2022,
+    "value": 26018721,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AUT",
+    "name": "Austria",
+    "year": 2023,
+    "value": 9131761,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AUT",
+    "name": "Austria",
+    "year": 2022,
+    "value": 9041851,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "year": 2023,
+    "value": 10153958,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "year": 2022,
+    "value": 10141756,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BDI",
+    "name": "Burundi",
+    "year": 2023,
+    "value": 13689450,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BDI",
+    "name": "Burundi",
+    "year": 2022,
+    "value": 13321097,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BEL",
+    "name": "Belgium",
+    "year": 2023,
+    "value": 11779946,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BEL",
+    "name": "Belgium",
+    "year": 2022,
+    "value": 11680210,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BEN",
+    "name": "Benin",
+    "year": 2023,
+    "value": 14111034,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BEN",
+    "name": "Benin",
+    "year": 2022,
+    "value": 13759501,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "year": 2023,
+    "value": 23025776,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "year": 2022,
+    "value": 22509038,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "year": 2023,
+    "value": 171466990,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "year": 2022,
+    "value": 169384897,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "year": 2023,
+    "value": 6446596,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "year": 2022,
+    "value": 6465097,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BHS",
+    "name": "Bahamas, The",
+    "year": 2023,
+    "value": 399440,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BHS",
+    "name": "Bahamas, The",
+    "year": 2022,
+    "value": 397538,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "year": 2023,
+    "value": 3185073,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "year": 2022,
+    "value": 3204802,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BLR",
+    "name": "Belarus",
+    "year": 2023,
+    "value": 9178298,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BLR",
+    "name": "Belarus",
+    "year": 2022,
+    "value": 9228071,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BLZ",
+    "name": "Belize",
+    "year": 2023,
+    "value": 411106,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BLZ",
+    "name": "Belize",
+    "year": 2022,
+    "value": 402733,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "year": 2023,
+    "value": 12244159,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "year": 2022,
+    "value": 12077154,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BRA",
+    "name": "Brazil",
+    "year": 2023,
+    "value": 211140729,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BRA",
+    "name": "Brazil",
+    "year": 2022,
+    "value": 210306415,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BRN",
+    "name": "Brunei Darussalam",
+    "year": 2023,
+    "value": 458949,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BRN",
+    "name": "Brunei Darussalam",
+    "year": 2022,
+    "value": 455370,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "year": 2023,
+    "value": 786385,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "year": 2022,
+    "value": 780914,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BWA",
+    "name": "Botswana",
+    "year": 2023,
+    "value": 2480244,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "BWA",
+    "name": "Botswana",
+    "year": 2022,
+    "value": 2439892,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "year": 2023,
+    "value": 5152421,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "year": 2022,
+    "value": 5098039,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CAN",
+    "name": "Canada",
+    "year": 2023,
+    "value": 40049088,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CAN",
+    "name": "Canada",
+    "year": 2022,
+    "value": 38950132,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "year": 2023,
+    "value": 8888822,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "year": 2022,
+    "value": 8777088,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CHL",
+    "name": "Chile",
+    "year": 2023,
+    "value": 19658835,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CHL",
+    "name": "Chile",
+    "year": 2022,
+    "value": 19553036,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CHN",
+    "name": "China",
+    "year": 2023,
+    "value": 1410710000,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CHN",
+    "name": "China",
+    "year": 2022,
+    "value": 1412175000,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CIV",
+    "name": "Cote d'Ivoire",
+    "year": 2023,
+    "value": 31165654,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CIV",
+    "name": "Cote d'Ivoire",
+    "year": 2022,
+    "value": 30395002,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "year": 2023,
+    "value": 28372687,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "year": 2022,
+    "value": 27632771,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "COD",
+    "name": "Congo, Dem. Rep.",
+    "year": 2023,
+    "value": 105789731,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "COD",
+    "name": "Congo, Dem. Rep.",
+    "year": 2022,
+    "value": 102396968,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "COG",
+    "name": "Congo, Rep.",
+    "year": 2023,
+    "value": 6182885,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "COG",
+    "name": "Congo, Rep.",
+    "year": 2022,
+    "value": 6035104,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "COL",
+    "name": "Colombia",
+    "year": 2023,
+    "value": 52321152,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "COL",
+    "name": "Colombia",
+    "year": 2022,
+    "value": 51737944,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "year": 2023,
+    "value": 5105525,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "year": 2022,
+    "value": 5081765,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CUB",
+    "name": "Cuba",
+    "year": 2023,
+    "value": 11019931,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CUB",
+    "name": "Cuba",
+    "year": 2022,
+    "value": 11059820,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2023,
+    "value": 1344976,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2022,
+    "value": 1331370,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CZE",
+    "name": "Czechia",
+    "year": 2023,
+    "value": 10864042,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CZE",
+    "name": "Czechia",
+    "year": 2022,
+    "value": 10672118,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2023,
+    "value": 83287273,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2022,
+    "value": 83177813,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "year": 2023,
+    "value": 1152944,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "year": 2022,
+    "value": 1137096,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DNK",
+    "name": "Denmark",
+    "year": 2023,
+    "value": 5946952,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DNK",
+    "name": "Denmark",
+    "year": 2022,
+    "value": 5903037,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "year": 2023,
+    "value": 11331265,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "year": 2022,
+    "value": 11230734,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DZA",
+    "name": "Algeria",
+    "year": 2023,
+    "value": 46164219,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DZA",
+    "name": "Algeria",
+    "year": 2022,
+    "value": 45477389,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "year": 2023,
+    "value": 17980083,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "year": 2022,
+    "value": 17823897,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "EGY",
+    "name": "Egypt, Arab Rep.",
+    "year": 2023,
+    "value": 114535772,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "EGY",
+    "name": "Egypt, Arab Rep.",
+    "year": 2022,
+    "value": 112618250,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ERI",
+    "name": "Eritrea",
+    "year": 2023,
+    "value": 3470390,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ERI",
+    "name": "Eritrea",
+    "year": 2022,
+    "value": 3409447,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ESP",
+    "name": "Spain",
+    "year": 2023,
+    "value": 48352528,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ESP",
+    "name": "Spain",
+    "year": 2022,
+    "value": 47786102,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "EST",
+    "name": "Estonia",
+    "year": 2023,
+    "value": 1370286,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "EST",
+    "name": "Estonia",
+    "year": 2022,
+    "value": 1348840,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "year": 2023,
+    "value": 128691692,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "year": 2022,
+    "value": 125384287,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "FIN",
+    "name": "Finland",
+    "year": 2023,
+    "value": 5583911,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "FIN",
+    "name": "Finland",
+    "year": 2022,
+    "value": 5556106,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "FJI",
+    "name": "Fiji",
+    "year": 2023,
+    "value": 924145,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "FJI",
+    "name": "Fiji",
+    "year": 2022,
+    "value": 919422,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "FRA",
+    "name": "France",
+    "year": 2023,
+    "value": 68372286,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "FRA",
+    "name": "France",
+    "year": 2022,
+    "value": 68184457,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GAB",
+    "name": "Gabon",
+    "year": 2023,
+    "value": 2484789,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GAB",
+    "name": "Gabon",
+    "year": 2022,
+    "value": 2430747,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "year": 2023,
+    "value": 68526000,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "year": 2022,
+    "value": 67636000,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GEO",
+    "name": "Georgia",
+    "year": 2023,
+    "value": 3715483,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GEO",
+    "name": "Georgia",
+    "year": 2022,
+    "value": 3712502,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GHA",
+    "name": "Ghana",
+    "year": 2023,
+    "value": 33787914,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GHA",
+    "name": "Ghana",
+    "year": 2022,
+    "value": 33149152,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GIN",
+    "name": "Guinea",
+    "year": 2023,
+    "value": 14405468,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GIN",
+    "name": "Guinea",
+    "year": 2022,
+    "value": 14055137,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GMB",
+    "name": "Gambia, The",
+    "year": 2023,
+    "value": 2697845,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GMB",
+    "name": "Gambia, The",
+    "year": 2022,
+    "value": 2636470,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "year": 2023,
+    "value": 2153339,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "year": 2022,
+    "value": 2105529,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "year": 2023,
+    "value": 1847549,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "year": 2022,
+    "value": 1803545,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2023,
+    "value": 10407351,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2022,
+    "value": 10437805,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GRL",
+    "name": "Greenland",
+    "year": 2023,
+    "value": 56865,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GRL",
+    "name": "Greenland",
+    "year": 2022,
+    "value": 56661,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "year": 2023,
+    "value": 18124838,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "year": 2022,
+    "value": 17847877,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GUY",
+    "name": "Guyana",
+    "year": 2023,
+    "value": 826353,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GUY",
+    "name": "Guyana",
+    "year": 2022,
+    "value": 821637,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "HND",
+    "name": "Honduras",
+    "year": 2023,
+    "value": 10644851,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "HND",
+    "name": "Honduras",
+    "year": 2022,
+    "value": 10463872,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "HRV",
+    "name": "Croatia",
+    "year": 2023,
+    "value": 3859686,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "HRV",
+    "name": "Croatia",
+    "year": 2022,
+    "value": 3855641,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "HTI",
+    "name": "Haiti",
+    "year": 2023,
+    "value": 11637398,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "HTI",
+    "name": "Haiti",
+    "year": 2022,
+    "value": 11503606,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "HUN",
+    "name": "Hungary",
+    "year": 2023,
+    "value": 9592186,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "HUN",
+    "name": "Hungary",
+    "year": 2022,
+    "value": 9605074,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "year": 2023,
+    "value": 281190067,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "year": 2022,
+    "value": 278830529,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IND",
+    "name": "India",
+    "year": 2023,
+    "value": 1438069596,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IND",
+    "name": "India",
+    "year": 2022,
+    "value": 1425423212,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IRL",
+    "name": "Ireland",
+    "year": 2023,
+    "value": 5311538,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IRL",
+    "name": "Ireland",
+    "year": 2022,
+    "value": 5212836,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IRN",
+    "name": "Iran, Islamic Rep.",
+    "year": 2023,
+    "value": 90608707,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IRN",
+    "name": "Iran, Islamic Rep.",
+    "year": 2022,
+    "value": 89524246,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "year": 2023,
+    "value": 45074049,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "year": 2022,
+    "value": 44070551,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ISL",
+    "name": "Iceland",
+    "year": 2023,
+    "value": 385663,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ISL",
+    "name": "Iceland",
+    "year": 2022,
+    "value": 382003,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ISR",
+    "name": "Israel",
+    "year": 2023,
+    "value": 9849000,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ISR",
+    "name": "Israel",
+    "year": 2022,
+    "value": 9557500,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ITA",
+    "name": "Italy",
+    "year": 2023,
+    "value": 58984216,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ITA",
+    "name": "Italy",
+    "year": 2022,
+    "value": 59013667,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "year": 2023,
+    "value": 2839786,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "year": 2022,
+    "value": 2839144,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "JOR",
+    "name": "Jordan",
+    "year": 2023,
+    "value": 11439213,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "JOR",
+    "name": "Jordan",
+    "year": 2022,
+    "value": 11256263,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "JPN",
+    "name": "Japan",
+    "year": 2023,
+    "value": 124516650,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "JPN",
+    "name": "Japan",
+    "year": 2022,
+    "value": 125124989,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "year": 2023,
+    "value": 20330104,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "year": 2022,
+    "value": 20034609,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KEN",
+    "name": "Kenya",
+    "year": 2023,
+    "value": 55339003,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KEN",
+    "name": "Kenya",
+    "year": 2022,
+    "value": 54252461,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KGZ",
+    "name": "Kyrgyz Republic",
+    "year": 2023,
+    "value": 7099750,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KGZ",
+    "name": "Kyrgyz Republic",
+    "year": 2022,
+    "value": 6975220,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "year": 2023,
+    "value": 17423880,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "year": 2022,
+    "value": 17201724,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KOR",
+    "name": "Korea, Rep.",
+    "year": 2023,
+    "value": 51712619,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KOR",
+    "name": "Korea, Rep.",
+    "year": 2022,
+    "value": 51672569,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "year": 2023,
+    "value": 4853420,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "year": 2022,
+    "value": 4589643,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LAO",
+    "name": "Lao PDR",
+    "year": 2023,
+    "value": 7664993,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LAO",
+    "name": "Lao PDR",
+    "year": 2022,
+    "value": 7559007,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "year": 2023,
+    "value": 5773493,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "year": 2022,
+    "value": 5744489,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LBR",
+    "name": "Liberia",
+    "year": 2023,
+    "value": 5493031,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LBR",
+    "name": "Liberia",
+    "year": 2022,
+    "value": 5373294,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LBY",
+    "name": "Libya",
+    "year": 2023,
+    "value": 7305659,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LBY",
+    "name": "Libya",
+    "year": 2022,
+    "value": 7223805,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "year": 2023,
+    "value": 22037000,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "year": 2022,
+    "value": 22181000,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "year": 2023,
+    "value": 2311472,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "year": 2022,
+    "value": 2286110,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "year": 2023,
+    "value": 2871585,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "year": 2022,
+    "value": 2831639,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "year": 2023,
+    "value": 666430,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "year": 2022,
+    "value": 653103,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LVA",
+    "name": "Latvia",
+    "year": 2023,
+    "value": 1883710,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "LVA",
+    "name": "Latvia",
+    "year": 2022,
+    "value": 1879383,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MAR",
+    "name": "Morocco",
+    "year": 2023,
+    "value": 37712505,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MAR",
+    "name": "Morocco",
+    "year": 2022,
+    "value": 37329064,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MDA",
+    "name": "Moldova",
+    "year": 2023,
+    "value": 2457783,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MDA",
+    "name": "Moldova",
+    "year": 2022,
+    "value": 2528654,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "year": 2023,
+    "value": 31195932,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "year": 2022,
+    "value": 30437261,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MEX",
+    "name": "Mexico",
+    "year": 2023,
+    "value": 129739759,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MEX",
+    "name": "Mexico",
+    "year": 2022,
+    "value": 128613117,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "year": 2023,
+    "value": 1827816,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "year": 2022,
+    "value": 1831712,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MLI",
+    "name": "Mali",
+    "year": 2023,
+    "value": 23769127,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MLI",
+    "name": "Mali",
+    "year": 2022,
+    "value": 23072640,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "year": 2023,
+    "value": 54133798,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "year": 2022,
+    "value": 53756787,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "year": 2023,
+    "value": 623529,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "year": 2022,
+    "value": 623591,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "year": 2023,
+    "value": 3481145,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "year": 2022,
+    "value": 3433748,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "year": 2023,
+    "value": 33635160,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "year": 2022,
+    "value": 32656246,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "year": 2023,
+    "value": 5022441,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "year": 2022,
+    "value": 4875637,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MWI",
+    "name": "Malawi",
+    "year": 2023,
+    "value": 21104482,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MWI",
+    "name": "Malawi",
+    "year": 2022,
+    "value": 20568728,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "year": 2023,
+    "value": 35126298,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "year": 2022,
+    "value": 34695493,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NAM",
+    "name": "Namibia",
+    "year": 2023,
+    "value": 2963095,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NAM",
+    "name": "Namibia",
+    "year": 2022,
+    "value": 2889662,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NCL",
+    "name": "New Caledonia",
+    "year": 2023,
+    "value": 289870,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NCL",
+    "name": "New Caledonia",
+    "year": 2022,
+    "value": 287123,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NER",
+    "name": "Niger",
+    "year": 2023,
+    "value": 26159867,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NER",
+    "name": "Niger",
+    "year": 2022,
+    "value": 25311973,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "year": 2023,
+    "value": 227882945,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "year": 2022,
+    "value": 223150896,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "year": 2023,
+    "value": 6823613,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "year": 2022,
+    "value": 6730654,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NLD",
+    "name": "Netherlands",
+    "year": 2023,
+    "value": 17877117,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NLD",
+    "name": "Netherlands",
+    "year": 2022,
+    "value": 17700982,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NOR",
+    "name": "Norway",
+    "year": 2023,
+    "value": 5519601,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NOR",
+    "name": "Norway",
+    "year": 2022,
+    "value": 5457127,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NPL",
+    "name": "Nepal",
+    "year": 2023,
+    "value": 29694614,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NPL",
+    "name": "Nepal",
+    "year": 2022,
+    "value": 29715436,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "year": 2023,
+    "value": 5200000,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "year": 2022,
+    "value": 5081700,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "OMN",
+    "name": "Oman",
+    "year": 2023,
+    "value": 5049269,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "OMN",
+    "name": "Oman",
+    "year": 2022,
+    "value": 4730226,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "year": 2023,
+    "value": 247504495,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "year": 2022,
+    "value": 243700667,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PAN",
+    "name": "Panama",
+    "year": 2023,
+    "value": 4458759,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PAN",
+    "name": "Panama",
+    "year": 2022,
+    "value": 4400773,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PER",
+    "name": "Peru",
+    "year": 2023,
+    "value": 33845617,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PER",
+    "name": "Peru",
+    "year": 2022,
+    "value": 33475438,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PHL",
+    "name": "Philippines",
+    "year": 2023,
+    "value": 114891199,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PHL",
+    "name": "Philippines",
+    "year": 2022,
+    "value": 113964338,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "year": 2023,
+    "value": 10389635,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "year": 2022,
+    "value": 10203169,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "POL",
+    "name": "Poland",
+    "year": 2023,
+    "value": 36687353,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "POL",
+    "name": "Poland",
+    "year": 2022,
+    "value": 36821749,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PRI",
+    "name": "Puerto Rico (US)",
+    "year": 2023,
+    "value": 3203794,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PRI",
+    "name": "Puerto Rico (US)",
+    "year": 2022,
+    "value": 3220148,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PRK",
+    "name": "Korea, Dem. People's Rep.",
+    "year": 2023,
+    "value": 26418204,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PRK",
+    "name": "Korea, Dem. People's Rep.",
+    "year": 2022,
+    "value": 26328845,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PRT",
+    "name": "Portugal",
+    "year": 2023,
+    "value": 10578174,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PRT",
+    "name": "Portugal",
+    "year": 2022,
+    "value": 10434332,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "year": 2023,
+    "value": 6844146,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "year": 2022,
+    "value": 6760464,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PSE",
+    "name": "West Bank and Gaza",
+    "year": 2023,
+    "value": 5165775,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "PSE",
+    "name": "West Bank and Gaza",
+    "year": 2022,
+    "value": 5043612,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "QAT",
+    "name": "Qatar",
+    "year": 2023,
+    "value": 2656032,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "QAT",
+    "name": "Qatar",
+    "year": 2022,
+    "value": 2657333,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ROU",
+    "name": "Romania",
+    "year": 2023,
+    "value": 19061062,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ROU",
+    "name": "Romania",
+    "year": 2022,
+    "value": 19048502,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "RUS",
+    "name": "Russian Federation",
+    "year": 2023,
+    "value": 143826130,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "RUS",
+    "name": "Russian Federation",
+    "year": 2022,
+    "value": 144236933,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "year": 2023,
+    "value": 13954471,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "year": 2022,
+    "value": 13651030,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "year": 2023,
+    "value": 33702731,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "year": 2022,
+    "value": 32175224,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SDN",
+    "name": "Sudan",
+    "year": 2023,
+    "value": 50042791,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SDN",
+    "name": "Sudan",
+    "year": 2022,
+    "value": 49383346,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SEN",
+    "name": "Senegal",
+    "year": 2023,
+    "value": 18077573,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SEN",
+    "name": "Senegal",
+    "year": 2022,
+    "value": 17651103,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "year": 2023,
+    "value": 800005,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "year": 2022,
+    "value": 781066,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "year": 2023,
+    "value": 8460512,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "year": 2022,
+    "value": 8276807,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "year": 2023,
+    "value": 6309624,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "year": 2022,
+    "value": 6280319,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SOM",
+    "name": "Somalia, Fed. Rep.",
+    "year": 2023,
+    "value": 18358615,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SOM",
+    "name": "Somalia, Fed. Rep.",
+    "year": 2022,
+    "value": 17801897,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SRB",
+    "name": "Serbia",
+    "year": 2023,
+    "value": 6623183,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SRB",
+    "name": "Serbia",
+    "year": 2022,
+    "value": 6664449,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SSD",
+    "name": "South Sudan",
+    "year": 2023,
+    "value": 11483374,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SSD",
+    "name": "South Sudan",
+    "year": 2022,
+    "value": 11021177,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SUR",
+    "name": "Suriname",
+    "year": 2023,
+    "value": 628886,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SUR",
+    "name": "Suriname",
+    "year": 2022,
+    "value": 623164,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SVK",
+    "name": "Slovak Republic",
+    "year": 2023,
+    "value": 5426740,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SVK",
+    "name": "Slovak Republic",
+    "year": 2022,
+    "value": 5431752,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "year": 2023,
+    "value": 2120461,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "year": 2022,
+    "value": 2112076,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SWE",
+    "name": "Sweden",
+    "year": 2023,
+    "value": 10536632,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SWE",
+    "name": "Sweden",
+    "year": 2022,
+    "value": 10486941,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "year": 2023,
+    "value": 1230506,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "year": 2022,
+    "value": 1218917,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SYR",
+    "name": "Syrian Arab Republic",
+    "year": 2023,
+    "value": 23594623,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "SYR",
+    "name": "Syrian Arab Republic",
+    "year": 2022,
+    "value": 22462173,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TCD",
+    "name": "Chad",
+    "year": 2023,
+    "value": 19319064,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TCD",
+    "name": "Chad",
+    "year": 2022,
+    "value": 18455316,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TGO",
+    "name": "Togo",
+    "year": 2023,
+    "value": 8223850,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TGO",
+    "name": "Togo",
+    "year": 2022,
+    "value": 8068616,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "THA",
+    "name": "Thailand",
+    "year": 2023,
+    "value": 71702435,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "THA",
+    "name": "Thailand",
+    "year": 2022,
+    "value": 71735329,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "year": 2023,
+    "value": 10389799,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "year": 2022,
+    "value": 10182222,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "year": 2023,
+    "value": 7364438,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "year": 2022,
+    "value": 7230193,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TLS",
+    "name": "Timor-Leste",
+    "year": 2023,
+    "value": 1384286,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TLS",
+    "name": "Timor-Leste",
+    "year": 2022,
+    "value": 1369295,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "year": 2023,
+    "value": 1367510,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "year": 2022,
+    "value": 1365805,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "year": 2023,
+    "value": 12200431,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "year": 2022,
+    "value": 12119334,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2023,
+    "value": 85325965,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2022,
+    "value": 84979913,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "year": 2023,
+    "value": 66617606,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "year": 2022,
+    "value": 64711821,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "UGA",
+    "name": "Uganda",
+    "year": 2023,
+    "value": 48656601,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "UGA",
+    "name": "Uganda",
+    "year": 2022,
+    "value": 47312719,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "year": 2023,
+    "value": 37732836,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "year": 2022,
+    "value": 41048766,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "URY",
+    "name": "Uruguay",
+    "year": 2023,
+    "value": 3388081,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "URY",
+    "name": "Uruguay",
+    "year": 2022,
+    "value": 3390913,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2023,
+    "value": 336755052,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2022,
+    "value": 333996304,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "year": 2023,
+    "value": 35652307,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "year": 2022,
+    "value": 34938955,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "VEN",
+    "name": "Venezuela, RB",
+    "year": 2023,
+    "value": 28300854,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "VEN",
+    "name": "Venezuela, RB",
+    "year": 2022,
+    "value": 28213017,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "VNM",
+    "name": "Viet Nam",
+    "year": 2023,
+    "value": 100352192,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "VNM",
+    "name": "Viet Nam",
+    "year": 2022,
+    "value": 99680655,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "year": 2023,
+    "value": 320409,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "year": 2022,
+    "value": 313046,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "YEM",
+    "name": "Yemen, Rep.",
+    "year": 2023,
+    "value": 39390799,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "YEM",
+    "name": "Yemen, Rep.",
+    "year": 2022,
+    "value": 38222876,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "year": 2023,
+    "value": 63212384,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "year": 2022,
+    "value": 62378410,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "year": 2023,
+    "value": 20723965,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "year": 2022,
+    "value": 20152938,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "year": 2023,
+    "value": 16340822,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "year": 2022,
+    "value": 16069056,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  }
+]

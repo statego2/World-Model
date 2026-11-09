@@ -1,0 +1,2618 @@
+[
+  {
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "year": 2023,
+    "value": 17152234636.8715,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "year": 2022,
+    "value": 14497243872.1337,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AGO",
+    "name": "Angola",
+    "year": 2023,
+    "value": 106042349567.303,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AGO",
+    "name": "Angola",
+    "year": 2022,
+    "value": 128233959333.275,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ALB",
+    "name": "Albania",
+    "year": 2023,
+    "value": 23491242727.4082,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ALB",
+    "name": "Albania",
+    "year": 2022,
+    "value": 19017247013.8821,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "year": 2023,
+    "value": 522622268401.125,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "year": 2022,
+    "value": 511403404642.173,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ARG",
+    "name": "Argentina",
+    "year": 2023,
+    "value": 649461687959.174,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ARG",
+    "name": "Argentina",
+    "year": 2022,
+    "value": 633993756301.08,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ARM",
+    "name": "Armenia",
+    "year": 2023,
+    "value": 24185982215.6543,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ARM",
+    "name": "Armenia",
+    "year": 2022,
+    "value": 19513506553.1251,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AUS",
+    "name": "Australia",
+    "year": 2023,
+    "value": 1734451264655.6,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AUS",
+    "name": "Australia",
+    "year": 2022,
+    "value": 1695627535475.8,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AUT",
+    "name": "Austria",
+    "year": 2023,
+    "value": 516670509628.876,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AUT",
+    "name": "Austria",
+    "year": 2022,
+    "value": 473221298968.216,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "year": 2023,
+    "value": 72428470588.2353,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "year": 2022,
+    "value": 78807470588.2353,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BDI",
+    "name": "Burundi",
+    "year": 2023,
+    "value": 3419558408.35408,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BDI",
+    "name": "Burundi",
+    "year": 2022,
+    "value": 4020736756.64256,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BEL",
+    "name": "Belgium",
+    "year": 2023,
+    "value": 650779364363.737,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BEL",
+    "name": "Belgium",
+    "year": 2022,
+    "value": 591474463578.602,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BEN",
+    "name": "Benin",
+    "year": 2023,
+    "value": 19673291004.1444,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BEN",
+    "name": "Benin",
+    "year": 2022,
+    "value": 17425405090.862,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "year": 2023,
+    "value": 20106062971.6533,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "year": 2022,
+    "value": 18622421394.6133,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "year": 2023,
+    "value": 437415333018.291,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "year": 2022,
+    "value": 460131689083.083,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "year": 2023,
+    "value": 102204457334.822,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "year": 2022,
+    "value": 90510784777.6397,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BHS",
+    "name": "Bahamas, The",
+    "year": 2023,
+    "value": 15271300000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BHS",
+    "name": "Bahamas, The",
+    "year": 2022,
+    "value": 13896800000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "year": 2023,
+    "value": 27592361498.4057,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "year": 2022,
+    "value": 24534663636.1778,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BLR",
+    "name": "Belarus",
+    "year": 2023,
+    "value": 72478760370.4258,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BLR",
+    "name": "Belarus",
+    "year": 2022,
+    "value": 73775179924.603,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BLZ",
+    "name": "Belize",
+    "year": 2023,
+    "value": 3052362650,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BLZ",
+    "name": "Belize",
+    "year": 2022,
+    "value": 2846604350,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "year": 2023,
+    "value": 52340206946.4544,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "year": 2022,
+    "value": 50959081953.6903,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BRA",
+    "name": "Brazil",
+    "year": 2023,
+    "value": 2191131765684.63,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BRA",
+    "name": "Brazil",
+    "year": 2022,
+    "value": 1951923942083.32,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BRN",
+    "name": "Brunei Darussalam",
+    "year": 2023,
+    "value": 15095084656.1634,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BRN",
+    "name": "Brunei Darussalam",
+    "year": 2022,
+    "value": 16681536466.7183,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "year": 2023,
+    "value": 3012896789.79753,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "year": 2022,
+    "value": 2898227743.75576,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BWA",
+    "name": "Botswana",
+    "year": 2023,
+    "value": 19413614554.6944,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "BWA",
+    "name": "Botswana",
+    "year": 2022,
+    "value": 20321150599.1523,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "year": 2023,
+    "value": 2555492085.94725,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "year": 2022,
+    "value": 2382618615.01694,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CAN",
+    "name": "Canada",
+    "year": 2023,
+    "value": 2196593836347.42,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CAN",
+    "name": "Canada",
+    "year": 2022,
+    "value": 2200562785046.32,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "year": 2023,
+    "value": 928435275851.707,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "year": 2022,
+    "value": 858479038993.75,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CHL",
+    "name": "Chile",
+    "year": 2023,
+    "value": 335802745366.38,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CHL",
+    "name": "Chile",
+    "year": 2022,
+    "value": 301099244104.003,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CHN",
+    "name": "China",
+    "year": 2023,
+    "value": 18270356654533.2,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CHN",
+    "name": "China",
+    "year": 2022,
+    "value": 18316765021690.2,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CIV",
+    "name": "Cote d'Ivoire",
+    "year": 2023,
+    "value": 80780312569.1646,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CIV",
+    "name": "Cote d'Ivoire",
+    "year": 2022,
+    "value": 70922824813.9102,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "year": 2023,
+    "value": 48814501547.4313,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "year": 2022,
+    "value": 44347206072.5513,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "COD",
+    "name": "Congo, Dem. Rep.",
+    "year": 2023,
+    "value": 69843655425.2929,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "COD",
+    "name": "Congo, Dem. Rep.",
+    "year": 2022,
+    "value": 70422346142.2023,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "COG",
+    "name": "Congo, Rep.",
+    "year": 2023,
+    "value": 15321055822.5167,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "COG",
+    "name": "Congo, Rep.",
+    "year": 2022,
+    "value": 15817030154.6941,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "COL",
+    "name": "Colombia",
+    "year": 2023,
+    "value": 366901643683.302,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "COL",
+    "name": "Colombia",
+    "year": 2022,
+    "value": 345632492851.448,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "year": 2023,
+    "value": 87512637055.7736,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "year": 2022,
+    "value": 71001226360.8008,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2023,
+    "value": 35075440602.5202,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2022,
+    "value": 31218047043.8386,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CZE",
+    "name": "Czechia",
+    "year": 2023,
+    "value": 345059295659.911,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "CZE",
+    "name": "Czechia",
+    "year": 2022,
+    "value": 301831228325.556,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2023,
+    "value": 4562207532490.28,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2022,
+    "value": 4201021706478.62,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "year": 2023,
+    "value": 3898447007.38798,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "year": 2022,
+    "value": 3562814908.76149,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DNK",
+    "name": "Denmark",
+    "year": 2023,
+    "value": 404651706117.557,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DNK",
+    "name": "Denmark",
+    "year": 2022,
+    "value": 400114306337.077,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "year": 2023,
+    "value": 120456239153.739,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "year": 2022,
+    "value": 113478103598.499,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DZA",
+    "name": "Algeria",
+    "year": 2023,
+    "value": 247923887214.655,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "DZA",
+    "name": "Algeria",
+    "year": 2022,
+    "value": 225581644702.568,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "year": 2023,
+    "value": 120792801000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "year": 2022,
+    "value": 116133121000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "EGY",
+    "name": "Egypt, Arab Rep.",
+    "year": 2023,
+    "value": 395926071447.591,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "EGY",
+    "name": "Egypt, Arab Rep.",
+    "year": 2022,
+    "value": 476747720364.742,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ESP",
+    "name": "Spain",
+    "year": 2023,
+    "value": 1619481980719.64,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ESP",
+    "name": "Spain",
+    "year": 2022,
+    "value": 1448850658406.62,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "EST",
+    "name": "Estonia",
+    "year": 2023,
+    "value": 41470344395.1086,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "EST",
+    "name": "Estonia",
+    "year": 2022,
+    "value": 38226641740.29,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "year": 2023,
+    "value": 135874093203.18,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "year": 2022,
+    "value": 123140304665.399,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "FIN",
+    "name": "Finland",
+    "year": 2023,
+    "value": 295191741637.26,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "FIN",
+    "name": "Finland",
+    "year": 2022,
+    "value": 280253099309.34,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "FJI",
+    "name": "Fiji",
+    "year": 2023,
+    "value": 5476673518.13788,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "FJI",
+    "name": "Fiji",
+    "year": 2022,
+    "value": 4977861885.60316,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "FRA",
+    "name": "France",
+    "year": 2023,
+    "value": 3056250648138.29,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "FRA",
+    "name": "France",
+    "year": 2022,
+    "value": 2794788137066.94,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GAB",
+    "name": "Gabon",
+    "year": 2023,
+    "value": 19388372070.9778,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GAB",
+    "name": "Gabon",
+    "year": 2022,
+    "value": 20440655695.229,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "year": 2023,
+    "value": 3420796653789.08,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "year": 2022,
+    "value": 3181244350465.41,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GEO",
+    "name": "Georgia",
+    "year": 2023,
+    "value": 30777833600.6515,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GEO",
+    "name": "Georgia",
+    "year": 2022,
+    "value": 24984568959.605,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GHA",
+    "name": "Ghana",
+    "year": 2023,
+    "value": 80547146875.9526,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GHA",
+    "name": "Ghana",
+    "year": 2022,
+    "value": 73919003212.1998,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GIN",
+    "name": "Guinea",
+    "year": 2023,
+    "value": 22407615556.0571,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GIN",
+    "name": "Guinea",
+    "year": 2022,
+    "value": 19910452541.9219,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GMB",
+    "name": "Gambia, The",
+    "year": 2023,
+    "value": 2382262185.38179,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GMB",
+    "name": "Gambia, The",
+    "year": 2022,
+    "value": 2204734527.88096,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "year": 2023,
+    "value": 2076748678.11987,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "year": 2022,
+    "value": 1856239954.81555,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "year": 2023,
+    "value": 12541814272.8021,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "year": 2022,
+    "value": 13687643435.6249,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2023,
+    "value": 242946187738.269,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2022,
+    "value": 217990189600.69,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GRL",
+    "name": "Greenland",
+    "year": 2023,
+    "value": 3326543974.39193,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GRL",
+    "name": "Greenland",
+    "year": 2022,
+    "value": 3152334771.77992,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "year": 2023,
+    "value": 104298081428.769,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "year": 2022,
+    "value": 95609727055.5754,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GUY",
+    "name": "Guyana",
+    "year": 2023,
+    "value": 16918503597.1223,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "GUY",
+    "name": "Guyana",
+    "year": 2022,
+    "value": 14718388489.2086,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "HND",
+    "name": "Honduras",
+    "year": 2023,
+    "value": 34355805527.9795,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "HND",
+    "name": "Honduras",
+    "year": 2022,
+    "value": 31426041806.7985,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "HRV",
+    "name": "Croatia",
+    "year": 2023,
+    "value": 85621337533.3348,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "HRV",
+    "name": "Croatia",
+    "year": 2022,
+    "value": 71196460236.6301,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "HTI",
+    "name": "Haiti",
+    "year": 2023,
+    "value": 19572288894.1581,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "HTI",
+    "name": "Haiti",
+    "year": 2022,
+    "value": 20113007125.93,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "HUN",
+    "name": "Hungary",
+    "year": 2023,
+    "value": 213029511028.874,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "HUN",
+    "name": "Hungary",
+    "year": 2022,
+    "value": 177002580544.155,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "year": 2023,
+    "value": 1371166925749.88,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "year": 2022,
+    "value": 1319101183380.15,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IND",
+    "name": "India",
+    "year": 2023,
+    "value": 3500906030644.76,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IND",
+    "name": "India",
+    "year": 2022,
+    "value": 3249938492013.47,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IRL",
+    "name": "Ireland",
+    "year": 2023,
+    "value": 567372737459.116,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IRL",
+    "name": "Ireland",
+    "year": 2022,
+    "value": 548341794599.09,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IRN",
+    "name": "Iran, Islamic Rep.",
+    "year": 2023,
+    "value": 457510482317.483,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IRN",
+    "name": "Iran, Islamic Rep.",
+    "year": 2022,
+    "value": 422662261525.665,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "year": 2023,
+    "value": 268881051643.549,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "year": 2022,
+    "value": 287372232137.931,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ISL",
+    "name": "Iceland",
+    "year": 2023,
+    "value": 31701996433.7807,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ISL",
+    "name": "Iceland",
+    "year": 2022,
+    "value": 29176227825.4736,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ISR",
+    "name": "Israel",
+    "year": 2023,
+    "value": 513393395491.904,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ISR",
+    "name": "Israel",
+    "year": 2022,
+    "value": 525157951212.871,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ITA",
+    "name": "Italy",
+    "year": 2023,
+    "value": 2316882296366.32,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ITA",
+    "name": "Italy",
+    "year": 2022,
+    "value": 2104067630319.46,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "year": 2023,
+    "value": 21418797832.8216,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "year": 2022,
+    "value": 18813516805.214,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "JOR",
+    "name": "Jordan",
+    "year": 2023,
+    "value": 56123472112.6761,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "JOR",
+    "name": "Jordan",
+    "year": 2022,
+    "value": 53516930140.8451,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "JPN",
+    "name": "Japan",
+    "year": 2023,
+    "value": 4384854269961.93,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "JPN",
+    "name": "Japan",
+    "year": 2022,
+    "value": 4447976207314.78,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "year": 2023,
+    "value": 261840101059.923,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "year": 2022,
+    "value": 225496328925.494,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KEN",
+    "name": "Kenya",
+    "year": 2023,
+    "value": 107500884685.013,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KEN",
+    "name": "Kenya",
+    "year": 2022,
+    "value": 114448978152.637,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KGZ",
+    "name": "Kyrgyz Republic",
+    "year": 2023,
+    "value": 15180842369.4894,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KGZ",
+    "name": "Kyrgyz Republic",
+    "year": 2022,
+    "value": 12134931017.9465,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "year": 2023,
+    "value": 42335646895.7984,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "year": 2022,
+    "value": 39994532959.6074,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KOR",
+    "name": "Korea, Rep.",
+    "year": 2023,
+    "value": 1844800934391.54,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KOR",
+    "name": "Korea, Rep.",
+    "year": 2022,
+    "value": 1799363116866.52,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "year": 2023,
+    "value": 165462656226.772,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "year": 2022,
+    "value": 183502046693.878,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LAO",
+    "name": "Lao PDR",
+    "year": 2023,
+    "value": 15843155731.2552,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LAO",
+    "name": "Lao PDR",
+    "year": 2022,
+    "value": 15468785203.7532,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "year": 2023,
+    "value": 20078620356.9931,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "year": 2022,
+    "value": 20992421948.8081,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LBR",
+    "name": "Liberia",
+    "year": 2023,
+    "value": 4390000000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LBR",
+    "name": "Liberia",
+    "year": 2022,
+    "value": 4001047000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LBY",
+    "name": "Libya",
+    "year": 2023,
+    "value": 44027664915.187,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LBY",
+    "name": "Libya",
+    "year": 2022,
+    "value": 43246297921.8499,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "year": 2023,
+    "value": 84080307355.5983,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "year": 2022,
+    "value": 74143020303.663,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "year": 2023,
+    "value": 2129871529.52517,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "year": 2022,
+    "value": 2354980960.02697,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "year": 2023,
+    "value": 80356613554.5602,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "year": 2022,
+    "value": 70639687325.6326,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "year": 2023,
+    "value": 88788881539.3937,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "year": 2022,
+    "value": 80801680397.0139,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LVA",
+    "name": "Latvia",
+    "year": 2023,
+    "value": 42779550936.838,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "LVA",
+    "name": "Latvia",
+    "year": 2022,
+    "value": 38003198508.9107,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MAR",
+    "name": "Morocco",
+    "year": 2023,
+    "value": 146036093666.762,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MAR",
+    "name": "Morocco",
+    "year": 2022,
+    "value": 131245312804.483,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MDA",
+    "name": "Moldova",
+    "year": 2023,
+    "value": 16711906746.2133,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MDA",
+    "name": "Moldova",
+    "year": 2022,
+    "value": 14525337523.7271,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "year": 2023,
+    "value": 16036707975.7567,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "year": 2022,
+    "value": 15342178598.2475,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MEX",
+    "name": "Mexico",
+    "year": 2023,
+    "value": 1794410347718.25,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MEX",
+    "name": "Mexico",
+    "year": 2022,
+    "value": 1466934724243.38,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "year": 2023,
+    "value": 15855131188.9092,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "year": 2022,
+    "value": 13932436550.0883,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MLI",
+    "name": "Mali",
+    "year": 2023,
+    "value": 24777941860.767,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MLI",
+    "name": "Mali",
+    "year": 2022,
+    "value": 22539987718.7642,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "year": 2023,
+    "value": 66757619000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "year": 2022,
+    "value": 62253049891.6449,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "year": 2023,
+    "value": 7643318276.40347,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "year": 2022,
+    "value": 6259721790.0652,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "year": 2023,
+    "value": 20325121393.9074,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "year": 2022,
+    "value": 17146471713.748,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "year": 2023,
+    "value": 20927498317.3094,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "year": 2022,
+    "value": 18884232598.8698,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "year": 2023,
+    "value": 10687541640.1299,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "year": 2022,
+    "value": 9562497460.55394,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MWI",
+    "name": "Malawi",
+    "year": 2023,
+    "value": 13363669672.9405,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MWI",
+    "name": "Malawi",
+    "year": 2022,
+    "value": 12429059928.102,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "year": 2023,
+    "value": 399949418752.657,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "year": 2022,
+    "value": 407830525989.553,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NAM",
+    "name": "Namibia",
+    "year": 2023,
+    "value": 12522012873.7957,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NAM",
+    "name": "Namibia",
+    "year": 2022,
+    "value": 12569449123.3661,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NCL",
+    "name": "New Caledonia",
+    "year": 2023,
+    "value": 9769167530.35744,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NCL",
+    "name": "New Caledonia",
+    "year": 2022,
+    "value": 9623318718.31459,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NER",
+    "name": "Niger",
+    "year": 2023,
+    "value": 16949765463.9058,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NER",
+    "name": "Niger",
+    "year": 2022,
+    "value": 15531799640.9005,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "year": 2023,
+    "value": 487387801877.803,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "year": 2022,
+    "value": 646950257575.455,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "year": 2023,
+    "value": 17805842220.7571,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "year": 2022,
+    "value": 15634573555.9049,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NLD",
+    "name": "Netherlands",
+    "year": 2023,
+    "value": 1135475867551,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NLD",
+    "name": "Netherlands",
+    "year": 2022,
+    "value": 1046540797548.64,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NOR",
+    "name": "Norway",
+    "year": 2023,
+    "value": 502197633322.816,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NOR",
+    "name": "Norway",
+    "year": 2022,
+    "value": 617321834098.986,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NPL",
+    "name": "Nepal",
+    "year": 2023,
+    "value": 41049329851.0546,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NPL",
+    "name": "Nepal",
+    "year": 2022,
+    "value": 41182939519.8161,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "year": 2023,
+    "value": 256372177757.764,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "year": 2022,
+    "value": 249723029451.237,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "OMN",
+    "name": "Oman",
+    "year": 2023,
+    "value": 106174707932.38,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "OMN",
+    "name": "Oman",
+    "year": 2022,
+    "value": 109852795838.752,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "year": 2023,
+    "value": 336686348609.266,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "year": 2022,
+    "value": 374890295666.694,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PAN",
+    "name": "Panama",
+    "year": 2023,
+    "value": 83812155200,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PAN",
+    "name": "Panama",
+    "year": 2022,
+    "value": 76479304500,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PER",
+    "name": "Peru",
+    "year": 2023,
+    "value": 268025009709.319,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PER",
+    "name": "Peru",
+    "year": 2022,
+    "value": 246169867862.821,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PHL",
+    "name": "Philippines",
+    "year": 2023,
+    "value": 437055627245.138,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PHL",
+    "name": "Philippines",
+    "year": 2022,
+    "value": 404353369604.631,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "year": 2023,
+    "value": 30816328065.6492,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "year": 2022,
+    "value": 31653230962.4549,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "POL",
+    "name": "Poland",
+    "year": 2023,
+    "value": 812451193396.143,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "POL",
+    "name": "Poland",
+    "year": 2022,
+    "value": 695607470875.276,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PRI",
+    "name": "Puerto Rico (US)",
+    "year": 2023,
+    "value": 118478754280.882,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PRI",
+    "name": "Puerto Rico (US)",
+    "year": 2022,
+    "value": 113843700000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PRT",
+    "name": "Portugal",
+    "year": 2023,
+    "value": 292323800948.839,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PRT",
+    "name": "Portugal",
+    "year": 2022,
+    "value": 256898677175.024,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "year": 2023,
+    "value": 43140465595.6662,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "year": 2022,
+    "value": 41841201626.7253,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PSE",
+    "name": "West Bank and Gaza",
+    "year": 2023,
+    "value": 18635100000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "PSE",
+    "name": "West Bank and Gaza",
+    "year": 2022,
+    "value": 19165500000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "QAT",
+    "name": "Qatar",
+    "year": 2023,
+    "value": 213002809340.659,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "QAT",
+    "name": "Qatar",
+    "year": 2022,
+    "value": 235709325714.286,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ROU",
+    "name": "Romania",
+    "year": 2023,
+    "value": 347757995758.914,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ROU",
+    "name": "Romania",
+    "year": 2022,
+    "value": 295317862855.924,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "RUS",
+    "name": "Russian Federation",
+    "year": 2023,
+    "value": 2046284838151.09,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "RUS",
+    "name": "Russian Federation",
+    "year": 2022,
+    "value": 2292495097681.47,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "year": 2023,
+    "value": 14806501437.282,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "year": 2022,
+    "value": 13747404814.2677,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "year": 2023,
+    "value": 1218584800000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "year": 2022,
+    "value": 1239075200000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SDN",
+    "name": "Sudan",
+    "year": 2023,
+    "value": 39898289820.7951,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SDN",
+    "name": "Sudan",
+    "year": 2022,
+    "value": 51666875363.0963,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SEN",
+    "name": "Senegal",
+    "year": 2023,
+    "value": 30696331295.7826,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SEN",
+    "name": "Senegal",
+    "year": 2022,
+    "value": 27783332222.6759,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "year": 2023,
+    "value": 1506124566.40404,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "year": 2022,
+    "value": 1466670929.62333,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "year": 2023,
+    "value": 6415852766.09227,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "year": 2022,
+    "value": 7121125277.18159,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "year": 2023,
+    "value": 33565430000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "year": 2022,
+    "value": 31870110000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SOM",
+    "name": "Somalia, Fed. Rep.",
+    "year": 2023,
+    "value": 10958000000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SOM",
+    "name": "Somalia, Fed. Rep.",
+    "year": 2022,
+    "value": 10203000000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SRB",
+    "name": "Serbia",
+    "year": 2023,
+    "value": 81343999280.0179,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SRB",
+    "name": "Serbia",
+    "year": 2022,
+    "value": 66809895701.2152,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SUR",
+    "name": "Suriname",
+    "year": 2023,
+    "value": 3472693412.08497,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SUR",
+    "name": "Suriname",
+    "year": 2022,
+    "value": 3791603200.0259,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SVK",
+    "name": "Slovak Republic",
+    "year": 2023,
+    "value": 133578518423.544,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SVK",
+    "name": "Slovak Republic",
+    "year": 2022,
+    "value": 115792972358.209,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "year": 2023,
+    "value": 69255264238.3855,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "year": 2022,
+    "value": 59899117741.0022,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SWE",
+    "name": "Sweden",
+    "year": 2023,
+    "value": 578990915246.07,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SWE",
+    "name": "Sweden",
+    "year": 2022,
+    "value": 575071237640.921,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "year": 2023,
+    "value": 4621191261.84214,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "year": 2022,
+    "value": 4746660273.50829,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "SYR",
+    "name": "Syrian Arab Republic",
+    "year": 2022,
+    "value": 23737634644.3994,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TCD",
+    "name": "Chad",
+    "year": 2023,
+    "value": 18352937976.2179,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TCD",
+    "name": "Chad",
+    "year": 2022,
+    "value": 17828508289.6049,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TGO",
+    "name": "Togo",
+    "year": 2023,
+    "value": 9723300576.72675,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TGO",
+    "name": "Togo",
+    "year": 2022,
+    "value": 8646453099.4124,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "THA",
+    "name": "Thailand",
+    "year": 2023,
+    "value": 517013369475.121,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "THA",
+    "name": "Thailand",
+    "year": 2022,
+    "value": 495691837308.033,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "year": 2023,
+    "value": 12244169292.7998,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "year": 2022,
+    "value": 10713525200.3998,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "year": 2023,
+    "value": 39020211239.6728,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "year": 2022,
+    "value": 37583913148.2791,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TLS",
+    "name": "Timor-Leste",
+    "year": 2023,
+    "value": 2079767200,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TLS",
+    "name": "Timor-Leste",
+    "year": 2022,
+    "value": 3208599900,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "year": 2023,
+    "value": 25036993423.3664,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "year": 2022,
+    "value": 28341164301.126,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "year": 2023,
+    "value": 48205328303.3398,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "year": 2022,
+    "value": 44929920092.7955,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2023,
+    "value": 1141242864657.45,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2022,
+    "value": 926097476913.818,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "year": 2023,
+    "value": 79030935638.1317,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "year": 2022,
+    "value": 75749121846.9703,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "UGA",
+    "name": "Uganda",
+    "year": 2023,
+    "value": 48768955863.3175,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "UGA",
+    "name": "Uganda",
+    "year": 2022,
+    "value": 45565333210.9108,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "year": 2023,
+    "value": 181221517868.744,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "year": 2022,
+    "value": 161989520721.19,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "URY",
+    "name": "Uruguay",
+    "year": 2023,
+    "value": 79208725899.5531,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "URY",
+    "name": "Uruguay",
+    "year": 2022,
+    "value": 71240669088.0587,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2023,
+    "value": 27811517000000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2022,
+    "value": 26054614000000,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "year": 2023,
+    "value": 107526539716.318,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "year": 2022,
+    "value": 94286355836.1594,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "VEN",
+    "name": "Venezuela, RB",
+    "year": 2023,
+    "value": 102377501185.925,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "VEN",
+    "name": "Venezuela, RB",
+    "year": 2022,
+    "value": 89013251020.9831,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "VNM",
+    "name": "Viet Nam",
+    "year": 2023,
+    "value": 433805036898.465,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "VNM",
+    "name": "Viet Nam",
+    "year": 2022,
+    "value": 413445230668.578,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "year": 2023,
+    "value": 1188137265.19047,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "year": 2022,
+    "value": 1151863789.76624,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "year": 2023,
+    "value": 381440724491.232,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "year": 2022,
+    "value": 407596043067.885,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "year": 2023,
+    "value": 27577956471.244,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "year": 2022,
+    "value": 29163782140.4858,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "year": 2023,
+    "value": 35871781303.429,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  },
+  {
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "year": 2022,
+    "value": 40757585308.5016,
+    "indicator": "NY.GDP.MKTP.CD",
+    "indicatorName": "GDP (current US$)"
+  }
+]

@@ -8,7 +8,8 @@ test('the cited extract stays in a real workspace', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.screenshot({ path: 'docs/evidence/m5-real-1440.png' });
   await expect(page.locator('[data-iso="GRC"]')).toHaveAttribute('data-value', '217990189600.69');
-  await expect(page.locator('[data-iso="FRA"]')).toHaveAttribute('data-value', 'none');
+  await expect(page.locator('[data-iso="FRA"]')).not.toHaveAttribute('data-value', 'none');
+  await expect(page.locator('[data-iso="TWN"]')).toHaveAttribute('data-value', 'none');
   await expect(page.locator('[data-iso="USA"]')).not.toHaveAttribute('data-scale', await page.locator('[data-iso="CYP"]').getAttribute('data-scale') ?? '');
   await page.locator('[data-iso="GRC"]').click();
   await expect(page.getByTestId('map-inspector')).toContainText('218,0 δισ.');
