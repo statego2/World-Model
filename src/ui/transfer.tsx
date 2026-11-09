@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { stableStringify } from '../core/actions.ts';
 import { csvCell, importKey, previewCsv, type ImportMapping, type PreviewRow } from '../core/import.ts';
 import { readTransfer } from '../core/transfer.ts';
 import type { Workspace } from '../core/types.ts';
@@ -91,6 +92,7 @@ function ImportCard() {
   const [sourceId, setSourceId] = useState('');
   const [rows, setRows] = useState<PreviewRow[]>([]);
   const [accepted, setAccepted] = useState<string[]>([]);
+  const [previewSignature, setPreviewSignature] = useState('');
   const [message, setMessage] = useState('');
   if (!workspace) return null;
   const mapping: ImportMapping = { delimiter, decimal, entityColumn, valueColumn, yearColumn, propertyId, sourceId };
@@ -127,6 +129,7 @@ function ImportCard() {
         setMessage(preview.error ?? '');
         setRows(preview.rows);
         setAccepted(preview.rows.filter(row => row.disposition === 'ready' && row.fact).map(row => row.fact!.id));
+        setPreviewSignature(stableStringify({ text, mapping }));
       }}>Προεπισκόπηση</button>
       {message ? <p className="banner bad" role="alert">{message}</p> : null}
       {rows.length > 0 ? (
@@ -144,7 +147,8 @@ function ImportCard() {
           </tbody>
         </table></div>
       ) : null}
-      <button className="primary" type="button" disabled={model.busy || accepted.length === 0} onClick={() => void (async () => {
+      {previewSignature && previewSignature !== stableStringify({ text, mapping }) ? <p role="status">Η προεπισκόπηση δεν ταιριάζει πλέον με το αρχείο ή την αντιστοίχιση. Ξανατρέξε την πριν την καταγραφή.</p> : null}
+      <button className="primary" type="button" disabled={model.busy || accepted.length === 0 || previewSignature !== stableStringify({ text, mapping })} onClick={() => void (async () => {
         const facts = rows.flatMap(row => row.fact && accepted.includes(row.fact.id) ? [row.fact] : []);
         const key = await importKey(workspace.id, text, mapping);
         const committed = await repository.commit({

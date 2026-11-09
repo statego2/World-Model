@@ -102,7 +102,14 @@ export async function exportFromStore(store: WorkspaceStore, id: string, exporte
   const workspace = await store.getWorkspace(id);
   if (!workspace) return fail('not_found', 'Ο χώρος δεν υπάρχει.');
   const [history, actions] = await Promise.all([store.listChanges(id), store.listActions(id)]);
-  return ok({ formatVersion: 1, kind: 'world-model-export', exportedAt, workspace, history, actions });
+  return ok({
+    formatVersion: 1,
+    kind: 'world-model-export',
+    exportedAt,
+    workspace,
+    history: history.map(change => portableRecord(change)),
+    actions: actions.map(action => portableRecord(action)),
+  });
 }
 
 export async function restoreToStore(store: WorkspaceStore, payload: unknown, input: { id: string; label: string }): Promise<Result<Workspace>> {
@@ -117,11 +124,11 @@ export async function restoreToStore(store: WorkspaceStore, payload: unknown, in
     if (!action || typeof action !== 'object') continue;
     const record = action as StoredAction;
     if (!record.actionId || !record.fingerprint) continue;
-    await store.putAction({ ...record, workspaceId: input.id, key: actionKey(input.id, record.actionId) });
+    await store.putAction({ ...portableRecord(record), workspaceId: input.id, key: actionKey(input.id, record.actionId) });
   }
   for (const change of read.value.history) {
     if (!change || typeof change !== 'object') continue;
-    await store.appendChange({ ...(change as ChangeRecord), workspaceId: input.id });
+    await store.appendChange({ ...portableRecord(change as ChangeRecord), workspaceId: input.id });
   }
   return ok(relabeled.value);
 }
@@ -136,6 +143,12 @@ export function summarize(workspaces: Workspace[]): WorkspaceSummary[] {
       ontologyVersion: workspace.ontologyVersion,
     }))
     .sort((a, b) => a.label.localeCompare(b.label, 'el'));
+}
+
+function portableRecord<T extends object>(record: T): T {
+  const copy = { ...record } as T & { seq?: number };
+  delete copy.seq;
+  return copy;
 }
 
 export function storageFailure(error: unknown): Result<never> {

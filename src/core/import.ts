@@ -83,6 +83,7 @@ function previewRow(workspace: Workspace, property: Workspace['properties'][numb
   if (!entity) return { row, entityId, disposition: 'unresolved', message: 'Άγνωστο ID. Δεν γίνεται αυτόματη αντιστοίχιση.' };
   if (entity.archived) return { row, entityId, disposition: 'error', message: 'Η οντότητα είναι αρχειοθετημένη.' };
   const rawValue = (cells[valueIndex] ?? '').trim();
+  if (rawValue === '') return { row, entityId, disposition: 'error', message: 'Κενή τιμή δεν γίνεται μηδέν.' };
   const normalized = mapping.decimal === ',' ? rawValue.replace(',', '.') : rawValue;
   const value = Number(normalized);
   if (!Number.isFinite(value)) return { row, entityId, disposition: 'error', message: 'Η τιμή δεν είναι αριθμός.' };
@@ -97,9 +98,8 @@ function previewRow(workspace: Workspace, property: Workspace['properties'][numb
   const samePeriod = workspace.facts.filter(fact => fact.subjectKind === 'entity' && fact.subjectId === entityId && fact.propertyId === mapping.propertyId && fact.validFrom === validFrom && fact.validTo === validTo && fact.evidenceIds.includes(mapping.sourceId) && !workspace.facts.some(newer => newer.supersedesId === fact.id));
   if (samePeriod.some(fact => fact.value === value)) return { row, entityId, disposition: 'duplicate', message: 'Ίδια τιμή και περίοδος. Δεν δημιουργείται διπλότυπο.' };
   const conflict = samePeriod.find(fact => fact.value !== value);
-  const slug = entityId.replaceAll(':', '.');
   const fact: Fact = {
-    id: `fact:${conflict ? 'fix' : 'import'}-${row}-${year}-${slug}`,
+    id: measurementId(conflict ? 'fix' : 'import', row, year, entityId, mapping.propertyId, mapping.sourceId, conflict?.id ?? ''),
     subjectKind: 'entity',
     subjectId: entityId,
     propertyId: mapping.propertyId,
@@ -114,4 +114,13 @@ function previewRow(workspace: Workspace, property: Workspace['properties'][numb
   };
   if (conflict) return { row, entityId, disposition: 'conflict', message: `Υπάρχει ήδη τιμή ${String(conflict.value)}. Χρειάζεται ρητή διόρθωση.`, fact };
   return { row, entityId, disposition: 'ready', message: 'Έτοιμο για καταγραφή.', fact };
+}
+
+function measurementId(kind: 'import' | 'fix', row: number, year: number, entityId: string, propertyId: string, sourceId: string, previousId: string): string {
+  const identity = `${kind}|${row}|${year}|${entityId}|${propertyId}|${sourceId}|${previousId}`;
+  let hash = 0;
+  for (const char of identity) hash = (Math.imul(hash, 33) + char.charCodeAt(0)) >>> 0;
+  const entity = entityId.replaceAll(':', '.').slice(0, 24);
+  const property = propertyId.replaceAll(':', '.').slice(0, 24);
+  return `fact:${kind}-${row}-${year}-${entity}-${property}-${hash.toString(16)}`;
 }
