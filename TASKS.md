@@ -97,3 +97,11 @@ Repository στο σωστό account ως private, μόνο ο world-model φά�
 Backlog μετά M5: monitoring/alerts, AI με citations, εξειδικευμένη πρόβλεψη,
 simulation/decision support. Δεν είναι εγκεκριμένο τρέχον implementation scope.
 
+
+
+## Συμπληρωματική μελέτη σχεδιασμού (2026-11-09)
+
+- T-REF-01 — done, Codex: μελέτη World Monitor, Sovereign και God's Eye View· δημόσιο HTML/CSS, επιλεγμένος source κώδικας και άδειες. Αναφορά: docs/research/REFERENCE_STUDY.md.
+- N4 guidance: layer registry, κοινό selection/inspector και source availability όπως στην αναφορά. Εφαρμόζεται μετά τα N1–N3, όχι ως παράκαμψή τους.
+- N7 guidance: portable saved exploration view και notices μόνο για source που πραγματικά επαναχρησιμοποιείται.
+- 3D/Cesium και simulator παραμένουν future proposals. Δεν προστέθηκαν ως υποχρεωτικά overnight tasks.

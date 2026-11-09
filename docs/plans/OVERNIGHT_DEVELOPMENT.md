@@ -250,3 +250,13 @@ refactors χωρίς ενσωμάτωση. Μην σημειώνεις done επ
 πίνακα/graph/χάρτη, αλλάζει φίλτρα, ανοίγει τεκμήρια και επαναφέρει πλήρες backup.
 Δηλώνεις ακριβώς ποια από αυτά έγιναν, με evidence. Καμία πρόωρη προσθήκη backend,
 auth, AI assistant, simulation, paid υπηρεσιών ή δημοσίευση ιδιωτικών datasets.
+
+
+## Συμπληρωματική αναφορά για N4/N7
+
+Δες docs/research/REFERENCE_STUDY.md: World Monitor, Sovereign, God's Eye View.
+Τα acceptance του layer picker, shared entity selection/inspector, source health
+και saved exploration views εξειδικεύουν τα N4/N7. Η υλοποίηση παραμένει πρωτότυπη
+στο React project. MIT source reuse απαιτεί notices και dependency audit· AGPL
+κώδικας δεν ενσωματώνεται χωρίς ρητή απόφαση αδειοδότησης. Upstream datasets έχουν
+ξεχωριστούς όρους. Scenario/3D είναι future proposals και δεν μπλοκάρουν τη νύχτα.

@@ -4,6 +4,21 @@
 Τρέχον στάδιο: T-M5-02 στο `cursor/m5-real-sources-864c`. Η υπόθεση Β είναι μερική: εννέα αεροδρόμια έχουν διαδρομή, πέντε μένουν blocker.
 
 
+
+## 2026-11-09 — T-REF-01 — Μελέτη τριών εφαρμογών αναφοράς
+
+Codex: ολοκληρώθηκε documentation-only μελέτη. Αναφορά docs/research/REFERENCE_STUDY.md.
+Εξετάστηκαν World Monitor layer catalog/freshness/scheduler (AGPL), Sovereign V15
+HTML/CSS/game functions (άδεια μη επιβεβαιωμένη), God's Eye View lifecycle/catalog/
+share codec (MIT source, χωριστοί όροι τρίτων datasets/assets). Δεν έγινε αντιγραφή
+κώδικα στο runtime, αλλαγή stack ή εκτέλεση των upstream test suites.
+Το World Monitor live browser navigation απέτυχε με timeout. Η μελέτη διακρίνει
+source/DOM analysis από επιτυχημένο live UI verification. Το Sovereign αποδόθηκε
+επιτυχώς τοπικά από το ήδη ληφθέν HTML: οπτικός έλεγχος 1440×1000, Ελλάδα στον
+inspector και μηνιαίο βήμα 0 → 1. Δεν είναι βαθμονόμηση οικονομικού μοντέλου. Προστέθηκαν guidance για
+N4/N7 και αρχικό prompt, χωρίς αλλαγή της προτεραιότητας N1–N3 ή προσθήκη simulator.
+Επόμενο βήμα bot: διάβασε τη μελέτη πριν τον σχεδιασμό των N4 views/layer registry.
+
 ## 2026-11-09 — N-PLAN — Ανάθεση πολύωρης ανάπτυξης
 
 Agent: Codex. Status: done (planning/handoff only). Ο χρήστης ζήτησε πολύωρη συνέχεια
