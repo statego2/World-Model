@@ -67,3 +67,24 @@ test('a second IndexedDB tab gets a conflict and the failed write rolls back', a
   writer.close();
   reader.close();
 });
+
+test('IndexedDB restore keeps history when the original workspace is still stored', async () => {
+  const name = `world-model-${crypto.randomUUID()}`;
+  const repository = createIndexedDbRepository({ name });
+  const created = await repository.createEmpty({ id: 'workspace:origin', label: 'Αρχικό', dataMode: 'real' });
+  assert.equal(created.ok, true);
+  if (!created.ok) return;
+  const committed = await repository.commit(envelope(created.value.id, 0, supplierActions()[0]!, 'act:restore-source'));
+  assert.equal(committed.ok, true);
+  const exported = await repository.exportSnapshot(created.value.id, '2026-11-09T00:00:00Z');
+  assert.equal(exported.ok, true);
+  if (!exported.ok) return;
+  const firstChange = exported.value.history[0];
+  assert.equal(Boolean(firstChange && typeof firstChange === 'object' && 'seq' in firstChange), false);
+  const restored = await repository.restore(exported.value, { id: 'workspace:copy', label: 'Αντίγραφο' });
+  assert.equal(restored.ok, true, restored.ok ? '' : restored.errors.map(error => error.message).join('\n'));
+  if (!restored.ok) return;
+  assert.equal((await repository.history(restored.value.id)).length, 1);
+  assert.equal((await repository.history(created.value.id)).length, 1);
+  repository.close();
+});

@@ -140,3 +140,15 @@ test('csv cells neutralize spreadsheet formulas', () => {
   assert.equal(csvCell('=1+1'), `"'=1+1"`);
   assert.equal(csvCell('Άλφα'), '"Άλφα"');
 });
+
+test('an empty measurement stays missing and fact ids keep property and source apart', () => {
+  const workspace = fixture();
+  const blank = previewCsv(workspace, 'entityId,value,year\ncountry:GRC,,2024\n', mapping);
+  assert.equal(blank.rows[0]?.disposition, 'error');
+  assert.equal(blank.rows[0]?.fact, undefined);
+  const population = previewCsv(workspace, csv, mapping);
+  const gdp = previewCsv(workspace, csv, { ...mapping, propertyId: 'property:gdp_usd' });
+  assert.notEqual(population.rows[0]?.fact?.id, gdp.rows[0]?.fact?.id);
+  assert.equal(population.rows[0]?.fact?.propertyId, 'property:population');
+  assert.equal(gdp.rows[0]?.fact?.propertyId, 'property:gdp_usd');
+});

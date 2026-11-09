@@ -1,8 +1,20 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: T-M4-01 done στο `cursor/m3-queries-maps-864c`. Επόμενο: T-M5-01.
+Τρέχον στάδιο: T-M4-01 done στο `cursor/m3-queries-maps-864c`, με ενσωματωμένες τις διορθώσεις import/restore του PR #2. Επόμενο: T-M5-01.
 T-REPO-01: private ορατότητα μένει απόφαση του ιδιοκτήτη.
+
+## 2026-11-09 — T-M2-01 / T-M2-02 — Διορθώσεις review
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m1-workspace-editor-864c, ενσωματώθηκε στο cursor/m3-queries-maps-864c
+
+Τέσσερα ευρήματα του Codex στο PR #2:
+- Η επαναφορά σε IndexedDB αφαιρεί το τοπικό κλειδί `seq`, ώστε το ιστορικό να μη συγκρούεται με τις υπάρχουσες γραμμές.
+- Κενό κελί CSV μένει σφάλμα και δεν γίνεται μηδέν.
+- Το ID ενός εισαγόμενου fact περιλαμβάνει ιδιότητα, πηγή και προηγούμενο fact, όχι μόνο γραμμή και έτος.
+- Η καταγραφή μένει ανενεργή αν αλλάξει το αρχείο ή η αντιστοίχιση μετά την προεπισκόπηση.
+
+Επαλήθευση στο M1 branch: `npm test` — 41/41 pass. Μετά το merge σε αυτό το branch: `npm test` — 46/46 pass και `tsc -p tsconfig.json --noEmit` pass.
 
 ## 2026-11-09 — T-M4-01 — Τέσσερις προβολές και χάρτες
 
@@ -16,7 +28,6 @@ Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m3-queries-maps-8
 - Screenshots: `docs/evidence/m4-regions-1440.png`, `docs/evidence/m4-world-1440.png`, `docs/evidence/m4-world-390.png`.
 
 Δεν έγινε έλεγχος πραγματικών πηγών ούτε εισαγωγή WDI. Επόμενο βήμα: T-M5-01.
-T-REPO-01: το clone επαληθεύτηκε· η private ορατότητα μένει απόφαση του ιδιοκτήτη.
 
 ## 2026-11-09 — T-M3-01 — Εξερεύνηση και αποθηκευμένη διαδρομή
 
