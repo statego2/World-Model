@@ -1,0 +1,33 @@
+import { expect, test } from '@playwright/test';
+
+test('the cited extract stays in a real workspace', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Φόρτωση πραγματικού αποσπάσματος' }).click();
+  await expect(page.getByTestId('data-mode')).toHaveText('ΠΡΑΓΜΑΤΙΚΑ');
+  await expect(page.getByRole('cell', { name: 'Attiki' })).toBeVisible();
+  await expect(page.getByText('Συνθετική Ενεργειακή ΑΕ — DEMO')).toHaveCount(0);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.screenshot({ path: 'docs/evidence/m5-real-1440.png' });
+  await page.getByRole('button', { name: 'Εφαρμογές' }).click();
+  await expect(page.locator('[data-iso="GRC"]')).toHaveAttribute('data-value', '217990189600.69');
+  await expect(page.locator('[data-iso="FRA"]')).toHaveAttribute('data-value', 'none');
+  await expect(page.getByText('217990189600.69 USD')).toBeVisible();
+  await page.getByRole('tab', { name: 'Ελλάδα–Τουρκία' }).click();
+  await expect(page.getByText('Λείπει το binding της αμυντικής δαπάνης.')).toBeVisible();
+  await page.getByRole('tab', { name: 'Κεφάλαια' }).click();
+  await expect(page.getByText('Απόθεμα: 8094.9 million EUR')).toBeVisible();
+  await expect(page.getByText('Ροή: 948.2 million EUR')).toBeVisible();
+  await expect(page.getByTestId('capital-path').filter({ hasText: 'Germany → FRAPORT AG → Αεροδρόμιο Χανίων → Kriti' })).toBeVisible();
+  await expect(page.getByTestId('unmapped-airports')).toContainText('Αεροδρόμιο Σαντορίνης');
+  await expect(page.getByTestId('unmapped-airports')).toContainText('Αεροδρόμιο Ακτίου');
+  await expect(page.getByText('αιτιότητα')).toBeVisible();
+  await page.screenshot({ path: 'docs/evidence/m5-path-1440.png', fullPage: true });
+  await page.getByRole('tab', { name: 'Ελληνική οικονομία' }).click();
+  await expect(page.locator('[data-nuts="EL30"]')).toHaveAttribute('data-value', '99577.9');
+  await expect(page.locator('[data-nuts="EL41"]')).toHaveAttribute('data-value', '2710.05');
+  await expect(page.getByText('Attiki: γεωμετρία EL30')).toBeVisible();
+  await expect(page.getByText('Kriti: γεωμετρία EL43')).toBeVisible();
+  await page.screenshot({ path: 'docs/evidence/m5-regions-1440.png', fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.screenshot({ path: 'docs/evidence/m5-regions-390.png', fullPage: true });
+});

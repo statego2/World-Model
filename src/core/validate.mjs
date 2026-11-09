@@ -45,6 +45,7 @@ export function validateWorkspace(w) {
   const claim = row => {
     period(row);
     if (!['reported','assumption'].includes(row.basis)) fail(`${row.id}: invalid basis`);
+    if (row.confidence !== undefined && !['high','medium','low'].includes(row.confidence)) fail(`${row.id}: invalid confidence`);
     list(row.evidenceIds, `${row.id} evidence`, id => has('sources', id));
   };
   for (const type of rows('entityTypes')) {

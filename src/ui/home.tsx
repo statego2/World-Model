@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import demo from '../../data/fixtures/workspace.demo.json' with { type: 'json' };
+import cited from '../../data/real/workspace.real.json' with { type: 'json' };
 import { Errors } from './components.tsx';
 import { useModel } from './model.tsx';
 
@@ -38,6 +39,8 @@ export function Home() {
           <h2>Συνθετικό demo</h2>
           <p>Δέκα οντότητες και εξήντα πέντε γεγονότα για να δεις τη δομή. Δεν τεκμηριώνουν πραγματικές επενδύσεις ή μετρήσεις.</p>
           <button className="quiet" type="button" disabled={model.busy} onClick={() => void model.loadDemo(demo)}>Φόρτωση συνθετικού DEMO</button>
+          <p>Τα πραγματικά αποσπάσματα δεν αναμειγνύονται με το demo.</p>
+          <button className="quiet" type="button" disabled={model.busy} onClick={() => void model.loadCited(cited)}>Φόρτωση πραγματικού αποσπάσματος</button>
         </section>
       </div>
       <section className="panel">

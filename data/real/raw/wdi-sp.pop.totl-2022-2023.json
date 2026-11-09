@@ -1,0 +1,82 @@
+[
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2023,
+    "value": 1344976,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "year": 2022,
+    "value": 1331370,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2023,
+    "value": 83287273,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "DEU",
+    "name": "Germany",
+    "year": 2022,
+    "value": 83177813,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2023,
+    "value": 10407351,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "GRC",
+    "name": "Greece",
+    "year": 2022,
+    "value": 10437805,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2023,
+    "value": 85325965,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "TUR",
+    "name": "Turkiye",
+    "year": 2022,
+    "value": 84979913,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2023,
+    "value": 336755052,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  },
+  {
+    "iso3": "USA",
+    "name": "United States",
+    "year": 2022,
+    "value": 333996304,
+    "indicator": "SP.POP.TOTL",
+    "indicatorName": "Population, total"
+  }
+]

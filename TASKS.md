@@ -19,14 +19,14 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 | T-M2-02 | Full export/restore, corrections/history, guarded undo | done | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | Νέος χώρος, άγνωστη version, διόρθωση, αναίρεση με εξάρτηση |
 | T-M3-01 | Graph/query engine, saved views και shared filters | done | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | Path query, cache, compare/rank, explorer. Browser: νέα εταιρεία μπαίνει στην ίδια προβολή. |
 | T-M4-01 | Τέσσερα modules, world/Greek region maps | done | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | Τέσσερις προβολές, Natural Earth, NUTS. Η region:CENTRAL μένει χωρίς πολύγωνο, ρητά. |
-| T-M5-01 | Επαλήθευση πηγών και μικρά πραγματικά datasets | todo | — | M4 done |
-| T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | todo | — | T-M5-01 |
+| T-M5-01 | Επαλήθευση πηγών και μικρά πραγματικά datasets | done | Cursor Grok 4.7 / cursor/m5-real-sources-864c | WDI ΑΕΠ/πληθυσμός και Eurostat περιφέρειες/FDI. Η στρατιωτική σειρά SIPRI μένει blocker. |
+| T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | done | Cursor Grok 4.7 / cursor/m5-real-sources-864c | Εννέα διαδρομές Germany → FRAPORT AG → αεροδρόμιο → NUTS 2. Οι εφαρμογές δείχνουν το ΑΕΠ 2022, το FDI και τις 13 περιφέρειες. Πέντε αεροδρόμια μένουν blocker. |
 
-## Επόμενη development εργασία: T-M5-01
+## Επόμενη development εργασία
 
-T-M3-01 και T-M4-01 ολοκληρώθηκαν στο `cursor/m3-queries-maps-864c`.
-Επόμενο: έλεγχος πηγών και μικρά πραγματικά datasets. Όχι demo στη θέση πραγματικών μετρήσεων.
-Η `region:CENTRAL` δεν έχει επίσημο NUTS id και δεν πρέπει να βαφτεί πάνω σε άλλη περιφέρεια.
+T-M5-02 έκλεισε μερικά στο `cursor/m5-real-sources-864c`.
+Η διαδρομή εταιρείας υπάρχει για εννέα αεροδρόμια. Άκτιο, Καβάλα, Σαντορίνη, Μυτιλήνη και Σκιάθος δεν παίρνουν περιφέρεια χωρίς νέα παραπομπή.
+Η στρατιωτική σειρά περιμένει όρο αναδιανομής της SIPRI.
 
 Ιστορικό acceptance του scaffold:
 

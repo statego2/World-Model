@@ -25,6 +25,7 @@ interface Model {
   navigate: (section: Section) => void;
   createEmpty: (input: { id: string; label: string }) => Promise<boolean>;
   loadDemo: (payload: unknown) => Promise<boolean>;
+  loadCited: (payload: unknown) => Promise<boolean>;
   open: (id: string) => Promise<void>;
   commit: (action: DomainAction) => Promise<boolean>;
   goHome: () => void;
@@ -117,6 +118,27 @@ export function ModelProvider({ children }: { children: ReactNode }) {
         }
         setSummaries(await repository.list());
         location.hash = routeHash(result.value.id, 'ontology');
+        return true;
+      } finally {
+        setBusy(false);
+      }
+    },
+    async loadCited(payload) {
+      setBusy(true);
+      setErrors([]);
+      const record = payload as { id?: string; label?: string };
+      const id = record.id || 'workspace:real-2026';
+      const label = record.label || 'Πραγματικό απόσπασμα';
+      try {
+        const restored = await repository.restore(payload, { id, label });
+        if (!restored.ok && !restored.errors.some(error => error.code === 'conflict')) {
+          setErrors(restored.errors);
+          setStatus('Το πραγματικό απόσπασμα δεν φορτώθηκε.');
+          return false;
+        }
+        setSummaries(await repository.list());
+        setStatus('Φορτώθηκε πραγματικό απόσπασμα. Δεν είναι το συνθετικό demo.');
+        location.hash = routeHash(id, 'entities');
         return true;
       } finally {
         setBusy(false);

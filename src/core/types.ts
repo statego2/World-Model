@@ -1,6 +1,7 @@
 // Portable domain contracts. UI, repository and action engine are implemented in M1+.
 export type ID = string;
 export type Basis = 'reported' | 'assumption';
+export type Confidence = 'high' | 'medium' | 'low';
 export type Value = string | number | boolean | null;
 export interface EntityType { id: ID; label: string; description: string; deprecated?: boolean }
 export interface RelationshipType {
@@ -16,6 +17,7 @@ export interface PropertyDefinition {
 export interface Entity { id: ID; typeId: ID; label: string; archived?: boolean }
 export interface EvidenceClaim {
   basis: Basis; evidenceIds: ID[]; validFrom: string; validTo: string | null;
+  confidence?: Confidence;
 }
 export interface Relationship extends EvidenceClaim {
   id: ID; typeId: ID; fromId: ID; toId: ID;

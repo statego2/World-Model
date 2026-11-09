@@ -260,6 +260,7 @@ function createRelationship(draft: Workspace, relationship: Relationship): Resul
   }
   const blocked = blockedEvidence(draft, relationship.evidenceIds);
   if (blocked) return blocked;
+  if (!validConfidence(relationship.confidence)) return fail('malformed', 'Μη έγκυρη εμπιστοσύνη.');
   draft.relationships.push(structuredClone(relationship));
   return changed(relationship.id, `Σύνδεση ${from.label} → ${to.label}`, false);
 }
@@ -283,6 +284,7 @@ function recordFact(draft: Workspace, fact: Fact, correction: boolean): Result<M
   }
   const blocked = blockedEvidence(draft, fact.evidenceIds);
   if (blocked) return blocked;
+  if (!validConfidence(fact.confidence)) return fail('malformed', 'Μη έγκυρη εμπιστοσύνη.');
   draft.facts.push(structuredClone(fact));
   return changed(fact.id, correction ? 'Διόρθωση γεγονότος' : 'Καταγραφή γεγονότος', false);
 }
@@ -342,6 +344,10 @@ function removeRecord(draft: Workspace, kind: RevertKind, id: string): boolean {
   if (index < 0) return false;
   list.splice(index, 1);
   return true;
+}
+
+function validConfidence(confidence: string | undefined): boolean {
+  return confidence === undefined || confidence === 'high' || confidence === 'medium' || confidence === 'low';
 }
 
 function blockedEvidence(draft: Workspace, evidenceIds: string[]): Result<never> | null {
