@@ -1,12 +1,12 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: M2 στο `cursor/m1-workspace-editor-864c`, με διορθώσεις στο import/restore. Το M3/M4 είναι στο stacked branch `cursor/m3-queries-maps-864c`.
-T-REPO-01: η private ορατότητα μένει απόφαση του ιδιοκτήτη.
+Τρέχον στάδιο: T-M4-01 done στο `cursor/m3-queries-maps-864c`, με ενσωματωμένες τις διορθώσεις import/restore του PR #2. Επόμενο: T-M5-01.
+T-REPO-01: private ορατότητα μένει απόφαση του ιδιοκτήτη.
 
 ## 2026-11-09 — T-M2-01 / T-M2-02 — Διορθώσεις review
 
-Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m1-workspace-editor-864c
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m1-workspace-editor-864c, ενσωματώθηκε στο cursor/m3-queries-maps-864c
 
 Τέσσερα ευρήματα του Codex στο PR #2:
 - Η επαναφορά σε IndexedDB αφαιρεί το τοπικό κλειδί `seq`, ώστε το ιστορικό να μη συγκρούεται με τις υπάρχουσες γραμμές.
@@ -14,7 +14,59 @@ Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m1-workspace-edit
 - Το ID ενός εισαγόμενου fact περιλαμβάνει ιδιότητα, πηγή και προηγούμενο fact, όχι μόνο γραμμή και έτος.
 - Η καταγραφή μένει ανενεργή αν αλλάξει το αρχείο ή η αντιστοίχιση μετά την προεπισκόπηση.
 
-Επαλήθευση: `npm test` — 41/41 pass, μαζί με IndexedDB restore στον ίδιο browser store και κενό CSV. Επόμενο: merge στο `cursor/m3-queries-maps-864c` χωρίς force push.
+Επαλήθευση στο M1 branch: `npm test` — 41/41 pass. Μετά το merge σε αυτό το branch: `npm test` — 46/46 pass και `tsc -p tsconfig.json --noEmit` pass.
+
+## 2026-11-09 — T-M4-01 — Τέσσερις προβολές και χάρτες
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m3-queries-maps-864c
+
+Οι εφαρμογές διαβάζουν το ίδιο workspace και τα bindings. Παγκόσμιος χάρτης από Natural Earth (public domain). Ελληνικές περιφέρειες από NUTS 2024 / GISCO, με αναφορά πηγής. Η `region:ATT` δένεται ρητά με EL30. Η συνθετική κεντρική περιφέρεια γράφεται «χωρίς γεωμετρία» και δεν ζωγραφίζεται αλλού. Χώρες χωρίς fact μένουν χωρίς δεδομένα, όχι μηδέν. Η σύγκριση Ελλάδας–Τουρκίας δεν ανακηρύσσει νικητή. Το απόθεμα και η ροή FDI μένουν χωριστά. Η σελίδα κεφαλαίων δείχνει την ίδια αποθηκευμένη διαδρομή προς την Αττική και λέει ότι δεν είναι αιτιότητα.
+
+Επαλήθευση:
+- `npx tsc -p tsconfig.json --noEmit` — pass.
+- `npx playwright test tests/browser/modules.spec.ts` — 1/1 pass.
+- Screenshots: `docs/evidence/m4-regions-1440.png`, `docs/evidence/m4-world-1440.png`, `docs/evidence/m4-world-390.png`.
+
+Δεν έγινε έλεγχος πραγματικών πηγών ούτε εισαγωγή WDI. Επόμενο βήμα: T-M5-01.
+
+## 2026-11-09 — T-M3-01 — Εξερεύνηση και αποθηκευμένη διαδρομή
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m3-queries-maps-864c
+
+Η ενότητα Εξερεύνηση τρέχει την αποθηκευμένη προβολή και δείχνει κοινά φίλτρα έτους, βάσης και πηγής για την κατάταξη. Η σημείωση στην οθόνη λέει ότι η διαδρομή δεν είναι αιτιότητα.
+
+Επαλήθευση:
+- `npm test` — 44/44 pass.
+- `npx playwright test tests/browser/explore.spec.ts` — 1/1 pass. Μετά από εταιρεία, υποδομή και τρεις ακμές από το UI, η ίδια προβολή δείχνει και τη δεύτερη διαδρομή προς την κεντρική περιφέρεια.
+- Screenshots: `docs/evidence/m3-path-1440.png`, `docs/evidence/m3-path-390.png`.
+
+Δεν υπάρχουν ακόμη οι τέσσερις θεματικές οθόνες ούτε ζωγραφισμένοι χάρτες. Επόμενο βήμα: T-M4-01.
+
+## 2026-11-09 — T-M3-01 — Query engine χωρίς UI ακόμη
+
+Agent/session: Cursor Grok 4.7 | Status: in_progress | Branch: cursor/m3-queries-maps-864c
+
+`src/core/query.ts` εκτελεί path query, compare και rank. Το cache κλειδί περιλαμβάνει workspace revision. Assumption και ληγμένες ακμές αποκλείονται. Οι κύκλοι τερματίζουν. Το limit δηλώνει truncation. Σύγκρουση τιμών δεν διαλέγει νικητή. Η σημείωση λέει ότι η διαδρομή δεν είναι αιτιότητα.
+
+Επαλήθευση: `npm test` — 44/44 pass. Η αποθηκευμένη προβολή `view:capital-to-regions` επιστρέφει DEU → EXAMPLE → TERMINAL → ATT. Νέα εταιρεία και υποδομή μπαίνουν στο ίδιο query object χωρίς αλλαγή του saved view.
+
+Δεν υπάρχει ακόμη οθόνη εξερεύνησης ούτε browser test που προσθέτει εταιρεία από το UI. Δεν σημειώνεται done.
+Επόμενο βήμα: ενότητα Εξερεύνηση και Playwright που τρέχει την ίδια προβολή πριν και μετά από νέα εταιρεία/υποδομή.
+
+## 2026-11-09 — T-M3-01 — Γεωμετρίες, πριν από το query engine
+
+Agent/session: Cursor Grok 4.7 | Status: in_progress | Branch: cursor/m3-queries-maps-864c
+
+Το branch ξεκινά από το `cursor/m1-workspace-editor-864c` (commit 5b43947). Δεν έγινε merge στο main.
+
+Προστέθηκαν απλοποιημένες γεωμετρίες, όχι ακόμη χάρτης ή query:
+- `data/geometries/world-countries.json`: Natural Earth 1:110m, public domain, κλειδί ISO_A3_EH. 174 χώρες.
+- `data/geometries/greek-regions.json`: NUTS 2024 επίπεδο 2 για την Ελλάδα, Eurostat/GISCO, ελεύθερη επαναχρησιμοποίηση με αναφορά. 13 περιφέρειες, ανάμεσά τους EL30.
+- `data/geometries/region-links.json`: ρητή σύνδεση `region:ATT` → `EL30`. Δεν γίνεται ταίριασμα από label. Η συνθετική «Κεντρική περιφέρεια — DEMO» δεν έχει γεωμετρία.
+
+Δεν γράφτηκε query engine, explorer, module ή test διαδρομής.
+Επαλήθευση: `npm test` — 39/39 pass. Τα νέα αρχεία δεν συμμετέχουν στα tests.
+Επόμενο βήμα: `src/core/query.ts` με path query, cache ανά revision, compare/rank, και tests πριν από UI.
 
 ## 2026-11-09 — T-M1-01 … T-M2-02 — Επεξεργάσιμος χώρος και μεταφορά
 
