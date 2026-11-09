@@ -1,8 +1,19 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: T-M3-01 σε εξέλιξη στο `cursor/m3-queries-maps-864c`.
+Τρέχον στάδιο: T-M3-01 σε εξέλιξη στο `cursor/m3-queries-maps-864c`. Το query engine πέρασε unit tests. Λείπει το UI της εξερεύνησης και το browser test.
 T-REPO-01: το clone επαληθεύτηκε· η private ορατότητα μένει απόφαση του ιδιοκτήτη.
+
+## 2026-11-09 — T-M3-01 — Query engine χωρίς UI ακόμη
+
+Agent/session: Cursor Grok 4.7 | Status: in_progress | Branch: cursor/m3-queries-maps-864c
+
+`src/core/query.ts` εκτελεί path query, compare και rank. Το cache κλειδί περιλαμβάνει workspace revision. Assumption και ληγμένες ακμές αποκλείονται. Οι κύκλοι τερματίζουν. Το limit δηλώνει truncation. Σύγκρουση τιμών δεν διαλέγει νικητή. Η σημείωση λέει ότι η διαδρομή δεν είναι αιτιότητα.
+
+Επαλήθευση: `npm test` — 44/44 pass. Η αποθηκευμένη προβολή `view:capital-to-regions` επιστρέφει DEU → EXAMPLE → TERMINAL → ATT. Νέα εταιρεία και υποδομή μπαίνουν στο ίδιο query object χωρίς αλλαγή του saved view.
+
+Δεν υπάρχει ακόμη οθόνη εξερεύνησης ούτε browser test που προσθέτει εταιρεία από το UI. Δεν σημειώνεται done.
+Επόμενο βήμα: ενότητα Εξερεύνηση και Playwright που τρέχει την ίδια προβολή πριν και μετά από νέα εταιρεία/υποδομή.
 
 ## 2026-11-09 — T-M3-01 — Γεωμετρίες, πριν από το query engine
 
