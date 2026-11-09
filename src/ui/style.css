@@ -110,6 +110,13 @@ input, select, textarea {
 .demo-note { color: var(--brass); margin-top: 0; }
 
 .table-wrap { overflow-x: auto; }
+.map { width: 100%; height: auto; background: #10140f; border-radius: 12px; }
+.map path { stroke: #121610; stroke-width: 0.6; }
+.map .nodata { fill: #2c3428; }
+.map .valued { fill: #e2b15a; }
+.module-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.module-tabs button { background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; }
+.module-tabs button[aria-selected="true"] { background: var(--brass); color: var(--brass-ink); border-color: var(--brass); }
 table { width: 100%; border-collapse: collapse; min-width: 520px; }
 th { text-align: left; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 td, th { padding: 9px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
