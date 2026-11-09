@@ -1,17 +1,26 @@
 import { useState } from 'react';
 import type { Fact, Workspace } from '../core/types.ts';
+import { useAtlas } from './atlas-context.tsx';
+import { formatMeasure } from './format.ts';
 import { entityLabel, typeName } from './lookup.ts';
 import { useModel, type Selection } from './model.tsx';
+import { MapSidePanel } from './modules.tsx';
 
 export function Inspector() {
   const model = useModel();
+  const atlas = useAtlas();
   const workspace = model.workspace;
   if (!workspace) return null;
   const selected = resolve(workspace, model.selection);
+  const mapIdle = model.section === 'modules' && !atlas.focus && !atlas.dossierOpen && !atlas.filtersOpen;
   return (
-    <aside className="inspector" aria-label="Λεπτομέρειες">
-      <p className="eyebrow">Επιθεώρηση</p>
-      {!selected ? <p>Επίλεξε μια γραμμή για να δεις ταυτότητα, σχέσεις και τεκμήρια.</p> : <Detail workspace={workspace} selection={selected} />}
+    <aside className={mapIdle ? 'inspector idle' : 'inspector'} aria-label="Λεπτομέρειες">
+      {model.section === 'modules' ? <MapSidePanel /> : (
+        <>
+          <p className="eyebrow">Επιθεώρηση</p>
+          {!selected ? <p>Επίλεξε μια γραμμή για να δεις ταυτότητα, σχέσεις και τεκμήρια.</p> : <Detail workspace={workspace} selection={selected} />}
+        </>
+      )}
       <details className="history">
         <summary>Ιστορικό ({model.history.length})</summary>
         {model.history.length === 0 ? <p className="muted">Καμία αποθηκευμένη ενέργεια.</p> : (
@@ -120,7 +129,7 @@ function FactCorrection({ workspace, factId }: { workspace: Workspace; factId: s
   const superseded = workspace.facts.some(item => item.supersedesId === fact.id);
   return (
     <li>
-      <div>{property?.label ?? fact.propertyId}: {fact.value === null ? 'ελλιπές' : String(fact.value)}{property?.unit ? ` ${property.unit}` : ''}</div>
+      <div>{property?.label ?? fact.propertyId}: {fact.value === null ? 'ελλιπές' : typeof fact.value === 'number' ? formatMeasure(fact.value, property?.unit) : String(fact.value)}</div>
       {superseded ? <small>Υπάρχει νεότερη διόρθωση.</small> : (
         <form onSubmit={event => {
           event.preventDefault();

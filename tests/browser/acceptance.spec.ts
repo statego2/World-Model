@@ -137,6 +137,7 @@ test('keyboard creates a type and a stale tab is rejected', async ({ browser }) 
 test('csv import records a measurement and leaves an unknown id unresolved', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Φόρτωση συνθετικού DEMO' }).click();
+  await page.getByRole('button', { name: 'Οντότητες' }).click();
   await expect(page.getByRole('cell', { name: 'Ελλάδα' })).toBeVisible();
   await expect(page.getByTestId('data-mode')).toHaveText('ΣΥΝΘΕΤΙΚΟ DEMO');
   await page.getByRole('button', { name: 'Μεταφορά' }).click();

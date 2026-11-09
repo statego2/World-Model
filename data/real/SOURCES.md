@@ -25,6 +25,17 @@
 - Το metadata ονομάζει ως πηγή το UN World Population Prospects και εθνικές στατιστικές. Δεν γράφει ξεχωριστή απαγόρευση αναδιανομής. Ισχύει η ίδια CC BY 4.0 του World Bank, με αναφορά και στον UN WPP.
 - Αναφορά: World Bank WDI, SP.POP.TOTL, via UN World Population Prospects and national statistics, retrieved 2026-11-09.
 
+## World Bank WDI — πλήρης λήψη για τον χάρτη, 2026-11-09
+
+Η λήψη `country/all` φιλτράρεται στους κωδικούς `ISO_A3_EH` του `data/geometries/world-countries.json` (174 πολύγωνα). Κενές τιμές και αθροίσματα (WLD, EUU και τα υπόλοιπα που δεν είναι χώρα του αρχείου) δεν αποθηκεύονται. Οι τιμές των πέντε χωρών του παλιού αποσπάσματος ταυτίζονται ακριβώς με αυτή τη λήψη. Τα παλιά αρχεία και τα hashes τους μένουν.
+
+- NY.GDP.MKTP.CD: `raw/wdi-ny.gdp.mktp.cd-world-2022-2023.json`, SHA-256 `b3b460aafcb4d905530fed976d7dc7b10e7499fc2b41419f24af7dba487504cb`. 327 γραμμές, 164 χώρες με 2022, 163 με 2023.
+- SP.POP.TOTL: `raw/wdi-sp.pop.totl-world-2022-2023.json`, SHA-256 `bffbb35671d4018e7983fe142d1c3a4f7ba9bff4e4104b2612b8bededf232f79`. 338 γραμμές, 169 χώρες.
+- NY.GDP.PCAP.CD: `raw/wdi-ny.gdp.pcap.cd-world-2022-2023.json`, SHA-256 `b4512eea29a820057858b559961f3de1858d77afa0e1cc647ca6b42461c11248`. 327 γραμμές, 164 χώρες. Το metadata το περιγράφει ως το ΑΕΠ διαιρεμένο με τον πληθυσμό.
+- API: `https://api.worldbank.org/v2/country/all/indicator/{id}?format=json&date=2022:2023&per_page=20000`
+- Η σελίδα `https://data.worldbank.org/summary-terms-of-use`, διαβασμένη την ίδια μέρα, λέει ότι τα datasets διατίθενται με CC BY 4.0 εκτός αν το metadata ορίζει αλλιώς. Το metadata των τριών δεικτών δεν ορίζει άλλη άδεια. Η εισαγωγή κόβεται σε κομμάτια των 200 γραμμών, που είναι το όριο της προεπισκόπησης.
+- Χωρίς αριθμό σε αυτή τη λήψη, άρα το πολύγωνο μένει κενό και όχι μηδέν: ESH, FLK, ATF, CUB, PRK, TWN, ERI, YEM, ATA, SSD.
+
 ## Eurostat — nama_10r_2gdp
 
 - Dataset: Gross domestic product (GDP) at current market prices by NUTS 2 region.

@@ -39,8 +39,9 @@ export interface RealAssessment {
 
 export async function buildRealWorkspace(): Promise<{ workspace: Workspace; assessment: RealAssessment }> {
   const started = Date.now();
-  const gdp = readJson<WdiRow[]>('wdi-ny.gdp.mktp.cd-2022-2023.json');
-  const population = readJson<WdiRow[]>('wdi-sp.pop.totl-2022-2023.json');
+  const gdp = readJson<WdiRow[]>('wdi-ny.gdp.mktp.cd-world-2022-2023.json');
+  const population = readJson<WdiRow[]>('wdi-sp.pop.totl-world-2022-2023.json');
+  const perCapita = readJson<WdiRow[]>('wdi-ny.gdp.pcap.cd-world-2022-2023.json');
   const regional = decodeEurostat(readJson<EurostatSet>('eurostat-nama_10r_2gdp-el-2022.json'))
     .filter(row => row.unit === 'MIO_EUR' && row.time === '2022');
   const fdi = decodeEurostat(readJson<EurostatSet>('eurostat-bop_fdi6_geo-el-de-2022.json'))
@@ -66,18 +67,23 @@ export async function buildRealWorkspace(): Promise<{ workspace: Workspace; asse
   await commit({ type: 'DefineRelationshipType', relationshipType: { id: 'reltype:direct_investment_in', label: 'Άμεση επένδυση στη χώρα αναφοράς', description: 'Eurostat DIRE: direct investment in the reporting economy by the partner country. Aggregate BPM6 position, not a company stake.', fromTypeIds: ['type:country'], toTypeIds: ['type:country'], directed: true } }, 'act:real-rel-fdi');
   await commit({ type: 'DefineProperty', property: { id: 'property:gdp_usd', label: 'GDP current US$', subjectKind: 'entity', subjectTypeId: 'type:country', valueType: 'number', unit: 'USD', measureKind: 'flow', frequency: 'annual', nonnegative: true } }, 'act:real-gdp');
   await commit({ type: 'DefineProperty', property: { id: 'property:population', label: 'Population, total', subjectKind: 'entity', subjectTypeId: 'type:country', valueType: 'number', unit: 'persons', measureKind: 'stock', frequency: 'annual', nonnegative: true } }, 'act:real-pop');
+  await commit({ type: 'DefineProperty', property: { id: 'property:gdp_per_capita_usd', label: 'GDP per capita current US$', subjectKind: 'entity', subjectTypeId: 'type:country', valueType: 'number', unit: 'USD', measureKind: 'flow', frequency: 'annual', nonnegative: true } }, 'act:real-gdp-pcap');
   await commit({ type: 'DefineProperty', property: { id: 'property:regional_gdp_eur', label: 'Regional GDP', subjectKind: 'entity', subjectTypeId: 'type:region', valueType: 'number', unit: 'million EUR', measureKind: 'flow', frequency: 'annual', nonnegative: true } }, 'act:real-regional');
   await commit({ type: 'DefineProperty', property: { id: 'property:fdi_stock_eur', label: 'Inward FDI stock', subjectKind: 'relationship', subjectTypeId: 'reltype:direct_investment_in', valueType: 'number', unit: 'million EUR', measureKind: 'stock', frequency: 'annual' } }, 'act:real-fdi-stock');
   await commit({ type: 'DefineProperty', property: { id: 'property:fdi_flow_eur', label: 'Inward FDI flow', subjectKind: 'relationship', subjectTypeId: 'reltype:direct_investment_in', valueType: 'number', unit: 'million EUR', measureKind: 'flow', frequency: 'annual' } }, 'act:real-fdi-flow');
   await commit({ type: 'DefineProperty', property: { id: 'property:iso3', label: 'ISO alpha-3', subjectKind: 'entity', subjectTypeId: 'type:country', valueType: 'string' } }, 'act:real-iso');
   await commit({ type: 'DefineProperty', property: { id: 'property:nuts_id', label: 'NUTS id', subjectKind: 'entity', subjectTypeId: 'type:region', valueType: 'string' } }, 'act:real-nuts');
 
-  await commit({ type: 'CreateSource', source: { id: 'source:wdi-gdp', label: 'World Bank WDI NY.GDP.MKTP.CD', locator: 'https://api.worldbank.org/v2/country/GRC;TUR;DEU;USA;CYP/indicator/NY.GDP.MKTP.CD?format=json&date=2022:2023', retrievedAt: RETRIEVED, licenseNote: 'CC BY 4.0 per data.worldbank.org summary terms of use, retrieved 2026-11-09. Attribution: World Bank, World Development Indicators.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-gdp');
-  await commit({ type: 'CreateSource', source: { id: 'source:wdi-pop', label: 'World Bank WDI SP.POP.TOTL', locator: 'https://api.worldbank.org/v2/country/GRC;TUR;DEU;USA;CYP/indicator/SP.POP.TOTL?format=json&date=2022:2023', retrievedAt: RETRIEVED, licenseNote: 'CC BY 4.0 via World Bank summary terms. Upstream named in the indicator metadata: UN World Population Prospects and national statistics.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-pop');
+  const gdpLocator = 'https://api.worldbank.org/v2/country/all/indicator/NY.GDP.MKTP.CD?format=json&date=2022:2023&per_page=20000';
+  const popLocator = 'https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&date=2022:2023&per_page=20000';
+  const pcapLocator = 'https://api.worldbank.org/v2/country/all/indicator/NY.GDP.PCAP.CD?format=json&date=2022:2023&per_page=20000';
+  await commit({ type: 'CreateSource', source: { id: 'source:wdi-gdp', label: 'World Bank WDI NY.GDP.MKTP.CD', locator: gdpLocator, retrievedAt: RETRIEVED, licenseNote: 'CC BY 4.0 per data.worldbank.org summary terms of use, retrieved 2026-11-09. Rows kept only when countryiso3code is in Natural Earth ISO_A3_EH. Nulls and aggregates are absent. Attribution: World Bank, World Development Indicators.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-gdp');
+  await commit({ type: 'CreateSource', source: { id: 'source:wdi-pop', label: 'World Bank WDI SP.POP.TOTL', locator: popLocator, retrievedAt: RETRIEVED, licenseNote: 'CC BY 4.0 via World Bank summary terms. Indicator metadata names UN World Population Prospects, national statistics and Eurostat and sets no separate redistribution limit. Same geometry filter as GDP. Attribution: World Bank WDI, SP.POP.TOTL.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-pop');
+  await commit({ type: 'CreateSource', source: { id: 'source:wdi-pcap', label: 'World Bank WDI NY.GDP.PCAP.CD', locator: pcapLocator, retrievedAt: RETRIEVED, licenseNote: 'CC BY 4.0 via the same World Bank summary terms, retrieved 2026-11-09. Metadata describes GDP per capita as the national-accounts total divided by population and names no other license. Same geometry filter. Attribution: World Bank, World Development Indicators.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-pcap');
   await commit({ type: 'CreateSource', source: { id: 'source:eurostat-gdp', label: 'Eurostat nama_10r_2gdp', locator: 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_2gdp?format=JSON&unit=MIO_EUR&time=2022', retrievedAt: RETRIEVED, licenseNote: 'Eurostat copyright notice https://ec.europa.eu/eurostat/web/main/help/copyright-notice retrieved 2026-11-09: reuse of statistical data is authorised provided the source is acknowledged, under the Commission Decision of 12 December 2011. Attribution: Source: Eurostat, nama_10r_2gdp.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-regional');
   await commit({ type: 'CreateSource', source: { id: 'source:eurostat-fdi', label: 'Eurostat bop_fdi6_geo', locator: 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_geo?format=JSON&geo=EL&partner=DE&sinceTimePeriod=2022&untilTimePeriod=2022', retrievedAt: RETRIEVED, licenseNote: 'Same Eurostat copyright notice, retrieved 2026-11-09. Attribution: Source: Eurostat, bop_fdi6_geo. Aggregate DIRE only.', verificationStatus: 'verified', isDemo: false } }, 'act:real-source-fdi');
 
-  const countries = [...new Map(gdp.map(row => [row.iso3, row.name])).entries()];
+  const countries = [...new Map([...gdp, ...population, ...perCapita].map(row => [row.iso3, row.name])).entries()];
   for (const [iso3, name] of countries) {
     await commit({ type: 'CreateEntity', entity: { id: `country:${iso3}`, typeId: 'type:country', label: name } }, `act:real-country-${iso3}`);
     await commit({ type: 'RecordFact', fact: stringFact(`fact:iso-${iso3}`, `country:${iso3}`, 'property:iso3', iso3, 'source:wdi-gdp') }, `act:real-iso-${iso3}`);
@@ -90,15 +96,9 @@ export async function buildRealWorkspace(): Promise<{ workspace: Workspace; asse
     await commit({ type: 'CreateRelationship', relationship: { id: `edge:part-${code}`, typeId: 'reltype:part_of', fromId: `region:${code}`, toId: 'country:GRC', basis: 'reported', evidenceIds: ['source:eurostat-gdp'], validFrom: '2022-01-01', validTo: null } }, `act:real-part-${code}`);
   }
 
-  await importCsv(commit, current, csvOf(gdp.map(row => ({ entityId: `country:${row.iso3}`, value: row.value, year: row.year }))), { ...baseMapping('property:gdp_usd', 'source:wdi-gdp') }, 'act:real-import-gdp');
-  const afterGdp = await repository.load(current.id);
-  if (!afterGdp.ok) throw new Error('gdp workspace missing');
-  current = afterGdp.value;
-  await importCsv(async (action, actionId) => {
-    const result = await repository.commit({ workspaceId: current.id, expectedRevision: current.revision, actionId, actor: 'real-import', at: RETRIEVED, action });
-    if (!result.ok) throw new Error(result.errors.map(error => error.message).join('\n'));
-    current = result.value.workspace;
-  }, current, csvOf(population.map(row => ({ entityId: `country:${row.iso3}`, value: row.value, year: row.year }))), { ...baseMapping('property:population', 'source:wdi-pop') }, 'act:real-import-pop');
+  await importMeasured(commit, () => current, gdp, { ...baseMapping('property:gdp_usd', 'source:wdi-gdp') }, 'act:real-import-gdp');
+  await importMeasured(commit, () => current, population, { ...baseMapping('property:population', 'source:wdi-pop') }, 'act:real-import-pop');
+  await importMeasured(commit, () => current, perCapita, { ...baseMapping('property:gdp_per_capita_usd', 'source:wdi-pcap') }, 'act:real-import-pcap');
   await importCsv(async (action, actionId) => {
     const result = await repository.commit({ workspaceId: current.id, expectedRevision: current.revision, actionId, actor: 'real-import', at: RETRIEVED, action });
     if (!result.ok) throw new Error(result.errors.map(error => error.message).join('\n'));
@@ -117,6 +117,7 @@ export async function buildRealWorkspace(): Promise<{ workspace: Workspace; asse
     countryType: 'type:country',
     regionType: 'type:region',
     gdpProperty: 'property:gdp_usd',
+    populationProperty: 'property:population',
     regionalGvaProperty: 'property:regional_gdp_eur',
     capitalType: 'reltype:direct_investment_in',
     fdiStockProperty: 'property:fdi_stock_eur',
@@ -144,6 +145,13 @@ export async function buildRealWorkspace(): Promise<{ workspace: Workspace; asse
     unitMixRefused: true,
   };
   return { workspace, assessment };
+}
+
+async function importMeasured(commit: (action: DomainAction, actionId: string) => Promise<void>, workspace: () => Workspace, rows: WdiRow[], mapping: ImportMapping, actionId: string) {
+  const mapped = rows.map(row => ({ entityId: `country:${row.iso3}`, value: row.value, year: row.year }));
+  for (let offset = 0; offset < mapped.length; offset += 200) {
+    await importCsv(commit, workspace(), csvOf(mapped.slice(offset, offset + 200)), mapping, `${actionId}-${offset / 200}`);
+  }
 }
 
 async function importCsv(commit: (action: DomainAction, actionId: string) => Promise<void>, workspace: Workspace, csv: string, mapping: ImportMapping, actionId: string) {

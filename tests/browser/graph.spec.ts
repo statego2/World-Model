@@ -9,6 +9,8 @@ test('search opens a two-step neighborhood and a series keeps gaps empty', async
   await expect(page.getByTestId('neighborhood-table')).toContainText('Συνθετικός τερματικός — DEMO');
   await page.getByLabel('Βήματα').selectOption('1');
   await expect(page.getByTestId('neighborhood-table')).not.toContainText('Συνθετικός τερματικός — DEMO');
+  await page.getByLabel('Βήματα').selectOption('2');
+  await expect(page.getByTestId('neighborhood-table')).toContainText('Συνθετικός τερματικός — DEMO');
   await expect(page.getByTestId('graph-inspector')).toContainText('country:DEU');
 
   await page.getByRole('checkbox', { name: 'Ελλάδα' }).check();
@@ -16,7 +18,11 @@ test('search opens a two-step neighborhood and a series keeps gaps empty', async
   await expect(page.getByTestId('series-table')).toContainText('2022');
   await expect(page.getByTestId('series-table')).toContainText('2023');
   await page.setViewportSize({ width: 1440, height: 900 });
-  await page.screenshot({ path: 'docs/evidence/n4-graph-1440.png', fullPage: true });
+  await page.getByTestId('graph-canvas').scrollIntoViewIfNeeded();
+  await page.screenshot({ path: 'docs/evidence/n4-graph-1440.png' });
+  await page.getByTestId('series-chart').scrollIntoViewIfNeeded();
+  await page.screenshot({ path: 'docs/evidence/n4-series-1440.png' });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.screenshot({ path: 'docs/evidence/n4-graph-390.png', fullPage: true });
+  await page.getByTestId('series-chart').scrollIntoViewIfNeeded();
+  await page.screenshot({ path: 'docs/evidence/n4-graph-390.png' });
 });
