@@ -8,5 +8,5 @@ if (errors.length) {
   process.exitCode = 1;
 } else {
   console.log(`Valid ${workspace.dataMode} workspace: ${workspace.entities.length} entities, ${workspace.relationships.length} relationships, ${workspace.facts.length} facts.`);
-  console.log('Editor, persistence, imports and query execution are specified, not implemented yet.');
+  console.log('Fixture validated. Imports and query execution remain planned.');
 }

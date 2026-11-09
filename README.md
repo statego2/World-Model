@@ -9,9 +9,8 @@
 αρχικές εφαρμογές. Από το πρώτο PoC ο χρήστης προσθέτει τύπους, οντότητες,
 χαρακτηριστικά, τεκμηριωμένες σχέσεις και μετρήσεις από το browser.
 
-**Η παρούσα παράδοση:** σχέδιο, συμβόλαια, TypeScript types, συνθετικό workspace,
-λειτουργικός validator και δοκιμές. Δεν είναι έτοιμη web εφαρμογή. Ο editor,
-η IndexedDB αποθήκευση, ο importer, οι χάρτες και τα analytics μένουν προς υλοποίηση.
+**Η παρούσα παράδοση:** αρχικός browser editor, σχέδιο, TypeScript types, συνθετικό workspace,
+λειτουργικός validator και δοκιμές. Ο importer, οι χάρτες, τα analytics και η ολοκλήρωση του M1 μένουν προς υλοποίηση.
 
 Για νέο agent: διάβασε [AGENTS.md](AGENTS.md), [PROJECT.md](PROJECT.md),
 [ARCHITECTURE.md](ARCHITECTURE.md), [PROGRESS.md](PROGRESS.md) και [TASKS.md](TASKS.md).
@@ -23,7 +22,9 @@
 κάθε φορά. Πρώτο παραδοτέο: browser editor που αποθηκεύει οντότητες και σχέσεις.
 
 ```sh
-node scripts/validate.mjs
+npm install
+npm run dev
+npm run build
 npm test
 ```
 

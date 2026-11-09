@@ -1,7 +1,7 @@
 # WORLD MODEL — ταυτότητα και αποφάσεις
 
 Ενημέρωση: 2026-11-09. Project root: ο φάκελος που περιέχει αυτό το αρχείο.
-Τρέχουσα έκδοση πακέτου: 0.2.0. Στάδιο: M0 starter, πριν από browser υλοποίηση.
+Τρέχουσα έκδοση πακέτου: 0.2.0. Στάδιο: M1 σε εξέλιξη, με αρχικό browser editor.
 
 ## Αποστολή
 
@@ -31,9 +31,11 @@ Analysis, Global Capital Flows, Greek Domestic Economy.
 - `scripts/validate.mjs`, `tests/domain.test.mjs`: CLI validation και 20 tests.
 - Σχέδιο, milestones και handoff prompts. Νέα αρχεία μνήμης για όλους τους agents.
 
+- Υπάρχει αρχικός React editor με IndexedDB και συνθετικό/προσωπικό χώρο.
+
 ## Τι δεν έχει υλοποιηθεί
 
-React UI, generic editors, IndexedDB persistence, action engine, CSV/JSON import,
+Πλήρες action engine, αυστηρό schema parsing, CSV/JSON import,
 export/restore, history UI, graph/query execution, maps και τέσσερα modules.
 Δεν υπάρχουν real-data connectors, backend, authentication, AI ή simulator.
 Ο validator δεν είναι πλήρης strict schema/security validator. Δεν υπάρχει build,
