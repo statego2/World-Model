@@ -11,7 +11,13 @@ test('the cited extract stays in a real workspace', async ({ page }) => {
   await page.getByRole('button', { name: 'Εφαρμογές' }).click();
   await expect(page.locator('[data-iso="GRC"]')).toHaveAttribute('data-value', '217990189600.69');
   await expect(page.locator('[data-iso="FRA"]')).toHaveAttribute('data-value', 'none');
+  await expect(page.locator('[data-iso="USA"]')).not.toHaveAttribute('data-scale', await page.locator('[data-iso="CYP"]').getAttribute('data-scale') ?? '');
   await expect(page.getByText('217990189600.69 USD')).toBeVisible();
+  await page.locator('[data-iso="DEU"]').focus();
+  await page.locator('[data-iso="DEU"]').press('Enter');
+  await expect(page.getByTestId('map-inspector')).toContainText('Germany');
+  await expect(page.getByTestId('map-inspector')).toContainText('αιτιότητα');
+  await page.screenshot({ path: 'docs/evidence/n4-map-1440.png', fullPage: true });
   await page.getByRole('tab', { name: 'Ελλάδα–Τουρκία' }).click();
   await expect(page.getByText('Λείπει το binding της αμυντικής δαπάνης.')).toBeVisible();
   await page.getByRole('tab', { name: 'Κεφάλαια' }).click();
@@ -27,6 +33,10 @@ test('the cited extract stays in a real workspace', async ({ page }) => {
   await expect(page.locator('[data-nuts="EL41"]')).toHaveAttribute('data-value', '2710.05');
   await expect(page.getByText('Attiki: γεωμετρία EL30')).toBeVisible();
   await expect(page.getByText('Kriti: γεωμετρία EL43')).toBeVisible();
+  await page.locator('[data-nuts="EL43"]').focus();
+  await page.locator('[data-nuts="EL43"]').press('Enter');
+  await expect(page.getByTestId('map-inspector')).toContainText('Kriti');
+  await expect(page.getByTestId('map-inspector')).toContainText('10432.72');
   await page.screenshot({ path: 'docs/evidence/m5-regions-1440.png', fullPage: true });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.screenshot({ path: 'docs/evidence/m5-regions-390.png', fullPage: true });

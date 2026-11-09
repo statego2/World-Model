@@ -70,6 +70,7 @@ export function Modules() {
 }
 
 function World({ workspace, filters }: { workspace: Workspace; filters: SharedFilters }) {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const features = worldGeometry.features as MapFeature[];
   const propertyId = workspace.bindings.gdpProperty;
   const ranked = propertyId ? rankEntities(workspace, countries(workspace).map(entity => entity.id), propertyId, filters) : null;
@@ -86,7 +87,8 @@ function World({ workspace, filters }: { workspace: Workspace; filters: SharedFi
     <section className="panel" aria-label="Παγκόσμιος χάρτης">
       <h2>Χώρες και ΑΕΠ</h2>
       <p>Χωρίς δεδομένα δεν σημαίνει μηδέν. Οι υπόλοιπες χώρες μένουν χωρίς μέτρηση.</p>
-      <GeoMap features={features} idAttribute="data-iso" values={valueByIso} bounds={{ minLon: -180, maxLon: 180, minLat: -56, maxLat: 84 }} label={`Παγκόσμιος χάρτης, έτος ${filters.year}`} />
+      <GeoMap features={features} idAttribute="data-iso" values={valueByIso} bounds={{ minLon: -180, maxLon: 180, minLat: -56, maxLat: 84 }} label={`Παγκόσμιος χάρτης, έτος ${filters.year}`} selectedId={selectedId} onSelect={setSelectedId} />
+      <Selection workspace={workspace} filters={filters} geometryId={selectedId} entityId={selectedId ? countries(workspace).find(entity => isoOf(workspace, entity.id) === selectedId)?.id ?? null : null} onClear={() => setSelectedId(null)} />
       {ranked && ranked.ok ? <MetricTable workspace={workspace} rows={ranked.rows.map(row => ({ id: row.entityId, label: entityLabel(workspace, row.entityId), status: row.status, value: row.values[0]?.value, unit: row.unit, rank: row.rank, factId: row.values[0]?.factId }))} /> : null}
     </section>
   );
@@ -137,6 +139,7 @@ function Capital({ workspace, filters }: { workspace: Workspace; filters: Shared
 }
 
 function Greece({ workspace, filters }: { workspace: Workspace; filters: SharedFilters }) {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const features = regionGeometry.features as MapFeature[];
   const propertyId = workspace.bindings.regionalGvaProperty;
   const values: Record<string, number | 'none'> = {};
@@ -151,7 +154,8 @@ function Greece({ workspace, filters }: { workspace: Workspace; filters: SharedF
     <section className="panel" aria-label="Ελληνική οικονομία">
       <h2>Περιφέρειες</h2>
       <p>Ο χάρτης δείχνει όρια NUTS, όχι τη χώρα ως ένα πολύγωνο. Συνθετική περιφέρεια χωρίς ρητή γεωμετρία δεν ζωγραφίζεται αλλού.</p>
-      <GeoMap features={features} idAttribute="data-nuts" values={values} bounds={boundsOf(features, { minLon: 19, maxLon: 30, minLat: 34, maxLat: 42 })} label="Χάρτης ελληνικών περιφερειών" />
+      <GeoMap features={features} idAttribute="data-nuts" values={values} bounds={boundsOf(features, { minLon: 19, maxLon: 30, minLat: 34, maxLat: 42 })} label="Χάρτης ελληνικών περιφερειών" selectedId={selectedId} onSelect={setSelectedId} />
+      <Selection workspace={workspace} filters={filters} geometryId={selectedId} entityId={selectedId ? linkedEntity(workspace, selectedId) : null} propertyId={propertyId} onClear={() => setSelectedId(null)} />
       <ul className="plain-list">
         {regions.map(region => {
           const link = regionLinks.links.find(item => item.entityId === region.id);
@@ -256,6 +260,39 @@ function metricText(workspace: Workspace, subjectKind: 'entity' | 'relationship'
   if (reading.status !== 'value') return 'χωρίς δεδομένα';
   const factId = reading.values[0]?.factId;
   return `${reading.values[0]?.value} ${reading.unit ?? ''} · ${factId ? sourceNames(workspace, factId) : ''}`.trim();
+}
+
+function Selection({ workspace, filters, geometryId, entityId, propertyId, onClear }: {
+  workspace: Workspace;
+  filters: SharedFilters;
+  geometryId: string | null;
+  entityId: string | null;
+  propertyId?: string;
+  onClear: () => void;
+}) {
+  if (!geometryId) return null;
+  const property = propertyId ?? workspace.bindings.gdpProperty;
+  const reading = entityId && property ? readSubjectMetric(workspace, 'entity', entityId, property, filters) : null;
+  const factId = reading?.values[0]?.factId;
+  const neighbors = entityId ? workspace.relationships.filter(edge => edge.fromId === entityId || edge.toId === entityId).slice(0, 12) : [];
+  return (
+    <section className="panel" data-testid="map-inspector">
+      <h2>{entityId ? entityLabel(workspace, entityId) : geometryId}</h2>
+      <p>{!entityId ? 'Η γεωμετρία δεν έχει ρητή οντότητα.' : !reading || reading.status === 'missing' ? 'Χωρίς δεδομένα. Δεν σημαίνει μηδέν.' : reading.status === 'conflict' ? 'Σύγκρουση πηγών, χωρίς επιλογή νικητή.' : `${reading.values[0]?.value} ${reading.unit ?? ''}`}</p>
+      {factId ? <p>Πηγή: {sourceNames(workspace, factId)}</p> : null}
+      {neighbors.length > 0 ? (
+        <ul className="plain-list">
+          {neighbors.map(edge => {
+            const other = edge.fromId === entityId ? edge.toId : edge.fromId;
+            const type = workspace.relationshipTypes.find(item => item.id === edge.typeId);
+            return <li key={edge.id}>{type?.label ?? edge.typeId}: {entityLabel(workspace, other)}</li>;
+          })}
+        </ul>
+      ) : <p>Καμία καταγεγραμμένη γειτονιά σε ένα βήμα.</p>}
+      <p className="muted">Η γειτονιά δείχνει καταγεγραμμένες σχέσεις, όχι αιτιότητα.</p>
+      <button type="button" onClick={onClear}>Καθαρισμός επιλογής</button>
+    </section>
+  );
 }
 
 function sourceNames(workspace: Workspace, factId: string): string {

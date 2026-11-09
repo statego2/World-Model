@@ -1,7 +1,17 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: N2 στο `cursor/overnight-depth-864c`. N0 και N1 πέρασαν. Η υπόθεση Β μένει μερική.
+Τρέχον στάδιο: N4-A στο `cursor/overnight-depth-864c`. N0–N3 και N4-B πέρασαν. Η υπόθεση Β μένει μερική.
+
+## 2026-11-09 — N4-B — Διαδραστικοί χάρτες
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-864c
+
+Ο χάρτης δέχεται click και Enter/Space. Οι αριθμητικές τιμές παίρνουν διαφορετική απόχρωση. Το no-data μένει χωρίς τιμή. Ο inspector δείχνει την πηγή και τη γειτονιά ενός βήματος και λέει ότι δεν είναι αιτιότητα. Το R3 κλείνει σε αυτό το σημείο.
+
+Επαλήθευση: `npm test` — 54/54 pass. `npx playwright test tests/browser/real.spec.ts tests/browser/modules.spec.ts` — 2/2 pass. Screenshot `docs/evidence/n4-map-1440.png`.
+
+Επόμενο βήμα: N4-A αναζήτηση οντότητας και γειτονιά έως 2 βήματα με όριο, μετά N4-C σύγκριση και χρονοσειρά. Μετά N5 εισαγωγή οντοτήτων/ακμών. Τα πέντε αεροδρόμια και η SIPRI μένουν blockers. Μην αλλάξεις την ορατότητα του repository.
 
 ## 2026-11-09 — N0 / N1 — Ακεραιότητα εισαγωγής και αντιγράφου
 
@@ -24,9 +34,6 @@ Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-8
 Επόμενο βήμα μετά το N2 ήταν το N3. Ολοκληρώθηκε: φόρμα αποθηκευμένου ερωτήματος με 1–4 βήματα, σταθερά ή κληρονομούμενα φίλτρα, και ενέργεια `SetBinding` που απορρίπτει ιδιότητα άλλου τύπου. Browser από κενό χώρο: αποθήκευση, reload, εκτέλεση, δεύτερη εταιρεία στην ίδια προβολή. Screenshot `docs/evidence/n3-query-1440.png`.
 
 Επαλήθευση N3: `node --test tests/bindings.test.ts` — pass. `npx playwright test tests/browser/query-builder.spec.ts tests/browser/explore.spec.ts tests/browser/modules.spec.ts` — 3/3 pass.
-
-Επόμενο βήμα: N4, επιλογή στον χάρτη, αριθμητική κλίμακα και γειτονιά κόμβου.
-T-REPO-01: το public repository είναι επιλογή του ιδιοκτήτη. Δεν αλλάζει η ορατότητα.
 
 ## 2026-11-09 — T-REF-01 — Μελέτη τριών εφαρμογών αναφοράς
 

@@ -6,7 +6,7 @@
 src/core/types.ts                  Portable contracts
 src/core/validate.mjs              Semantic validator, χωρίς npm dependency
 src/core/parse.ts                  Strict boundary: unknown fields, depth/size, IDs
-src/core/actions.ts                Actions, revision bump, typed errors
+src/core/actions.ts                Actions, revision bump, typed errors, role bindings
 src/core/import.ts                 CSV preview, exact match, import key
 src/core/query.ts                  Path, compare, rank
 src/core/transfer.ts               Export envelope and unknown format rejection

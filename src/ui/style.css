@@ -114,6 +114,7 @@ input, select, textarea {
 .map path { stroke: #121610; stroke-width: 0.6; }
 .map .nodata { fill: #2c3428; }
 .map .valued { fill: #e2b15a; }
+.map .selected { stroke: #f4efe4; stroke-width: 1.6; }
 .module-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
 .module-tabs button { background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 8px 12px; }
 .module-tabs button[aria-selected="true"] { background: var(--brass); color: var(--brass-ink); border-color: var(--brass); }
