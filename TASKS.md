@@ -9,8 +9,8 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 |---|---|---|---|---|
 | T-M0-01 | Σχέδιο, contracts, fixture, validator, tests | done | Codex / χωρίς branch | — |
 | T-MEM-01 | Πέντε αρχεία μνήμης και agent workflow | done | Codex / χωρίς branch | M0 |
-| T-REPO-01 | GitHub repo και αρχικό versioned snapshot | in_progress | Codex / main | Εκκρεμεί clone και tests σε δεύτερο χώρο |
-| T-M1-01 | React/TS/Vite scaffold και scripts/lockfile | todo | — | M0 |
+| T-REPO-01 | GitHub repo και αρχικό versioned snapshot | blocked | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | Clone και tests πέρασαν με Node 24.22.2. Μένει private ορατότητα, απόφαση ιδιοκτήτη — δεν αλλάζει σε αυτή την εργασία |
+| T-M1-01 | React/TS/Vite scaffold και scripts/lockfile | in_progress | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | M0 |
 | T-M1-02 | Strict parser, actions και repository contract | todo | — | T-M1-01 |
 | T-M1-03 | IndexedDB adapter, transactions, revision conflicts | todo | — | T-M1-02 |
 | T-M1-04 | Generic ontology/entity/edge/fact editors | todo | — | T-M1-02, T-M1-03 |
@@ -23,6 +23,9 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 | T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | todo | — | T-M5-01 |
 
 ## Επόμενη development εργασία: T-M1-01
+
+Owner: Cursor Grok 4.7. Branch: `cursor/m1-workspace-editor-864c`.
+Το T-REPO-01 δεν σημειώνεται done: το clone πέρασε, η private ορατότητα δεν άλλαξε.
 
 Scaffold στον υπάρχοντα project root χωρίς αντικατάσταση core/fixture/tests/docs.
 Επαλήθευση εκδόσεων/αδειών, lockfile, dev/build/typecheck scripts και μικρό app shell.

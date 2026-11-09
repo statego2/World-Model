@@ -1,7 +1,21 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: M0 ολοκληρωμένο, M1 δεν έχει αρχίσει. T-REPO-01 σε εξέλιξη: έγινε μεταφορά στο GitHub, εκκρεμεί δοκιμή clone.
+Τρέχον στάδιο: M0 ολοκληρωμένο. T-REPO-01: το clone επαληθεύτηκε· η private ορατότητα μένει απόφαση του ιδιοκτήτη. M1 σε υλοποίηση στο branch `cursor/m1-workspace-editor-864c`.
+
+## 2026-11-09 — T-REPO-01 — Clone σε δεύτερο χώρο
+
+Agent/session: Cursor Grok 4.7 | Status: blocked | Branch: cursor/m1-workspace-editor-864c
+
+Ο φάκελος εργασίας είναι ήδη clone του `https://github.com/statego2/World-Model`. Έγινε δεύτερο fresh clone στο `/tmp/world-model-fresh` και έτρεξαν οι έλεγχοι από εκεί. Το προεπιλεγμένο Node του VM είναι 22.23.4 και απορρίπτει το `--test-isolation=none` του `npm test`. Το `package.json` ζητά Node >=24. Οι έλεγχοι έτρεξαν με Node 24.22.2 (npm 11.19.1).
+
+Επαλήθευση:
+- `npm test` — 20/20 pass, 0 fail.
+- `npm run validate` — `Valid demo workspace: 10 entities, 8 relationships, 65 facts.`
+
+Η ορατότητα του repository είναι PUBLIC. Δεν άλλαξε. Το αρχικό acceptance ζητούσε private repository· αυτό μένει απόφαση του Dimitris και καταγράφεται στο `docs/DECISIONS.md`. Δεν καταχωρίστηκαν tokens. Το draft PR #1 (`work/m1-browser-editor`) δεν συνεχίζεται: είναι μερικό JSX shell χωρίς action contract.
+
+Επόμενο βήμα: T-M1-01 και τα υπόλοιπα tasks του M1 στο ίδιο branch.
 
 ## 2026-11-09 — T-REPO-01 — Προετοιμασία GitHub
 

@@ -13,7 +13,22 @@ workflow για ταυτόχρονες αλλαγές κώδικα. Το repo κ
 είναι snapshot. Τοπικά runtime datasets και browser IndexedDB δεν συγχρονίζονται
 με το GitHub επειδή συγχρονίστηκε ο κώδικας.
 
-## Πρώτη εγκατάσταση (δεν έχει εκτελεστεί ακόμη)
+## Υπάρχον repository
+
+Το κοινό remote είναι `https://github.com/statego2/World-Model` (public, default branch `main`).
+Μην ξαναρχικοποιήσεις Git και μην κάνεις force push στο main. Νέες αλλαγές μπαίνουν σε branch.
+Clone και έλεγχοι που επιβεβαιώθηκαν στις 2026-11-09, με Node 24+:
+
+```sh
+git clone https://github.com/statego2/World-Model.git
+cd World-Model
+npm test
+npm run validate
+```
+
+Η private ορατότητα δεν έχει ενεργοποιηθεί. Είναι απόφαση του ιδιοκτήτη, όχι βήμα που εκτελεί agent μόνος του.
+
+## Πρώτη εγκατάσταση (ιστορικό — έχει ήδη γίνει το remote)
 
 1. Κατέβασε το πλήρες world-model πακέτο στον υπολογιστή σου.
 2. Δημιούργησε κενό **private** repository στο GitHub account σου, π.χ. world-model.

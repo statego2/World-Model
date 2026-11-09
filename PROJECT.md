@@ -54,7 +54,7 @@ Browser-first PoC, χαμηλό κόστος, κοινός επεκτάσιμο�
 - Evidence, περίοδος, μονάδα, source επιλογή και κάλυψη στα αποτελέσματα.
 - Demo/real διαχωρισμός. Missing δεν σημαίνει 0. Stock, flow και trade διαφορετικά.
 - Διαδρομή graph δεν αποδεικνύει αιτιότητα. Υποθέσεις ξεχωριστές από reported facts.
-- GitHub private repo προτείνεται ως κεντρικός χώρος κώδικα/μνήμης. Το GitHub repository stratego2/World-Model βρέθηκε μέσω της εφαρμογής και είναι public.
+- GitHub private repo προτείνεται ως κεντρικός χώρος κώδικα/μνήμης. Το repository `statego2/World-Model` είναι public. Στις 2026-11-09 ένα fresh clone πέρασε `npm test` (20/20) και `npm run validate` με Node 24.22.2. Η ορατότητα δεν αλλάζει χωρίς απόφαση του ιδιοκτήτη.
 
 ## Κριτήρια επιτυχίας
 

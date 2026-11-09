@@ -1,5 +1,13 @@
 # Αποφάσεις, όρια και εξέλιξη
 
+## 2026-11-09 — Ορατότητα repository και Node
+
+Το GitHub repository `statego2/World-Model` είναι public. Το σχέδιο πρότεινε private αντίγραφο. Σε αυτή την εργασία η ορατότητα δεν αλλάζει· την αποφασίζει ο Dimitris. Δεν αποθηκεύονται tokens στα αρχεία του project.
+
+Το `npm test` χρησιμοποιεί `--test-isolation=none`, σημαία του Node 24. Το Node 22.23.4 του VM την απορρίπτει. Το `.nvmrc` καρφώνει την έκδοση 24, σύμφωνη με το `engines`. Η επαλήθευση του clone έγινε με Node 24.22.2.
+
+Το ανοιχτό draft PR #1 (`work/m1-browser-editor`) είναι μερικό JSX shell: αποθηκεύει ολόκληρο workspace, χωρίς strict parser, action envelope, idempotency ή typed errors. Η υλοποίηση του M1 ξεκινά από το `main` σε νέο branch, ώστε το συμβόλαιο να μην μείνει μισό. Εκείνο το PR δεν κλείνει από αυτή την εργασία.
+
 ## Ρητές κατευθύνσεις του χρήστη
 
 Browser-first, χαμηλό κόστος, τέσσερις αρχικοί τομείς, ενιαίο World Model,
