@@ -166,13 +166,13 @@ function coversYear(validFrom: string, validTo: string | null, year: number): bo
   return validFrom <= `${year}-12-31` && (validTo === null || validTo >= `${year}-01-01`);
 }
 
-function readMetric(workspace: Workspace, entityId: string, propertyId: string, filters: SharedFilters): MetricReading {
+export function readSubjectMetric(workspace: Workspace, subjectKind: 'entity' | 'relationship', subjectId: string, propertyId: string, filters: SharedFilters): MetricReading {
   const property = workspace.properties.find(item => item.id === propertyId);
   const unit = property?.unit ?? null;
   const superseded = new Set(workspace.facts.flatMap(fact => fact.supersedesId ? [fact.supersedesId] : []));
   const matches = workspace.facts.filter(fact => (
-    fact.subjectKind === 'entity'
-    && fact.subjectId === entityId
+    fact.subjectKind === subjectKind
+    && fact.subjectId === subjectId
     && fact.propertyId === propertyId
     && fact.basis === filters.basis
     && !superseded.has(fact.id)
@@ -182,10 +182,14 @@ function readMetric(workspace: Workspace, entityId: string, propertyId: string, 
     && fact.evidenceIds.some(id => filters.sourceIds.includes(id))
     && (!property || property.frequency !== 'annual' || (fact.validFrom === `${filters.year}-01-01` && fact.validTo === `${filters.year}-12-31`))
   ));
-  if (matches.length === 0) return { entityId, status: 'missing', values: [], unit };
-  if (matches.length > 1) return { entityId, status: 'conflict', values: matches.map(fact => ({ factId: fact.id, value: fact.value as number })), unit };
+  if (matches.length === 0) return { entityId: subjectId, status: 'missing', values: [], unit };
+  if (matches.length > 1) return { entityId: subjectId, status: 'conflict', values: matches.map(fact => ({ factId: fact.id, value: fact.value as number })), unit };
   const fact = matches[0] as Fact;
-  return { entityId, status: 'value', values: [{ factId: fact.id, value: fact.value as number }], unit };
+  return { entityId: subjectId, status: 'value', values: [{ factId: fact.id, value: fact.value as number }], unit };
+}
+
+function readMetric(workspace: Workspace, entityId: string, propertyId: string, filters: SharedFilters): MetricReading {
+  return readSubjectMetric(workspace, 'entity', entityId, propertyId, filters);
 }
 
 function metaFrom(workspace: Workspace, rows: MetricReading[], sourceIds: string[]): QueryMeta {

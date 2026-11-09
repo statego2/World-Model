@@ -10,11 +10,11 @@
 | ID | Εργασία | Status | Owner | Dependency |
 |---|---|---|---|---|
 | N-PLAN | Σχεδιασμός και GitHub handoff | done | Codex | — |
-| N0 | Baseline, επανέλεγχος review και milestone statuses | todo | — | — |
-| N1-A | Basis/status-aware εισαγωγές και duplicates | todo | — | N0 |
-| N1-B | Strict export/history/action validation | todo | — | N0 |
-| N1-C | Regressions transactions, replay και stale tabs | todo | — | N1-A, N1-B |
-| N2 | Γενικά κοινά φίλτρα, metrics και geometry mappings | todo | — | N1 |
+| N0 | Baseline, επανέλεγχος review και milestone statuses | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | R1 ήδη κλειστό στο 18d0ebd. R2/R4 κλείνουν στο N1. R3 μένει για N4. |
+| N1-A | Basis/status-aware εισαγωγές και duplicates | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Reported μένει δίπλα σε assumption. Σύγκρουση μέσα στο CSV απορρίπτεται. |
+| N1-B | Strict export/history/action validation | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κακογραμμένο ιστορικό απορρίπτεται ολόκληρο. |
+| N1-C | Regressions transactions, replay και stale tabs | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Τα υπάρχοντα repository/IndexedDB tests πέρασαν μαζί με τα νέα. |
+| N2 | Γενικά κοινά φίλτρα, metrics και geometry mappings | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κοινό έτος/βάση/πηγές. Δεύτερη πηγή μένει σύγκρουση. Demo 2023, real 2022. |
 | N3 | Query builder και role bindings από UI | todo | — | N2 |
 | N4-A | Generic graph explorer και inspector | todo | — | N3 |
 | N4-B | Διαδραστικοί world/region maps και numeric scale | todo | — | N3 |
