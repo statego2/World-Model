@@ -1,113 +1,200 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import worldGeometry from '../../data/geometries/world-countries.json' with { type: 'json' };
 import regionGeometry from '../../data/geometries/greek-regions.json' with { type: 'json' };
 import regionLinks from '../../data/geometries/region-links.json' with { type: 'json' };
-import { availableYears, chooseFilters, reconcileYear } from '../core/coverage.ts';
-import { compareEntities, rankEntities, readSubjectMetric, runSavedView, type SharedFilters } from '../core/query.ts';
+import { readSubjectMetric, runSavedView, type SharedFilters } from '../core/query.ts';
 import type { Workspace } from '../core/types.ts';
-import { boundsOf, GeoMap, type MapFeature } from './map.tsx';
+import { layerAvailability, layerStatusLabel, type LayerAvailability } from './atlas.ts';
+import { useAtlas } from './atlas-context.tsx';
+import { formatMeasure } from './format.ts';
+import { boundsOf, CHOROPLETH, GeoMap, type MapFeature } from './map.tsx';
 import { entityLabel } from './lookup.ts';
 import { useModel } from './model.tsx';
 
-type ModuleId = 'world' | 'military' | 'capital' | 'greece';
+const WORLD_FEATURES = worldGeometry.features as MapFeature[];
+const REGION_FEATURES = regionGeometry.features as MapFeature[];
 
 export function Modules() {
-  const [moduleId, setModuleId] = useState<ModuleId>('world');
   const model = useModel();
+  const atlas = useAtlas();
   const workspace = model.workspace;
-  const [workspaceId, setWorkspaceId] = useState(workspace?.id ?? '');
-  const [filters, setFilters] = useState<SharedFilters>(() => workspace ? chooseFilters(workspace) : { year: 1900, basis: 'reported', sourceIds: [] });
+  const frame = useRef<HTMLDivElement>(null);
+  const [hover, setHover] = useState<{ text: string; x: number; y: number } | null>(null);
   if (!workspace) return null;
-  if (workspace.id !== workspaceId) {
-    setWorkspaceId(workspace.id);
-    setFilters(chooseFilters(workspace));
-  }
-  const years = availableYears(workspace, filters);
-  const year = reconcileYear(filters.year, years);
-  if (year !== filters.year) setFilters({ ...filters, year });
+  const filters = atlas.filters;
+  const world = metricValues(workspace, WORLD_FEATURES.map(feature => feature.id), countries(workspace).map(entity => entity.id), workspace.bindings.gdpProperty, filters, isoOf);
+  const regions = metricValues(workspace, REGION_FEATURES.map(feature => feature.id), REGION_FEATURES.map(feature => linkedEntity(workspace, feature.id)).filter((id): id is string => Boolean(id)), workspace.bindings.regionalGvaProperty, filters, (space, entityId) => geometryOf(space, entityId));
+  const place = (id: string | null, point: { x: number; y: number } | undefined, text: string) => {
+    if (!id || !point || !frame.current) {
+      setHover(null);
+      return;
+    }
+    const rect = frame.current.getBoundingClientRect();
+    setHover({
+      text,
+      x: Math.min(rect.width - 220, Math.max(8, point.x - rect.left + 14)),
+      y: Math.min(rect.height - 46, Math.max(8, point.y - rect.top + 14)),
+    });
+  };
   return (
-    <div className="stack">
-      <header className="stage-head">
-        <h1>Εφαρμογές</h1>
-        <p>{workspace.dataMode === 'real' ? 'Τέσσερις προβολές του ίδιου μοντέλου. Το έτος και οι πηγές είναι κοινά και φαίνονται.' : 'Τέσσερις προβολές του ίδιου μοντέλου. Τα νούμερα του demo είναι συνθετικά.'}</p>
-      </header>
-      <form className="panel filter-bar" aria-label="Κοινά φίλτρα">
-        <label className="field"><span>Έτος</span>
-          <select value={String(year)} onChange={event => setFilters({ ...filters, year: Number(event.target.value) })}>
-            {(years.length > 0 ? years : [filters.year]).map(year => <option key={year} value={year}>{year}</option>)}
-          </select>
-        </label>
-        <label className="field"><span>Βάση</span>
-          <select value={filters.basis} onChange={event => setFilters({ ...filters, basis: event.target.value as SharedFilters['basis'] })}>
-            <option value="reported">Τεκμηριωμένο</option>
-            <option value="assumption">Υπόθεση</option>
-          </select>
-        </label>
-        <fieldset className="checks">
-          <legend>Πηγές</legend>
-          {workspace.sources.filter(source => workspace.facts.some(fact => fact.evidenceIds.includes(source.id))).map(source => (
-            <label key={source.id}>
-              <input type="checkbox" checked={filters.sourceIds.includes(source.id)} onChange={event => {
-                const sourceIds = event.target.checked ? [...filters.sourceIds, source.id] : filters.sourceIds.filter(id => id !== source.id);
-                setFilters({ ...filters, sourceIds });
-              }} />
-              {source.label}
-            </label>
-          ))}
-        </fieldset>
-      </form>
-      <BindingEditor workspace={workspace} />
-      <div className="module-tabs" role="tablist" aria-label="Εφαρμογές">
-        <Tab id="world" current={moduleId} onSelect={setModuleId} label="Παγκόσμιος χάρτης" />
-        <Tab id="military" current={moduleId} onSelect={setModuleId} label="Ελλάδα–Τουρκία" />
-        <Tab id="capital" current={moduleId} onSelect={setModuleId} label="Κεφάλαια" />
-        <Tab id="greece" current={moduleId} onSelect={setModuleId} label="Ελληνική οικονομία" />
+    <div className="atlas" ref={frame} data-layer={atlas.layer}>
+      {atlas.layer === 'world' ? (
+        <World workspace={workspace} filters={filters} values={world.values} unit={world.unit} onHover={place} />
+      ) : (
+        <Greece workspace={workspace} values={regions.values} unit={regions.unit} onHover={place} />
+      )}
+      <div className="map-hud left">
+        <div className="layer-registry" role="toolbar" aria-label="Επίπεδα">
+          <LayerButton id="world" label="Χώρες" availability={world.availability} />
+          <LayerButton id="greece" label="Περιφέρειες" availability={regions.availability} />
+        </div>
       </div>
-      {moduleId === 'world' ? <World workspace={workspace} filters={filters} /> : null}
-      {moduleId === 'military' ? <Military workspace={workspace} filters={filters} /> : null}
-      {moduleId === 'capital' ? <Capital workspace={workspace} filters={filters} /> : null}
-      {moduleId === 'greece' ? <Greece workspace={workspace} filters={filters} /> : null}
+      {hover ? <div className="tooltip" style={{ left: hover.x, top: hover.y }}>{hover.text}</div> : null}
+      <Legend min={atlas.layer === 'world' ? world.min : regions.min} max={atlas.layer === 'world' ? world.max : regions.max} unit={atlas.layer === 'world' ? world.unit : regions.unit} />
     </div>
   );
 }
 
-function World({ workspace, filters }: { workspace: Workspace; filters: SharedFilters }) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const features = worldGeometry.features as MapFeature[];
-  const propertyId = workspace.bindings.gdpProperty;
-  const ranked = propertyId ? rankEntities(workspace, countries(workspace).map(entity => entity.id), propertyId, filters) : null;
-  const valueByIso: Record<string, number | 'none'> = {};
-  for (const feature of features) valueByIso[feature.id] = 'none';
-  if (ranked && ranked.ok) {
-    for (const row of ranked.rows) {
-      const iso = isoOf(workspace, row.entityId);
-      if (!iso) continue;
-      valueByIso[iso] = row.status === 'value' ? row.values[0]?.value ?? 'none' : 'none';
-    }
-  }
+function LayerButton({ id, label, availability }: { id: 'world' | 'greece'; label: string; availability: LayerAvailability }) {
+  const atlas = useAtlas();
+  const enabled = atlas.layer === id;
   return (
-    <section className="panel" aria-label="Παγκόσμιος χάρτης">
-      <h2>Χώρες και ΑΕΠ</h2>
-      <p>Χωρίς δεδομένα δεν σημαίνει μηδέν. Οι υπόλοιπες χώρες μένουν χωρίς μέτρηση.</p>
-      <GeoMap features={features} idAttribute="data-iso" values={valueByIso} bounds={{ minLon: -180, maxLon: 180, minLat: -56, maxLat: 84 }} label={`Παγκόσμιος χάρτης, έτος ${filters.year}`} selectedId={selectedId} onSelect={setSelectedId} />
-      <Selection workspace={workspace} filters={filters} geometryId={selectedId} entityId={selectedId ? countries(workspace).find(entity => isoOf(workspace, entity.id) === selectedId)?.id ?? null : null} onClear={() => setSelectedId(null)} />
-      {ranked && ranked.ok ? <MetricTable workspace={workspace} rows={ranked.rows.map(row => ({ id: row.entityId, label: entityLabel(workspace, row.entityId), status: row.status, value: row.values[0]?.value, unit: row.unit, rank: row.rank, factId: row.values[0]?.factId }))} /> : null}
-    </section>
+    <button
+      type="button"
+      className={enabled ? 'layer-btn on' : 'layer-btn'}
+      aria-pressed={enabled}
+      data-availability={availability}
+      onClick={() => atlas.setLayer(id)}
+    >
+      <span>{label}</span>
+      <small>{layerStatusLabel(availability, enabled)}</small>
+    </button>
   );
 }
 
-function Military({ workspace, filters }: { workspace: Workspace; filters: SharedFilters }) {
-  const propertyId = workspace.bindings.defenseSpendingProperty;
-  const compared = propertyId ? compareEntities(workspace, ['country:GRC', 'country:TUR'], propertyId, filters) : null;
+function Legend({ min, max, unit }: { min: number | null; max: number | null; unit: string }) {
   return (
-    <section className="panel" aria-label="Ελλάδα–Τουρκία">
-      <h2>{propertyId ? `Ελλάδα και Τουρκία, ${filters.year}` : 'Ελλάδα και Τουρκία'}</h2>
-      <p>Σύγκριση της ίδιας συνθετικής δαπάνης, του ίδιου έτους και της ίδιας πηγής. Δεν προκύπτει νικητής.</p>
-      {compared && compared.ok ? compared.rows.map(row => (
+    <div className="map-hud bottom">
+      <div className="hud-card legend-card">
+        <div className="legend" aria-label="Υπόμνημα">
+          {CHOROPLETH.map(color => <i key={color} style={{ background: color }} />)}
+          <i className="swatch-zero" title="μηδέν" />
+          <i className="swatch-empty" title="κενό" />
+        </div>
+        <p className="muted legend-caption">{min === null ? 'Χωρίς μετρήσεις σε αυτό το έτος' : `Λογαριθμική κλίμακα · ${formatMeasure(min, unit)} – ${formatMeasure(max ?? min, unit)}`}</p>
+        <p className="muted">Χωρίς δεδομένα δεν σημαίνει μηδέν.</p>
+      </div>
+    </div>
+  );
+}
+
+export function MapSidePanel() {
+  const atlas = useAtlas();
+  const model = useModel();
+  const workspace = model.workspace;
+  if (!workspace) return null;
+  return (
+    <>
+      <p className="eyebrow">Επιθεώρηση</p>
+      <div className="side-tools">
+        <button type="button" className="quiet" aria-expanded={atlas.dossierOpen} onClick={() => atlas.setDossierOpen(!atlas.dossierOpen)}>Στοιχεία και διαδρομές</button>
+        <button type="button" className="quiet" aria-expanded={atlas.filtersOpen} onClick={() => atlas.setFiltersOpen(!atlas.filtersOpen)}>Φίλτρα και ρόλοι</button>
+      </div>
+      {atlas.focus ? (
+        <Selection workspace={workspace} filters={atlas.filters} geometryId={atlas.focus.geometryId} entityId={atlas.focus.entityId} propertyId={atlas.focus.propertyId} onClear={() => atlas.setFocus(null)} />
+      ) : <p>Επίλεξε χώρα ή περιφέρεια στον χάρτη.</p>}
+      {atlas.dossierOpen ? (
+        <>
+          <DefenseNote workspace={workspace} filters={atlas.filters} />
+          <Capital workspace={workspace} filters={atlas.filters} />
+          <RegionNotes workspace={workspace} />
+        </>
+      ) : null}
+      {atlas.filtersOpen ? (
+        <div className="side-block" role="group" aria-label="Κοινά φίλτρα">
+          <label className="field"><span>Βάση</span>
+            <select value={atlas.filters.basis} onChange={event => atlas.setFilters({ ...atlas.filters, basis: event.target.value as SharedFilters['basis'] })}>
+              <option value="reported">Τεκμηριωμένο</option>
+              <option value="assumption">Υπόθεση</option>
+            </select>
+          </label>
+          <fieldset className="checks">
+            <legend>Πηγές</legend>
+            {workspace.sources.filter(source => workspace.facts.some(fact => fact.evidenceIds.includes(source.id))).map(source => (
+              <label key={source.id}>
+                <input type="checkbox" checked={atlas.filters.sourceIds.includes(source.id)} onChange={event => {
+                  const sourceIds = event.target.checked ? [...atlas.filters.sourceIds, source.id] : atlas.filters.sourceIds.filter(id => id !== source.id);
+                  atlas.setFilters({ ...atlas.filters, sourceIds });
+                }} />
+                {source.label}
+              </label>
+            ))}
+          </fieldset>
+          <BindingEditor workspace={workspace} />
+        </div>
+      ) : null}
+    </>
+  );
+}
+
+function DefenseNote({ workspace, filters }: { workspace: Workspace; filters: SharedFilters }) {
+  const propertyId = workspace.bindings.defenseSpendingProperty;
+  const compared = propertyId ? comparePair(workspace, propertyId, filters) : null;
+  if (!compared) return <p>Λείπει το binding της αμυντικής δαπάνης.</p>;
+  return (
+    <div className="side-block">
+      {compared.map(row => (
         <p key={row.entityId} data-testid={`milex-${row.entityId}`}>
-          {entityLabel(workspace, row.entityId)}: {row.status === 'value' ? `${row.values[0]?.value} ${row.unit ?? ''}` : row.status === 'conflict' ? 'σύγκρουση, χωρίς επιλογή νικητή' : 'χωρίς δεδομένα'}
+          {entityLabel(workspace, row.entityId)}: {row.text}
         </p>
-      )) : <p>Λείπει το binding της αμυντικής δαπάνης.</p>}
+      ))}
+      <p>Δεν προκύπτει νικητής.</p>
+    </div>
+  );
+}
+
+function comparePair(workspace: Workspace, propertyId: string, filters: SharedFilters): { entityId: string; text: string }[] | null {
+  const rows = ['country:GRC', 'country:TUR'].map(entityId => {
+    const reading = readSubjectMetric(workspace, 'entity', entityId, propertyId, filters);
+    const text = reading.status === 'value' ? formatMeasure(reading.values[0]?.value ?? 0, reading.unit) : reading.status === 'conflict' ? 'σύγκρουση' : 'χωρίς δεδομένα';
+    return { entityId, text, status: reading.status };
+  });
+  if (rows.every(row => row.status === 'missing')) return rows;
+  return rows;
+}
+
+function World({ workspace, filters, values, unit, onHover }: {
+  workspace: Workspace;
+  filters: SharedFilters;
+  values: Record<string, number | 'none'>;
+  unit: string;
+  onHover: (id: string | null, point: { x: number; y: number } | undefined, text: string) => void;
+}) {
+  const atlas = useAtlas();
+  return (
+    <section className="atlas-layer" aria-label="Παγκόσμιος χάρτης">
+      <GeoMap
+        key="world"
+        features={WORLD_FEATURES}
+        idAttribute="data-iso"
+        values={values}
+        bounds={{ minLon: -180, maxLon: 180, minLat: -56, maxLat: 84 }}
+        label={`Παγκόσμιος χάρτης, έτος ${filters.year}`}
+        selectedId={atlas.focus?.geometryId ?? null}
+        focusZoom={4.5}
+        initialCamera={atlas.cameraFor('world')}
+        onViewport={camera => atlas.rememberCamera('world', camera)}
+        onSelect={id => {
+          const entity = countries(workspace).find(item => isoOf(workspace, item.id) === id);
+          atlas.setFocus({ geometryId: id, entityId: entity?.id ?? null, propertyId: workspace.bindings.gdpProperty });
+        }}
+        onHover={(id, point) => {
+          if (!id) { onHover(null, point, ''); return; }
+          const entity = countries(workspace).find(item => isoOf(workspace, item.id) === id);
+          const value = values[id];
+          onHover(id, point, `${entity ? entityLabel(workspace, entity.id) : id}: ${typeof value === 'number' ? formatMeasure(value, unit) : 'χωρίς δεδομένα'}`);
+        }}
+      />
     </section>
   );
 }
@@ -119,7 +206,7 @@ function Capital({ workspace, filters }: { workspace: Workspace; filters: Shared
   const edges = workspace.relationships.filter(item => item.typeId === edgeType);
   const unmapped = workspace.entities.filter(entity => entity.typeId === 'type:infrastructure' && !workspace.relationships.some(edge => edge.typeId === 'reltype:located_in' && edge.fromId === entity.id));
   return (
-    <section className="panel" aria-label="Κεφάλαια">
+    <section className="side-block" aria-label="Κεφάλαια">
       <h2>Διμερείς ροές</h2>
       <p>Το απόθεμα και η ροή μένουν χωριστά. Το άθροισμα μιας χώρας δεν μοιράζεται σε εταιρείες και δεν αποδεικνύει ιδιοκτησία.</p>
       {edges.map(edge => (
@@ -140,31 +227,42 @@ function Capital({ workspace, filters }: { workspace: Workspace; filters: Shared
   );
 }
 
-function Greece({ workspace, filters }: { workspace: Workspace; filters: SharedFilters }) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const features = regionGeometry.features as MapFeature[];
-  const propertyId = workspace.bindings.regionalGvaProperty;
-  const values: Record<string, number | 'none'> = {};
-  for (const feature of features) {
-    const entityId = linkedEntity(workspace, feature.id);
-    const reading = entityId && propertyId ? rankEntities(workspace, [entityId], propertyId, filters) : null;
-    const row = reading && reading.ok ? reading.rows[0] : undefined;
-    values[feature.id] = row?.status === 'value' ? row.values[0]?.value ?? 'none' : 'none';
-  }
+function Greece({ workspace, values, unit, onHover }: {
+  workspace: Workspace;
+  values: Record<string, number | 'none'>;
+  unit: string;
+  onHover: (id: string | null, point: { x: number; y: number } | undefined, text: string) => void;
+}) {
+  const atlas = useAtlas();
+  return (
+    <section className="atlas-layer" aria-label="Ελληνική οικονομία">
+      <GeoMap
+        key="greece"
+        features={REGION_FEATURES}
+        idAttribute="data-nuts"
+        values={values}
+        bounds={boundsOf(REGION_FEATURES, { minLon: 19, maxLon: 30, minLat: 34, maxLat: 42 })}
+        label="Χάρτης ελληνικών περιφερειών"
+        selectedId={atlas.focus?.geometryId ?? null}
+        focusZoom={1}
+        initialCamera={atlas.cameraFor('greece')}
+        onViewport={camera => atlas.rememberCamera('greece', camera)}
+        onSelect={id => atlas.setFocus({ geometryId: id, entityId: linkedEntity(workspace, id), propertyId: workspace.bindings.regionalGvaProperty })}
+        onHover={(id, point) => onHover(id, point, id ? `${id}: ${typeof values[id] === 'number' ? formatMeasure(values[id] as number, unit) : 'χωρίς δεδομένα'}` : '')}
+      />
+    </section>
+  );
+}
+
+function RegionNotes({ workspace }: { workspace: Workspace }) {
   const regions = workspace.entities.filter(entity => entity.typeId === workspace.bindings.regionType);
   return (
-    <section className="panel" aria-label="Ελληνική οικονομία">
-      <h2>Περιφέρειες</h2>
-      <p>Ο χάρτης δείχνει όρια NUTS, όχι τη χώρα ως ένα πολύγωνο. Συνθετική περιφέρεια χωρίς ρητή γεωμετρία δεν ζωγραφίζεται αλλού.</p>
-      <GeoMap features={features} idAttribute="data-nuts" values={values} bounds={boundsOf(features, { minLon: 19, maxLon: 30, minLat: 34, maxLat: 42 })} label="Χάρτης ελληνικών περιφερειών" selectedId={selectedId} onSelect={setSelectedId} />
-      <Selection workspace={workspace} filters={filters} geometryId={selectedId} entityId={selectedId ? linkedEntity(workspace, selectedId) : null} propertyId={propertyId} onClear={() => setSelectedId(null)} />
-      <ul className="plain-list">
-        {regions.map(region => {
-          const link = regionLinks.links.find(item => item.entityId === region.id);
-          return <li key={region.id}>{region.label}: {link ? `γεωμετρία ${link.geometryId}` : 'χωρίς γεωμετρία'}</li>;
-        })}
-      </ul>
-    </section>
+    <ul className="plain-list">
+      {regions.map(region => {
+        const link = regionLinks.links.find(item => item.entityId === region.id);
+        return <li key={region.id}>{region.label}: {link ? `γεωμετρία ${link.geometryId}` : 'χωρίς γεωμετρία'}</li>;
+      })}
+    </ul>
   );
 }
 
@@ -187,7 +285,7 @@ function BindingEditor({ workspace }: { workspace: Workspace }) {
   const options = bindingOptions(workspace, role);
   const missing = BINDING_LABELS.filter(([id]) => !workspace.bindings[id]).map(([, label]) => label);
   return (
-    <form className="panel" aria-label="Ρόλοι εφαρμογών" onSubmit={event => {
+    <form aria-label="Ρόλοι εφαρμογών" onSubmit={event => {
       event.preventDefault();
       if (!definitionId) return;
       void model.commit({ type: 'SetBinding', role, definitionId });
@@ -219,31 +317,14 @@ function bindingOptions(workspace: Workspace, role: string): { id: string; label
   return workspace.properties.filter(item => !item.deprecated && item.valueType === 'number' && item.subjectKind === kind).map(item => ({ id: item.id, label: item.label }));
 }
 
-function Tab({ id, current, onSelect, label }: { id: ModuleId; current: ModuleId; onSelect: (id: ModuleId) => void; label: string }) {
-  return <button type="button" role="tab" aria-selected={current === id} onClick={() => onSelect(id)}>{label}</button>;
-}
-
-function MetricTable({ workspace, rows }: { workspace: Workspace; rows: { id: string; label: string; status: string; value?: number; unit: string | null; rank: number | null; factId?: string }[] }) {
-  return (
-    <div className="table-wrap"><table>
-      <thead><tr><th>Θέση</th><th>Οντότητα</th><th>Τιμή</th><th>Πηγή</th></tr></thead>
-      <tbody>
-        {rows.map(row => (
-          <tr key={row.id}>
-            <td>{row.rank ?? '—'}</td>
-            <td>{row.label}</td>
-            <td>{row.status === 'value' ? `${row.value} ${row.unit ?? ''}` : row.status === 'conflict' ? 'σύγκρουση' : 'χωρίς δεδομένα'}</td>
-            <td>{row.factId ? sourceNames(workspace, row.factId) : '—'}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table></div>
-  );
-}
-
 function linkedEntity(workspace: Workspace, geometryId: string): string | null {
   const present = regionLinks.links.filter(link => link.geometryId === geometryId && workspace.entities.some(entity => entity.id === link.entityId));
   return present.length === 1 ? present[0]?.entityId ?? null : null;
+}
+
+function geometryOf(workspace: Workspace, entityId: string): string | null {
+  const present = regionLinks.links.filter(link => link.entityId === entityId && workspace.entities.some(entity => entity.id === entityId));
+  return present.length === 1 ? present[0]?.geometryId ?? null : null;
 }
 
 function countries(workspace: Workspace) {
@@ -255,13 +336,45 @@ function isoOf(workspace: Workspace, entityId: string): string | null {
   return typeof fact?.value === 'string' ? fact.value : null;
 }
 
+function metricValues(
+  workspace: Workspace,
+  geometryIds: string[],
+  entityIds: string[],
+  propertyId: string | undefined,
+  filters: SharedFilters,
+  geometryFor: (workspace: Workspace, entityId: string) => string | null,
+): { values: Record<string, number | 'none'>; min: number | null; max: number | null; unit: string; availability: LayerAvailability } {
+  const values: Record<string, number | 'none'> = {};
+  for (const id of geometryIds) values[id] = 'none';
+  const unit = workspace.properties.find(item => item.id === propertyId)?.unit ?? '';
+  if (!propertyId) return { values, min: null, max: null, unit, availability: 'unsupported' };
+  const numbers: number[] = [];
+  for (const entityId of entityIds) {
+    const geometryId = geometryFor(workspace, entityId);
+    if (!geometryId || !(geometryId in values)) continue;
+    const reading = readSubjectMetric(workspace, 'entity', entityId, propertyId, filters);
+    if (reading.status !== 'value') continue;
+    const value = reading.values[0]?.value;
+    if (typeof value !== 'number') continue;
+    values[geometryId] = value;
+    numbers.push(value);
+  }
+  return {
+    values,
+    min: numbers.length > 0 ? Math.min(...numbers) : null,
+    max: numbers.length > 0 ? Math.max(...numbers) : null,
+    unit,
+    availability: layerAvailability(true, numbers.length),
+  };
+}
+
 function metricText(workspace: Workspace, subjectKind: 'entity' | 'relationship', subjectId: string, propertyId: string | undefined, filters: SharedFilters): string {
   if (!propertyId) return 'χωρίς binding';
   const reading = readSubjectMetric(workspace, subjectKind, subjectId, propertyId, filters);
   if (reading.status === 'conflict') return 'σύγκρουση πηγών, χωρίς επιλογή νικητή';
   if (reading.status !== 'value') return 'χωρίς δεδομένα';
   const factId = reading.values[0]?.factId;
-  return `${reading.values[0]?.value} ${reading.unit ?? ''} · ${factId ? sourceNames(workspace, factId) : ''}`.trim();
+  return `${formatMeasure(reading.values[0]?.value ?? 0, reading.unit)} · ${factId ? sourceNames(workspace, factId) : ''}`.trim();
 }
 
 function Selection({ workspace, filters, geometryId, entityId, propertyId, onClear }: {
@@ -276,23 +389,24 @@ function Selection({ workspace, filters, geometryId, entityId, propertyId, onCle
   const property = propertyId ?? workspace.bindings.gdpProperty;
   const reading = entityId && property ? readSubjectMetric(workspace, 'entity', entityId, property, filters) : null;
   const factId = reading?.values[0]?.factId;
-  const neighbors = entityId ? workspace.relationships.filter(edge => edge.fromId === entityId || edge.toId === entityId).slice(0, 12) : [];
+  const neighbors = entityId ? workspace.relationships.filter(edge => edge.fromId === entityId || edge.toId === entityId).slice(0, 8) : [];
   return (
-    <section className="panel" data-testid="map-inspector">
+    <section className="side-block" data-testid="map-inspector">
       <h2>{entityId ? entityLabel(workspace, entityId) : geometryId}</h2>
-      <p>{!entityId ? 'Η γεωμετρία δεν έχει ρητή οντότητα.' : !reading || reading.status === 'missing' ? 'Χωρίς δεδομένα. Δεν σημαίνει μηδέν.' : reading.status === 'conflict' ? 'Σύγκρουση πηγών, χωρίς επιλογή νικητή.' : `${reading.values[0]?.value} ${reading.unit ?? ''}`}</p>
+      <p className="metric">{!entityId ? 'Η γεωμετρία δεν έχει ρητή οντότητα.' : !reading || reading.status === 'missing' ? 'Χωρίς δεδομένα. Δεν σημαίνει μηδέν.' : reading.status === 'conflict' ? 'Σύγκρουση πηγών, χωρίς επιλογή νικητή.' : formatMeasure(reading.values[0]?.value ?? 0, reading.unit)}</p>
       {factId ? <p>Πηγή: {sourceNames(workspace, factId)}</p> : null}
       {neighbors.length > 0 ? (
         <ul className="plain-list">
           {neighbors.map(edge => {
-            const other = edge.fromId === entityId ? edge.toId : edge.fromId;
+            const inbound = edge.toId === entityId;
+            const other = inbound ? edge.fromId : edge.toId;
             const type = workspace.relationshipTypes.find(item => item.id === edge.typeId);
-            return <li key={edge.id}>{type?.label ?? edge.typeId}: {entityLabel(workspace, other)}</li>;
+            return <li key={edge.id}>{inbound ? '←' : '→'} {entityLabel(workspace, other)} · {type?.label ?? edge.typeId}</li>;
           })}
         </ul>
       ) : <p>Καμία καταγεγραμμένη γειτονιά σε ένα βήμα.</p>}
       <p className="muted">Η γειτονιά δείχνει καταγεγραμμένες σχέσεις, όχι αιτιότητα.</p>
-      <button type="button" onClick={onClear}>Καθαρισμός επιλογής</button>
+      <button className="quiet" type="button" onClick={onClear}>Καθαρισμός επιλογής</button>
     </section>
   );
 }

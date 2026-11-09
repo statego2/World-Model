@@ -138,7 +138,7 @@ export function ModelProvider({ children }: { children: ReactNode }) {
         }
         setSummaries(await repository.list());
         setStatus('Φορτώθηκε πραγματικό απόσπασμα. Δεν είναι το συνθετικό demo.');
-        location.hash = routeHash(id, 'entities');
+        location.hash = routeHash(id, 'modules');
         return true;
       } finally {
         setBusy(false);
@@ -156,7 +156,7 @@ export function ModelProvider({ children }: { children: ReactNode }) {
         }
         setSummaries(await repository.list());
         setStatus(result.value.revision === 0 ? 'Φορτώθηκε το συνθετικό demo.' : 'Το συνθετικό demo ήταν ήδη φορτωμένο.');
-        location.hash = routeHash(result.value.id, 'entities');
+        location.hash = routeHash(result.value.id, 'modules');
         return true;
       } finally {
         setBusy(false);
@@ -213,7 +213,7 @@ export function ModelProvider({ children }: { children: ReactNode }) {
 }
 
 function readRoute(): { id?: string; section: Section | 'home' } {
-  const raw = decodeURIComponent(location.hash.replace(/^#/, ''));
+  const raw = decodeURIComponent(location.hash.replace(/^#/, '').split('?')[0] ?? '');
   const match = raw.match(/^\/workspace\/([^/]+)\/(ontology|entities|relationships|facts|sources|transfer|explore|modules)$/);
   if (!match) return { section: 'home' };
   return { id: match[1], section: match[2] as Section };

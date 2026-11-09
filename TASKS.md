@@ -1,11 +1,19 @@
 # Εργασίες και dependencies
 
-## Ενεργή ανάθεση: πολύωρη συνέχεια
+## Ενεργή ανάθεση: εμπειρία προϊόντος
 
-Η τρέχουσα ουρά είναι τα N0–N7 στο [πλάνο](docs/plans/OVERNIGHT_DEVELOPMENT.md).
-Το N0 επαληθεύει τις παλιές ενδείξεις done στο νεότερο head. Το review αφορά το d3c738c9·
-η 18d0ebdc περιέχει νεότερες διορθώσεις και εταιρικά evidence που δεν αγνοούνται.
-Κανένα από τα παρακάτω development tasks δεν έχει εκτελεστεί με αυτή την ανάθεση.
+Η ουρά N0–N7 είναι done στο `cursor/overnight-depth-864c`. Η νέα ουρά είναι η εμπειρία του χάρτη, στο `cursor/product-experience-864c`, με βάση εκείνο το branch. Δεν αλλάζει η ορατότητα και δεν γίνεται merge στο main.
+
+| ID | Εργασία | Status | Owner | Dependency |
+|---|---|---|---|---|
+| PX-1 | Shell χάρτη, format αριθμών, επιθεώρηση, viewport | done | Cursor Grok 4.7 / cursor/product-experience-864c | Header πάνω, checkbox στο label, ελληνικό compact, χάρτης αρχική οθόνη. Ο κόσμος μένει κενός στις χώρες χωρίς fact. |
+| PX-2 | WDI για όλες τις χώρες με γεωμετρία | in_progress | Cursor Grok 4.7 / cursor/product-experience-864c | PX-1. Μόνο τιμές από το API. Κομμάτια ≤200 γραμμές. Όχι SIPRI, όχι αθροίσματα. |
+| PX-3 | Graph δίπλα στον πίνακα και διάγραμμα με άξονες που διαβάζονται | todo | — | PX-1. Το screenshot n4-graph δείχνει ακόμη φόρμα και κομμένο διάγραμμα. |
+| PX-4 | Κρίση screenshots 1440/390 και δεύτερο πέρασμα | todo | — | PX-2 και PX-3. Σύγκριση με τη διάταξη Sovereign / World Monitor, χωρίς αντιγραφή κώδικα. |
+
+## Προηγούμενη ανάθεση: πολύωρη συνέχεια
+
+Η ουρά N0–N7 ολοκληρώθηκε στο `cursor/overnight-depth-864c`. Το κείμενο παρακάτω είναι η αρχική ανάθεση, όπως καταγράφηκε τότε.
 
 | ID | Εργασία | Status | Owner | Dependency |
 |---|---|---|---|---|

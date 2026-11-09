@@ -3,6 +3,7 @@ import { chooseFilters } from '../core/coverage.ts';
 import { neighborhood, NEIGHBORHOOD_EDGE_LIMIT, NEIGHBORHOOD_NODE_LIMIT, searchEntities } from '../core/neighborhood.ts';
 import { rankEntities, readSubjectMetric, runSavedView, type PathQueryResult, type SharedFilters } from '../core/query.ts';
 import { timeSeries } from '../core/series.ts';
+import { formatMeasure } from './format.ts';
 import type { Workspace } from '../core/types.ts';
 import { entityLabel } from './lookup.ts';
 import { useModel } from './model.tsx';
@@ -47,7 +48,7 @@ export function Explore() {
                 <tr key={row.entityId}>
                   <td>{row.rank ?? '—'}</td>
                   <td>{entityLabel(workspace, row.entityId)}</td>
-                  <td>{row.status === 'missing' ? 'χωρίς δεδομένα' : row.status === 'conflict' ? 'σύγκρουση πηγών' : `${row.values[0]?.value} ${row.unit ?? ''}`}</td>
+                  <td>{row.status === 'missing' ? 'χωρίς δεδομένα' : row.status === 'conflict' ? 'σύγκρουση πηγών' : formatMeasure(row.values[0]?.value ?? 0, row.unit)}</td>
                 </tr>
               ))}
             </tbody>
@@ -177,6 +178,7 @@ function GraphPanel({ workspace, filters }: { workspace: Workspace; filters: Sha
         </label>
       </div>
       {matches.length > 0 ? <ul className="plain-list">{matches.map(match => <li key={match.id}><button type="button" onClick={() => { setStart(match.id); setSelected(match.id); }}>{match.label}</button></li>)}</ul> : null}
+      {result ? <GraphSketch nodes={result.nodes.map(node => node.id)} edges={result.edges} labelOf={(id) => entityLabel(workspace, id)} /> : null}
       {result ? (
         <div className="table-wrap"><table data-testid="neighborhood-table">
           <thead><tr><th>Βήμα</th><th>Οντότητα</th><th>Ακμές</th></tr></thead>
@@ -200,11 +202,35 @@ function GraphPanel({ workspace, filters }: { workspace: Workspace; filters: Sha
           {facts.length === 0 ? <p>Χωρίς αριθμητικό fact σε αυτή τη βάση.</p> : facts.filter(fact => typeof fact.value === 'number').slice(0, 6).map(fact => {
             const reading = readSubjectMetric(workspace, 'entity', focus.id, fact.propertyId, filters);
             const property = workspace.properties.find(item => item.id === fact.propertyId);
-            return <p key={fact.id}>{property?.label ?? fact.propertyId}: {reading.status === 'missing' ? 'χωρίς δεδομένα' : reading.status === 'conflict' ? 'σύγκρουση' : `${reading.values[0]?.value ?? fact.value} ${property?.unit ?? ''}`} · {fact.validFrom} → {fact.validTo ?? '…'} · {fact.evidenceIds.join(', ')}</p>;
+            return <p key={fact.id}>{property?.label ?? fact.propertyId}: {reading.status === 'missing' ? 'χωρίς δεδομένα' : reading.status === 'conflict' ? 'σύγκρουση' : formatMeasure(typeof reading.values[0]?.value === 'number' ? reading.values[0].value : Number(fact.value), property?.unit)} · {fact.validFrom} → {fact.validTo ?? '…'} · {fact.evidenceIds.join(', ')}</p>;
           })}
         </div>
       ) : null}
     </section>
+  );
+}
+
+function GraphSketch({ nodes, edges, labelOf }: { nodes: string[]; edges: { id: string; fromId: string; toId: string }[]; labelOf: (id: string) => string }) {
+  const index = new Map(nodes.map((id, position) => [id, position]));
+  const point = (position: number) => {
+    const angle = (Math.PI * 2 * position) / Math.max(nodes.length, 1);
+    return [160 + Math.cos(angle) * 110, 120 + Math.sin(angle) * 80];
+  };
+  return (
+    <svg className="map" viewBox="0 0 320 240" role="img" aria-label="Γράφημα γειτονιάς" data-testid="graph-canvas">
+      {edges.map(edge => {
+        const from = index.get(edge.fromId);
+        const to = index.get(edge.toId);
+        if (from === undefined || to === undefined) return null;
+        const [x1, y1] = point(from);
+        const [x2, y2] = point(to);
+        return <line key={edge.id} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#e2b15a" strokeWidth="1.2" />;
+      })}
+      {nodes.map((id, position) => {
+        const [x, y] = point(position);
+        return <g key={id}><circle cx={x} cy={y} r="7" fill="#f4f0e4" /><text x={x + 10} y={y + 4} fill="#f4f0e4" fontSize="10">{labelOf(id).slice(0, 18)}</text></g>;
+      })}
+    </svg>
   );
 }
 
@@ -234,7 +260,7 @@ function ComparePanel({ workspace, filters }: { workspace: Workspace; filters: S
             {series.rows.map(row => (
               <tr key={row.entityId}>
                 <td>{entityLabel(workspace, row.entityId)}</td>
-                {row.points.map(point => <td key={point.year}>{point.status === 'value' ? `${point.value} ${series.unit ?? ''}` : 'κενό'}</td>)}
+                {row.points.map(point => <td key={point.year}>{point.status === 'value' ? formatMeasure(point.value ?? 0, series.unit) : 'κενό'}</td>)}
               </tr>
             ))}
           </tbody>
@@ -249,10 +275,16 @@ function SeriesChart({ series }: { series: ReturnType<typeof timeSeries> }) {
   const values = series.rows.flatMap(row => row.points.flatMap(point => point.value === null ? [] : [point.value]));
   const min = values.length > 0 ? Math.min(...values) : 0;
   const max = values.length > 0 ? Math.max(...values) : 1;
+  const xOf = (index: number) => 80 + index * (series.years.length > 1 ? 800 / (series.years.length - 1) : 0);
   return (
-    <svg className="map" viewBox="0 0 1000 220" role="img" aria-label="Σημεία σειράς χωρίς συμπλήρωση κενών">
+    <svg className="map" viewBox="0 0 1000 260" role="img" aria-label="Σημεία σειράς χωρίς συμπλήρωση κενών">
+      <line x1="70" y1="200" x2="920" y2="200" stroke="#3a4334" />
+      <line x1="70" y1="30" x2="70" y2="200" stroke="#3a4334" />
+      <text x="16" y="28" fill="#c4bba8" fontSize="12">{formatMeasure(max, series.unit)}</text>
+      <text x="16" y="204" fill="#c4bba8" fontSize="12">{formatMeasure(min, series.unit)}</text>
+      {series.years.map((year, index) => <text key={year} x={xOf(index) - 16} y="224" fill="#c4bba8" fontSize="12">{year}</text>)}
       {series.rows.map((row, rowIndex) => row.points.map((point, index) => point.value === null ? null : (
-        <circle key={`${row.entityId}-${point.year}`} cx={80 + index * (series.years.length > 1 ? 800 / (series.years.length - 1) : 0)} cy={190 - ((point.value - min) / (max - min || 1)) * 150} r={6 + rowIndex} fill={rowIndex === 0 ? '#e2b15a' : '#8fa888'} />
+        <circle key={`${row.entityId}-${point.year}`} cx={xOf(index)} cy={200 - ((point.value - min) / (max - min || 1)) * 160} r="6" fill={rowIndex === 0 ? '#e2b15a' : '#8fa888'} />
       )))}
     </svg>
   );
