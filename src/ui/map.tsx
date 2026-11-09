@@ -5,29 +5,61 @@ export interface MapFeature {
 
 interface Bounds { minLon: number; maxLon: number; minLat: number; maxLat: number }
 
-export function GeoMap({ features, idAttribute, values, bounds, label }: {
+export function GeoMap({ features, idAttribute, values, bounds, label, selectedId, onSelect }: {
   features: MapFeature[];
   idAttribute: 'data-iso' | 'data-nuts';
   values: Record<string, number | 'none'>;
   bounds: Bounds;
   label: string;
+  selectedId?: string | null;
+  onSelect?: (id: string) => void;
 }) {
+  const numbers = Object.values(values).filter((value): value is number => typeof value === 'number');
+  const min = numbers.length > 0 ? Math.min(...numbers) : 0;
+  const max = numbers.length > 0 ? Math.max(...numbers) : 0;
   return (
-    <svg className="map" viewBox="0 0 1000 520" role="img" aria-label={label}>
-      {features.map(feature => (
-        <path
-          key={feature.id}
-          {...{ [idAttribute]: feature.id }}
-          data-value={values[feature.id] ?? 'none'}
-          className={values[feature.id] === undefined || values[feature.id] === 'none' ? 'nodata' : 'valued'}
-          d={feature.polygons.map(ring => ring.map((point, index) => {
-            const [x, y] = project(point[0] ?? 0, point[1] ?? 0, bounds);
-            return `${index === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)}`;
-          }).join(' ') + ' Z').join(' ')}
-        />
-      ))}
+    <svg className="map" viewBox="0 0 1000 520" role="group" aria-label={label}>
+      {features.map(feature => {
+        const value = values[feature.id] ?? 'none';
+        const valued = value !== 'none';
+        return (
+          <path
+            key={feature.id}
+            {...{ [idAttribute]: feature.id }}
+            data-value={value}
+            data-scale={valued ? scaleOf(value, min, max) : 'none'}
+            tabIndex={0}
+            role="button"
+            aria-pressed={selectedId === feature.id}
+            aria-label={feature.id}
+            className={`${valued ? 'valued' : 'nodata'}${selectedId === feature.id ? ' selected' : ''}`}
+            style={valued ? { fill: shade(value, min, max) } : undefined}
+            onClick={() => onSelect?.(feature.id)}
+            onKeyDown={event => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                onSelect?.(feature.id);
+              }
+            }}
+            d={feature.polygons.map(ring => ring.map((point, index) => {
+              const [x, y] = project(point[0] ?? 0, point[1] ?? 0, bounds);
+              return `${index === 0 ? 'M' : 'L'}${x.toFixed(1)} ${y.toFixed(1)}`;
+            }).join(' ') + ' Z').join(' ')}
+          />
+        );
+      })}
     </svg>
   );
+}
+
+function scaleOf(value: number, min: number, max: number): string {
+  if (max === min) return '1';
+  return ((value - min) / (max - min)).toFixed(3);
+}
+
+function shade(value: number, min: number, max: number): string {
+  const ratio = max === min ? 1 : (value - min) / (max - min);
+  return `hsl(38 62% ${Math.round(26 + ratio * 46)}%)`;
 }
 
 export function boundsOf(features: MapFeature[], fallback: Bounds): Bounds {

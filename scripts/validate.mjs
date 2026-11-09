@@ -8,5 +8,5 @@ if (errors.length) {
   process.exitCode = 1;
 } else {
   console.log(`Valid ${workspace.dataMode} workspace: ${workspace.entities.length} entities, ${workspace.relationships.length} relationships, ${workspace.facts.length} facts.`);
-  console.log('Editor, local persistence, import preview and export/restore are implemented. Graph queries and maps are not.');
+  console.log('Editor, persistence, import, export, queries and maps are implemented. Military redistribution and five airports remain blocked.');
 }

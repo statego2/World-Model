@@ -37,7 +37,7 @@ export interface PathQuery {
   steps: { relationshipTypeId: ID; direction: 'out' | 'in' }[];
   year: number; basis: Basis; sourceIds: ID[]; limit: number;
 }
-export interface SavedView { id: ID; label: string; query: PathQuery }
+export interface SavedView { id: ID; label: string; query: PathQuery; filterMode?: 'fixed' | 'inherit' }
 export interface Workspace {
   formatVersion: 1; id: ID; label: string; dataMode: 'demo' | 'real';
   ontologyVersion: number; revision: number;

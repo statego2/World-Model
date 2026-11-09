@@ -19,7 +19,10 @@ export type DomainAction =
   | { type: 'RecordFact'; fact: Fact }
   | { type: 'CorrectFact'; fact: Fact }
   | { type: 'SaveView'; view: SavedView }
+  | { type: 'SetBinding'; role: string; definitionId: string }
+  | { type: 'ClearBinding'; role: string }
   | { type: 'CommitImport'; facts: Fact[] }
+  | { type: 'CommitRecords'; entities: Entity[]; relationships: Relationship[] }
   | { type: 'RevertCreation'; kind: RevertKind; id: string };
 
 export interface AppliedAction {
@@ -107,8 +110,14 @@ function mutate(draft: Workspace, action: DomainAction): Result<Mutation> {
       return recordFact(draft, action.fact, true);
     case 'SaveView':
       return saveView(draft, action.view);
+    case 'SetBinding':
+      return setBinding(draft, action.role, action.definitionId);
+    case 'ClearBinding':
+      return clearBinding(draft, action.role);
     case 'CommitImport':
       return commitImport(draft, action.facts);
+    case 'CommitRecords':
+      return commitRecords(draft, action.entities, action.relationships);
     case 'RevertCreation':
       return revertCreation(draft, action.kind, action.id);
     default:
@@ -300,23 +309,94 @@ function saveView(draft: Workspace, view: SavedView): Result<Mutation> {
     draft.savedViews.push(next);
     return changed(view.id, `Προβολή «${label}»`, false);
   }
-  if (existing.label === label && stableStringify(existing.query) === stableStringify(next.query)) return fail('no_change', 'Δεν υπάρχει αλλαγή.');
+  const sameMode = (existing.filterMode ?? 'fixed') === (next.filterMode ?? 'fixed');
+  if (existing.label === label && stableStringify(existing.query) === stableStringify(next.query) && sameMode) return fail('no_change', 'Δεν υπάρχει αλλαγή.');
   existing.label = label;
   existing.query = next.query;
+  if (next.filterMode && next.filterMode !== 'fixed') existing.filterMode = next.filterMode;
+  else delete existing.filterMode;
   return changed(view.id, `Ενημέρωση προβολής «${label}»`, false);
+}
+
+const BINDING_ROLES: Record<string, 'entityType' | 'relationshipType' | 'entityProperty' | 'relationshipProperty'> = {
+  countryType: 'entityType',
+  regionType: 'entityType',
+  gdpProperty: 'entityProperty',
+  populationProperty: 'entityProperty',
+  defenseSpendingProperty: 'entityProperty',
+  regionalGvaProperty: 'entityProperty',
+  capitalType: 'relationshipType',
+  fdiStockProperty: 'relationshipProperty',
+  fdiFlowProperty: 'relationshipProperty',
+};
+
+function setBinding(draft: Workspace, role: string, definitionId: string): Result<Mutation> {
+  const kind = BINDING_ROLES[role];
+  if (!kind || !isStableId(definitionId)) return fail('validation', 'Ο ρόλος ή ο ορισμός δεν είναι έγκυρος.');
+  if (kind === 'entityType' && !draft.entityTypes.some(item => item.id === definitionId && !item.deprecated)) return fail('validation', 'Ο ρόλος θέλει τύπο οντότητας.');
+  if (kind === 'relationshipType' && !draft.relationshipTypes.some(item => item.id === definitionId && !item.deprecated)) return fail('validation', 'Ο ρόλος θέλει τύπο σχέσης.');
+  if (role === 'countryType' && dependentMismatch(draft, ['gdpProperty', 'populationProperty', 'defenseSpendingProperty'], definitionId)) return fail('validation', 'Ο τύπος χώρας δεν ταιριάζει με ήδη συνδεδεμένη ιδιότητα.');
+  if (role === 'regionType' && dependentMismatch(draft, ['regionalGvaProperty'], definitionId)) return fail('validation', 'Ο τύπος περιφέρειας δεν ταιριάζει με ήδη συνδεδεμένη ιδιότητα.');
+  if (role === 'capitalType' && dependentMismatch(draft, ['fdiStockProperty', 'fdiFlowProperty'], definitionId)) return fail('validation', 'Ο τύπος σχέσης δεν ταιριάζει με ήδη συνδεδεμένη ιδιότητα.');
+  if (kind === 'entityProperty' || kind === 'relationshipProperty') {
+    const property = draft.properties.find(item => item.id === definitionId && !item.deprecated);
+    if (!property || property.valueType !== 'number') return fail('validation', 'Ο ρόλος θέλει αριθμητική ιδιότητα.');
+    if (kind === 'entityProperty' && property.subjectKind !== 'entity') return fail('validation', 'Η ιδιότητα δεν ανήκει σε οντότητα.');
+    if (kind === 'relationshipProperty' && property.subjectKind !== 'relationship') return fail('validation', 'Η ιδιότητα δεν ανήκει σε σχέση.');
+    const expected = role === 'regionalGvaProperty' ? draft.bindings.regionType : role === 'fdiStockProperty' || role === 'fdiFlowProperty' ? draft.bindings.capitalType : draft.bindings.countryType;
+    if (expected && property.subjectTypeId !== expected) return fail('validation', 'Η ιδιότητα δεν ανήκει στον ήδη συνδεδεμένο τύπο.');
+  }
+  if (draft.bindings[role] === definitionId) return fail('no_change', 'Ο ρόλος δείχνει ήδη αυτόν τον ορισμό.');
+  draft.bindings[role] = definitionId;
+  return changed(role, `Σύνδεση ρόλου ${role}`, false);
+}
+
+function dependentMismatch(draft: Workspace, roles: string[], typeId: string): boolean {
+  return roles.some(role => {
+    const propertyId = draft.bindings[role];
+    const property = propertyId ? draft.properties.find(item => item.id === propertyId) : undefined;
+    return Boolean(property && property.subjectTypeId !== typeId);
+  });
+}
+
+function clearBinding(draft: Workspace, role: string): Result<Mutation> {
+  if (!BINDING_ROLES[role] || !(role in draft.bindings)) return fail('no_change', 'Ο ρόλος δεν είναι συνδεδεμένος.');
+  delete draft.bindings[role];
+  return changed(role, `Αφαίρεση ρόλου ${role}`, false);
+}
+
+function commitRecords(draft: Workspace, entities: Entity[], relationships: Relationship[]): Result<Mutation> {
+  if (entities.length === 0 && relationships.length === 0) return fail('no_change', 'Δεν υπάρχουν γραμμές για καταγραφή.');
+  const trial = structuredClone(draft);
+  const changedIds: string[] = [];
+  for (const entity of entities) {
+    const recorded = createEntity(trial, entity);
+    if (!recorded.ok) return recorded;
+    changedIds.push(entity.id);
+  }
+  for (const relationship of relationships) {
+    const recorded = createRelationship(trial, relationship);
+    if (!recorded.ok) return recorded;
+    changedIds.push(relationship.id);
+  }
+  draft.entities.splice(0, draft.entities.length, ...trial.entities);
+  draft.relationships.splice(0, draft.relationships.length, ...trial.relationships);
+  return ok({ changedIds, summary: `Εισαγωγή ${entities.length} οντοτήτων και ${relationships.length} συνδέσεων`, ontologyChanged: false });
 }
 
 function commitImport(draft: Workspace, facts: Fact[]): Result<Mutation> {
   if (facts.length === 0) return fail('no_change', 'Δεν υπάρχουν γραμμές για καταγραφή.');
+  const trial = structuredClone(draft);
   const changedIds: string[] = [];
   for (const fact of facts) {
-    const duplicate = draft.facts.find(item => item.subjectKind === fact.subjectKind && item.subjectId === fact.subjectId && item.propertyId === fact.propertyId && item.validFrom === fact.validFrom && item.validTo === fact.validTo && item.value === fact.value && sameSet(item.evidenceIds, fact.evidenceIds));
+    const duplicate = trial.facts.find(item => item.subjectKind === fact.subjectKind && item.subjectId === fact.subjectId && item.propertyId === fact.propertyId && item.validFrom === fact.validFrom && item.validTo === fact.validTo && item.value === fact.value && item.basis === fact.basis && item.status === fact.status && sameSet(item.evidenceIds, fact.evidenceIds));
     if (duplicate) continue;
-    const recorded = recordFact(draft, fact, Boolean(fact.supersedesId));
+    const recorded = recordFact(trial, fact, Boolean(fact.supersedesId));
     if (!recorded.ok) return recorded;
     changedIds.push(fact.id);
   }
   if (changedIds.length === 0) return fail('no_change', 'Όλες οι γραμμές υπάρχουν ήδη.');
+  draft.facts.splice(0, draft.facts.length, ...trial.facts);
   return ok({ changedIds, summary: `Εισαγωγή ${changedIds.length} γεγονότων`, ontologyChanged: false });
 }
 

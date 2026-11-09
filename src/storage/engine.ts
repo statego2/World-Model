@@ -121,13 +121,9 @@ export async function restoreToStore(store: WorkspaceStore, payload: unknown, in
   if (!relabeled.ok) return relabeled;
   await store.putWorkspace(relabeled.value);
   for (const action of read.value.actions) {
-    if (!action || typeof action !== 'object') continue;
-    const record = action as StoredAction;
-    if (!record.actionId || !record.fingerprint) continue;
-    await store.putAction({ ...portableRecord(record), workspaceId: input.id, key: actionKey(input.id, record.actionId) });
+    await store.putAction({ ...portableRecord(action), workspaceId: input.id, key: actionKey(input.id, action.actionId) });
   }
   for (const change of read.value.history) {
-    if (!change || typeof change !== 'object') continue;
     await store.appendChange({ ...portableRecord(change as ChangeRecord), workspaceId: input.id });
   }
   return ok(relabeled.value);

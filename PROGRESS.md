@@ -1,7 +1,109 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: T-M5-02 στο `cursor/m5-real-sources-864c`. Η υπόθεση Β είναι μερική: εννέα αεροδρόμια έχουν διαδρομή, πέντε μένουν blocker.
+Τρέχον στάδιο: ουρά N0–N7 κλειστή στο `cursor/overnight-depth-864c`, με τα καταγεγραμμένα όρια. Η υπόθεση Β μένει μερική.
+
+## 2026-11-09 — Review PR #6 — Αντίγραφο, φίλτρο, ρόλοι, έτος
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-864c
+
+Το αντίγραφο δέχεται αποτύπωμα ενέργειας έως 250.000 χαρακτήρες, γιατί μια εισαγωγή 20 γραμμών έφτιαχνε fingerprint μεγαλύτερο από το όριο των 4.000 και η επαναφορά απορριπτόταν. Ο χώρος εργασίας κρατά το μικρότερο όριο. Η αλλαγή μόνο του filterMode αποθηκεύεται και αναιρείται. Αλλαγή τύπου χώρας/περιφέρειας/σχέσης απορρίπτεται αν μια ήδη συνδεδεμένη ιδιότητα ανήκει αλλού. Αν το επιλεγμένο έτος φύγει από τις διαθέσιμες χρονιές, το φίλτρο πηγαίνει στην πρώτη διαθέσιμη.
+
+Επαλήθευση: `node --test tests/review-fixes.test.ts tests/bindings.test.ts tests/integrity.test.ts` — 9/9 pass. `tsc` — pass.
+
+Το CI στο commit `590bcb5` ολοκληρώθηκε με 4 checks χωρίς αποτυχία.
+
+Επόμενο βήμα: μην συμπληρώσεις τα πέντε αεροδρόμια χωρίς νέα παραπομπή. Μην αλλάξεις την ορατότητα.
+
+## 2026-11-09 — N5 / N6 / N7 — Εισαγωγή, case study, CI
+
+Agent/session: Cursor Grok 4.7 | Status: done με όρια | Branch: cursor/overnight-depth-864c
+
+Η εισαγωγή έχει τρία είδη: μετρήσεις, οντότητες, συνδέσεις. Άγνωστος τύπος ή άκρο μένει unresolved. Αρχείο πάνω από 200 γραμμές απορρίπτεται ολόκληρο, δεν καταγράφεται το πρώτο τμήμα. Αποτυχία στη μέση δεν αφήνει τη μισή ομάδα. Νέα εταιρεία και ακμές μπαίνουν στην ήδη αποθηκευμένη διαδρομή. Πρότυπο αντιστοίχισης έκδοση 1, μέσα στο κλειδί εισαγωγής. Δεν προστέθηκε ξεχωριστός κατάλογος προτύπων.
+
+Το `docs/CASE_STUDY.md` είναι technical case study. Κάλυψη αεροδρομίων 9/14. Το FDI δεν αποδίδεται στην παραχώρηση. Δεν έγινε μελέτη χρηστών.
+
+Το `.github/workflows/ci.yml` τρέχει Node 24, `npm ci`, tests, typecheck, build και ξεχωριστό browser job με Chromium. Χωρίς secrets και χωρίς deploy. Στο commit `590bcb5` και τα 4 checks του GitHub ολοκληρώθηκαν χωρίς αποτυχία.
+
+Μέτρηση γειτονιάς: 600 εξερχόμενες ακμές κόβονται στα 200 nodes / 500 edges σε λιγότερο από 1 δευτερόλεπτο μέσα στο unit test. Το parser όριο `maxCollection` είναι 5000, οπότε δεν φορτώθηκαν 50k facts και το όριο δεν ανέβηκε.
+
+Επαλήθευση: `npm test` — 57/57 pass. `npx playwright test tests/browser/structure-import.spec.ts` — 1/1 pass. Το acceptance CSV test έμεινε 1/1.
+
+Επόμενο βήμα: διάβασε το CI του PR #6. Αν είναι κόκκινο, διόρθωσε το αποτυχημένο job. Μην συμπληρώσεις τα πέντε αεροδρόμια χωρίς νέα παραπομπή. Μην αλλάξεις την ορατότητα.
+
+## 2026-11-09 — N4-A / N4-C — Γειτονιά και σειρά
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-864c
+
+Η αναζήτηση βρίσκει οντότητα από όνομα ή ID. Η γειτονιά πάει ένα ή δύο βήματα, με κατεύθυνση και τύπο ακμής, και κόβεται στα 200 nodes / 500 edges. Ο πίνακας είναι η προσβάσιμη προβολή. Ο inspector δείχνει fact, περίοδο και evidence.
+
+Η σύγκριση δέχεται 2–5 χώρες. Η σειρά περιλαμβάνει μόνο έτη που υπάρχουν σε κάποια επιλεγμένη οντότητα. Όπου λείπει τιμή, το κελί μένει «κενό» και το γράφημα δεν βάζει σημείο.
+
+Επαλήθευση: `node --test tests/neighborhood.test.ts` — 2/2 pass. `npx playwright test tests/browser/graph.spec.ts tests/browser/explore.spec.ts` — 2/2 pass. Screenshots `docs/evidence/n4-graph-1440.png`, `docs/evidence/n4-graph-390.png`.
+
+Επόμενο βήμα: N5, εισαγωγή οντοτήτων και ακμών με ακριβές ID.
+
+## 2026-11-09 — N4-B — Διαδραστικοί χάρτες
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-864c
+
+Ο χάρτης δέχεται click και Enter/Space. Οι αριθμητικές τιμές παίρνουν διαφορετική απόχρωση. Το no-data μένει χωρίς τιμή. Ο inspector δείχνει την πηγή και τη γειτονιά ενός βήματος και λέει ότι δεν είναι αιτιότητα. Το R3 κλείνει σε αυτό το σημείο.
+
+Επαλήθευση: `npm test` — 54/54 pass. `npx playwright test tests/browser/real.spec.ts tests/browser/modules.spec.ts` — 2/2 pass. Screenshot `docs/evidence/n4-map-1440.png`.
+
+Επόμενο βήμα: N4-A αναζήτηση οντότητας και γειτονιά έως 2 βήματα με όριο, μετά N4-C σύγκριση και χρονοσειρά. Μετά N5 εισαγωγή οντοτήτων/ακμών. Τα πέντε αεροδρόμια και η SIPRI μένουν blockers. Μην αλλάξεις την ορατότητα του repository.
+
+## 2026-11-09 — N0 / N1 — Ακεραιότητα εισαγωγής και αντιγράφου
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-864c
+
+Το documentation handoff του PR #5 ενσωματώθηκε με merge πάνω στο 18d0ebd. Δεν έγινε force push.
+
+Επανέλεγχος review στο τρέχον head:
+- R1: fixed από το 18d0ebd. Τα modules διαβάζουν bindings, έτος 2022 για real και τις πραγματικές πηγές. Ο browser έλεγχος διαβάζει 217990189600.69, 8094.9, 948.2, 99577.9 και 2710.05. Μένει το N2 για επιλογή φίλτρου από τον χρήστη, όχι δεύτερο hardcoded branch.
+- R2: fixed. Μια assumption με την ίδια τιμή δεν γίνεται duplicate ούτε supersedes. Το reported fact μπαίνει δίπλα και το rank το βρίσκει. Missing δεν γίνεται διόρθωση του μηδενός. Δύο διαφορετικές τιμές στο ίδιο CSV μένουν σφάλμα. Αποτυχία στη μέση του batch δεν αλλάζει το snapshot.
+- R3: ανοιχτό. Οι χάρτες μένουν στατικοί. Η διαδραστικότητα είναι το N4.
+- R4: fixed. Το export envelope ελέγχει βάθος/μέγεθος και κάθε εγγραφή ιστορικού/ενέργειας. `history:[{}]`, λίστα μέσα στη λίστα, άγνωστη αντίστροφη ενέργεια και διπλή αναθεώρηση απορρίπτονται πριν γραφτεί χώρος.
+
+Επαλήθευση: `npm test` — 52/52 pass. `npm run validate` — pass. `npm run typecheck` — pass μετά την αφαίρεση αχρησιμοποίητων imports. `npx playwright test` — 7/7 pass.
+
+Επόμενο βήμα μετά το N1 ήταν το N2. Ολοκληρώθηκε στην ίδια συνεδρία: τα φίλτρα διαλέγουν το έτος με τα περισσότερα reported facts των bindings, χωρίς dataMode. Το demo μένει στο 2023 και το πραγματικό απόσπασμα στο 2022. Δεύτερη πηγή για το ίδιο ΑΕΠ γίνεται σύγκρουση, όχι μέσος όρος. Η αποθηκευμένη διαδρομή κρατά τις δικές της παραμέτρους και το λέει στην οθόνη.
+
+Επαλήθευση N2: `node --test tests/coverage.test.ts` — pass. `npx playwright test tests/browser/modules.spec.ts tests/browser/real.spec.ts` — 2/2 pass.
+
+Επόμενο βήμα μετά το N2 ήταν το N3. Ολοκληρώθηκε: φόρμα αποθηκευμένου ερωτήματος με 1–4 βήματα, σταθερά ή κληρονομούμενα φίλτρα, και ενέργεια `SetBinding` που απορρίπτει ιδιότητα άλλου τύπου. Browser από κενό χώρο: αποθήκευση, reload, εκτέλεση, δεύτερη εταιρεία στην ίδια προβολή. Screenshot `docs/evidence/n3-query-1440.png`.
+
+Επαλήθευση N3: `node --test tests/bindings.test.ts` — pass. `npx playwright test tests/browser/query-builder.spec.ts tests/browser/explore.spec.ts tests/browser/modules.spec.ts` — 3/3 pass.
+
+## 2026-11-09 — T-REF-01 — Μελέτη τριών εφαρμογών αναφοράς
+
+Codex: ολοκληρώθηκε documentation-only μελέτη. Αναφορά docs/research/REFERENCE_STUDY.md.
+Εξετάστηκαν World Monitor layer catalog/freshness/scheduler (AGPL), Sovereign V15
+HTML/CSS/game functions (άδεια μη επιβεβαιωμένη), God's Eye View lifecycle/catalog/
+share codec (MIT source, χωριστοί όροι τρίτων datasets/assets). Δεν έγινε αντιγραφή
+κώδικα στο runtime, αλλαγή stack ή εκτέλεση των upstream test suites.
+Το World Monitor live browser navigation απέτυχε με timeout. Η μελέτη διακρίνει
+source/DOM analysis από επιτυχημένο live UI verification. Το Sovereign αποδόθηκε
+επιτυχώς τοπικά από το ήδη ληφθέν HTML: οπτικός έλεγχος 1440×1000, Ελλάδα στον
+inspector και μηνιαίο βήμα 0 → 1. Δεν είναι βαθμονόμηση οικονομικού μοντέλου. Προστέθηκαν guidance για
+N4/N7 και αρχικό prompt, χωρίς αλλαγή της προτεραιότητας N1–N3 ή προσθήκη simulator.
+Επόμενο βήμα bot: διάβασε τη μελέτη πριν τον σχεδιασμό των N4 views/layer registry.
+
+## 2026-11-09 — N-PLAN — Ανάθεση πολύωρης ανάπτυξης
+
+Agent: Codex. Status: done (planning/handoff only). Ο χρήστης ζήτησε πολύωρη συνέχεια
+σε βάθος. Προστέθηκαν docs/plans/OVERNIGHT_DEVELOPMENT.md, prompts/OVERNIGHT_START.md
+και το ανεξάρτητο review του d3c738c9. Η ουρά TASKS περιέχει N0–N7 με dependencies.
+
+Baseline σχεδιασμού: 18d0ebdcb4fb22522ff48c9e7d78563646874eea. Το bot συνέχισε μετά
+το παλιό review με Fraport evidence και real-data modules. Το N0 θα επανελέγξει τι
+διορθώθηκε· δεν έγινε νέο runtime verification ή αλλαγή application code σε αυτή
+την εργασία. Η προηγούμενη ανεξάρτητη επαλήθευση αφορούσε d3c738c9 (47+6 tests).
+Έλεγχοι παρούσας εργασίας: docs/task references, νέο snapshot και GitHub artifact.
+
+Η δημοσίευση οδηγιών δεν ξεκινά αυτόματα agent. Εκκίνηση με το prompt στο
+prompts/OVERNIGHT_START.md. Επόμενη ενέργεια εκτελεστή: N0, έπειτα N1 και οι
+εξαρτώμενες εργασίες μέχρι το τέλος του διαθέσιμου runtime. Χωρίς αυτόματο merge/deploy.
 
 ## 2026-11-09 — T-M5-02 — Οι πραγματικές μετρήσεις φαίνονται στις εφαρμογές
 
@@ -217,3 +319,4 @@ Agent/session: ... | Status: ... | Branch/commit/PR: ...
 Blockers / τι ΔΕΝ ολοκληρώθηκε: ...
 Handoff / ακριβές επόμενο βήμα: ...
 ```
+

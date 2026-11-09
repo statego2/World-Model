@@ -20,6 +20,10 @@ export function parseWorkspace(input: unknown, limits: ParseLimits = DEFAULT_PAR
   return ok(shaped.value);
 }
 
+export function checkDocumentLimits(input: unknown, limits: ParseLimits = DEFAULT_PARSE_LIMITS): Result<true> {
+  return measure(input, limits);
+}
+
 function measure(input: unknown, limits: ParseLimits): Result<true> {
   const errors: DomainError[] = [];
   const seen = new WeakSet<object>();
@@ -369,7 +373,7 @@ function shapeSource(shape: Shape, value: unknown, path: string): Source | null 
 function shapeView(shape: Shape, value: unknown, path: string): SavedView | null {
   const row = shape.record(value, path);
   if (!row) return null;
-  shape.unknown(row, ['id', 'label', 'query'], path);
+  shape.unknown(row, ['id', 'label', 'query', 'filterMode'], path);
   const id = shape.string(row, 'id', path, 'id');
   const label = shape.string(row, 'label', path, 'text');
   const queryRecord = shape.record(row.query, `${path}.query`);
@@ -394,7 +398,10 @@ function shapeView(shape: Shape, value: unknown, path: string): SavedView | null
     }
   }
   if (!startEntityId || !basis || !sourceIds) return null;
-  return { id, label, query: { startEntityId, steps, year: queryRecord.year as number, basis, sourceIds, limit: queryRecord.limit as number } };
+  const filterMode = row.filterMode === undefined ? undefined : row.filterMode === 'fixed' || row.filterMode === 'inherit' ? row.filterMode : null;
+  if (filterMode === null) shape.fail('malformed', 'Μη έγκυρος τρόπος φίλτρου προβολής.', `${path}.filterMode`);
+  if (filterMode === null) return null;
+  return { id, label, query: { startEntityId, steps, year: queryRecord.year as number, basis, sourceIds, limit: queryRecord.limit as number }, ...(filterMode ? { filterMode } : {}) };
 }
 
 function shapeBindings(shape: Shape, value: unknown, limits: ParseLimits): Record<string, string> | null {

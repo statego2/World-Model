@@ -46,7 +46,16 @@ export function inverseOf(before: Workspace, action: DomainAction): DomainAction
         ? { type: 'SaveView', view: structuredClone(existing) }
         : { type: 'RevertCreation', kind: 'savedView', id: action.view.id };
     }
+    case 'SetBinding':
+      return before.bindings[action.role]
+        ? { type: 'SetBinding', role: action.role, definitionId: before.bindings[action.role] }
+        : { type: 'ClearBinding', role: action.role };
+    case 'ClearBinding':
+      return before.bindings[action.role]
+        ? { type: 'SetBinding', role: action.role, definitionId: before.bindings[action.role] }
+        : null;
     case 'CommitImport':
+    case 'CommitRecords':
       return null;
     case 'RevertCreation':
       return null;

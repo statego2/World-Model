@@ -1,5 +1,34 @@
 # Εργασίες και dependencies
 
+## Ενεργή ανάθεση: πολύωρη συνέχεια
+
+Η τρέχουσα ουρά είναι τα N0–N7 στο [πλάνο](docs/plans/OVERNIGHT_DEVELOPMENT.md).
+Το N0 επαληθεύει τις παλιές ενδείξεις done στο νεότερο head. Το review αφορά το d3c738c9·
+η 18d0ebdc περιέχει νεότερες διορθώσεις και εταιρικά evidence που δεν αγνοούνται.
+Κανένα από τα παρακάτω development tasks δεν έχει εκτελεστεί με αυτή την ανάθεση.
+
+| ID | Εργασία | Status | Owner | Dependency |
+|---|---|---|---|---|
+| N-PLAN | Σχεδιασμός και GitHub handoff | done | Codex | — |
+| N0 | Baseline, επανέλεγχος review και milestone statuses | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | R1 ήδη κλειστό στο 18d0ebd. R2/R4 κλείνουν στο N1. R3 μένει για N4. |
+| N1-A | Basis/status-aware εισαγωγές και duplicates | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Reported μένει δίπλα σε assumption. Σύγκρουση μέσα στο CSV απορρίπτεται. |
+| N1-B | Strict export/history/action validation | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κακογραμμένο ιστορικό απορρίπτεται ολόκληρο. |
+| N1-C | Regressions transactions, replay και stale tabs | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Τα υπάρχοντα repository/IndexedDB tests πέρασαν μαζί με τα νέα. |
+| N2 | Γενικά κοινά φίλτρα, metrics και geometry mappings | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κοινό έτος/βάση/πηγές. Δεύτερη πηγή μένει σύγκρουση. Demo 2023, real 2022. |
+| N3 | Query builder και role bindings από UI | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Κενός χώρος: φόρμα ερωτήματος, reload, δεύτερη διαδρομή. Ασυμβίβαστο binding απορρίπτεται. |
+| N4-A | Generic graph explorer και inspector | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Αναζήτηση, 1–2 βήματα, φίλτρο τύπου/κατεύθυνσης, όριο 200/500, πίνακας. |
+| N4-B | Διαδραστικοί world/region maps και numeric scale | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Click, πληκτρολόγιο, κλίμακα, no-data και πηγή στον inspector. |
+| N4-C | Comparisons, trends και browser acceptance | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Σειρά μόνο από υπάρχοντα έτη. Κενό έτος μένει κενό. |
+| N5 | CSV imports entities/edges/relationship facts | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Ακριβές ID. Άγνωστος τύπος/άκρο unresolved. Μεγάλο αρχείο δεν κόβεται σιωπηλά. |
+| N6 | Επαλήθευση πραγματικής διαδρομής και technical case study | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | docs/CASE_STUDY.md. Κάλυψη 9/14. Όχι μελέτη χρηστών. |
+| N7 | CI, performance/accessibility, τεκμηρίωση και handoff | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Workflow Node 24. Όριο 50k δεν ανέβηκε. CI στο 590bcb5: 4/4 χωρίς αποτυχία. |
+
+Τα αναλυτικά acceptance/gates βρίσκονται στο πλάνο. Claim πριν από εργασία,
+PROGRESS/TASKS μετά από κάθε task. Αν source μπλοκάρει, συνέχισε ανεξάρτητο task.
+
+## Προηγούμενη κατάσταση milestones (προς επανέλεγχο από N0)
+
+
 Ενημέρωση: 2026-11-09. Status: todo / in_progress / blocked / done.
 Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι distributed locks.
 Πριν από εργασία έλεγξε branch/PR assignments αν υπάρχει κοινό remote.
@@ -67,3 +96,12 @@ Repository στο σωστό account ως private, μόνο ο world-model φά�
 
 Backlog μετά M5: monitoring/alerts, AI με citations, εξειδικευμένη πρόβλεψη,
 simulation/decision support. Δεν είναι εγκεκριμένο τρέχον implementation scope.
+
+
+
+## Συμπληρωματική μελέτη σχεδιασμού (2026-11-09)
+
+- T-REF-01 — done, Codex: μελέτη World Monitor, Sovereign και God's Eye View· δημόσιο HTML/CSS, επιλεγμένος source κώδικας και άδειες. Αναφορά: docs/research/REFERENCE_STUDY.md.
+- N4 guidance: layer registry, κοινό selection/inspector και source availability όπως στην αναφορά. Εφαρμόζεται μετά τα N1–N3, όχι ως παράκαμψή τους.
+- N7 guidance: portable saved exploration view και notices μόνο για source που πραγματικά επαναχρησιμοποιείται.
+- 3D/Cesium και simulator παραμένουν future proposals. Δεν προστέθηκαν ως υποχρεωτικά overnight tasks.
