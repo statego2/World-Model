@@ -308,15 +308,17 @@ function saveView(draft: Workspace, view: SavedView): Result<Mutation> {
 
 function commitImport(draft: Workspace, facts: Fact[]): Result<Mutation> {
   if (facts.length === 0) return fail('no_change', 'Δεν υπάρχουν γραμμές για καταγραφή.');
+  const trial = structuredClone(draft);
   const changedIds: string[] = [];
   for (const fact of facts) {
-    const duplicate = draft.facts.find(item => item.subjectKind === fact.subjectKind && item.subjectId === fact.subjectId && item.propertyId === fact.propertyId && item.validFrom === fact.validFrom && item.validTo === fact.validTo && item.value === fact.value && sameSet(item.evidenceIds, fact.evidenceIds));
+    const duplicate = trial.facts.find(item => item.subjectKind === fact.subjectKind && item.subjectId === fact.subjectId && item.propertyId === fact.propertyId && item.validFrom === fact.validFrom && item.validTo === fact.validTo && item.value === fact.value && item.basis === fact.basis && item.status === fact.status && sameSet(item.evidenceIds, fact.evidenceIds));
     if (duplicate) continue;
-    const recorded = recordFact(draft, fact, Boolean(fact.supersedesId));
+    const recorded = recordFact(trial, fact, Boolean(fact.supersedesId));
     if (!recorded.ok) return recorded;
     changedIds.push(fact.id);
   }
   if (changedIds.length === 0) return fail('no_change', 'Όλες οι γραμμές υπάρχουν ήδη.');
+  draft.facts.splice(0, draft.facts.length, ...trial.facts);
   return ok({ changedIds, summary: `Εισαγωγή ${changedIds.length} γεγονότων`, ontologyChanged: false });
 }
 

@@ -232,7 +232,7 @@ export function Facts() {
       <section className="panel">
         {workspace.facts.length === 0 ? <p className="muted">Κανένα γεγονός ακόμη.</p> : (
           <table>
-            <thead><tr><th>Υποκείμενο</th><th>Ιδιότητα</th><th>Τιμή</th><th>Περίοδος</th></tr></thead>
+            <thead><tr><th>Υποκείμενο</th><th>Ιδιότητα</th><th>Τιμή</th><th>Βάση</th><th>Περίοδος</th></tr></thead>
             <tbody>
               {workspace.facts.map(fact => {
                 const definition = workspace.properties.find(item => item.id === fact.propertyId);
@@ -241,6 +241,7 @@ export function Facts() {
                     <td>{fact.subjectKind === 'entity' ? entityLabel(workspace, fact.subjectId) : fact.subjectId}</td>
                     <td>{definition?.label ?? fact.propertyId}</td>
                     <td>{fact.value === null ? 'ελλιπές' : String(fact.value)}{definition?.unit ? ` ${definition.unit}` : ''}</td>
+                    <td>{fact.basis === 'assumption' ? 'Υπόθεση' : 'Τεκμηριωμένο'}</td>
                     <td>{fact.validFrom} → {fact.validTo ?? '…'}</td>
                   </tr>
                 );

@@ -73,7 +73,7 @@ export function previewCsv(workspace: Workspace, fileText: string, mapping: Impo
   if (property.valueType !== 'number') return { rows: [], error: 'Η εισαγωγή μετρήσεων δέχεται αριθμητική ιδιότητα.' };
   const body = table.slice(1);
   if (body.length > PREVIEW_LIMIT) return { rows: [], error: `Η προεπισκόπηση δέχεται έως ${PREVIEW_LIMIT} γραμμές.` };
-  const rows = body.map((cells, index) => previewRow(workspace, property, source.retrievedAt, mapping, cells, index + 2, entityIndex, valueIndex, yearIndex));
+  const rows = reconcileBatch(body.map((cells, index) => previewRow(workspace, property, source.retrievedAt, mapping, cells, index + 2, entityIndex, valueIndex, yearIndex)));
   return { rows };
 }
 
@@ -95,8 +95,8 @@ function previewRow(workspace: Workspace, property: Workspace['properties'][numb
   }
   const validFrom = `${year}-01-01`;
   const validTo = property.frequency === 'annual' ? `${year}-12-31` : null;
-  const samePeriod = workspace.facts.filter(fact => fact.subjectKind === 'entity' && fact.subjectId === entityId && fact.propertyId === mapping.propertyId && fact.validFrom === validFrom && fact.validTo === validTo && fact.evidenceIds.includes(mapping.sourceId) && !workspace.facts.some(newer => newer.supersedesId === fact.id));
-  if (samePeriod.some(fact => fact.value === value)) return { row, entityId, disposition: 'duplicate', message: 'Ίδια τιμή και περίοδος. Δεν δημιουργείται διπλότυπο.' };
+  const samePeriod = workspace.facts.filter(fact => fact.subjectKind === 'entity' && fact.subjectId === entityId && fact.propertyId === mapping.propertyId && fact.basis === 'reported' && fact.status === 'observed' && fact.validFrom === validFrom && fact.validTo === validTo && sameEvidence(fact.evidenceIds, [mapping.sourceId]) && !workspace.facts.some(newer => newer.supersedesId === fact.id));
+  if (samePeriod.some(fact => fact.value === value)) return { row, entityId, disposition: 'duplicate', message: 'Ίδια τεκμηριωμένη τιμή, πηγή και περίοδος. Δεν δημιουργείται διπλότυπο.' };
   const conflict = samePeriod.find(fact => fact.value !== value);
   const fact: Fact = {
     id: measurementId(conflict ? 'fix' : 'import', row, year, entityId, mapping.propertyId, mapping.sourceId, conflict?.id ?? ''),
@@ -114,6 +114,40 @@ function previewRow(workspace: Workspace, property: Workspace['properties'][numb
   };
   if (conflict) return { row, entityId, disposition: 'conflict', message: `Υπάρχει ήδη τιμή ${String(conflict.value)}. Χρειάζεται ρητή διόρθωση.`, fact };
   return { row, entityId, disposition: 'ready', message: 'Έτοιμο για καταγραφή.', fact };
+}
+
+function reconcileBatch(rows: PreviewRow[]): PreviewRow[] {
+  const groups = new Map<string, number[]>();
+  rows.forEach((row, index) => {
+    if (!row.fact || (row.disposition !== 'ready' && row.disposition !== 'conflict')) return;
+    const key = [row.fact.subjectId, row.fact.propertyId, row.fact.validFrom, row.fact.validTo ?? '', row.fact.basis, row.fact.status, [...row.fact.evidenceIds].sort().join('|')].join('\u0000');
+    groups.set(key, [...(groups.get(key) ?? []), index]);
+  });
+  const next = rows.slice();
+  for (const indexes of groups.values()) {
+    if (indexes.length < 2) continue;
+    const values = new Set(indexes.map(index => JSON.stringify(next[index]?.fact?.value)));
+    if (values.size > 1) {
+      for (const index of indexes) {
+        const row = next[index];
+        if (!row) continue;
+        next[index] = { row: row.row, entityId: row.entityId, disposition: 'error', message: 'Σύγκρουση μέσα στο ίδιο αρχείο. Καμία από αυτές τις γραμμές δεν καταγράφεται.' };
+      }
+      continue;
+    }
+    let kept = false;
+    for (const index of indexes) {
+      const row = next[index];
+      if (!row) continue;
+      if (!kept) { kept = true; continue; }
+      next[index] = { row: row.row, entityId: row.entityId, disposition: 'duplicate', message: 'Επανάληψη μέσα στο ίδιο αρχείο.' };
+    }
+  }
+  return next;
+}
+
+function sameEvidence(left: string[], right: string[]): boolean {
+  return left.length === right.length && left.every(id => right.includes(id));
 }
 
 function measurementId(kind: 'import' | 'fix', row: number, year: number, entityId: string, propertyId: string, sourceId: string, previousId: string): string {

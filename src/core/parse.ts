@@ -20,6 +20,10 @@ export function parseWorkspace(input: unknown, limits: ParseLimits = DEFAULT_PAR
   return ok(shaped.value);
 }
 
+export function checkDocumentLimits(input: unknown, limits: ParseLimits = DEFAULT_PARSE_LIMITS): Result<true> {
+  return measure(input, limits);
+}
+
 function measure(input: unknown, limits: ParseLimits): Result<true> {
   const errors: DomainError[] = [];
   const seen = new WeakSet<object>();
