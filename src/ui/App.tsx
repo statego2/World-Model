@@ -5,6 +5,7 @@ import { Inspector } from './inspector.tsx';
 import { ModelProvider, useModel, type Section } from './model.tsx';
 import { Ontology } from './ontology.tsx';
 import { Transfer } from './transfer.tsx';
+import { Explore } from './explore.tsx';
 
 export function App() {
   return (
@@ -39,6 +40,7 @@ function Shell() {
       {workspace ? (
         <div className="shell">
           <nav className="nav" aria-label="Ενότητες">
+            <NavButton id="explore" label="Εξερεύνηση" />
             <NavButton id="ontology" label="Οντολογία" />
             <NavButton id="entities" label="Οντότητες" />
             <NavButton id="relationships" label="Σχέσεις" />
@@ -60,6 +62,7 @@ function Shell() {
             {model.section === 'facts' ? <Facts /> : null}
             {model.section === 'sources' ? <Sources /> : null}
             {model.section === 'transfer' ? <Transfer /> : null}
+            {model.section === 'explore' ? <Explore /> : null}
             {model.section === 'ontology' || model.section === 'home' ? <Ontology /> : null}
           </main>
           <Inspector />

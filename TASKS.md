@@ -17,16 +17,16 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 | T-M1-05 | Browser acceptance, reload, failure/tab tests | done | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | Playwright, keyboard, conflict, screenshots 390/1440 |
 | T-M2-01 | Mapping/import preview, idempotency, atomic commit | done | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | CSV preview, unresolved IDs, ίδιο αρχείο δεν διπλασιάζει |
 | T-M2-02 | Full export/restore, corrections/history, guarded undo | done | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | Νέος χώρος, άγνωστη version, διόρθωση, αναίρεση με εξάρτηση |
-| T-M3-01 | Graph/query engine, saved views και shared filters | in_progress | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | Query engine με tests. Λείπει UI εξερεύνησης και browser απόδειξη. |
+| T-M3-01 | Graph/query engine, saved views και shared filters | done | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | Path query, cache, compare/rank, explorer. Browser: νέα εταιρεία μπαίνει στην ίδια προβολή. |
 | T-M4-01 | Τέσσερα modules, world/Greek region maps | todo | — | M3 done |
 | T-M5-01 | Επαλήθευση πηγών και μικρά πραγματικά datasets | todo | — | M4 done |
 | T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | todo | — | T-M5-01 |
 
-## Επόμενη development εργασία: T-M3-01
+## Επόμενη development εργασία: T-M4-01
 
-Owner: Cursor Grok 4.7. Branch: `cursor/m3-queries-maps-864c`, βασισμένο στο `cursor/m1-workspace-editor-864c`.
-Έτοιμα μόνο τα αρχεία γεωμετρίας. Λείπουν query engine, explorer, tests και modules.
-Μην ξαναχτίσεις τον editor του M1/M2.
+T-M3-01 ολοκληρώθηκε στο `cursor/m3-queries-maps-864c`.
+Επόμενο: τέσσερις προβολές πάνω στο ίδιο query layer, με world και ελληνικό περιφερειακό χάρτη.
+Μην ξαναχτίσεις τον editor ή το query engine.
 
 Ιστορικό acceptance του scaffold:
 

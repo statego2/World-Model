@@ -6,7 +6,7 @@ import type { ChangeRecord } from '../storage/records.ts';
 import type { WorkspaceSummary } from '../storage/repository.ts';
 import { repository } from '../storage/browser.ts';
 
-export type Section = 'ontology' | 'entities' | 'relationships' | 'facts' | 'sources' | 'transfer';
+export type Section = 'ontology' | 'entities' | 'relationships' | 'facts' | 'sources' | 'transfer' | 'explore';
 
 export type Selection =
   | { kind: 'entity' | 'relationship' | 'source' | 'entityType' | 'relationshipType' | 'property'; id: string };
@@ -192,7 +192,7 @@ export function ModelProvider({ children }: { children: ReactNode }) {
 
 function readRoute(): { id?: string; section: Section | 'home' } {
   const raw = decodeURIComponent(location.hash.replace(/^#/, ''));
-  const match = raw.match(/^\/workspace\/([^/]+)\/(ontology|entities|relationships|facts|sources|transfer)$/);
+  const match = raw.match(/^\/workspace\/([^/]+)\/(ontology|entities|relationships|facts|sources|transfer|explore)$/);
   if (!match) return { section: 'home' };
   return { id: match[1], section: match[2] as Section };
 }

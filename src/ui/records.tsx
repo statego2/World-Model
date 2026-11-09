@@ -83,10 +83,15 @@ export function Relationships() {
       </header>
       <form className="panel" onSubmit={event => {
         event.preventDefault();
+        const submittedId = id;
         void model.commit({
           type: 'CreateRelationship',
           relationship: { id, typeId, fromId, toId, basis, evidenceIds, validFrom, validTo: validTo || null },
-        }).then(saved => { if (saved) { setId('edge:'); model.setSelection({ kind: 'relationship', id }); } });
+        }).then(saved => {
+          if (!saved) return;
+          setId(current => current === submittedId ? 'edge:' : current);
+          model.setSelection({ kind: 'relationship', id: submittedId });
+        });
       }}>
         <div className="form-grid">
           <Field label="ID σύνδεσης"><TextInput value={id} onChange={setId} /></Field>
