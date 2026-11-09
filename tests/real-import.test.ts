@@ -8,6 +8,9 @@ import { buildRealWorkspace } from '../src/real/build.ts';
 
 test('real imports stay separate from the demo and match the retrieved files', async () => {
   const { workspace, assessment } = await buildRealWorkspace();
+  const saved = JSON.parse(readFileSync(new URL('../data/real/workspace.real.json', import.meta.url), 'utf8')) as { dataMode: string; facts: { id: string; value: unknown }[] };
+  assert.equal(saved.dataMode, 'real');
+  assert.deepEqual(saved.facts.map(fact => [fact.id, fact.value]), workspace.facts.map(fact => [fact.id, fact.value]));
   assert.equal(workspace.dataMode, 'real');
   assert.equal(workspace.sources.every(source => source.isDemo === false), true);
   assert.equal(workspace.sources.some(source => source.id.startsWith('source:demo')), false);

@@ -1,0 +1,1214 @@
+{
+  "formatVersion": 1,
+  "id": "workspace:real-2026",
+  "label": "Πραγματικό απόσπασμα 2022–2023",
+  "dataMode": "real",
+  "ontologyVersion": 12,
+  "revision": 70,
+  "entityTypes": [
+    {
+      "id": "type:country",
+      "label": "Χώρα",
+      "description": "ISO 3166 alpha-3 entity."
+    },
+    {
+      "id": "type:region",
+      "label": "Περιφέρεια",
+      "description": "Eurostat NUTS 2 geo code."
+    }
+  ],
+  "relationshipTypes": [
+    {
+      "id": "reltype:part_of",
+      "label": "Ανήκει σε",
+      "description": "NUTS region in the reporting country named by the Eurostat geo code.",
+      "fromTypeIds": [
+        "type:region"
+      ],
+      "toTypeIds": [
+        "type:country"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:direct_investment_in",
+      "label": "Άμεση επένδυση στη χώρα αναφοράς",
+      "description": "Eurostat DIRE: direct investment in the reporting economy by the partner country. Aggregate BPM6 position, not a company stake.",
+      "fromTypeIds": [
+        "type:country"
+      ],
+      "toTypeIds": [
+        "type:country"
+      ],
+      "directed": true
+    }
+  ],
+  "properties": [
+    {
+      "id": "property:gdp_usd",
+      "label": "GDP current US$",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "number",
+      "unit": "USD",
+      "measureKind": "flow",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:population",
+      "label": "Population, total",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "number",
+      "unit": "persons",
+      "measureKind": "stock",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:regional_gdp_eur",
+      "label": "Regional GDP",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:region",
+      "valueType": "number",
+      "unit": "million EUR",
+      "measureKind": "flow",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:fdi_stock_eur",
+      "label": "Inward FDI stock",
+      "subjectKind": "relationship",
+      "subjectTypeId": "reltype:direct_investment_in",
+      "valueType": "number",
+      "unit": "million EUR",
+      "measureKind": "stock",
+      "frequency": "annual"
+    },
+    {
+      "id": "property:fdi_flow_eur",
+      "label": "Inward FDI flow",
+      "subjectKind": "relationship",
+      "subjectTypeId": "reltype:direct_investment_in",
+      "valueType": "number",
+      "unit": "million EUR",
+      "measureKind": "flow",
+      "frequency": "annual"
+    },
+    {
+      "id": "property:iso3",
+      "label": "ISO alpha-3",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "string"
+    },
+    {
+      "id": "property:nuts_id",
+      "label": "NUTS id",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:region",
+      "valueType": "string"
+    }
+  ],
+  "entities": [
+    {
+      "id": "country:CYP",
+      "typeId": "type:country",
+      "label": "Cyprus"
+    },
+    {
+      "id": "country:DEU",
+      "typeId": "type:country",
+      "label": "Germany"
+    },
+    {
+      "id": "country:GRC",
+      "typeId": "type:country",
+      "label": "Greece"
+    },
+    {
+      "id": "country:TUR",
+      "typeId": "type:country",
+      "label": "Turkiye"
+    },
+    {
+      "id": "country:USA",
+      "typeId": "type:country",
+      "label": "United States"
+    },
+    {
+      "id": "region:EL30",
+      "typeId": "type:region",
+      "label": "Attiki"
+    },
+    {
+      "id": "region:EL41",
+      "typeId": "type:region",
+      "label": "Voreio Aigaio"
+    },
+    {
+      "id": "region:EL42",
+      "typeId": "type:region",
+      "label": "Notio Aigaio"
+    },
+    {
+      "id": "region:EL43",
+      "typeId": "type:region",
+      "label": "Kriti"
+    },
+    {
+      "id": "region:EL51",
+      "typeId": "type:region",
+      "label": "Anatoliki Makedonia, Thraki"
+    },
+    {
+      "id": "region:EL52",
+      "typeId": "type:region",
+      "label": "Kentriki Makedonia"
+    },
+    {
+      "id": "region:EL53",
+      "typeId": "type:region",
+      "label": "Dytiki Makedonia"
+    },
+    {
+      "id": "region:EL54",
+      "typeId": "type:region",
+      "label": "Ipeiros"
+    },
+    {
+      "id": "region:EL61",
+      "typeId": "type:region",
+      "label": "Thessalia"
+    },
+    {
+      "id": "region:EL62",
+      "typeId": "type:region",
+      "label": "Ionia Nisia"
+    },
+    {
+      "id": "region:EL63",
+      "typeId": "type:region",
+      "label": "Dytiki Elláda"
+    },
+    {
+      "id": "region:EL64",
+      "typeId": "type:region",
+      "label": "Sterea Elláda"
+    },
+    {
+      "id": "region:EL65",
+      "typeId": "type:region",
+      "label": "Peloponnisos"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "edge:part-EL30",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL30",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL41",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL41",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL42",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL42",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL43",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL43",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL51",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL51",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL52",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL52",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL53",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL53",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL54",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL54",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL61",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL61",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL62",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL62",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL63",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL63",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL64",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL64",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:part-EL65",
+      "typeId": "reltype:part_of",
+      "fromId": "region:EL65",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:fdi-deu-grc",
+      "typeId": "reltype:direct_investment_in",
+      "fromId": "country:DEU",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-fdi"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31"
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact:iso-CYP",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:iso3",
+      "value": "CYP",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:iso-DEU",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:iso3",
+      "value": "DEU",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:iso-GRC",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:iso3",
+      "value": "GRC",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:iso-TUR",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:iso3",
+      "value": "TUR",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:iso-USA",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:iso3",
+      "value": "USA",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL30",
+      "subjectKind": "entity",
+      "subjectId": "region:EL30",
+      "propertyId": "property:nuts_id",
+      "value": "EL30",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL41",
+      "subjectKind": "entity",
+      "subjectId": "region:EL41",
+      "propertyId": "property:nuts_id",
+      "value": "EL41",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL42",
+      "subjectKind": "entity",
+      "subjectId": "region:EL42",
+      "propertyId": "property:nuts_id",
+      "value": "EL42",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL43",
+      "subjectKind": "entity",
+      "subjectId": "region:EL43",
+      "propertyId": "property:nuts_id",
+      "value": "EL43",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL51",
+      "subjectKind": "entity",
+      "subjectId": "region:EL51",
+      "propertyId": "property:nuts_id",
+      "value": "EL51",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL52",
+      "subjectKind": "entity",
+      "subjectId": "region:EL52",
+      "propertyId": "property:nuts_id",
+      "value": "EL52",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL53",
+      "subjectKind": "entity",
+      "subjectId": "region:EL53",
+      "propertyId": "property:nuts_id",
+      "value": "EL53",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL54",
+      "subjectKind": "entity",
+      "subjectId": "region:EL54",
+      "propertyId": "property:nuts_id",
+      "value": "EL54",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL61",
+      "subjectKind": "entity",
+      "subjectId": "region:EL61",
+      "propertyId": "property:nuts_id",
+      "value": "EL61",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL62",
+      "subjectKind": "entity",
+      "subjectId": "region:EL62",
+      "propertyId": "property:nuts_id",
+      "value": "EL62",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL63",
+      "subjectKind": "entity",
+      "subjectId": "region:EL63",
+      "propertyId": "property:nuts_id",
+      "value": "EL63",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL64",
+      "subjectKind": "entity",
+      "subjectId": "region:EL64",
+      "propertyId": "property:nuts_id",
+      "value": "EL64",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:nuts-EL65",
+      "subjectKind": "entity",
+      "subjectId": "region:EL65",
+      "propertyId": "property:nuts_id",
+      "value": "EL65",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-2-2023-country.CYP-property.gdp_usd-26fd71f2",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:gdp_usd",
+      "value": 35075440602.5202,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-3-2022-country.CYP-property.gdp_usd-dd221e92",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:gdp_usd",
+      "value": 31218047043.8386,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-4-2023-country.DEU-property.gdp_usd-c9074666",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:gdp_usd",
+      "value": 4562207532490.28,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-5-2022-country.DEU-property.gdp_usd-7f2bf306",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:gdp_usd",
+      "value": 4201021706478.62,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-6-2023-country.GRC-property.gdp_usd-6eb06d06",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:gdp_usd",
+      "value": 242946187738.269,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-7-2022-country.GRC-property.gdp_usd-24d519a6",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:gdp_usd",
+      "value": 217990189600.69,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-8-2023-country.TUR-property.gdp_usd-198cad27",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:gdp_usd",
+      "value": 1141242864657.45,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-9-2022-country.TUR-property.gdp_usd-cfb159c7",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:gdp_usd",
+      "value": 926097476913.818,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-10-2023-country.USA-property.gdp_usd-79d4203e",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:gdp_usd",
+      "value": 27811517000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-11-2022-country.USA-property.gdp_usd-2ff8ccde",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:gdp_usd",
+      "value": 26054614000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-2-2023-country.CYP-property.population-4a2b0dcb",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:population",
+      "value": 1344976,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-3-2022-country.CYP-property.population-5c77f66b",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:population",
+      "value": 1331370,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-4-2023-country.DEU-property.population-1013fdbf",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:population",
+      "value": 83287273,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-5-2022-country.DEU-property.population-2260e65f",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:population",
+      "value": 83177813,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-6-2023-country.GRC-property.population-564b205f",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:population",
+      "value": 10407351,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-7-2022-country.GRC-property.population-689808ff",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:population",
+      "value": 10437805,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-8-2023-country.TUR-property.population-86d178e0",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:population",
+      "value": 85325965,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-9-2022-country.TUR-property.population-991e6180",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:population",
+      "value": 84979913,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-10-2023-country.USA-property.population-14d4a897",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:population",
+      "value": 336755052,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-11-2022-country.USA-property.population-27219137",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:population",
+      "value": 333996304,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:wdi-pop"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-2-2022-region.EL30-property.regional_gdp_eu-feb7e18c",
+      "subjectKind": "entity",
+      "subjectId": "region:EL30",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 99577.9,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-3-2022-region.EL41-property.regional_gdp_eu-c3dd796f",
+      "subjectKind": "entity",
+      "subjectId": "region:EL41",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 2710.05,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-4-2022-region.EL42-property.regional_gdp_eu-85e96b51",
+      "subjectKind": "entity",
+      "subjectId": "region:EL42",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 6564.1,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-5-2022-region.EL43-property.regional_gdp_eu-47f55d33",
+      "subjectKind": "entity",
+      "subjectId": "region:EL43",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 10432.72,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-6-2022-region.EL51-property.regional_gdp_eu-9875b773",
+      "subjectKind": "entity",
+      "subjectId": "region:EL51",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 7717.2,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-7-2022-region.EL52-property.regional_gdp_eu-5a81a955",
+      "subjectKind": "entity",
+      "subjectId": "region:EL52",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 29141.34,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-8-2022-region.EL53-property.regional_gdp_eu-1c8d9b37",
+      "subjectKind": "entity",
+      "subjectId": "region:EL53",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 4076.96,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-9-2022-region.EL54-property.regional_gdp_eu-de998d19",
+      "subjectKind": "entity",
+      "subjectId": "region:EL54",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 4155.82,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-10-2022-region.EL61-property.regional_gdp_eu-9905ea9f",
+      "subjectKind": "entity",
+      "subjectId": "region:EL61",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 10640.32,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-11-2022-region.EL62-property.regional_gdp_eu-5b11dc81",
+      "subjectKind": "entity",
+      "subjectId": "region:EL62",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 3393.87,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-12-2022-region.EL63-property.regional_gdp_eu-1d1dce63",
+      "subjectKind": "entity",
+      "subjectId": "region:EL63",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 9105.38,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-13-2022-region.EL64-property.regional_gdp_eu-df29c045",
+      "subjectKind": "entity",
+      "subjectId": "region:EL64",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 9954.16,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:import-14-2022-region.EL65-property.regional_gdp_eu-a135b227",
+      "subjectKind": "entity",
+      "subjectId": "region:EL65",
+      "propertyId": "property:regional_gdp_eur",
+      "value": 9538.83,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-gdp"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:fdi-stock-deu-grc-2022",
+      "subjectKind": "relationship",
+      "subjectId": "edge:fdi-deu-grc",
+      "propertyId": "property:fdi_stock_eur",
+      "value": 8094.9,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-fdi"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:fdi-flow-deu-grc-2022",
+      "subjectKind": "relationship",
+      "subjectId": "edge:fdi-deu-grc",
+      "propertyId": "property:fdi_flow_eur",
+      "value": 948.2,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:eurostat-fdi"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source:wdi-gdp",
+      "label": "World Bank WDI NY.GDP.MKTP.CD",
+      "locator": "https://api.worldbank.org/v2/country/GRC;TUR;DEU;USA;CYP/indicator/NY.GDP.MKTP.CD?format=json&date=2022:2023",
+      "retrievedAt": "2026-11-09T00:00:00Z",
+      "licenseNote": "CC BY 4.0 per data.worldbank.org summary terms of use, retrieved 2026-11-09. Attribution: World Bank, World Development Indicators.",
+      "verificationStatus": "verified",
+      "isDemo": false
+    },
+    {
+      "id": "source:wdi-pop",
+      "label": "World Bank WDI SP.POP.TOTL",
+      "locator": "https://api.worldbank.org/v2/country/GRC;TUR;DEU;USA;CYP/indicator/SP.POP.TOTL?format=json&date=2022:2023",
+      "retrievedAt": "2026-11-09T00:00:00Z",
+      "licenseNote": "CC BY 4.0 via World Bank summary terms. Upstream named in the indicator metadata: UN World Population Prospects and national statistics.",
+      "verificationStatus": "verified",
+      "isDemo": false
+    },
+    {
+      "id": "source:eurostat-gdp",
+      "label": "Eurostat nama_10r_2gdp",
+      "locator": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_2gdp?format=JSON&unit=MIO_EUR&time=2022",
+      "retrievedAt": "2026-11-09T00:00:00Z",
+      "licenseNote": "Eurostat copyright page required login. Commission legal notice retrieved 2026-11-09 states CC BY 4.0 for EU content unless a specific notice says otherwise. Attribution: Source: Eurostat, nama_10r_2gdp.",
+      "verificationStatus": "verified",
+      "isDemo": false
+    },
+    {
+      "id": "source:eurostat-fdi",
+      "label": "Eurostat bop_fdi6_geo",
+      "locator": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_geo?format=JSON&geo=EL&partner=DE&sinceTimePeriod=2022&untilTimePeriod=2022",
+      "retrievedAt": "2026-11-09T00:00:00Z",
+      "licenseNote": "Same Commission CC BY 4.0 basis as the regional GDP extract. Attribution: Source: Eurostat, bop_fdi6_geo. Aggregate DIRE only.",
+      "verificationStatus": "verified",
+      "isDemo": false
+    }
+  ],
+  "savedViews": [],
+  "bindings": {}
+}
