@@ -1,7 +1,34 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: M0 ολοκληρωμένο. T-REPO-01: το clone επαληθεύτηκε· η private ορατότητα μένει απόφαση του ιδιοκτήτη. M1 σε υλοποίηση στο branch `cursor/m1-workspace-editor-864c`.
+Τρέχον στάδιο: M2 υλοποιημένο στο `cursor/m1-workspace-editor-864c`. Επόμενο task: T-M3-01.
+T-REPO-01: το clone επαληθεύτηκε· η private ορατότητα μένει απόφαση του ιδιοκτήτη.
+
+## 2026-11-09 — T-M1-01 … T-M2-02 — Επεξεργάσιμος χώρος και μεταφορά
+
+Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/m1-workspace-editor-864c
+
+Node 24.22.2. Ο πυρήνας έμεινε χωρίς React/Dexie. Νέος τύπος, ιδιότητα και σχέση
+βγαίνουν από τις ίδιες φόρμες. IndexedDB γράφει workspace, action id και history
+στην ίδια transaction. CSV preview δεν συγχωνεύει άγνωστα IDs. Το export ανοίγει
+νέο χώρο. Η αναίρεση σταματά όταν υπάρχει εξάρτηση.
+
+Επαλήθευση:
+- `npm test` — 39/39 pass (20 παλιά domain tests συμπεριλαμβάνονται).
+- `npm run validate` — `Valid demo workspace: 10 entities, 8 relationships, 65 facts.`
+- `npm run typecheck` — pass.
+- `npm run build` — pass (Vite 8.3.7).
+- `npm run test:browser` — 3/3 pass: κενός χώρος με Προμηθευτή και reload,
+  πληκτρολόγιο και σύγκρουση καρτέλας, CSV με εκκρεμές ID και idempotent replay.
+- Screenshots: `docs/evidence/m1-1440.png`, `docs/evidence/m1-390.png`.
+
+Άδειες άμεσων βιβλιοθηκών: React MIT, Dexie Apache-2.0, Vite MIT, TypeScript
+Apache-2.0, Playwright Apache-2.0, fake-indexeddb Apache-2.0, fontsource OFL-1.1.
+
+Δεν έγινε αλλαγή ορατότητας του GitHub. Δεν υπάρχουν graph queries, χάρτες,
+modules ή πραγματικά δεδομένα.
+
+Επόμενο βήμα: T-M3-01, path query επενδυτής → εταιρεία → υποδομή → περιφέρεια.
 
 ## 2026-11-09 — T-REPO-01 — Clone σε δεύτερο χώρο
 

@@ -1,5 +1,9 @@
 # Prompt για Terra 6.1 medium — μόνο M1
 
+Το M1 και το M2 υλοποιήθηκαν στις 2026-11-09. Νέα συνεδρία ξεκινά από το M3
+στο `prompts/NEXT_STAGES.md`, αφού διαβάσει τα αρχεία μνήμης. Το κείμενο κάτω
+μένει ως το αρχικό acceptance του M1.
+
 Χτίσε το M1 του WORLD MODEL από αυτόν τον φάκελο. Το προηγούμενο σχέδιο με read-only
 API ως πρώτο βήμα έχει αντικατασταθεί. Διάβασε πρώτα AGENTS.md, PROJECT.md,
 ARCHITECTURE.md, PROGRESS.md και TASKS.md στη ρίζα. Έπειτα README και

@@ -1,7 +1,7 @@
 # WORLD MODEL — ταυτότητα και αποφάσεις
 
 Ενημέρωση: 2026-11-09. Project root: ο φάκελος που περιέχει αυτό το αρχείο.
-Τρέχουσα έκδοση πακέτου: 0.2.0. Στάδιο: M0 starter, πριν από browser υλοποίηση.
+Τρέχουσα έκδοση πακέτου: 0.3.0. Στάδιο: M2 υλοποιημένο στο branch `cursor/m1-workspace-editor-864c`. Επόμενο: M3.
 
 ## Αποστολή
 
@@ -24,20 +24,25 @@ Analysis, Global Capital Flows, Greek Domestic Economy.
 
 - `src/core/types.ts`: portable TypeScript συμβόλαια για δυναμικούς τύπους, entities,
   relationships, typed properties, facts, sources, saved views και workspace.
-- `src/core/validate.mjs`: εκτελέσιμος starter semantic validator με references,
-  επιτρεπτά άκρα, τύπους τιμών, χρονικότητα, evidence, correction chains και bounds.
+- `src/core/validate.mjs`: starter semantic validator. `src/core/parse.ts` προσθέτει
+  strict boundary με unknown fields, όρια μεγέθους/βάθους και σταθερά IDs.
+- `src/core/actions.ts`: ελεγχόμενες ενέργειες. Αποτυχία δεν αλλάζει revision.
+- `src/storage/`: repository contract, μνήμη για tests και IndexedDB/Dexie με
+  atomic transaction, expectedRevision και idempotent action IDs.
+- React/TS/Vite shell στα ελληνικά: γενικές φόρμες οντολογίας, οντοτήτων, σχέσεων,
+  γεγονότων και πηγών, inspector, ιστορικό, διόρθωση, αναίρεση, CSV preview και
+  JSON export/restore σε νέο χώρο.
 - `data/fixtures/workspace.demo.json`: μόνο συνθετικά δεδομένα — 10 entities,
   8 relationships, 65 facts. Καμία πραγματική επένδυση ή μέτρηση δεν τεκμηριώνεται.
-- `scripts/validate.mjs`, `tests/domain.test.mjs`: CLI validation και 20 tests.
-- Σχέδιο, milestones και handoff prompts. Νέα αρχεία μνήμης για όλους τους agents.
+- Tests: 20 domain, επιπλέον parser/action/repository/IndexedDB/import tests, και
+  Playwright acceptance με screenshots 390/1440.
 
 ## Τι δεν έχει υλοποιηθεί
 
-React UI, generic editors, IndexedDB persistence, action engine, CSV/JSON import,
-export/restore, history UI, graph/query execution, maps και τέσσερα modules.
+Graph/query execution, saved view εκτέλεση, χάρτες και τα τέσσερα modules.
 Δεν υπάρχουν real-data connectors, backend, authentication, AI ή simulator.
-Ο validator δεν είναι πλήρης strict schema/security validator. Δεν υπάρχει build,
-TypeScript compiler check ή browser test στο starter. Node syntax check ≠ typecheck.
+Ο starter validator δεν είναι πλήρης security validator· το αυστηρό όριο είναι
+το `parseWorkspace` πριν από commit/import. Browser storage δεν είναι backup.
 
 ## Κατευθύνσεις του χρήστη
 

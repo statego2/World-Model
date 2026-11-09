@@ -1,5 +1,10 @@
 # Αρχιτεκτονική του browser PoC
 
+Η σύνοψη του κώδικα που υπάρχει τώρα είναι στο root `ARCHITECTURE.md`.
+Τα layers παρακάτω παραμένουν ο χάρτης. M1 και M2 έχουν υλοποιηθεί με React,
+Dexie και χειρόγραφο strict parser. MapLibre, Recharts και Cytoscape δεν έχουν
+εγκατασταθεί· ανήκουν στα M3/M4.
+
 ## Προτεινόμενη απόφαση για αυτό το πακέτο
 
 React + TypeScript + Vite. IndexedDB μέσω Dexie για τοπική αποθήκευση, Zod για

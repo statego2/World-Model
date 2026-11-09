@@ -1,12 +1,36 @@
 {
   "name": "world-model-starter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
-  "description": "Planning kit and executable domain validation; browser UI pending M1",
-  "engines": { "node": ">=24" },
+  "description": "Browser workspace for an extensible strategic world model",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
-    "test": "node --test --test-isolation=none tests/*.test.mjs",
-    "validate": "node scripts/validate.mjs"
+    "test": "node --test --test-isolation=none --experimental-strip-types tests/*.test.mjs tests/*.test.ts",
+    "validate": "node scripts/validate.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -p tsconfig.json --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1 --port 4173",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.tests.json --noEmit",
+    "test:browser": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/source-sans-3": "^5.3.1",
+    "@fontsource/source-serif-4": "^5.3.1",
+    "dexie": "^4.4.7",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "fake-indexeddb": "^6.2.8",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7"
   }
 }

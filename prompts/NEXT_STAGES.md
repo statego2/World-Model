@@ -7,12 +7,12 @@
 
 # Prompts συνέχειας — χωριστές συνεδρίες
 
-## M2
-Διάβασε AGENTS, STATUS, OPERATIONS και M2 στο MILESTONES. Επιβεβαίωσε ότι το M1
-λειτουργεί. Πρόσθεσε CSV/JSON mapping-preview-commit, exact matching, import reports,
-idempotency και full export/restore σε νέο workspace. Πρόσθεσε append-only history,
-correction/deprecation και guarded undo. Απόδειξε atomic failure και portable restore
-με browser tests. Μην αλλάξεις τον στόχο σε dashboard. Σταμάτα στο M2, ενημέρωσε STATUS.
+## M2 — ολοκληρώθηκε 2026-11-09
+
+CSV preview, exact ID match, unresolved rows, idempotent commit, atomic failure,
+JSON export/restore σε νέο χώρο, history, correction, deprecation και guarded undo
+υπάρχουν στο branch `cursor/m1-workspace-editor-864c`. Μην τα ξαναχτίσεις.
+Επόμενη συνεδρία: M3.
 
 ## M3
 Διάβασε τα ίδια και MASTER_PLAN. Υλοποίησε generic graph/table explorer, παραμετρικό
