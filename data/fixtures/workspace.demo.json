@@ -1,0 +1,1401 @@
+{
+  "formatVersion": 1,
+  "id": "workspace:demo",
+  "label": "WORLD MODEL — SYNTHETIC DEMO",
+  "dataMode": "demo",
+  "ontologyVersion": 1,
+  "revision": 0,
+  "entityTypes": [
+    {
+      "id": "type:country",
+      "label": "Χώρα",
+      "description": "Initial editable template; not a closed list of types."
+    },
+    {
+      "id": "type:region",
+      "label": "Περιφέρεια",
+      "description": "Initial editable template; not a closed list of types."
+    },
+    {
+      "id": "type:sector",
+      "label": "Κλάδος",
+      "description": "Initial editable template; not a closed list of types."
+    },
+    {
+      "id": "type:company",
+      "label": "Εταιρεία",
+      "description": "Initial editable template; not a closed list of types."
+    },
+    {
+      "id": "type:infrastructure",
+      "label": "Υποδομή",
+      "description": "Initial editable template; not a closed list of types."
+    }
+  ],
+  "relationshipTypes": [
+    {
+      "id": "reltype:invests_in",
+      "label": "Επενδυτική σχέση",
+      "description": "Synthetic demonstration; exact meaning must be documented for real evidence.",
+      "fromTypeIds": [
+        "type:country"
+      ],
+      "toTypeIds": [
+        "type:company"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:operates",
+      "label": "Λειτουργεί",
+      "description": "Synthetic demonstration; exact meaning must be documented for real evidence.",
+      "fromTypeIds": [
+        "type:company"
+      ],
+      "toTypeIds": [
+        "type:infrastructure"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:located_in",
+      "label": "Βρίσκεται σε",
+      "description": "Synthetic demonstration; exact meaning must be documented for real evidence.",
+      "fromTypeIds": [
+        "type:infrastructure",
+        "type:company"
+      ],
+      "toTypeIds": [
+        "type:region"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:part_of",
+      "label": "Ανήκει γεωγραφικά σε",
+      "description": "Synthetic demonstration; exact meaning must be documented for real evidence.",
+      "fromTypeIds": [
+        "type:region"
+      ],
+      "toTypeIds": [
+        "type:country"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:belongs_to_sector",
+      "label": "Δραστηριοποιείται σε",
+      "description": "Synthetic demonstration; exact meaning must be documented for real evidence.",
+      "fromTypeIds": [
+        "type:company"
+      ],
+      "toTypeIds": [
+        "type:sector"
+      ],
+      "directed": true
+    },
+    {
+      "id": "reltype:bilateral_capital",
+      "label": "Διμερής επενδυτική σειρά",
+      "description": "Synthetic demonstration; exact meaning must be documented for real evidence.",
+      "fromTypeIds": [
+        "type:country"
+      ],
+      "toTypeIds": [
+        "type:country"
+      ],
+      "directed": true
+    }
+  ],
+  "properties": [
+    {
+      "id": "property:gdp_usd",
+      "label": "ΑΕΠ current USD",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "number",
+      "unit": "USD",
+      "measureKind": "flow",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:population",
+      "label": "Πληθυσμός",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "number",
+      "unit": "persons",
+      "measureKind": "count",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:gdp_per_capita",
+      "label": "ΑΕΠ ανά κάτοικο",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "number",
+      "unit": "USD/person",
+      "measureKind": "ratio",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:debt_pct_gdp",
+      "label": "Χρέος / ΑΕΠ",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "number",
+      "unit": "percent",
+      "measureKind": "ratio",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:military_spending",
+      "label": "Αμυντικές δαπάνες",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "number",
+      "unit": "USD",
+      "measureKind": "flow",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:regional_gva",
+      "label": "Περιφερειακή προστιθέμενη αξία",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:region",
+      "valueType": "number",
+      "unit": "USD",
+      "measureKind": "flow",
+      "frequency": "annual",
+      "nonnegative": true
+    },
+    {
+      "id": "property:fdi_stock",
+      "label": "Απόθεμα FDI",
+      "subjectKind": "relationship",
+      "subjectTypeId": "reltype:bilateral_capital",
+      "valueType": "number",
+      "unit": "USD",
+      "measureKind": "stock",
+      "frequency": "annual",
+      "nonnegative": false
+    },
+    {
+      "id": "property:fdi_flow",
+      "label": "Ετήσια ροή FDI",
+      "subjectKind": "relationship",
+      "subjectTypeId": "reltype:bilateral_capital",
+      "valueType": "number",
+      "unit": "USD",
+      "measureKind": "flow",
+      "frequency": "annual",
+      "nonnegative": false
+    },
+    {
+      "id": "property:iso3",
+      "label": "ISO alpha-3",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:country",
+      "valueType": "string"
+    },
+    {
+      "id": "property:region_code",
+      "label": "Κωδικός περιφέρειας DEMO",
+      "subjectKind": "entity",
+      "subjectTypeId": "type:region",
+      "valueType": "string"
+    }
+  ],
+  "entities": [
+    {
+      "id": "country:GRC",
+      "typeId": "type:country",
+      "label": "Ελλάδα"
+    },
+    {
+      "id": "country:TUR",
+      "typeId": "type:country",
+      "label": "Τουρκία"
+    },
+    {
+      "id": "country:CYP",
+      "typeId": "type:country",
+      "label": "Κύπρος"
+    },
+    {
+      "id": "country:DEU",
+      "typeId": "type:country",
+      "label": "Γερμανία"
+    },
+    {
+      "id": "country:USA",
+      "typeId": "type:country",
+      "label": "ΗΠΑ"
+    },
+    {
+      "id": "region:ATT",
+      "typeId": "type:region",
+      "label": "Αττική — DEMO"
+    },
+    {
+      "id": "region:CENTRAL",
+      "typeId": "type:region",
+      "label": "Κεντρική περιφέρεια — DEMO"
+    },
+    {
+      "id": "sector:ENERGY",
+      "typeId": "type:sector",
+      "label": "Ενέργεια — DEMO"
+    },
+    {
+      "id": "company:EXAMPLE",
+      "typeId": "type:company",
+      "label": "Συνθετική Ενεργειακή ΑΕ — DEMO"
+    },
+    {
+      "id": "infra:TERMINAL",
+      "typeId": "type:infrastructure",
+      "label": "Συνθετικός τερματικός — DEMO"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "edge:investment",
+      "typeId": "reltype:invests_in",
+      "fromId": "country:DEU",
+      "toId": "company:EXAMPLE",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:operation",
+      "typeId": "reltype:operates",
+      "fromId": "company:EXAMPLE",
+      "toId": "infra:TERMINAL",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:location",
+      "typeId": "reltype:located_in",
+      "fromId": "infra:TERMINAL",
+      "toId": "region:ATT",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:company-location",
+      "typeId": "reltype:located_in",
+      "fromId": "company:EXAMPLE",
+      "toId": "region:ATT",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:sector",
+      "typeId": "reltype:belongs_to_sector",
+      "fromId": "company:EXAMPLE",
+      "toId": "sector:ENERGY",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:att-country",
+      "typeId": "reltype:part_of",
+      "fromId": "region:ATT",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:central-country",
+      "typeId": "reltype:part_of",
+      "fromId": "region:CENTRAL",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    },
+    {
+      "id": "edge:capital-DEU-GRC",
+      "typeId": "reltype:bilateral_capital",
+      "fromId": "country:DEU",
+      "toId": "country:GRC",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null
+    }
+  ],
+  "facts": [
+    {
+      "id": "fact:demo:1",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:gdp_usd",
+      "value": 200000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:2",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:population",
+      "value": 10000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:3",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:4",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 52,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:5",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:military_spending",
+      "value": 4000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:6",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:gdp_usd",
+      "value": 400000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:7",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:population",
+      "value": 20000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:8",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:9",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 64,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:10",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:military_spending",
+      "value": 8000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:11",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:gdp_usd",
+      "value": 600000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:12",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:population",
+      "value": 30000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:13",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:14",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 76,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:15",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:military_spending",
+      "value": 12000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:16",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:gdp_usd",
+      "value": 800000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:17",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:population",
+      "value": 40000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:18",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:19",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 88,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:20",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:military_spending",
+      "value": 16000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:21",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:gdp_usd",
+      "value": 1000000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:22",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:population",
+      "value": 50000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:23",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:24",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 100,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:25",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:military_spending",
+      "value": 20000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:26",
+      "subjectKind": "entity",
+      "subjectId": "region:ATT",
+      "propertyId": "property:regional_gva",
+      "value": 10000000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:27",
+      "subjectKind": "entity",
+      "subjectId": "region:CENTRAL",
+      "propertyId": "property:regional_gva",
+      "value": 20000000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:28",
+      "subjectKind": "relationship",
+      "subjectId": "edge:capital-DEU-GRC",
+      "propertyId": "property:fdi_stock",
+      "value": 5000000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:29",
+      "subjectKind": "relationship",
+      "subjectId": "edge:capital-DEU-GRC",
+      "propertyId": "property:fdi_flow",
+      "value": 300000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": "2022-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:30",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:gdp_usd",
+      "value": 208000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:31",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:population",
+      "value": 10000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:32",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20800.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:33",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 52,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:34",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:military_spending",
+      "value": 4160000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:35",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:gdp_usd",
+      "value": 416000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:36",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:population",
+      "value": 20000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:37",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20800.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:38",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 64,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:39",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:military_spending",
+      "value": 8320000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:40",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:gdp_usd",
+      "value": 624000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:41",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:population",
+      "value": 30000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:42",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20800.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:43",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:debt_pct_gdp",
+      "value": null,
+      "status": "missing",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:44",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:military_spending",
+      "value": 12480000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:45",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:gdp_usd",
+      "value": 832000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:46",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:population",
+      "value": 40000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:47",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20800.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:48",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 88,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:49",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:military_spending",
+      "value": 16640000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:50",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:gdp_usd",
+      "value": 1040000000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:51",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:population",
+      "value": 50000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:52",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:gdp_per_capita",
+      "value": 20800.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:53",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:debt_pct_gdp",
+      "value": 100,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:54",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:military_spending",
+      "value": 20800000000.0,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:55",
+      "subjectKind": "entity",
+      "subjectId": "region:ATT",
+      "propertyId": "property:regional_gva",
+      "value": 10000000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:56",
+      "subjectKind": "entity",
+      "subjectId": "region:CENTRAL",
+      "propertyId": "property:regional_gva",
+      "value": 20000000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:57",
+      "subjectKind": "relationship",
+      "subjectId": "edge:capital-DEU-GRC",
+      "propertyId": "property:fdi_stock",
+      "value": 5000000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:58",
+      "subjectKind": "relationship",
+      "subjectId": "edge:capital-DEU-GRC",
+      "propertyId": "property:fdi_flow",
+      "value": -200000000,
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-links"
+      ],
+      "validFrom": "2023-01-01",
+      "validTo": "2023-12-31",
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:59",
+      "subjectKind": "entity",
+      "subjectId": "country:GRC",
+      "propertyId": "property:iso3",
+      "value": "GRC",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:60",
+      "subjectKind": "entity",
+      "subjectId": "country:TUR",
+      "propertyId": "property:iso3",
+      "value": "TUR",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:61",
+      "subjectKind": "entity",
+      "subjectId": "country:CYP",
+      "propertyId": "property:iso3",
+      "value": "CYP",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:62",
+      "subjectKind": "entity",
+      "subjectId": "country:DEU",
+      "propertyId": "property:iso3",
+      "value": "DEU",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:63",
+      "subjectKind": "entity",
+      "subjectId": "country:USA",
+      "propertyId": "property:iso3",
+      "value": "USA",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:64",
+      "subjectKind": "entity",
+      "subjectId": "region:ATT",
+      "propertyId": "property:region_code",
+      "value": "DEMO:ATT",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    },
+    {
+      "id": "fact:demo:65",
+      "subjectKind": "entity",
+      "subjectId": "region:CENTRAL",
+      "propertyId": "property:region_code",
+      "value": "DEMO:CENTRAL",
+      "status": "observed",
+      "basis": "reported",
+      "evidenceIds": [
+        "source:demo-macro"
+      ],
+      "validFrom": "2022-01-01",
+      "validTo": null,
+      "createdAt": "2026-11-09T00:00:00Z"
+    }
+  ],
+  "sources": [
+    {
+      "id": "source:demo-macro",
+      "label": "Συνθετικές μακροοικονομικές μετρήσεις",
+      "locator": "https://example.invalid/world-model/demo-macro",
+      "retrievedAt": "2026-11-09T00:00:00Z",
+      "licenseNote": "Generated synthetic fixture only; no factual claims.",
+      "verificationStatus": "verified",
+      "isDemo": true
+    },
+    {
+      "id": "source:demo-links",
+      "label": "Συνθετικές διασυνδέσεις — όχι πραγματικές επενδύσεις",
+      "locator": "https://example.invalid/world-model/demo-links",
+      "retrievedAt": "2026-11-09T00:00:00Z",
+      "licenseNote": "Generated synthetic fixture only; no factual claims.",
+      "verificationStatus": "verified",
+      "isDemo": true
+    }
+  ],
+  "savedViews": [
+    {
+      "id": "view:capital-to-regions",
+      "label": "Επενδυτική σύνδεση → υποδομή → ελληνική περιφέρεια",
+      "query": {
+        "startEntityId": "country:DEU",
+        "steps": [
+          {
+            "relationshipTypeId": "reltype:invests_in",
+            "direction": "out"
+          },
+          {
+            "relationshipTypeId": "reltype:operates",
+            "direction": "out"
+          },
+          {
+            "relationshipTypeId": "reltype:located_in",
+            "direction": "out"
+          }
+        ],
+        "year": 2023,
+        "basis": "reported",
+        "sourceIds": [
+          "source:demo-links"
+        ],
+        "limit": 100
+      }
+    }
+  ],
+  "bindings": {
+    "countryType": "type:country",
+    "regionType": "type:region",
+    "gdpProperty": "property:gdp_usd",
+    "populationProperty": "property:population",
+    "defenseSpendingProperty": "property:military_spending",
+    "capitalType": "reltype:bilateral_capital",
+    "fdiStockProperty": "property:fdi_stock",
+    "fdiFlowProperty": "property:fdi_flow",
+    "regionalGvaProperty": "property:regional_gva"
+  }
+}

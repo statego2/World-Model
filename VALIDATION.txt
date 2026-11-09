@@ -1,0 +1,64 @@
+WORLD MODEL v2 — validation of planning starter
+Date: 2026-11-09
+Scope: domain types/syntax, synthetic data integrity and validator tests.
+Not verified/implemented: browser UI, IndexedDB, importer, query engine, maps or real-data adapters.
+
+$ node --check src/core/types.ts
+
+
+exit=0
+
+$ node scripts/validate.mjs
+Valid demo workspace: 10 entities, 8 relationships, 65 facts.
+Editor, persistence, imports and query execution are specified, not implemented yet.
+
+
+exit=0
+
+$ npm test
+
+> world-model-starter@0.2.0 test
+> node --test --test-isolation=none tests/*.test.mjs
+
+✔ synthetic workspace has coherent references and metric semantics (16.190514ms)
+✔ unknown format cannot be treated as supported (6.442157ms)
+✔ new entity type, property and relation require no validator enum change (5.740898ms)
+✔ relationship must match its declared endpoint types (4.50373ms)
+✔ unresolved entity reference is rejected (6.0814ms)
+✔ evidence is required on claims (3.050507ms)
+✔ demo evidence cannot silently enter real workspace (3.072353ms)
+✔ property owner prevents country metrics on a company (4.924591ms)
+✔ missing value stays distinct from numeric zero (8.51268ms)
+✔ numbers must be finite and match primitive type (13.932737ms)
+✔ annual metric must cover the declared whole calendar year (3.758327ms)
+✔ edge metrics cannot extend beyond the relationship validity (4.01879ms)
+✔ invalid calendar date and reversed validity are rejected (4.395949ms)
+✔ FDI flow may be negative while population cannot (3.522975ms)
+✔ correction preserves same key/source and rejects changed units/property (6.089369ms)
+✔ branched corrections are rejected instead of silently choosing a winner (4.347884ms)
+✔ correction cycle is rejected and validator terminates (4.696858ms)
+✔ duplicate identity and stale query bindings are rejected (9.434928ms)
+✔ metric units, meaning and query limits are explicit (7.142615ms)
+✔ malformed document reports errors without interpreting it as a workspace (2.148113ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 213.790227
+
+
+exit=0
+
+JSON files parsed; relative Markdown links checked.
+Types check is syntax only, not a full TypeScript compiler check.
+
+Persistent memory update — 2026-11-09
+Documentation only; runtime code and fixture unchanged.
+npm test: 20 tests passed, 0 failed.
+npm run validate: 10 entities, 8 relationships, 65 facts valid.
+Five root memory files and relative Markdown links verified.
+README and prompts point to the shared memory workflow.
+No Git repository/remote initialized; no hosting/Drive upload.

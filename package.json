@@ -1,0 +1,12 @@
+{
+  "name": "world-model-starter",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Planning kit and executable domain validation; browser UI pending M1",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "node --test --test-isolation=none tests/*.test.mjs",
+    "validate": "node scripts/validate.mjs"
+  }
+}
