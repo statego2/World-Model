@@ -1,8 +1,23 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: M2 υλοποιημένο στο `cursor/m1-workspace-editor-864c`. Επόμενο task: T-M3-01.
+Τρέχον στάδιο: T-M3-01 σε εξέλιξη στο `cursor/m3-queries-maps-864c`.
 T-REPO-01: το clone επαληθεύτηκε· η private ορατότητα μένει απόφαση του ιδιοκτήτη.
+
+## 2026-11-09 — T-M3-01 — Γεωμετρίες, πριν από το query engine
+
+Agent/session: Cursor Grok 4.7 | Status: in_progress | Branch: cursor/m3-queries-maps-864c
+
+Το branch ξεκινά από το `cursor/m1-workspace-editor-864c` (commit 5b43947). Δεν έγινε merge στο main.
+
+Προστέθηκαν απλοποιημένες γεωμετρίες, όχι ακόμη χάρτης ή query:
+- `data/geometries/world-countries.json`: Natural Earth 1:110m, public domain, κλειδί ISO_A3_EH. 174 χώρες.
+- `data/geometries/greek-regions.json`: NUTS 2024 επίπεδο 2 για την Ελλάδα, Eurostat/GISCO, ελεύθερη επαναχρησιμοποίηση με αναφορά. 13 περιφέρειες, ανάμεσά τους EL30.
+- `data/geometries/region-links.json`: ρητή σύνδεση `region:ATT` → `EL30`. Δεν γίνεται ταίριασμα από label. Η συνθετική «Κεντρική περιφέρεια — DEMO» δεν έχει γεωμετρία.
+
+Δεν γράφτηκε query engine, explorer, module ή test διαδρομής.
+Επαλήθευση: `npm test` — 39/39 pass. Τα νέα αρχεία δεν συμμετέχουν στα tests.
+Επόμενο βήμα: `src/core/query.ts` με path query, cache ανά revision, compare/rank, και tests πριν από UI.
 
 ## 2026-11-09 — T-M1-01 … T-M2-02 — Επεξεργάσιμος χώρος και μεταφορά
 

@@ -1,0 +1,10 @@
+{
+  "note": "Explicit entity id to geometry id. Labels are never matched automatically.",
+  "links": [
+    {
+      "entityId": "region:ATT",
+      "geometryId": "EL30",
+      "note": "The synthetic Attica demo is drawn on the official EL30 boundary. Measurements stay synthetic."
+    }
+  ]
+}

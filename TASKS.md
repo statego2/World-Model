@@ -17,16 +17,16 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 | T-M1-05 | Browser acceptance, reload, failure/tab tests | done | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | Playwright, keyboard, conflict, screenshots 390/1440 |
 | T-M2-01 | Mapping/import preview, idempotency, atomic commit | done | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | CSV preview, unresolved IDs, ίδιο αρχείο δεν διπλασιάζει |
 | T-M2-02 | Full export/restore, corrections/history, guarded undo | done | Cursor Grok 4.7 / cursor/m1-workspace-editor-864c | Νέος χώρος, άγνωστη version, διόρθωση, αναίρεση με εξάρτηση |
-| T-M3-01 | Graph/query engine, saved views και shared filters | todo | — | M2 done |
+| T-M3-01 | Graph/query engine, saved views και shared filters | in_progress | Cursor Grok 4.7 / cursor/m3-queries-maps-864c | M2 done. Branch πάνω στο cursor/m1-workspace-editor-864c. Query engine όχι ακόμη. |
 | T-M4-01 | Τέσσερα modules, world/Greek region maps | todo | — | M3 done |
 | T-M5-01 | Επαλήθευση πηγών και μικρά πραγματικά datasets | todo | — | M4 done |
 | T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | todo | — | T-M5-01 |
 
 ## Επόμενη development εργασία: T-M3-01
 
-M1 και M2 ολοκληρώθηκαν στο `cursor/m1-workspace-editor-864c`.
-Το T-REPO-01 μένει blocked μόνο για την private ορατότητα.
-Μην ξαναχτίσεις τον editor. Επόμενο: graph/query engine και saved views.
+Owner: Cursor Grok 4.7. Branch: `cursor/m3-queries-maps-864c`, βασισμένο στο `cursor/m1-workspace-editor-864c`.
+Έτοιμα μόνο τα αρχεία γεωμετρίας. Λείπουν query engine, explorer, tests και modules.
+Μην ξαναχτίσεις τον editor του M1/M2.
 
 Ιστορικό acceptance του scaffold:
 
