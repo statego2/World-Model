@@ -11,7 +11,9 @@ Agent/session: Cursor Grok 4.7 | Status: done | Branch: cursor/overnight-depth-8
 
 Επαλήθευση: `node --test tests/review-fixes.test.ts tests/bindings.test.ts tests/integrity.test.ts` — 9/9 pass. `tsc` — pass.
 
-Επόμενο βήμα: διάβασε το CI του PR #6. Μην συμπληρώσεις τα πέντε αεροδρόμια χωρίς νέα παραπομπή. Μην αλλάξεις την ορατότητα.
+Το CI στο commit `590bcb5` ολοκληρώθηκε με 4 checks χωρίς αποτυχία.
+
+Επόμενο βήμα: μην συμπληρώσεις τα πέντε αεροδρόμια χωρίς νέα παραπομπή. Μην αλλάξεις την ορατότητα.
 
 ## 2026-11-09 — N5 / N6 / N7 — Εισαγωγή, case study, CI
 
@@ -21,7 +23,7 @@ Agent/session: Cursor Grok 4.7 | Status: done με όρια | Branch: cursor/ove
 
 Το `docs/CASE_STUDY.md` είναι technical case study. Κάλυψη αεροδρομίων 9/14. Το FDI δεν αποδίδεται στην παραχώρηση. Δεν έγινε μελέτη χρηστών.
 
-Το `.github/workflows/ci.yml` τρέχει Node 24, `npm ci`, tests, typecheck, build και ξεχωριστό browser job με Chromium. Χωρίς secrets και χωρίς deploy. Το αποτέλεσμα του GitHub δεν έχει παρατηρηθεί ακόμη, άρα δεν δηλώνεται πράσινο.
+Το `.github/workflows/ci.yml` τρέχει Node 24, `npm ci`, tests, typecheck, build και ξεχωριστό browser job με Chromium. Χωρίς secrets και χωρίς deploy. Στο commit `590bcb5` και τα 4 checks του GitHub ολοκληρώθηκαν χωρίς αποτυχία.
 
 Μέτρηση γειτονιάς: 600 εξερχόμενες ακμές κόβονται στα 200 nodes / 500 edges σε λιγότερο από 1 δευτερόλεπτο μέσα στο unit test. Το parser όριο `maxCollection` είναι 5000, οπότε δεν φορτώθηκαν 50k facts και το όριο δεν ανέβηκε.
 
