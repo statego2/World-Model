@@ -10,10 +10,10 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 | T-M0-01 | Σχέδιο, contracts, fixture, validator, tests | done | Codex / χωρίς branch | — |
 | T-MEM-01 | Πέντε αρχεία μνήμης και agent workflow | done | Codex / χωρίς branch | M0 |
 | T-REPO-01 | GitHub repo και αρχικό versioned snapshot | in_progress | Codex / main | Εκκρεμεί clone και tests σε δεύτερο χώρο |
-| T-M1-01 | React/TS/Vite scaffold και scripts/lockfile | todo | — | M0 |
-| T-M1-02 | Strict parser, actions και repository contract | todo | — | T-M1-01 |
-| T-M1-03 | IndexedDB adapter, transactions, revision conflicts | todo | — | T-M1-02 |
-| T-M1-04 | Generic ontology/entity/edge/fact editors | todo | — | T-M1-02, T-M1-03 |
+| T-M1-01 | React/TS/Vite scaffold και scripts/lockfile | done | Codex / local | M0 |
+| T-M1-02 | Strict parser, actions και repository contract | in_progress | Codex / local | T-M1-01 |
+| T-M1-03 | IndexedDB adapter, transactions, revision conflicts | in_progress | Codex / local | T-M1-02 |
+| T-M1-04 | Generic ontology/entity/edge/fact editors | in_progress | Codex / local | T-M1-02, T-M1-03 |
 | T-M1-05 | Browser acceptance, reload, failure/tab tests | todo | — | T-M1-04 |
 | T-M2-01 | Mapping/import preview, idempotency, atomic commit | todo | — | M1 done |
 | T-M2-02 | Full export/restore, corrections/history, guarded undo | todo | — | M1 done, import contract |
@@ -22,7 +22,7 @@ Owner `—` σημαίνει unclaimed. Τα Markdown claims δεν είναι d
 | T-M5-01 | Επαλήθευση πηγών και μικρά πραγματικά datasets | todo | — | M4 done |
 | T-M5-02 | Πραγματική cross-module ανάλυση και μέτρηση αξίας | todo | — | T-M5-01 |
 
-## Επόμενη development εργασία: T-M1-01
+## Ολοκληρώθηκε το αρχικό scaffold T-M1-01
 
 Scaffold στον υπάρχοντα project root χωρίς αντικατάσταση core/fixture/tests/docs.
 Επαλήθευση εκδόσεων/αδειών, lockfile, dev/build/typecheck scripts και μικρό app shell.

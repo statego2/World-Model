@@ -3,10 +3,28 @@
   "version": "0.2.0",
   "private": true,
   "type": "module",
-  "description": "Planning kit and executable domain validation; browser UI pending M1",
-  "engines": { "node": ">=24" },
+  "description": "World Model browser workspace and extensible domain starter",
+  "engines": {
+    "node": ">=24"
+  },
   "scripts": {
     "test": "node --test --test-isolation=none tests/*.test.mjs",
-    "validate": "node scripts/validate.mjs"
+    "validate": "node scripts/validate.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dexie": "^4.4.7",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.7"
   }
 }

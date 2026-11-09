@@ -1,7 +1,21 @@
 # Ιστορικό και handoff
 
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
-Τρέχον στάδιο: M0 ολοκληρωμένο, M1 δεν έχει αρχίσει. T-REPO-01 σε εξέλιξη: έγινε μεταφορά στο GitHub, εκκρεμεί δοκιμή clone.
+Τρέχον στάδιο: M0 ολοκληρωμένο, M1 σε εξέλιξη. T-REPO-01 σε εξέλιξη: έγινε μεταφορά στο GitHub, εκκρεμεί δοκιμή clone.
+
+## 2026-11-09 — T-M1-01–04 — Πρώτος browser editor
+
+Agent: Codex. Υλοποιήθηκαν Vite/React shell, δυναμικές φόρμες τύπων, ιδιοτήτων,
+οντοτήτων, σχέσεων, πηγών και facts, Inspector, demo/real workspace και IndexedDB
+(Dexie) με atomic revision conflict check. Δημιουργία και reload δοκιμάστηκαν σε
+Chromium: δύο custom τύποι, σχέση, property, δύο entities, source, edge και fact.
+Build, typecheck των domain types, 20 Node tests και fixture validation πέρασαν.
+Screenshots 1440px/390px δημιουργήθηκαν τοπικά. Το typecheck δεν καλύπτει JSX.
+
+M1 δεν ολοκληρώθηκε: strict schema parsing/action engine, edit/archive, idempotent
+action IDs, αυτοματοποιημένα tests failed transaction/stale tab και πλήρης έλεγχος
+προσβασιμότητας εκκρεμούν. Οι πραγματικές πηγές, import/export και χάρτες είναι
+μελλοντικά στάδια. Επόμενο βήμα: ολοκλήρωση T-M1-02–05 και acceptance M1.
 
 ## 2026-11-09 — T-REPO-01 — Προετοιμασία GitHub
 

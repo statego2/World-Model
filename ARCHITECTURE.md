@@ -11,8 +11,8 @@ tests/domain.test.mjs              20 Node tests του validator
 package.json                      Node >=24, npm test και npm run validate
 ```
 
-Εκτελέσιμη σημερινή ροή: fixture JSON → validateWorkspace → errors ή CLI success.
-Δεν υπάρχουν εξωτερικές npm εξαρτήσεις, frontend, network calls ή database.
+Εκτελέσιμες ροές: browser → React editor → validator → Dexie/IndexedDB, και fixture JSON → CLI validator.
+Υπάρχει αρχικό React/Vite frontend και IndexedDB repository μέσω Dexie. Δεν υπάρχει backend ή real-data connector.
 Τα TypeScript types δεν επιβάλλουν runtime validation και ο validator δεν καλύπτει
 ακόμη κάθε πιθανό malformed input/unknown field. Αυστηρό boundary parsing είναι M1.
 
@@ -40,7 +40,7 @@ flowchart LR
 
 React + TypeScript + Vite, Dexie, Zod, MapLibre, Recharts, Cytoscape.js είναι
 προτεινόμενες εξαρτήσεις προς επαλήθευση/εγκατάσταση στο αντίστοιχο milestone.
-Όχι προεγκατεστημένες βιβλιοθήκες. Lockfile και TypeScript/build setup στο M1.
+React, Vite, Dexie και Zod έχουν εγκατασταθεί με lockfile. MapLibre, Recharts και Cytoscape παραμένουν προτάσεις.
 
 Προτεινόμενα layers: core (domain/actions/queries), storage (repository/adapter),
 ui (generic editors/inspector), modules (θεματικές προβολές), analytics, connectors.
