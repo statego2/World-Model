@@ -22,6 +22,7 @@ export type DomainAction =
   | { type: 'SetBinding'; role: string; definitionId: string }
   | { type: 'ClearBinding'; role: string }
   | { type: 'CommitImport'; facts: Fact[] }
+  | { type: 'CommitRecords'; entities: Entity[]; relationships: Relationship[] }
   | { type: 'RevertCreation'; kind: RevertKind; id: string };
 
 export interface AppliedAction {
@@ -115,6 +116,8 @@ function mutate(draft: Workspace, action: DomainAction): Result<Mutation> {
       return clearBinding(draft, action.role);
     case 'CommitImport':
       return commitImport(draft, action.facts);
+    case 'CommitRecords':
+      return commitRecords(draft, action.entities, action.relationships);
     case 'RevertCreation':
       return revertCreation(draft, action.kind, action.id);
     default:
@@ -346,6 +349,25 @@ function clearBinding(draft: Workspace, role: string): Result<Mutation> {
   if (!BINDING_ROLES[role] || !(role in draft.bindings)) return fail('no_change', 'Ο ρόλος δεν είναι συνδεδεμένος.');
   delete draft.bindings[role];
   return changed(role, `Αφαίρεση ρόλου ${role}`, false);
+}
+
+function commitRecords(draft: Workspace, entities: Entity[], relationships: Relationship[]): Result<Mutation> {
+  if (entities.length === 0 && relationships.length === 0) return fail('no_change', 'Δεν υπάρχουν γραμμές για καταγραφή.');
+  const trial = structuredClone(draft);
+  const changedIds: string[] = [];
+  for (const entity of entities) {
+    const recorded = createEntity(trial, entity);
+    if (!recorded.ok) return recorded;
+    changedIds.push(entity.id);
+  }
+  for (const relationship of relationships) {
+    const recorded = createRelationship(trial, relationship);
+    if (!recorded.ok) return recorded;
+    changedIds.push(relationship.id);
+  }
+  draft.entities.splice(0, draft.entities.length, ...trial.entities);
+  draft.relationships.splice(0, draft.relationships.length, ...trial.relationships);
+  return ok({ changedIds, summary: `Εισαγωγή ${entities.length} οντοτήτων και ${relationships.length} συνδέσεων`, ontologyChanged: false });
 }
 
 function commitImport(draft: Workspace, facts: Fact[]): Result<Mutation> {

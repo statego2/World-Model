@@ -6,7 +6,7 @@ import type { Workspace } from './types.ts';
 const DATETIME = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z$/;
 const ACTION_TYPES = new Set([
   'DefineEntityType', 'DefineRelationshipType', 'DefineProperty', 'CreateEntity', 'RenameEntity', 'ArchiveEntity',
-  'DeprecateDefinition', 'CreateSource', 'CreateRelationship', 'RecordFact', 'CorrectFact', 'SaveView', 'SetBinding', 'ClearBinding', 'CommitImport', 'RevertCreation',
+  'DeprecateDefinition', 'CreateSource', 'CreateRelationship', 'RecordFact', 'CorrectFact', 'SaveView', 'SetBinding', 'ClearBinding', 'CommitImport', 'CommitRecords', 'RevertCreation',
 ]);
 
 export interface TransferAction {
@@ -143,6 +143,7 @@ function actionShape(value: unknown): Result<{ type: string }> {
     : row.type === 'SetBinding' ? typeof row.role === 'string' && typeof row.definitionId === 'string'
     : row.type === 'ClearBinding' ? typeof row.role === 'string'
     : row.type === 'CommitImport' ? Array.isArray(row.facts)
+    : row.type === 'CommitRecords' ? Array.isArray(row.entities) && Array.isArray(row.relationships)
     : row.type === 'RevertCreation' ? typeof row.kind === 'string' && typeof row.id === 'string'
     : false;
   return valid ? ok(row as { type: string }) : fail('malformed', 'Η ενέργεια δεν έχει τα υποχρεωτικά πεδία.');

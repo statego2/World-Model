@@ -19,9 +19,9 @@
 | N4-A | Generic graph explorer και inspector | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Αναζήτηση, 1–2 βήματα, φίλτρο τύπου/κατεύθυνσης, όριο 200/500, πίνακας. |
 | N4-B | Διαδραστικοί world/region maps και numeric scale | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Click, πληκτρολόγιο, κλίμακα, no-data και πηγή στον inspector. |
 | N4-C | Comparisons, trends και browser acceptance | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Σειρά μόνο από υπάρχοντα έτη. Κενό έτος μένει κενό. |
-| N5 | CSV imports entities/edges/relationship facts | todo | — | N4 |
-| N6 | Επαλήθευση πραγματικής διαδρομής και technical case study | todo | — | N0, evidence· ανεξάρτητο από UI |
-| N7 | CI, performance/accessibility, τεκμηρίωση και handoff | todo | — | Σταθερό completed scope |
+| N5 | CSV imports entities/edges/relationship facts | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Ακριβές ID. Άγνωστος τύπος/άκρο unresolved. Μεγάλο αρχείο δεν κόβεται σιωπηλά. |
+| N6 | Επαλήθευση πραγματικής διαδρομής και technical case study | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | docs/CASE_STUDY.md. Κάλυψη 9/14. Όχι μελέτη χρηστών. |
+| N7 | CI, performance/accessibility, τεκμηρίωση και handoff | done | Cursor Grok 4.7 / cursor/overnight-depth-864c | Workflow Node 24. Όριο 50k δεν ανέβηκε. CI δεν έχει ακόμα παρατηρηθεί πράσινο. |
 
 Τα αναλυτικά acceptance/gates βρίσκονται στο πλάνο. Claim πριν από εργασία,
 PROGRESS/TASKS μετά από κάθε task. Αν source μπλοκάρει, συνέχισε ανεξάρτητο task.

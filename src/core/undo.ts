@@ -55,6 +55,7 @@ export function inverseOf(before: Workspace, action: DomainAction): DomainAction
         ? { type: 'SetBinding', role: action.role, definitionId: before.bindings[action.role] }
         : null;
     case 'CommitImport':
+    case 'CommitRecords':
       return null;
     case 'RevertCreation':
       return null;

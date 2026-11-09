@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+import { applyAction } from '../src/core/actions.ts';
+import { previewEntities, previewRelationships } from '../src/core/import.ts';
+import { runSavedView } from '../src/core/query.ts';
+import { fixture } from './support.ts';
+
+test('entity and edge import stay exact and update the saved path', () => {
+  const start = fixture();
+  const entities = previewEntities(start, 'id,typeId,label\ncompany:IMPORTED,type:company,Εισαγόμενη\ncompany:EXAMPLE,type:company,Συνθετική Ενεργειακή ΑΕ — DEMO\ncompany:BAD,type:missing,Όχι\n', { delimiter: ',', idColumn: 'id', typeColumn: 'typeId', labelColumn: 'label' });
+  assert.deepEqual(entities.rows.map(row => row.disposition), ['ready', 'duplicate', 'unresolved']);
+  const tooBig = previewEntities(start, `id,typeId,label\n${Array.from({ length: 201 }, (_, index) => `company:N${index},type:company,N${index}`).join('\n')}\n`, { delimiter: ',', idColumn: 'id', typeColumn: 'typeId', labelColumn: 'label' });
+  assert.match(tooBig.error ?? '', /δεν καταγράφει ένα τμήμα/);
+  const created = applyAction(start, { type: 'CommitRecords', entities: entities.rows.flatMap(row => row.entity ? [row.entity] : []), relationships: [] });
+  assert.equal(created.ok, true);
+  if (!created.ok) return;
+  const edges = previewRelationships(created.value.workspace, 'id,typeId,fromId,toId,validFrom,sourceId\nedge:imported,reltype:invests_in,country:DEU,company:IMPORTED,2022-01-01,source:demo-links\nedge:missing,reltype:invests_in,country:DEU,company:NOPE,2022-01-01,source:demo-links\nedge:operate,reltype:operates,company:IMPORTED,infra:TERMINAL,2022-01-01,source:demo-links\nedge:place,reltype:located_in,infra:TERMINAL,region:ATT,2022-01-01,source:demo-links\n', { delimiter: ',', idColumn: 'id', typeColumn: 'typeId', fromColumn: 'fromId', toColumn: 'toId', validFromColumn: 'validFrom', sourceColumn: 'sourceId' });
+  assert.equal(edges.rows.find(row => row.entityId === 'edge:missing')?.disposition, 'unresolved');
+  const place = edges.rows.find(row => row.entityId === 'edge:place');
+  assert.equal(place?.disposition, 'ready');
+  const linked = applyAction(created.value.workspace, { type: 'CommitRecords', entities: [], relationships: edges.rows.flatMap(row => row.relationship && row.disposition === 'ready' ? [row.relationship] : []) });
+  assert.equal(linked.ok, true);
+  if (!linked.ok) return;
+  const paths = runSavedView(linked.value.workspace, 'view:capital-to-regions');
+  assert.equal(paths.paths.some(path => path.entityIds.includes('company:IMPORTED')), true);
+  const before = linked.value.workspace.entities.length;
+  const failed = applyAction(linked.value.workspace, { type: 'CommitRecords', entities: [{ id: 'company:NEXT', typeId: 'type:company', label: 'Επόμενη' }], relationships: [{ id: 'edge:bad', typeId: 'reltype:invests_in', fromId: 'country:DEU', toId: 'company:ABSENT', basis: 'reported', evidenceIds: ['source:demo-links'], validFrom: '2022-01-01', validTo: null }] });
+  assert.equal(failed.ok, false);
+  assert.equal(linked.value.workspace.entities.length, before);
+});

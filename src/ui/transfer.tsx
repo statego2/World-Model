@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { stableStringify } from '../core/actions.ts';
-import { csvCell, importKey, previewCsv, type ImportMapping, type PreviewRow } from '../core/import.ts';
+import { csvCell, importKey, previewCsv, previewEntities, previewRelationships, type ImportMapping, type PreviewRow } from '../core/import.ts';
 import { readTransfer } from '../core/transfer.ts';
 import type { Workspace } from '../core/types.ts';
 import { repository } from '../storage/browser.ts';
@@ -82,6 +82,7 @@ function RestoreCard() {
 function ImportCard() {
   const model = useModel();
   const workspace = model.workspace;
+  const [mode, setMode] = useState<'facts' | 'entities' | 'relationships'>('facts');
   const [text, setText] = useState('entityId,value,year\n');
   const [delimiter, setDelimiter] = useState<',' | ';'>(',');
   const [decimal, setDecimal] = useState<'.' | ','>('.');
@@ -99,7 +100,14 @@ function ImportCard() {
   return (
     <section className="panel">
       <h2>Εισαγωγή CSV</h2>
-      <p>Ακριβής αντιστοίχιση με ID. Άγνωστα ID μένουν εκκρεμή και δεν συγχωνεύονται.</p>
+      <p>Ακριβές ID. Άγνωστος τύπος ή άκρο μένει εκκρεμές. Πρότυπο αντιστοίχισης έκδοση 1: μετρήσεις entityId,value,year · οντότητες id,typeId,label · συνδέσεις id,typeId,fromId,toId,validFrom,sourceId.</p>
+      <label className="field"><span>Είδος</span>
+        <select value={mode} onChange={event => { setMode(event.target.value as 'facts' | 'entities' | 'relationships'); setRows([]); setAccepted([]); setPreviewSignature(''); }}>
+          <option value="facts">Μετρήσεις</option>
+          <option value="entities">Οντότητες</option>
+          <option value="relationships">Συνδέσεις</option>
+        </select>
+      </label>
       <label className="field"><span>CSV</span><textarea value={text} onChange={event => setText(event.target.value)} rows={6} /></label>
       <div className="form-grid">
         <label className="field"><span>Διαχωριστικό</span>
@@ -125,11 +133,15 @@ function ImportCard() {
         </label>
       </div>
       <button className="quiet" type="button" onClick={() => {
-        const preview = previewCsv(workspace, text, mapping);
+        const preview = mode === 'entities'
+          ? previewEntities(workspace, text, { delimiter, idColumn: 'id', typeColumn: 'typeId', labelColumn: 'label' })
+          : mode === 'relationships'
+            ? previewRelationships(workspace, text, { delimiter, idColumn: 'id', typeColumn: 'typeId', fromColumn: 'fromId', toColumn: 'toId', validFromColumn: 'validFrom', sourceColumn: 'sourceId' })
+            : previewCsv(workspace, text, mapping);
         setMessage(preview.error ?? '');
         setRows(preview.rows);
-        setAccepted(preview.rows.filter(row => row.disposition === 'ready' && row.fact).map(row => row.fact!.id));
-        setPreviewSignature(stableStringify({ text, mapping }));
+        setAccepted(preview.rows.flatMap(row => row.disposition === 'ready' ? [row.fact?.id ?? row.entity?.id ?? row.relationship?.id ?? ''] : []).filter(Boolean));
+        setPreviewSignature(stableStringify({ text, mapping, mode }));
       }}>Προεπισκόπηση</button>
       {message ? <p className="banner bad" role="alert">{message}</p> : null}
       {rows.length > 0 ? (
@@ -138,7 +150,10 @@ function ImportCard() {
           <tbody>
             {rows.map(row => (
               <tr key={`${row.row}-${row.entityId}`}>
-                <td>{row.fact && (row.disposition === 'ready' || row.disposition === 'conflict') ? <input type="checkbox" checked={accepted.includes(row.fact.id)} onChange={event => setAccepted(current => event.target.checked ? [...current, row.fact!.id] : current.filter(id => id !== row.fact!.id))} aria-label={`Συμπερίληψη γραμμής ${row.row}`} /> : null}</td>
+                <td>{row.disposition === 'ready' && (row.fact || row.entity || row.relationship) ? <input type="checkbox" checked={accepted.includes(row.fact?.id ?? row.entity?.id ?? row.relationship?.id ?? '')} onChange={event => {
+                  const id = row.fact?.id ?? row.entity?.id ?? row.relationship?.id ?? '';
+                  setAccepted(current => event.target.checked ? [...current, id] : current.filter(item => item !== id));
+                }} aria-label={`Συμπερίληψη γραμμής ${row.row}`} /> : null}</td>
                 <td>{row.row}</td>
                 <td className="mono">{row.entityId || '—'}</td>
                 <td>{labelFor(row.disposition)}. {row.message}</td>
@@ -147,17 +162,19 @@ function ImportCard() {
           </tbody>
         </table></div>
       ) : null}
-      {previewSignature && previewSignature !== stableStringify({ text, mapping }) ? <p role="status">Η προεπισκόπηση δεν ταιριάζει πλέον με το αρχείο ή την αντιστοίχιση. Ξανατρέξε την πριν την καταγραφή.</p> : null}
-      <button className="primary" type="button" disabled={model.busy || accepted.length === 0 || previewSignature !== stableStringify({ text, mapping })} onClick={() => void (async () => {
+      {previewSignature && previewSignature !== stableStringify({ text, mapping, mode }) ? <p role="status">Η προεπισκόπηση δεν ταιριάζει πλέον με το αρχείο ή την αντιστοίχιση. Ξανατρέξε την πριν την καταγραφή.</p> : null}
+      <button className="primary" type="button" disabled={model.busy || accepted.length === 0 || previewSignature !== stableStringify({ text, mapping, mode })} onClick={() => void (async () => {
         const facts = rows.flatMap(row => row.fact && accepted.includes(row.fact.id) ? [row.fact] : []);
-        const key = await importKey(workspace.id, text, mapping);
+        const entities = rows.flatMap(row => row.entity && accepted.includes(row.entity.id) ? [row.entity] : []);
+        const relationships = rows.flatMap(row => row.relationship && accepted.includes(row.relationship.id) ? [row.relationship] : []);
+        const key = await importKey(workspace.id, text, { ...mapping, mode });
         const committed = await repository.commit({
           workspaceId: workspace.id,
           expectedRevision: workspace.revision,
           actionId: key,
           actor: 'local-user',
           at: new Date().toISOString(),
-          action: { type: 'CommitImport', facts },
+          action: mode === 'facts' ? { type: 'CommitImport', facts } : { type: 'CommitRecords', entities, relationships },
         });
         if (!committed.ok) { setMessage(committed.errors.map(error => explain(error.message)).join(' ')); return; }
         setMessage(committed.value.replayed ? 'Η ίδια εισαγωγή είχε ήδη καταγραφεί.' : `Καταγράφηκαν ${committed.value.changedIds.length} γεγονότα.`);
