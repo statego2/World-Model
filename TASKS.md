@@ -1,5 +1,18 @@
 # Εργασίες και dependencies
 
+## Τρέχουσα εστίαση παράδοσης — 2026-11-10
+
+DELTA-ASSESS: done (Codex), έλεγχος δημοσιευμένων branches/PRs/CI/review· δεν βρέθηκε
+νέο application commit μετά το e8a53447. Αναφορά docs/reviews/2026-11-10-delivery-delta.md.
+Η ενδεχόμενη εργασία άλλου Codex session παραμένει ανεπιβεβαίωτη μέχρι να δοθεί task/branch/diff.
+
+Επόμενο εκτελέσιμο task: **S1-2**, με acceptance και checkpoints στο
+`docs/plans/DELIVERY_CHECKPOINTS.md`. Πρώτα S1-1 αν αλλάξει base/environment.
+Το S1-2 και τα υπόλοιπα S1 tasks παραμένουν todo· δεν θεωρούνται εκτελεσμένα από
+την προσθήκη αυτού του handoff. Prompt: `prompts/IMPLEMENT_ONE_DELIVERABLE.md`.
+Μην δημιουργήσεις άλλο γενικό roadmap πριν παραδοθεί το πρώτο λειτουργικό fix.
+
+
 ## Ενεργή επόμενη ανάθεση — 2026-11-10
 
 Διάβασε docs/reviews/2026-11-10-overnight-review.md και docs/plans/NEXT_SESSIONS_2026-11-10.md.
