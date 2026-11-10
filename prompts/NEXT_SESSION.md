@@ -1,16 +1,18 @@
-Συνέχισε το WORLD MODEL από τη νεότερη validated υλοποίηση του PR #7, διατηρώντας
-τυχόν μεταγενέστερη δουλειά. Διάβασε τα πέντε root αρχεία μνήμης, το
-`docs/reviews/2026-11-10-overnight-review.md` και το
-`docs/plans/NEXT_SESSIONS_2026-11-10.md`.
+Εκτέλεσε ανάπτυξη του WORLD MODEL πάνω στη νεότερη πραγματική υλοποίηση, όχι μόνο review/σχεδιασμό.
+Διάβασε τα root αρχεία μνήμης και την ισχύουσα προτεραιότητα στο
+docs/plans/NEXT_SESSIONS_2026-11-10.md του PR #8.
 
-Πρώτα εκτέλεσε το Session S1: returning-user sample upgrade, edge import conflicts,
-πλήρη validation ιστορικών actions, ακριβές evidence metadata και view roundtrip.
-Πρόσθεσε regression tests για τα πραγματικά failures. Μην ξαναγράφεις όσα ήδη
-περνούν. Μετά προχώρα στο S2 όσο χωράει η συνεδρία· σε νέα συνεδρία συνέχισε από
-το πρώτο έτοιμο task με βάση PROGRESS/TASKS.
+Στόχος: οι τέσσερις αρχικές εφαρμογές (world map, Ελλάδα–Τουρκία, capital flows,
+ελληνική οικονομία) να δουλεύουν πάνω σε κοινό επεξεργάσιμο μοντέλο, με δυνατότητα
+προσθήκης δικών μου τύπων, δεδομένων, σχέσεων και queries από UI.
 
-Κάθε task: claim, μικρές αλλαγές, verification, commit, ενημέρωση μνήμης.
-Δεν αλλάζεις main/visibility και δεν κάνεις deployment ή storage wipe. Δεν
-επινοείς τεκμήρια, benchmarks ή user studies. Αν blocker είναι εξωτερική πηγή,
-κατάγραψέ το και συνέχισε σε ανεξάρτητο task. Παράδωσε working checkpoint με
-ακριβές επόμενο βήμα και όχι γενικό «όλα done».
+Πρώτα κλείσε τα απαραίτητα S1 data-integrity bugs και μετά προχώρα στα CORE-WORLD
+και CORE-ONTOLOGY. Ο χρήστης πρέπει να επιλέγει χώρα, δείκτη/έτος/πηγή, να συγκρίνει,
+να βλέπει ιστορικό/evidence και να εξερευνά δικές του συνδέσεις χωρίς αλλαγή κώδικα.
+Μετά συμπλήρωσε τα πραγματικά κενά των άλλων τριών modules.
+Τα αεροδρόμια είναι προαιρετικό fixture, όχι αντικείμενο της συνεδρίας ή blocker.
+
+Συνέχισε στα έτοιμα tasks όσο υπάρχει διαθέσιμος χρόνος. Μικρά commits, regression
+και browser checks, PROGRESS/TASKS μετά από κάθε εργασία. Παράδωσε runnable
+checkpoint με ακριβή λειτουργία και όρια. Μην ξαναγράψεις γενικό roadmap,
+μην αλλάξεις main/visibility, μην κάνεις storage wipe ή αυτόματο deployment.

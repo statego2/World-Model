@@ -5,6 +5,19 @@
 
 
 
+
+## 2026-11-10 — CORE-ALIGN — Επαναφορά στις αρχικές προτεραιότητες
+
+Codex, planning-only. Ο χρήστης διευκρίνισε ότι δεν θέλει airport-centric ανάπτυξη.
+Τα αεροδρόμια/Fraport είναι προαιρετικό υπάρχον παράδειγμα, όχι release gate ή
+στόχος νέας συνεδρίας. Διορθώθηκαν η ισχύουσα προτεραιότητα, TASKS και τα δύο prompts.
+Στόχος: world map/country comparisons, GRC–TUR public defense analysis, capital,
+Greek economy πάνω σε επεξεργάσιμο κοινό model. Πρώτα αναγκαία S1 reliability fixes,
+κατόπιν CORE-WORLD/CORE-ONTOLOGY και κενά των υπόλοιπων modules.
+Δεν έγινε αλλαγή application code ή νέα εκτέλεση tests· ελέγχθηκαν συνέπεια docs,
+references και preservation του υπάρχοντος σχεδίου/ιστορικού. Επόμενος agent:
+ξεκίνα από prompts/NEXT_SESSION.md και παράδωσε runnable checkpoint.
+
 ## 2026-11-10 — DELTA-ASSESS — Έλεγχος αποτελέσματος επόμενης χρήσης Codex
 
 Codex, planning-only. Ελέγχθηκαν remote PRs/heads, πρόσφατα CI runs, PR #8 comments
