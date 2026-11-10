@@ -1,5 +1,32 @@
 # Εργασίες και dependencies
 
+## Ενεργή επόμενη ανάθεση — 2026-11-10
+
+Διάβασε docs/reviews/2026-11-10-overnight-review.md και docs/plans/NEXT_SESSIONS_2026-11-10.md.
+Η παρακάτω ουρά έχει προτεραιότητα για τις επόμενες συνεδρίες. Τα παλιά done
+παραμένουν ιστορικό, όχι απόδειξη ότι δεν υπάρχουν νέα regression findings.
+
+| ID | Εργασία | Status | Owner | Εξάρτηση |
+|---|---|---|---|---|
+| AM-PLAN | Ανεξάρτητο review και πλάνο S1–S4 | done | Codex | e8a53447 |
+| S1-1 | Baseline και επανέλεγχος A–E | todo | — | — |
+| S1-2 | Returning-user cited snapshot versions/upgrade | todo | — | S1-1 |
+| S1-3 | Exact edge conflicts και complete history/action validation | todo | — | S1-1 |
+| S1-4 | Used evidence, ενεργοί neighbors, complete view roundtrip | todo | — | S1-1 |
+| S2-1 | Metric explorer με συμβατές κλίμακες/φίλτρα | todo | — | S1 integrity gate |
+| S2-2 | Geography bindings από χρήστη, χωρίς hardcoded property IDs | todo | — | S1 integrity gate |
+| S2-3 | Shared selection, graph/mobile usability και custom-model proof | todo | — | S2-1, S2-2 |
+| S3-1 | Επαναλήψιμο source ingestion και ασφαλές refresh preview | todo | — | S1 |
+| S3-2 | Evidence case study και αξιολόγηση ερωτημάτων | todo | — | S2, διαθέσιμα τεκμήρια |
+| S3-3 | Μετρημένα storage/query/backup όρια | todo | — | Σταθερή S1/S2 έκδοση |
+| S4 | Release candidate, CI artifacts και PR integration plan | todo | — | Passing completed scope |
+
+Acceptance και αναπαραγωγές στα παραπάνω docs. Claim πριν από εργασία και
+ενημέρωση PROGRESS/TASKS πριν από κάθε handoff. Main merge/deployment δεν εκτελούνται αυτόματα.
+
+## Προηγούμενη ανάθεση (ιστορικό)
+
+
 ## Ενεργή ανάθεση: εμπειρία προϊόντος
 
 Η ουρά N0–N7 είναι done στο `cursor/overnight-depth-864c`. Η νέα ουρά είναι η εμπειρία του χάρτη, στο `cursor/product-experience-864c`, με βάση εκείνο το branch. Δεν αλλάζει η ορατότητα και δεν γίνεται merge στο main.

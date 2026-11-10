@@ -3,6 +3,24 @@
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
 Τρέχον στάδιο: εμπειρία προϊόντος στο `cursor/product-experience-864c`. Η ουρά N0–N7 μένει κλειστή στο `cursor/overnight-depth-864c`. Η υπόθεση Β μένει μερική.
 
+
+## 2026-11-10 — AM-PLAN — Ανεξάρτητος πρωινός έλεγχος και επόμενες συνεδρίες
+
+Codex: ολοκληρώθηκε documentation-only handoff στο baseline e8a53447 του PR #7.
+Απομονωμένο αντίγραφο /workspace/world-model-morning-review. npm ci, 63/63 tests,
+typecheck, build, validate και 11/11 υπάρχοντα browser tests πέρασαν. Εξετάστηκαν
+παραγόμενα screenshots 1440/390 και CI στο ίδιο SHA (δύο successful runs).
+
+Επιβεβαιώθηκαν νέα gaps: returning-user sample δεν αναβαθμίζεται μετά το conflict,
+changed edge ID ταξινομείται duplicate, ελλιπή view/evidence/history semantics.
+Το παλιό assumption/reported regression έχει όντως διορθωθεί. Πλήρη ευρήματα στο
+docs/reviews/2026-11-10-overnight-review.md, πλάνο και acceptance στο
+docs/plans/NEXT_SESSIONS_2026-11-10.md. Πρόσθετα review probes εκτελέστηκαν εκτός
+του suite του bot, χωρίς αλλαγές στον application κώδικα. Δεν έγιναν merges ή deploy.
+
+Επόμενη εργασία εκτελεστή: S1-1 και έπειτα S1-2/3/4. Το prompts/NEXT_SESSION.md
+περιέχει το handoff. Τα παλιά milestones μένουν ιστορικό· η ουρά S1–S4 είναι ενεργή.
+
 ## 2026-11-09 — PX-4 — Οθόνες επεξεργασίας
 
 Agent/session: Cursor Grok 4.7 | Status: done με όρια | Branch: cursor/product-experience-864c
