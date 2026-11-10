@@ -1,5 +1,96 @@
 # Εργασίες και dependencies
 
+## Ισχύουσα προτεραιότητα — ο αρχικός στόχος του χρήστη
+
+Ο World Model υπηρετεί τέσσερις εφαρμογές: (1) παγκόσμιο χάρτη χωρών/δεικτών/
+κατατάξεων, (2) δημόσια στρατιωτική σύγκριση Ελλάδας–Τουρκίας, (3) διεθνή κεφάλαια
+και οικονομικές σχέσεις, (4) εσωτερική ελληνική οικονομία. Όλες μοιράζονται
+επεξεργάσιμους τύπους, οντότητες, ιδιότητες, σχέσεις, πηγές και χρόνο.
+
+**Τα αεροδρόμια/Fraport είναι προαιρετικό υπάρχον fixture και case study. Δεν είναι
+στόχος, release gate ή λόγος να αναβληθεί κάποια από τις τέσσερις εφαρμογές.**
+Μη δαπανήσεις νέα συνεδρία για τα πέντε missing mappings, ποσοστά εταιρειών ή
+airport-specific UI. Κράτα τα τεκμηριωμένα στοιχεία και τα γνωστά κενά όπως είναι,
+εκτός αν ο χρήστης ζητήσει ειδικά αυτή την έρευνα. Η άδεια SIPRI μπλοκάρει εκείνο
+το dataset, όχι τον generic defense comparison editor ή τα υπόλοιπα modules.
+
+Το επόμενο χρήσιμο αποτέλεσμα πρέπει να είναι εκτελέσιμη εφαρμογή όπου:
+- Επιλέγω Ελλάδα στον χάρτη, αλλάζω διαθέσιμο δείκτη/έτος/πηγή, συγκρίνω με Τουρκία
+  ή άλλες χώρες και ανοίγω τεκμήρια. Δεν αλλάζω ontology binding απλώς για να δω population.
+- Προσθέτω δικό μου τύπο/property/relation/dataset από UI, τρέχω δικό μου saved query
+  και βλέπω τα ίδια IDs σε πίνακα/graph και, όπου υπάρχει ρητή geometry, στον χάρτη.
+- Μετακινούμαι στις τέσσερις εφαρμογές με κοινά φίλτρα/inspector. Capital stock/flow,
+  περιφερειακά/κλαδικά στοιχεία και defense categories έχουν σαφείς μονάδες και κάλυψη.
+- Τα δεδομένα και οι επιλογές παραμένουν μετά reload και νέα έκδοση sample δεν
+  καταστρέφει τη δουλειά μου.
+
+Πρώτα τα αναγκαία διορθωτικά S1, μετά CORE-WORLD / CORE-ONTOLOGY και οι ελλείψεις
+των άλλων τριών εφαρμογών. Υπάρχουσες εργασίες S2/S3 ισχύουν στο μέτρο που υπηρετούν
+αυτά τα αποτελέσματα. Όχι νέο γενικό framework, περισσότερα docs ή αποκλειστική
+ενασχόληση με ένα dataset ως υποκατάστατο της εφαρμογής. Δηλώνεις καθαρά missing
+data· δεν επινοείς στοιχεία για να δείχνει πλήρες ένα module.
+
+### Τρέχουσα ουρά — παράδοση στις αρχικές προτεραιότητες
+
+| ID | Παραδοτέο | Status | Owner | Dependency |
+|---|---|---|---|---|
+| CORE-ALIGN | Διόρθωση προτεραιότητας και handoff | done | Codex | Ρητή διευκρίνιση χρήστη |
+| S1-2 | Safe returning-user dataset load/update | todo | — | Τρέχον baseline |
+| S1-3 | Edge conflicts και αξιόπιστο restore | todo | — | Τρέχον baseline |
+| S1-4 | Evidence metadata και διατήρηση φίλτρων | todo | — | Τρέχον baseline |
+| CORE-WORLD | Country selection, metric/year/source, rank/compare/trend/evidence | todo | — | Αναγκαία S1 fixes, υπάρχον S2-1 |
+| CORE-ONTOLOGY | Custom model/import/query και κοινά IDs/views χωρίς source edits | todo | — | Αναγκαία S1 fixes, υπάρχον S2-2/3 |
+| CORE-DEFENSE | GRC/TUR συγκρίσεις διαθέσιμων δημόσιων κατηγοριών με coverage | todo | — | Shared queries και πηγές όπου υπάρχουν |
+| CORE-CAPITAL | Bilateral stock/flow, φίλτρα και γενική εξερεύνηση σχέσεων | todo | — | Shared metrics/query engine |
+| CORE-GR | Region/sector προβολές και σύνδεση οντοτήτων με evidence | todo | — | Shared geography/model |
+| CORE-VERIFY | Browser flows 1440/390, custom dataset και runnable handoff | todo | — | Ολοκληρωμένο πραγματικό scope |
+
+Αυτά είναι στόχοι acceptance, όχι ισχυρισμός ότι οι υπάρχουσες λειτουργίες λείπουν
+ολόκληρες. Επανέλεγξε τι ήδη δουλεύει και υλοποίησε μόνο τα κενά. Δήλωσε το πραγματικό
+completed scope· όχι νέο scaffold ή rewrite των ήδη passing features.
+
+
+
+## Ιστορικό προηγούμενης εστίασης — 2026-11-10
+
+DELTA-ASSESS: done (Codex), έλεγχος δημοσιευμένων branches/PRs/CI/review· δεν βρέθηκε
+νέο application commit μετά το e8a53447. Αναφορά docs/reviews/2026-11-10-delivery-delta.md.
+Η ενδεχόμενη εργασία άλλου Codex session παραμένει ανεπιβεβαίωτη μέχρι να δοθεί task/branch/diff.
+
+Επόμενο εκτελέσιμο task: **S1-2**, με acceptance και checkpoints στο
+`docs/plans/DELIVERY_CHECKPOINTS.md`. Πρώτα S1-1 αν αλλάξει base/environment.
+Το S1-2 και τα υπόλοιπα S1 tasks παραμένουν todo· δεν θεωρούνται εκτελεσμένα από
+την προσθήκη αυτού του handoff. Prompt: `prompts/IMPLEMENT_ONE_DELIVERABLE.md`.
+Μην δημιουργήσεις άλλο γενικό roadmap πριν παραδοθεί το πρώτο λειτουργικό fix.
+
+
+## Ιστορικό προηγούμενης ανάθεσης — 2026-11-10
+
+Διάβασε docs/reviews/2026-11-10-overnight-review.md και docs/plans/NEXT_SESSIONS_2026-11-10.md.
+Η παρακάτω ουρά έχει προτεραιότητα για τις επόμενες συνεδρίες. Τα παλιά done
+παραμένουν ιστορικό, όχι απόδειξη ότι δεν υπάρχουν νέα regression findings.
+
+| ID | Εργασία | Status | Owner | Εξάρτηση |
+|---|---|---|---|---|
+| AM-PLAN | Ανεξάρτητο review και πλάνο S1–S4 | done | Codex | e8a53447 |
+| S1-1 | Baseline και επανέλεγχος A–E | todo | — | — |
+| S1-2 | Returning-user cited snapshot versions/upgrade | todo | — | S1-1 |
+| S1-3 | Exact edge conflicts και complete history/action validation | todo | — | S1-1 |
+| S1-4 | Used evidence, ενεργοί neighbors, complete view roundtrip | todo | — | S1-1 |
+| S2-1 | Metric explorer με συμβατές κλίμακες/φίλτρα | todo | — | S1 integrity gate |
+| S2-2 | Geography bindings από χρήστη, χωρίς hardcoded property IDs | todo | — | S1 integrity gate |
+| S2-3 | Shared selection, graph/mobile usability και custom-model proof | todo | — | S2-1, S2-2 |
+| S3-1 | Επαναλήψιμο source ingestion και ασφαλές refresh preview | todo | — | S1 |
+| S3-2 | Evidence case study και αξιολόγηση ερωτημάτων | todo | — | S2, διαθέσιμα τεκμήρια |
+| S3-3 | Μετρημένα storage/query/backup όρια | todo | — | Σταθερή S1/S2 έκδοση |
+| S4 | Release candidate, CI artifacts και PR integration plan | todo | — | Passing completed scope |
+
+Acceptance και αναπαραγωγές στα παραπάνω docs. Claim πριν από εργασία και
+ενημέρωση PROGRESS/TASKS πριν από κάθε handoff. Main merge/deployment δεν εκτελούνται αυτόματα.
+
+## Προηγούμενη ανάθεση (ιστορικό)
+
+
 ## Ενεργή ανάθεση: εμπειρία προϊόντος
 
 Η ουρά N0–N7 είναι done στο `cursor/overnight-depth-864c`. Η νέα ουρά είναι η εμπειρία του χάρτη, στο `cursor/product-experience-864c`, με βάση εκείνο το branch. Δεν αλλάζει η ορατότητα και δεν γίνεται merge στο main.

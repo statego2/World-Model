@@ -3,6 +3,54 @@
 Νεότερο entry πρώτο. Οι εντολές παρακάτω εκτελούνται από το project root.
 Τρέχον στάδιο: εμπειρία προϊόντος στο `cursor/product-experience-864c`. Η ουρά N0–N7 μένει κλειστή στο `cursor/overnight-depth-864c`. Η υπόθεση Β μένει μερική.
 
+
+
+
+## 2026-11-10 — CORE-ALIGN — Επαναφορά στις αρχικές προτεραιότητες
+
+Codex, planning-only. Ο χρήστης διευκρίνισε ότι δεν θέλει airport-centric ανάπτυξη.
+Τα αεροδρόμια/Fraport είναι προαιρετικό υπάρχον παράδειγμα, όχι release gate ή
+στόχος νέας συνεδρίας. Διορθώθηκαν η ισχύουσα προτεραιότητα, TASKS και τα δύο prompts.
+Στόχος: world map/country comparisons, GRC–TUR public defense analysis, capital,
+Greek economy πάνω σε επεξεργάσιμο κοινό model. Πρώτα αναγκαία S1 reliability fixes,
+κατόπιν CORE-WORLD/CORE-ONTOLOGY και κενά των υπόλοιπων modules.
+Δεν έγινε αλλαγή application code ή νέα εκτέλεση tests· ελέγχθηκαν συνέπεια docs,
+references και preservation του υπάρχοντος σχεδίου/ιστορικού. Επόμενος agent:
+ξεκίνα από prompts/NEXT_SESSION.md και παράδωσε runnable checkpoint.
+
+## 2026-11-10 — DELTA-ASSESS — Έλεγχος αποτελέσματος επόμενης χρήσης Codex
+
+Codex, planning-only. Ελέγχθηκαν remote PRs/heads, πρόσφατα CI runs, PR #8 comments
+και το τοπικό checkout. Application #7=e8a53447, #6=bd1165b7, main=a689153a και
+plan #8=6c44064f παραμένουν αμετάβλητα σε σχέση με τον προηγούμενο έλεγχο.
+Βρέθηκε automated Codex review του #8, όχι νέα development παράδοση. Δεν έχουμε
+logs του άλλου session, άρα unpushed εργασία και ακριβής χρήση/κόστος δεν αξιολογούνται.
+
+Προστέθηκαν docs/reviews/2026-11-10-delivery-delta.md,
+docs/plans/DELIVERY_CHECKPOINTS.md και prompts/IMPLEMENT_ONE_DELIVERABLE.md.
+Εξειδίκευση υπάρχοντος S1-2 και κατόπιν S1-3, χωρίς νέο feature backlog.
+Δεν άλλαξε application code και δεν ξανατρέξαμε το αμετάβλητο 63+11 suite.
+Έλεγχοι παρούσας εργασίας: σύγκριση SHAs/statuses και handoff file references.
+Επόμενη ενέργεια εκτελεστή: επιβεβαίωση development session/σωστού branch και
+μικρή επαληθεύσιμη παράδοση του returning-user snapshot flow.
+
+## 2026-11-10 — AM-PLAN — Ανεξάρτητος πρωινός έλεγχος και επόμενες συνεδρίες
+
+Codex: ολοκληρώθηκε documentation-only handoff στο baseline e8a53447 του PR #7.
+Απομονωμένο αντίγραφο /workspace/world-model-morning-review. npm ci, 63/63 tests,
+typecheck, build, validate και 11/11 υπάρχοντα browser tests πέρασαν. Εξετάστηκαν
+παραγόμενα screenshots 1440/390 και CI στο ίδιο SHA (δύο successful runs).
+
+Επιβεβαιώθηκαν νέα gaps: returning-user sample δεν αναβαθμίζεται μετά το conflict,
+changed edge ID ταξινομείται duplicate, ελλιπή view/evidence/history semantics.
+Το παλιό assumption/reported regression έχει όντως διορθωθεί. Πλήρη ευρήματα στο
+docs/reviews/2026-11-10-overnight-review.md, πλάνο και acceptance στο
+docs/plans/NEXT_SESSIONS_2026-11-10.md. Πρόσθετα review probes εκτελέστηκαν εκτός
+του suite του bot, χωρίς αλλαγές στον application κώδικα. Δεν έγιναν merges ή deploy.
+
+Επόμενη εργασία εκτελεστή: S1-1 και έπειτα S1-2/3/4. Το prompts/NEXT_SESSION.md
+περιέχει το handoff. Τα παλιά milestones μένουν ιστορικό· η ουρά S1–S4 είναι ενεργή.
+
 ## 2026-11-09 — PX-4 — Οθόνες επεξεργασίας
 
 Agent/session: Cursor Grok 4.7 | Status: done με όρια | Branch: cursor/product-experience-864c
